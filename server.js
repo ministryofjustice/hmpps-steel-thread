@@ -215,7 +215,7 @@ if (useCookieSessionStore === 'true') {
 const cases = require(path.join(__dirname, 'app/data/cases.js'))
 utils.addGlobalData(nunjucksAppEnv, 'case', cases[0])
 
-const nsi = require(path.join(__dirname, 'app/data/nsi.js'))
+const nsi = require(path.join(__dirname, 'app/data/reference/nsi.json'))
 utils.addGlobalData(nunjucksAppEnv, 'nsiData', nsi)
 helpers.addHelpers(nunjucksAppEnv)
 

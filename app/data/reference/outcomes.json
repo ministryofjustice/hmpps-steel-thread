@@ -1,0 +1,177 @@
+{
+  "AAAA": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Other"
+  },
+  "AACL": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Court/Legal"
+  },
+  "AAEM": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Employment"
+  },
+  "AAFC": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Family/ Childcare"
+  },
+  "AAHO": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Holiday"
+  },
+  "AAME": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Medical"
+  },
+  "AARC": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - RIC"
+  },
+  "AARE": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Religious"
+  },
+  "AASD": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence - Stood Down"
+  },
+  "ABNS": {
+    "attended": "N",
+    "compliantAcceptable": "N",
+    "description": "Failed to Attend - Non-NS"
+  },
+  "AFDA": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Attended - FTC Deemed Acceptable"
+  },
+  "AFTA": {
+    "attended": "N",
+    "compliantAcceptable": "N",
+    "description": "Failed to Attend"
+  },
+  "AFTC": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "Attended - Failed to Comply"
+  },
+  "AP01": {
+    "attended": "Y",
+    "compliantAcceptable": null,
+    "description": "Withdrawn"
+  },
+  "APPK": {
+    "attended": "Y",
+    "compliantAcceptable": null,
+    "description": "Appointment Kept"
+  },
+  "ATFI": {
+    "attended": null,
+    "compliantAcceptable": "N",
+    "description": "Failed to Comply with other Instruction"
+  },
+  "ATSH": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "Attended - Sent Home (behaviour)"
+  },
+  "ATSS": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Attended - Sent Home (service issues)"
+  },
+  "ATTC": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Attended - Complied"
+  },
+  "CO01": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Attended - Sent Home (contractor issues)"
+  },
+  "CO05": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Absence-Professional Judgement Decision"
+  },
+  "CO10": {
+    "attended": null,
+    "compliantAcceptable": "Y",
+    "description": "Acceptable Failure - None in following 12 months"
+  },
+  "CO39": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "YOT Breach - Not Enforceable"
+  },
+  "CO40": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Suspended"
+  },
+  "RSOF": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Rescheduled - Offender Request"
+  },
+  "RSSR": {
+    "attended": "N",
+    "compliantAcceptable": "Y",
+    "description": "Rescheduled - Service Request"
+  },
+  "TADM": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "Test - Admitted Use"
+  },
+  "TCLC": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Test - Clinic Cancelled"
+  },
+  "TCLN": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Test - Clean / Acceptable / Suitable"
+  },
+  "TDRT": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "Test - Not Clean / Not Acceptable / Unsuitable"
+  },
+  "TNTD": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Test - Not Tested"
+  },
+  "TRFS": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "Test - Refused"
+  },
+  "TUKN": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "Test - Undetermined"
+  },
+  "UAAB": {
+    "attended": "N",
+    "compliantAcceptable": "N",
+    "description": "Unacceptable Absence"
+  },
+  "UBHV": {
+    "attended": null,
+    "compliantAcceptable": "N",
+    "description": "Unacceptable Behaviour"
+  }
+}

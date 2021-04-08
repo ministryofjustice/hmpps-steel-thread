@@ -1,5 +1,5 @@
 const path = require('path')
-const contactTypes = require(path.join(__dirname, '../data/contact-types.js'))
+const contactTypes = require(path.join(__dirname, '../data/reference/contact-types.json'))
 const { RARCategories } = require(path.join(__dirname, './rar-categories.js'))
 
 class ArrangedSession {

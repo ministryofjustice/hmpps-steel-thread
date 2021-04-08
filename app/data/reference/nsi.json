@@ -1,0 +1,366 @@
+{
+  "C17": {
+    "description": "CPA London",
+    "nsiTypes": {
+      "GEN01": {
+        "description": "ES - Accommodation",
+        "nsiSubTypes": {
+          "GES01": {
+            "description": "Accommodation"
+          }
+        }
+      },
+      "LDN010": {
+        "description": "ES - Accommodation LDN",
+        "nsiSubTypes": {
+          "MTCN01": {
+            "description": "Accommodation (Custody Transition)"
+          },
+          "MTCN02": {
+            "description": "Accommodation (Community)"
+          },
+          "MTCN03": {
+            "description": "Accommodation - Advice and Guidance"
+          },
+          "MTCN04": {
+            "description": "Accommodation - Assessment and Referral"
+          }
+        }
+      },
+      "LDN014": {
+        "description": "ES - E / T / E LDN",
+        "nsiSubTypes": {
+          "MTCN05": {
+            "description": "Employment, training and education"
+          },
+          "MTCN07": {
+            "description": "Employment, training and education - Job Readiness Workshops"
+          },
+          "MTCN08": {
+            "description": "ETE - Employment and training opportunities"
+          }
+        }
+      },
+      "LDN018": {
+        "description": "ES - Restorative Justice LDN",
+        "nsiSubTypes": {
+          "MTCN27": {
+            "description": "Restorative Justice - Victim/offender conferencing"
+          },
+          "MTCN28": {
+            "description": "Making Amends (Restorative Justice)"
+          }
+        }
+      },
+      "LDN019": {
+        "description": "ES - Women Specific Interventions LDN",
+        "nsiSubTypes": {
+          "MTCN21": {
+            "description": "Women's disclosure training"
+          },
+          "MTCN22": {
+            "description": "Women's interview skills"
+          },
+          "MTCN23": {
+            "description": "Women's employability skills"
+          }
+        }
+      },
+      "LDN020": {
+        "description": "ES - Other LDN",
+        "nsiSubTypes": {
+          "MTCN09": {
+            "description": "SOVA Mentoring"
+          },
+          "MTCN11": {
+            "description": "Getting It Right (Resettlement prison)"
+          },
+          "MTCN19": {
+            "description": "Senior Attendance Centre (Male)"
+          },
+          "MTCN25": {
+            "description": "Getting It Right (Community)"
+          }
+        }
+      },
+      "RARP": {
+        "description": "ES - RAR Programme",
+        "nsiSubTypes": {
+          "APART": {
+            "description": "Aggression Replacement Training"
+          },
+          "APBBR": {
+            "description": "Building Better Relationships (BBR)"
+          },
+          "APBNM": {
+            "description": "Becoming New Me"
+          },
+          "APBSR": {
+            "description": "Building Skills for Recovery (BSR)"
+          },
+          "APCALM": {
+            "description": "CALM"
+          },
+          "APCDVP": {
+            "description": "CDVP - Domestic Violence"
+          },
+          "APCOVD": {
+            "description": "COVAID (Control -Angry Implusive Drinkers)"
+          },
+          "APCSCB": {
+            "description": "Cognitive Self Charge Block 6"
+          },
+          "APCSOG": {
+            "description": "C-SOGP"
+          },
+          "APDID": {
+            "description": "Drink Imparied Drivers"
+          },
+          "APHOR": {
+            "description": "Horizon"
+          },
+          "APIDAP": {
+            "description": "Integrated Domestic Abuse"
+          },
+          "APISOT": {
+            "description": "Internet Sex Offender Treatment Programme"
+          },
+          "APLIAP": {
+            "description": "LIAP (Low Intensity Alcohol Programme)"
+          },
+          "APNBR": {
+            "description": "NBR Sex Offender Rolling Prog"
+          },
+          "APONE": {
+            "description": "One to One"
+          },
+          "APPRIS": {
+            "description": "PRISM"
+          },
+          "APRSV": {
+            "description": "RESOLVE"
+          },
+          "APTSP": {
+            "description": "TSP (Thinking Skills)"
+          },
+          "APTVSG": {
+            "description": "TV-SOGP"
+          },
+          "APWAC": {
+            "description": "Womens Acqusitive Crime"
+          }
+        }
+      }
+    }
+  },
+  "N07": {
+    "description": "NPS London",
+    "nsiTypes": {
+      "GEN01": {
+        "description": "ES - Accommodation",
+        "nsiSubTypes": {
+          "GES01": {
+            "description": "Accommodation"
+          }
+        }
+      },
+      "NPS001": {
+        "description": "NPS Accommodation Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS002": {
+        "description": "NPS Attitudes, Thinking and Behaviour Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS003": {
+        "description": "NPS Children and Families Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS004": {
+        "description": "NPS Drugs and Alcohol Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS005": {
+        "description": "NPS ETE Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS006": {
+        "description": "NPS Finance, Benefit and Debt Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS007": {
+        "description": "NPS Mental Health Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS008": {
+        "description": "NPS Physical Health Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS009": {
+        "description": "NPS Restorative Justice Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS010": {
+        "description": "NPS Women Specific Interventions Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS011": {
+        "description": "NPS Other NPS Intervention",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          },
+          "NPS002": {
+            "description": "Third Party Delivered Free Services"
+          }
+        }
+      },
+      "NPS012": {
+        "description": "NPS Group Supervision (Generic)",
+        "nsiSubTypes": {
+          "NPS001": {
+            "description": "NPS Delivered"
+          }
+        }
+      },
+      "RARP": {
+        "description": "ES - RAR Programme",
+        "nsiSubTypes": {
+          "APART": {
+            "description": "Aggression Replacement Training"
+          },
+          "APBBR": {
+            "description": "Building Better Relationships (BBR)"
+          },
+          "APBNM": {
+            "description": "Becoming New Me"
+          },
+          "APBSR": {
+            "description": "Building Skills for Recovery (BSR)"
+          },
+          "APCALM": {
+            "description": "CALM"
+          },
+          "APCDVP": {
+            "description": "CDVP - Domestic Violence"
+          },
+          "APCOVD": {
+            "description": "COVAID (Control -Angry Implusive Drinkers)"
+          },
+          "APCSCB": {
+            "description": "Cognitive Self Charge Block 6"
+          },
+          "APCSOG": {
+            "description": "C-SOGP"
+          },
+          "APDID": {
+            "description": "Drink Imparied Drivers"
+          },
+          "APHOR": {
+            "description": "Horizon"
+          },
+          "APIDAP": {
+            "description": "Integrated Domestic Abuse"
+          },
+          "APISOT": {
+            "description": "Internet Sex Offender Treatment Programme"
+          },
+          "APLIAP": {
+            "description": "LIAP (Low Intensity Alcohol Programme)"
+          },
+          "APNBR": {
+            "description": "NBR Sex Offender Rolling Prog"
+          },
+          "APONE": {
+            "description": "One to One"
+          },
+          "APPRIS": {
+            "description": "PRISM"
+          },
+          "APRSV": {
+            "description": "RESOLVE"
+          },
+          "APTSP": {
+            "description": "TSP (Thinking Skills)"
+          },
+          "APTVSG": {
+            "description": "TV-SOGP"
+          },
+          "APWAC": {
+            "description": "Womens Acqusitive Crime"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 const path = require('path')
-const locations = require(path.join(__dirname, '../data/locations.js'))
+const locations = require(path.join(__dirname, '../data/reference/locations.json'))
 
 class Locations {
   static forTeams (teamCodes) {

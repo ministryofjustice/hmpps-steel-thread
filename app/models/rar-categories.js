@@ -1,6 +1,6 @@
 const path = require('path')
-const nsi = require(path.join(__dirname, '../data/nsi.js'))
-const contactTypes = require(path.join(__dirname, '../data/contact-types.js'))
+const nsi = require(path.join(__dirname, '../data/reference/nsi.json'))
+const contactTypes = require(path.join(__dirname, '../data/reference/contact-types.json'))
 
 class RARCategories {
   constructor (providerCode, typeOfSession, providedContactTypeCode) {
@@ -24,7 +24,7 @@ class RARCategories {
       const typeOfSessionToContactTypeCode = {
         'Office visit': 'COAP',
         'Home visit': 'CHVS',
-        'Video call': null, // can't find a contact type for video calls
+        'Video call': 'COVC',
         'Phone call': 'COPT'
       }
       return typeOfSessionToContactTypeCode[this.typeOfSession]
