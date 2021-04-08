@@ -28,20 +28,172 @@ module.exports = {
       'AFTC'
     ]
   },
-  'DLNRBRA': {
-    'description': 'Biometric Reporting Appointment (NS)',
+  'CODI': {
+    'description': 'Initial Appointment on Doorstep (NS)',
     'requiresLocation': 'Y',
     'nsis': null,
     'outcomes': [
       'ATTC',
-      'CO40',
-      'CO39',
-      'CO24',
-      'CO10',
       'CO05',
       'RSOF',
       'RSSR',
-      'ATSS',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'COVI': {
+    'description': 'Initial Appointment by Video (NS)',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'COTI': {
+    'description': 'Initial Appointment by Telephone (NS)',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'CODC': {
+    'description': 'Planned Doorstep Contact (NS)',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'COVC': {
+    'description': 'Planned Video Contact (NS)',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'WCS5': {
+    'description': 'WCoSOs-Bringing it all together:my toolkit',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'WCS'
+    ],
+    'outcomes': [
+      'ATTC',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'WCS4': {
+    'description': 'WCoSOs - Part 3: The world around me',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'WCS'
+    ],
+    'outcomes': [
+      'ATTC',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'WCS3': {
+    'description': 'WCoSOs - Part 2: Other People',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'WCS'
+    ],
+    'outcomes': [
+      'ATTC',
+      'RSOF',
+      'RSSR',
       'AAAA',
       'AFTA',
       'AARC',
@@ -49,7 +201,77 @@ module.exports = {
       'AAFC',
       'AAEM',
       'AAHO',
-      'AASD',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'WCS2': {
+    'description': 'WCoSOs - Part 1: Me',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'WCS'
+    ],
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'WCS1': {
+    'description': 'WCoSOs-Building trust & identifying strengths',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'WCS'
+    ],
+    'outcomes': [
+      'ATTC',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'AFTC'
+    ]
+  },
+  'POM1': {
+    'description': 'POM-COM handover',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
       'AARE',
       'AAME',
       'UAAB',
@@ -58,16 +280,12 @@ module.exports = {
       'AFTC'
     ]
   },
-  'COPT': {
-    'description': 'Planned Telephone Contact (NS)',
-    'requiresLocation': 'B',
+  'N07KPA': {
+    'description': 'KPA-SOTP programme',
+    'requiresLocation': 'Y',
     'nsis': null,
     'outcomes': [
       'ATTC',
-      'AFDA',
-      'CO40',
-      'CO10',
-      'CO05',
       'RSOF',
       'RSSR',
       'AAAA',
@@ -76,11 +294,66 @@ module.exports = {
       'AACL',
       'AAFC',
       'AAEM',
-      'AAHO',
-      'AARE',
       'AAME',
       'UAAB',
+      'ATFI',
+      'ATSH',
       'AFTC'
+    ]
+  },
+  'MOT1': {
+    'description': 'Learning Log Review (Pilot only)',
+    'requiresLocation': 'Y',
+    'nsis': [
+      'MOT1'
+    ],
+    'outcomes': [
+      'ATTC',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'APPK',
+      'ABNS',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'ATSH'
+    ]
+  },
+  'RJI01': {
+    'description': 'Restorative Justice Individual Tailored Work',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO01',
+      'UBHV',
+      'RSOF',
+      'RSSR',
+      'AFTA',
+      'APPK',
+      'AAEM',
+      'AAME',
+      'UAAB'
+    ]
+  },
+  'APPA03': {
+    'description': 'AP PA - Accommodation',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ABNS',
+      'AP01',
+      'UBHV',
+      'RSOF',
+      'RSSR',
+      'APPK'
     ]
   },
   'ATCA': {
@@ -105,36 +378,81 @@ module.exports = {
       'AFTC'
     ]
   },
-  'APPA03': {
-    'description': 'AP PA - Accommodation',
+  'DLNRBRA': {
+    'description': 'Biometric Reporting Appointment (NS)',
     'requiresLocation': 'Y',
     'nsis': null,
     'outcomes': [
-      'ABNS',
-      'AP01',
-      'UBHV',
+      'ATTC',
+      'CO40',
+      'CO39',
+      'CO10',
+      'CO05',
       'RSOF',
       'RSSR',
-      'APPK'
+      'ATSS',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
+      'AASD',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'ATSH',
+      'AFTC'
+    ]
+  },
+  'COPT': {
+    'description': 'Planned Telephone Contact (NS)',
+    'requiresLocation': 'B',
+    'nsis': [
+      'NPS001',
+      'NPS007',
+      'NPS012',
+      'NPS004',
+      'NPS003',
+      'NPS010',
+      'NPS009',
+      'NPS008',
+      'NPS011',
+      'NPS006',
+      'NPS005',
+      'NPS002'
+    ],
+    'outcomes': [
+      'ATTC',
+      'AFDA',
+      'CO40',
+      'CO10',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'AFTC'
     ]
   },
   'C444': {
     'description': 'Other Appointment (NS)',
     'requiresLocation': 'Y',
-    'nsis': [
-      'LDN010',
-      'GEN01',
-      'RARP',
-      'LDN020',
-      'LDN014',
-      'LDN019',
-      'LDN018'
-    ],
+    'nsis': null,
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -164,7 +482,6 @@ module.exports = {
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -200,13 +517,10 @@ module.exports = {
   'C314': {
     'description': 'Appointment with External Agency (NS)',
     'requiresLocation': 'B',
-    'nsis': [
-      'RARP'
-    ],
+    'nsis': null,
     'outcomes': [
       'ATTC',
       'CO40',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -237,7 +551,6 @@ module.exports = {
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -286,12 +599,13 @@ module.exports = {
   'C243': {
     'description': 'Alcohol Group Work Session (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -315,12 +629,13 @@ module.exports = {
   'C242': {
     'description': 'Drug Group Work Session (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -344,12 +659,13 @@ module.exports = {
   'C241': {
     'description': 'Court Review (NS)',
     'requiresLocation': 'B',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -370,12 +686,13 @@ module.exports = {
   'C240': {
     'description': 'Drug Test (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -423,12 +740,13 @@ module.exports = {
   'C133': {
     'description': 'Clinic Appointment (NS)',
     'requiresLocation': 'B',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -465,12 +783,13 @@ module.exports = {
   'C090': {
     'description': 'Drug Key Worker Session (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -494,12 +813,13 @@ module.exports = {
   'C089': {
     'description': 'Alcohol Key Worker Session (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'CO01',
@@ -548,23 +868,28 @@ module.exports = {
     'description': 'Programme Session (Non NS)',
     'requiresLocation': 'B',
     'nsis': [
-      'NPS007',
-      'LDN014',
-      'LDN019',
-      'LDN018',
       'LDN010',
-      'LDN020',
+      'NPS007',
+      'NPS003',
+      'NPS001',
+      'LDN030',
+      'LDN029',
+      'NPS009',
+      'LDN021',
+      'LDN025',
+      'NPS010',
+      'LDN031',
+      'LDN027',
+      'NPS008',
       'NPS006',
       'NPS011',
       'NPS005',
       'NPS004',
-      'NPS010',
-      'NPS008',
       'NPS002',
-      'GEN01',
-      'NPS009',
-      'NPS003',
-      'NPS001'
+      'LDN020',
+      'LDN014',
+      'LDN019',
+      'LDN018'
     ],
     'outcomes': [
       'ABNS',
@@ -577,26 +902,7 @@ module.exports = {
   'C031': {
     'description': 'Other Appointment (Non NS)',
     'requiresLocation': 'B',
-    'nsis': [
-      'NPS006',
-      'GEN01',
-      'LDN020',
-      'LDN014',
-      'LDN019',
-      'LDN018',
-      'LDN010',
-      'NPS011',
-      'NPS004',
-      'NPS002',
-      'RARP',
-      'NPS010',
-      'NPS001',
-      'NPS008',
-      'NPS005',
-      'NPS003',
-      'NPS009',
-      'NPS007'
-    ],
+    'nsis': null,
     'outcomes': [
       'ABNS',
       'RSOF',
@@ -607,12 +913,14 @@ module.exports = {
   'C007': {
     'description': 'ETE Appointment (NS)',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'LDN025',
+      'LDN014'
+    ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -637,7 +945,9 @@ module.exports = {
   'CGTS': {
     'description': 'Test',
     'requiresLocation': 'Y',
-    'nsis': null,
+    'nsis': [
+      'NPS004'
+    ],
     'outcomes': [
       'UAAB',
       'CO05',
@@ -659,8 +969,37 @@ module.exports = {
       'AAME'
     ]
   },
+  'EAPK': {
+    'description': 'AP - Keyworker Session (NS)',
+    'requiresLocation': 'Y',
+    'nsis': null,
+    'outcomes': [
+      'ATTC',
+      'CO40',
+      'CO39',
+      'CO10',
+      'CO05',
+      'RSOF',
+      'RSSR',
+      'ATSS',
+      'AAAA',
+      'AFTA',
+      'AARC',
+      'AACL',
+      'AAFC',
+      'AAEM',
+      'AAHO',
+      'AASD',
+      'AARE',
+      'AAME',
+      'UAAB',
+      'ATFI',
+      'ATSH',
+      'AFTC'
+    ]
+  },
   'CAIS': {
-    'description': 'IOM Office Visit â€“ planned',
+    'description': 'IOM Office Visit – planned',
     'requiresLocation': 'Y',
     'nsis': null,
     'outcomes': [
@@ -718,31 +1057,11 @@ module.exports = {
   'COAP': {
     'description': 'Planned Office Visit (NS)',
     'requiresLocation': 'Y',
-    'nsis': [
-      'GEN01',
-      'NPS009',
-      'NPS001',
-      'NPS005',
-      'RARP',
-      'NPS011',
-      'NPS004',
-      'NPS007',
-      'NPS006',
-      'NPS010',
-      'NPS003',
-      'NPS002',
-      'NPS008',
-      'LDN019',
-      'LDN018',
-      'LDN010',
-      'LDN020',
-      'LDN014'
-    ],
+    'nsis': null,
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -767,30 +1086,11 @@ module.exports = {
   'CHVS': {
     'description': 'Home Visit to Case (NS)',
     'requiresLocation': 'N',
-    'nsis': [
-      'NPS002',
-      'GEN01',
-      'LDN020',
-      'LDN014',
-      'LDN019',
-      'LDN018',
-      'LDN010',
-      'NPS010',
-      'NPS009',
-      'NPS005',
-      'NPS011',
-      'NPS008',
-      'NPS004',
-      'NPS001',
-      'NPS003',
-      'NPS007',
-      'NPS006'
-    ],
+    'nsis': null,
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
@@ -821,7 +1121,6 @@ module.exports = {
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO05',
       'RSOF',
       'RSSR',
@@ -850,7 +1149,6 @@ module.exports = {
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO05',
       'RSOF',
       'RSSR',
@@ -875,10 +1173,16 @@ module.exports = {
     'description': 'Programme Session (NS)',
     'requiresLocation': 'Y',
     'nsis': [
-      'GEN01',
-      'NPS003',
-      'NPS007',
+      'LDN010',
       'NPS006',
+      'LDN027',
+      'NPS003',
+      'LDN025',
+      'NPS007',
+      'LDN030',
+      'LDN029',
+      'LDN021',
+      'LDN031',
       'NPS011',
       'NPS009',
       'NPS002',
@@ -887,17 +1191,15 @@ module.exports = {
       'NPS005',
       'NPS004',
       'NPS001',
-      'LDN019',
-      'LDN018',
-      'LDN010',
       'LDN020',
-      'LDN014'
+      'LDN014',
+      'LDN019',
+      'LDN018'
     ],
     'outcomes': [
       'ATTC',
       'CO40',
       'CO39',
-      'CO24',
       'CO10',
       'CO05',
       'RSOF',
