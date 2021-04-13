@@ -1,72 +1,73 @@
 {% extends "_wizard-form.html" %}
-{% set title = "Add notes" %}
+{% set title = "Add appointment notes" %}
 {% set buttonText = 'Save and continue' %}
 
 {% block form %}
-  <div class="govuk-form-group">
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          You may want to use the CRISS format to write session notes
+<h1 class="govuk-heading-xl">Add appointment notes</h1>
+<div class="govuk-form-group">
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        You may want to use the CRISS format to write appointment notes
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <h2 class="govuk-heading-s">
+        Check-in
+        <br>
+        <span class="govuk-body">
+          What has happened in their life since the previous appointment? Clarify role boundaries and assess any
+          change in risk
         </span>
-      </summary>
-      <div class="govuk-details__text">
-        <h2 class="govuk-heading-s">
-          Check-in
-          <br>
-          <span class="govuk-body">
-            What has happened in their life since the previous session? Clarify role boundaries and assess any
-            change in risk
-          </span>
-        </h2>
-        <h2 class="govuk-heading-s">
-          Review
-          <br>
-          <span class="govuk-body">
-            Review previous sessions and tasks and record progress against the sentence plan
-          </span>
-        </h2>
-        <h2 class="govuk-heading-s">
-          Implement
-          <br>
-          <span class="govuk-body">
-            Target criminogenic needs and risk status
-          </span>
-        </h2>
-        <h2 class="govuk-heading-s">
-          Summarise
-          <br>
-          <span class="govuk-body">
-            Summarise the purpose of the session
-          </span>
-        </h2>
-        <h2 class="govuk-heading-s">
-          Set tasks
-          <br>
-          <span class="govuk-body">
-            Set and agree tasks and confirm the next session
-          </span>
-        </h2>
-      </div>
-    </details>
+      </h2>
+      <h2 class="govuk-heading-s">
+        Review
+        <br>
+        <span class="govuk-body">
+          Review previous appointments and tasks and record progress against the sentence plan
+        </span>
+      </h2>
+      <h2 class="govuk-heading-s">
+        Implement
+        <br>
+        <span class="govuk-body">
+          Target criminogenic needs and risk status
+        </span>
+      </h2>
+      <h2 class="govuk-heading-s">
+        Summarise
+        <br>
+        <span class="govuk-body">
+          Summarise the purpose of the appointment
+        </span>
+      </h2>
+      <h2 class="govuk-heading-s">
+        Set tasks
+        <br>
+        <span class="govuk-body">
+          Set and agree tasks and confirm the next appointment
+        </span>
+      </h2>
+    </div>
+  </details>
 
-    {{ govukTextarea({
-      name: "notes",
-      id: "notes",
-      rows: 10
-    } | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'notes'])) }}
+  {{ govukTextarea({
+  name: "notes",
+  id: "notes",
+  rows: 10
+  } | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'notes'])) }}
 
-  </div>
+</div>
 
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-!-font-weight-bold" for="case-note-description">
-      Upload files
-    </label>
-    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file"
-      aria-describedby="file-upload-1-hint">
-  </div>
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-!-font-weight-bold" for="case-note-description">
+    Upload files
+  </label>
+  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file"
+    aria-describedby="file-upload-1-hint">
+</div>
 
-  <p class="govuk-hint">
-    This will be added to the nDelius contact log.
-  </p>
+<p class="govuk-hint">
+  This will be added to the nDelius contact log.
+</p>
 {% endblock %}
