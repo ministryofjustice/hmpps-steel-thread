@@ -2,28 +2,28 @@
 {% set title = 'Are you rearranging or cancelling?' %}
 
 {% block form %}
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: title,
-        isPageHeading: true,
-        classes: "govuk-label--xl govuk-!-margin-bottom-6"
-      }
-    },
-    items: [
-      {
-        text: 'Rearrange session'
-      },
-      {
-        text: 'Cancel session'
-      }
-    ]
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'rearrange-or-cancel'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+isPageHeading: true,
+classes: "govuk-label--xl govuk-!-margin-bottom-6"
+}
+},
+items: [
+{
+text: 'Rearrange appointment'
+},
+{
+text: 'Cancel appointment'
+}
+]
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'rearrange-or-cancel'])) }}
 
-  {{ govukTextarea({
-      label: {
-        text: 'Why do you need to make this change?',
-        classes: 'govuk-label--m'
-      }
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'rearrange-or-cancel-reason'])) }}
+{{ govukTextarea({
+label: {
+text: 'Why do you need to make this change?',
+classes: 'govuk-label--m'
+}
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'rearrange-or-cancel-reason'])) }}
 {% endblock %}

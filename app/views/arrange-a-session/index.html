@@ -1,51 +1,51 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'What type of session are you arranging?' %}
+{% set title = 'What type of appointment are you arranging?' %}
 
 {% block form %}
-  {% set contactTypeSelectItems = [{ text: '', value: ''}] %}
-  {% for contactType in possibleContactTypes(data['provider-code']) | sort(false, false, 'description') %}
-    {% set contactTypeSelectItems = (contactTypeSelectItems.push({
-      text: contactType.description,
-      value: contactType.code
-    }), contactTypeSelectItems) %}
-  {% endfor %}
+{% set contactTypeSelectItems = [{ text: '', value: ''}] %}
+{% for contactType in possibleContactTypes(data['provider-code']) | sort(false, false, 'description') %}
+{% set contactTypeSelectItems = (contactTypeSelectItems.push({
+text: contactType.description,
+value: contactType.code
+}), contactTypeSelectItems) %}
+{% endfor %}
 
-  {% set otherHtml %}
-    {{ govukSelect({
-       label: {
-         text: "Type of session",
-         classes: "govuk-label--s"
-       },
-       id: 'other-type-of-session',
-       items: contactTypeSelectItems
-    } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'other-type-of-session'])) }}
-  {% endset %}
+{% set otherHtml %}
+{{ govukSelect({
+label: {
+text: "Type of appointment",
+classes: "govuk-label--s"
+},
+id: 'other-type-of-session',
+items: contactTypeSelectItems
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'other-type-of-session'])) }}
+{% endset %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: title,
-        isPageHeading: true,
-        classes: "govuk-label--xl govuk-!-margin-bottom-6"
-      }
-    },
-    items: [
-      {
-        text: "Office visit"
-      },
-      {
-        text: "Home visit"
-      },
-      {
-        text: "Video call"
-      },
-      {
-        text: "Phone call"
-      },
-      {
-         text: "Other",
-         conditional: { html: otherHtml }
-      }
-    ]
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'type-of-session'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+isPageHeading: true,
+classes: "govuk-label--xl govuk-!-margin-bottom-6"
+}
+},
+items: [
+{
+text: "Office visit"
+},
+{
+text: "Home visit"
+},
+{
+text: "Video call"
+},
+{
+text: "Phone call"
+},
+{
+text: "Other",
+conditional: { html: otherHtml }
+}
+]
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'type-of-session'])) }}
 {% endblock %}

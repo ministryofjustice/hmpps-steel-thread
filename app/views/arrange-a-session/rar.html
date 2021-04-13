@@ -1,32 +1,32 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Will this session count towards RAR?' %}
+{% set title = 'Will this appointment count towards RAR?' %}
 
 {% block form %}
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: title,
-        classes: "govuk-label--xl",
-        isPageHeading: true
-      }
-      },
-      hint: {
-        html: 'This will account for one day of Rehabilitation Activity Requirement (RAR).'
-      },
-      items: [
-        {
-          text: 'Yes'
-        },
-        {
-          text: 'No'
-        }
-      ]
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-counts-towards-rar'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+classes: "govuk-label--xl",
+isPageHeading: true
+}
+},
+hint: {
+html: 'This will account for one day of Rehabilitation Activity Requirement (RAR).'
+},
+items: [
+{
+text: 'Yes'
+},
+{
+text: 'No'
+}
+]
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-counts-towards-rar'])) }}
 
-  {{ govukTextarea({
-    label: {
-      text: 'Add a calendar note (optional)',
-      classes: 'govuk-label--l'
-    }
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-notes'])) }}
+{{ govukTextarea({
+label: {
+text: 'Add a calendar note (optional)',
+classes: 'govuk-label--l'
+}
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-notes'])) }}
 {% endblock %}

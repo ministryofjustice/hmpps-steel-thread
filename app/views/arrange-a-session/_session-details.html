@@ -1,126 +1,126 @@
-{% set arrangeSessionPath = "/arrange-a-session/" +  CRN + "/" + sessionId %}
+{% set arrangeSessionPath = "/arrange-a-session/" + CRN + "/" + sessionId %}
 
 {% set session = arrangedSession({
-  providerCode: data['provider-code'],
-  typeOfSession: data['arrange-a-session'][CRN][sessionId]['type-of-session'],
-  contactType: data['arrange-a-session'][CRN][sessionId]['other-type-of-session'],
-  date: data['arrange-a-session'][CRN][sessionId]['session-date'],
-  startTime: data['arrange-a-session'][CRN][sessionId]['session-start-time'],
-  endTime: data['arrange-a-session'][CRN][sessionId]['session-end-time'],
-  countsTowardsRAR: data['arrange-a-session'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
-  rarCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-category'],
-  rarSubCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-subcategory'],
-  locationCode: data['arrange-a-session'][CRN][sessionId]['session-location-code']
+providerCode: data['provider-code'],
+typeOfSession: data['arrange-a-session'][CRN][sessionId]['type-of-session'],
+contactType: data['arrange-a-session'][CRN][sessionId]['other-type-of-session'],
+date: data['arrange-a-session'][CRN][sessionId]['session-date'],
+startTime: data['arrange-a-session'][CRN][sessionId]['session-start-time'],
+endTime: data['arrange-a-session'][CRN][sessionId]['session-end-time'],
+countsTowardsRAR: data['arrange-a-session'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
+rarCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-category'],
+rarSubCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-subcategory'],
+locationCode: data['arrange-a-session'][CRN][sessionId]['session-location-code']
 }) %}
 
 {{ govukSummaryList({
-  classes: 'govuk-!-margin-bottom-9',
-  rows: [
-    {
-      key: { text: "Reason for cancelling" if cancelling else "Reason for rearranging" },
-      value: {
-        text: data['arrange-a-session'][CRN][sessionId]['rearrange-or-cancel-reason']
-      },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + '/rearrange-or-cancel',
-            text: "Change",
-            visuallyHiddenText: "reason for cancelling" if cancelling else "reason for rearranging"
-          }
-        ]
-      }
-    } if data['arrange-a-session'][CRN][sessionId]['rearrange-or-cancel-reason'],
-    {
-      key: { text: "Type of session" },
-      value: { text: session.summary.typeOfSession },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath,
-            text: "Change",
-            visuallyHiddenText: "type of session"
-          }
-        ]
-      } if showAction
-    },
-    {
-      key: { text: "Date" },
-      value: { text: session.summary.date | dateWithDayAndWithoutYear },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/when",
-            text: "Change",
-            visuallyHiddenText: "date"
-          }
-        ]
-      } if showAction
-    },
-    {
-      key: { text: "Time" },
-      value: { text: session.summary.time },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/when",
-            text: "Change",
-            visuallyHiddenText: "time"
-          }
-        ]
-      } if showAction
-    },
-    {
-      key: { text: "RAR activity" },
-      value: { text: session.summary.rarCategory },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/rar-categories",
-            text: "Change",
-            visuallyHiddenText: "RAR activity"
-          }
-        ]
-      } if showAction
-    } if session.summary.rarCategory,
-    {
-      key: { text: "RAR activity subcategory" },
-      value: { text: session.summary.rarSubCategory },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/rar-categories",
-            text: "Change",
-            visuallyHiddenText: "RAR activity"
-          }
-        ]
-      }
-    } if session.summary.rarCategory,
-    {
-      key: { text: "Counts towards RAR?" },
-      value: { text: 'Yes' if session.summary.countsTowardsRAR else 'No' },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/rar",
-            text: "Change",
-            visuallyHiddenText: "RAR activity"
-          }
-        ]
-      } if showAction
-    } if not session.summary.countsTowardsRAR,
-    {
-      key: { text: "Calendar note" },
-      value: { text: data['arrange-a-session'][CRN][sessionId]['session-notes'] or 'None' },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/rar",
-            text: "Change",
-            visuallyHiddenText: "calendar note"
-          }
-        ]
-      } if showAction
-    }
-  ]
-  }) }}
+classes: 'govuk-!-margin-bottom-9',
+rows: [
+{
+key: { text: "Reason for cancelling" if cancelling else "Reason for rearranging" },
+value: {
+text: data['arrange-a-session'][CRN][sessionId]['rearrange-or-cancel-reason']
+},
+actions: {
+items: [
+{
+href: arrangeSessionPath + '/rearrange-or-cancel',
+text: "Change",
+visuallyHiddenText: "reason for cancelling" if cancelling else "reason for rearranging"
+}
+]
+}
+} if data['arrange-a-session'][CRN][sessionId]['rearrange-or-cancel-reason'],
+{
+key: { text: "Type of appointment" },
+value: { text: session.summary.typeOfSession },
+actions: {
+items: [
+{
+href: arrangeSessionPath,
+text: "Change",
+visuallyHiddenText: "type of appointment"
+}
+]
+} if showAction
+},
+{
+key: { text: "Date" },
+value: { text: session.summary.date | dateWithDayAndWithoutYear },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/when",
+text: "Change",
+visuallyHiddenText: "date"
+}
+]
+} if showAction
+},
+{
+key: { text: "Time" },
+value: { text: session.summary.time },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/when",
+text: "Change",
+visuallyHiddenText: "time"
+}
+]
+} if showAction
+},
+{
+key: { text: "RAR activity" },
+value: { text: session.summary.rarCategory },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/rar-categories",
+text: "Change",
+visuallyHiddenText: "RAR activity"
+}
+]
+} if showAction
+} if session.summary.rarCategory,
+{
+key: { text: "RAR activity subcategory" },
+value: { text: session.summary.rarSubCategory },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/rar-categories",
+text: "Change",
+visuallyHiddenText: "RAR activity"
+}
+]
+}
+} if session.summary.rarCategory,
+{
+key: { text: "Counts towards RAR?" },
+value: { text: 'Yes' if session.summary.countsTowardsRAR else 'No' },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/rar",
+text: "Change",
+visuallyHiddenText: "RAR activity"
+}
+]
+} if showAction
+} if not session.summary.countsTowardsRAR,
+{
+key: { text: "Calendar note" },
+value: { text: data['arrange-a-session'][CRN][sessionId]['session-notes'] or 'None' },
+actions: {
+items: [
+{
+href: arrangeSessionPath + "/rar",
+text: "Change",
+visuallyHiddenText: "calendar note"
+}
+]
+} if showAction
+}
+]
+}) }}

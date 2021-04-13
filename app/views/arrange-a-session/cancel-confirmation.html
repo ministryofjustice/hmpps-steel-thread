@@ -1,36 +1,37 @@
 {% extends "_wizard-page.html" %}
 {% set buttonText = 'Finish' %}
-{% set title = 'Session cancelled' %}
+{% set title = 'Appointment cancelled' %}
 
 {% block page %}
-  {% set session = arrangedSession({
-    providerCode: data['provider-code'],
-    typeOfSession: data['arrange-a-session'][CRN][sessionId]['type-of-session'],
-    contactType: data['arrange-a-session'][CRN][sessionId]['other-type-of-session'],
-    date: data['arrange-a-session'][CRN][sessionId]['session-date'],
-    startTime: data['arrange-a-session'][CRN][sessionId]['session-start-time'],
-    endTime: data['arrange-a-session'][CRN][sessionId]['session-end-time'],
-    countsTowardsRAR: data['arrange-a-session'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
-    rarCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-category'],
-    rarSubCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-subcategory'],
-    locationCode: data['arrange-a-session'][CRN][sessionId]['session-location-code']
-  }) %}
+{% set session = arrangedSession({
+providerCode: data['provider-code'],
+typeOfSession: data['arrange-a-session'][CRN][sessionId]['type-of-session'],
+contactType: data['arrange-a-session'][CRN][sessionId]['other-type-of-session'],
+date: data['arrange-a-session'][CRN][sessionId]['session-date'],
+startTime: data['arrange-a-session'][CRN][sessionId]['session-start-time'],
+endTime: data['arrange-a-session'][CRN][sessionId]['session-end-time'],
+countsTowardsRAR: data['arrange-a-session'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
+rarCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-category'],
+rarSubCategory: data['arrange-a-session'][CRN][sessionId]['session-rar-subcategory'],
+locationCode: data['arrange-a-session'][CRN][sessionId]['session-location-code']
+}) %}
 
-  {% set panelHtml %}
-    <strong>{{ session.summary.typeOfSession }}</strong><br />
-    {{ session.summary.date | dateWithDayAndWithoutYear }} from {{ session.summary.time }}
-  {% endset %}
+{% set panelHtml %}
+<strong>{{ session.summary.typeOfSession }}</strong><br />
+{{ session.summary.date | dateWithDayAndWithoutYear }} from {{ session.summary.time }}
+{% endset %}
 
-  {{ govukPanel({
-    titleText: title,
-    html: panelHtml
-  }) }}
+{{ govukPanel({
+titleText: title,
+html: panelHtml
+}) }}
 
-  <h2 class="govuk-heading-m govuk-!-margin-top-6">Next steps</h2>
-  <p class="govuk-body">
-    Remove this session from your calendar.
-  </p>
-  <p class="govuk-body">
-    Let {{ case.serviceUserPersonalDetails.firstName }} know.<br>
-    {{ case.serviceUserPersonalDetails.firstName }}’s phone number is <strong>{{ case.serviceUserPersonalDetails.phone }}</strong>.</p>
+<h2 class="govuk-heading-m govuk-!-margin-top-6">Next steps</h2>
+<p class="govuk-body">
+  Remove this appointment from your calendar.
+</p>
+<p class="govuk-body">
+  Let {{ case.serviceUserPersonalDetails.firstName }} know.<br>
+  {{ case.serviceUserPersonalDetails.firstName }}’s phone number is <strong>{{ case.serviceUserPersonalDetails.phone
+    }}</strong>.</p>
 {% endblock %}

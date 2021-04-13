@@ -1,43 +1,43 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'What will this session count towards?' %}
+{% set title = 'What will this appointment count towards?' %}
 
 {% block form %}
-  {% set rarRadioItems = [] %}
-  {% for rarCategory in possibleRARCategories(
-    data['provider-code'],
-    data['arrange-a-session'][CRN][sessionId]['type-of-session'],
-    data['arrange-a-session'][CRN][sessionId]['other-type-of-session']) %}
-    {% set rarSubCategoryRadioItems = [] %}
-    {% for rarSubCategoryCode, subCategory in rarCategory.nsiSubTypes %}
-      {% set rarSubCategoryRadioItems = (rarSubCategoryRadioItems.push({
-        text: subCategory.description,
-        value: subCategory.description
-      }), rarSubCategoryRadioItems) %}
-    {% endfor %}
+{% set rarRadioItems = [] %}
+{% for rarCategory in possibleRARCategories(
+data['provider-code'],
+data['arrange-a-session'][CRN][sessionId]['type-of-session'],
+data['arrange-a-session'][CRN][sessionId]['other-type-of-session']) %}
+{% set rarSubCategoryRadioItems = [] %}
+{% for rarSubCategoryCode, subCategory in rarCategory.nsiSubTypes %}
+{% set rarSubCategoryRadioItems = (rarSubCategoryRadioItems.push({
+text: subCategory.description,
+value: subCategory.description
+}), rarSubCategoryRadioItems) %}
+{% endfor %}
 
-    {% set rarSubCategoryHtml %}
-      {{ govukRadios({
-        items: rarSubCategoryRadioItems
-      } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-rar-subcategory'])) }}
-    {% endset %}
+{% set rarSubCategoryHtml %}
+{{ govukRadios({
+items: rarSubCategoryRadioItems
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-rar-subcategory'])) }}
+{% endset %}
 
-    {% set rarRadioItems = (rarRadioItems.push({
-      text: rarCategory.description,
-      value: rarCategory.description,
-      conditional: {
-        html: rarSubCategoryHtml
-      }
-    }), rarRadioItems) %}
-  {% endfor %}
+{% set rarRadioItems = (rarRadioItems.push({
+text: rarCategory.description,
+value: rarCategory.description,
+conditional: {
+html: rarSubCategoryHtml
+}
+}), rarRadioItems) %}
+{% endfor %}
 
-  {{ govukRadios({
-      fieldset: {
-        legend: {
-          text: title,
-          classes: "govuk-label--xl",
-          isPageHeading: true
-        }
-      },
-      items: rarRadioItems
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-rar-category'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+classes: "govuk-label--xl",
+isPageHeading: true
+}
+},
+items: rarRadioItems
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-rar-category'])) }}
 {% endblock %}

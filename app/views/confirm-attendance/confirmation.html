@@ -1,23 +1,24 @@
 {% extends "_wizard-page.html" %}
-{% set buttonText = 'Arrange a session' %}
+{% set buttonText = 'Arrange an appointment' %}
 {% set title = "Attendance confirmed" %}
 
 {% block page %}
 
-  {% set panelHtml %}
-    <strong>{{ case.previousAppointment.type }}</strong><br>
-    {{ case.previousAppointment.timestamp | dateWithDayAndWithoutYear }} from {{ case.previousAppointment.timestamp | govukTime }} to {{ case.previousAppointment.endTime | govukTime }}
-  {% endset %}
+{% set panelHtml %}
+<strong>{{ case.previousAppointment.type }}</strong><br>
+{{ case.previousAppointment.timestamp | dateWithDayAndWithoutYear }} from {{ case.previousAppointment.timestamp |
+govukTime }} to {{ case.previousAppointment.endTime | govukTime }}
+{% endset %}
 
-  {{ govukPanel({
-    titleText: title,
-    html: panelHtml
-  }) }}
+{{ govukPanel({
+titleText: title,
+html: panelHtml
+}) }}
 
-  <h2 class="govuk-heading-m">Next steps</h2>
+<h2 class="govuk-heading-m">Next steps</h2>
 
-    <div style="margin-top: 20px;">
-      <a class="govuk-body" href="/cases/{{ case.CRN }}/timeline">Back to {{ case.serviceUserPersonalDetails.firstName }}’s previous
-        sessions</a>
-    </div>
+<div style="margin-top: 20px;">
+  <a class="govuk-body" href="/cases/{{ case.CRN }}/timeline">Back to {{ case.serviceUserPersonalDetails.firstName }}’s
+    communication</a>
+</div>
 {% endblock %}

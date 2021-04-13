@@ -1,11 +1,11 @@
 {% extends "_wizard-form.html" %}
 {% set buttonText = 'Yes, confirm cancellation' %}
-{% set title = 'Are you sure you want to cancel this session?' %}
+{% set title = 'Are you sure you want to cancel this appointment?' %}
 
 {% block form %}
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
+<h1 class="govuk-heading-xl">{{ title }}</h1>
 
-  {% set cancelling = true %}
-  {% set showAction = false %}
-  {% include 'arrange-a-session/_session-details.html' %}
+{% set cancelling = true %}
+{% set showAction = false %}
+{% include 'arrange-a-session/_session-details.html' %}
 {% endblock %}

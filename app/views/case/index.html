@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% set alias = case.serviceUserPersonalDetails.aliases[0] %}
-{% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else case.serviceUserPersonalDetails.name %}
+{% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else
+case.serviceUserPersonalDetails.name %}
 {% set title = name %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
@@ -32,7 +33,8 @@
         Rehabilitation activity requirement
       </h3>
       <p class="govuk-!-margin-bottom-0">
-        {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
+        {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{
+        case.currentOrder.requirements.rar.lengthInDays }} days)
       </p>
     </div>
 
@@ -71,8 +73,8 @@
     {% endset %}
 
     {{ govukDetails({
-      summaryText: "View those at risk",
-      html: riskTable
+    summaryText: "View those at risk",
+    html: riskTable
     }) }}
 
     <h2 class="govuk-heading-m">
@@ -81,7 +83,7 @@
 
     <ul class="govuk-list govuk-list--bullet">
       {% for need in case.criminogenicNeeds %}
-        <li>{{ need }}</li>
+      <li>{{ need }}</li>
       {% endfor %}
     </ul>
 
@@ -90,198 +92,195 @@
     </p>
 
     <h2 class="govuk-heading-m">
-      Recent case activity
+      Recent communication
     </h2>
 
     <div class="moj-timeline">
       {% for entry in case.contactHistory %}
-        {% if loop.index < 3 %}
-          {% if entry.outcome %}
-            {% set tagText = 'Comply' if entry.outcome.comply else 'Failed to comply' %}
-            {% set tagColour = 'green' if entry.outcome.comply else 'red' %}
-          {% else %}
-            {% set tagText = null %}
-            {% set tagColour = null %}
-          {% endif %}
-
-          {% if entry.contents %}
-            {% set truncatedContents = entry.contents | truncate(300) %}
-            {% set isTruncated = (truncatedContents !== entry.contents) %}
-            {% set body %}
-              <div class="note-panel">
-                <p class="{{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
-                {% if isTruncated %}
-                  <a href="#">View full details</a>
-                {% endif %}
-              </div>
-            {% endset %}
-          {% elseif entry.attachments %}
-            {% set body %}
-              <div class="note-panel">
-                <ul class="moj-timeline__documents">
-                  {% for attachment in entry.attachments %}
-                    <li class="moj-timeline__document-item">
-                      <a class="moj-timeline__document-link" href="#">{{ attachment }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endset %}
-          {% elseif entry.type === 'Office visit' and not entry.outcome %}
-            {% set body %}
-              {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
-            {% endset %}
-          {% endif %}
-
-          {{ appTimelineItem({
-              title: entry.type | replace('Service User', case.serviceUserPersonalDetails.firstName),
-              time: entry.timestamp,
-              author: entry.probationPractitioner,
-              tagText: tagText,
-              tagColour: tagColour,
-              body: body})
-             }}
+      {% if loop.index < 3 %} {% if entry.outcome %} {% set tagText='Comply' if entry.outcome.comply
+        else 'Failed to comply' %} {% set tagColour='green' if entry.outcome.comply else 'red' %} {% else %} {% set
+        tagText=null %} {% set tagColour=null %} {% endif %} {% if entry.contents %} {% set
+        truncatedContents=entry.contents | truncate(300) %} {% set isTruncated=(truncatedContents !==entry.contents) %}
+        {% set body %} <div class="note-panel">
+        <p class="{{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
+        {% if isTruncated %}
+        <a href="#">View full details</a>
         {% endif %}
-      {% endfor %}
     </div>
-
-    <p>
-      <a href="/cases/{{ CRN }}/timeline">View all case activity</a>
-    </p>
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-
-    <!--TIME ARRANGED-->
-    <h2 class="govuk-heading-m">
-      Actions
-    </h2>
-    <p class="govuk-body">
-      <a href="/arrange-a-session/{{ CRN }}/start" class="govuk-button govuk-!-margin-bottom-0">
-        Arrange a session
-      </a>
-    </p>
-
-    <h2 class="govuk-heading-m">
-      Next session
-    </h2>
-    <div class="app-card app-card--blue govuk-!-margin-bottom-3">
-      {{ data['arrange-a-session'][CRN][123]['type-of-session'] }}<br>
-      <strong>
-        {{ data['arrange-a-session'][CRN][123]['session-date'] | dateWithDayAndWithoutYear }} from<br>
-        {{ data['arrange-a-session'][CRN][123]['session-start-time'] }} to {{ data['arrange-a-session'][CRN][123]['session-end-time'] }}
-      </strong>
-      <a href="/arrange-a-session/{{ CRN }}/123/rearrange-or-cancel" class="govuk-button govuk-button--secondary govuk-!-margin-top-4"
-        data-module="govuk-button" style="margin-bottom: 0;">
-        Rearrange or cancel session
-      </a>
+    {% endset %}
+    {% elseif entry.attachments %}
+    {% set body %}
+    <div class="note-panel">
+      <ul class="moj-timeline__documents">
+        {% for attachment in entry.attachments %}
+        <li class="moj-timeline__document-item">
+          <a class="moj-timeline__document-link" href="#">{{ attachment }}</a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-
-    <h2 class="govuk-heading-m">
-      Attendance
-    </h2>
-
-    <p class="govuk-body">
-      <ul class="govuk-list">
-        <li>
-          <span class="govuk-tag govuk-tag--green">{{ case.appointmentStatistics.complied }}</span> Complied
-        </li>
-        <li>
-          <span class="govuk-tag govuk-tag--green">{{ case.appointmentStatistics.acceptableAbsence }}</span> Acceptable absence
-        </li>
-        <li>
-          <span class="govuk-tag govuk-tag--red">{{ case.appointmentStatistics.failureToComply }}</span> Failure to comply
-        </li>
-      </ul>
-    </p>
-
-    <h2 class="govuk-heading-m">
-      Contact details
-    </h2>
-
-    {{ govukSummaryList({
-      classes: 'govuk-summary-list--no-border',
-      rows: [
-        {
-          key: { text: "Address" },
-          value: { html: case.serviceUserPersonalDetails.address.join('<br>') }
-        },
-        {
-          key: { text: "Phone number" },
-          value: { text: case.serviceUserPersonalDetails.phone }
-        },
-        {
-          key: { text: "Email" },
-          value: { text: case.serviceUserPersonalDetails.email }
-        }
-      ]
-    }) }}
-
-    <p class="govuk-body">
-      <a href="/cases/{{ CRN }}/address-book-personal">View address book</a>
-    </p>
-
-    <h2 class="govuk-heading-m">
-      Personal details and circumstances
-    </h2>
-
-    {{ govukSummaryList({
-      classes: 'govuk-summary-list--no-border',
-      rows: [
-        {
-          key: { text: "Preferred language" },
-          value: { text: case.serviceUserPersonalDetails.preferredLanguage }
-        },
-        {
-          key: { text: "Disabilities and adjustments" },
-          value: { text: case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') }
-        },
-        {
-          key: { text: "Employment status" },
-          value: { text: case.serviceUserPersonalDetails.circumstances.employment }
-        },
-        {
-          key: { text: "Housing status" },
-          value: { text: case.serviceUserPersonalDetails.circumstances.housingStatus }
-        }
-      ]
-      }) }}
-
-    <h2 class="govuk-heading-m">
-      Probation history
-    </h2>
-
-    <p class="govuk-body">
-      <ul class="govuk-list">
-        <li>
-          <span class="govuk-tag govuk-tag--grey">{{ case.breachesCount }}</span> Breaches
-        </li>
-        <li>
-          <span class="govuk-tag govuk-tag--grey">{{ case.restrainingOrdersCount }}</span> Restraining orders
-        </li>
-      </ul>
-    </p>
-
-    {% if case.previousOrders.length > 0 %}
-      <p class="govuk-body">
-        <a class="govuk-heading-s" href="/cases/{{ CRN }}/previous-orders">Previous orders ({{ case.previousOrders.length }})</a>
-      </p>
-
-      <p class="govuk-body">
-        Last ended on {{ case.previousOrders[0].endDate | dateWithYearShortMonth }}
-      </p>
+    {% endset %}
+    {% elseif entry.type === 'Office visit' and not entry.outcome %}
+    {% set body %}
+    {{ appWarningBanner('Attendance not confirmed. <a
+      href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
+    {% endset %}
     {% endif %}
 
-    {% if case.professionalContacts.length > 0 %}
-      <p class="govuk-body">
-        <a class="govuk-heading-s" href="/cases/{{ CRN }}/address-book-professional">Previous professional contacts ({{ case.professionalContacts.length }})</a>
-      </p>
+    {{ appTimelineItem({
+    title: entry.type | replace('Service User', case.serviceUserPersonalDetails.firstName),
+    time: entry.timestamp,
+    author: entry.probationPractitioner,
+    tagText: tagText,
+    tagColour: tagColour,
+    body: body})
+    }}
     {% endif %}
-
-    <p class="govuk-body">
-      <a href="/cases/{{ CRN }}/previous-orders">View full probation history</a>
-    </p>
+    {% endfor %}
   </div>
+
+  <p>
+    <a href="/cases/{{ CRN }}/timeline">View all communication</a>
+  </p>
+</div>
+
+<div class="govuk-grid-column-one-third">
+
+  <!--TIME ARRANGED-->
+  <h2 class="govuk-heading-m">
+    Actions
+  </h2>
+  <p class="govuk-body">
+    <a href="/arrange-a-session/{{ CRN }}/start" class="govuk-button govuk-!-margin-bottom-0">
+      Arrange an appointment
+    </a>
+  </p>
+
+  <h2 class="govuk-heading-m">
+    Next appointment
+  </h2>
+  <div class="app-card app-card--blue govuk-!-margin-bottom-3">
+    {{ data['arrange-a-session'][CRN][123]['type-of-session'] }}<br>
+    <strong>
+      {{ data['arrange-a-session'][CRN][123]['session-date'] | dateWithDayAndWithoutYear }} from<br>
+      {{ data['arrange-a-session'][CRN][123]['session-start-time'] }} to {{
+      data['arrange-a-session'][CRN][123]['session-end-time'] }}
+    </strong>
+    <a href="/arrange-a-session/{{ CRN }}/123/rearrange-or-cancel"
+      class="govuk-button govuk-button--secondary govuk-!-margin-top-4" data-module="govuk-button"
+      style="margin-bottom: 0;">
+      Rearrange or cancel appointment
+    </a>
+  </div>
+
+  <h2 class="govuk-heading-m">
+    Attendance
+  </h2>
+
+  <p class="govuk-body">
+  <ul class="govuk-list">
+    <li>
+      <span class="govuk-tag govuk-tag--green">{{ case.appointmentStatistics.complied }}</span> Complied
+    </li>
+    <li>
+      <span class="govuk-tag govuk-tag--green">{{ case.appointmentStatistics.acceptableAbsence }}</span> Acceptable
+      absence
+    </li>
+    <li>
+      <span class="govuk-tag govuk-tag--red">{{ case.appointmentStatistics.failureToComply }}</span> Failure to comply
+    </li>
+  </ul>
+  </p>
+
+  <h2 class="govuk-heading-m">
+    Contact details
+  </h2>
+
+  {{ govukSummaryList({
+  classes: 'govuk-summary-list--no-border',
+  rows: [
+  {
+  key: { text: "Address" },
+  value: { html: case.serviceUserPersonalDetails.address.join('<br>') }
+  },
+  {
+  key: { text: "Phone number" },
+  value: { text: case.serviceUserPersonalDetails.phone }
+  },
+  {
+  key: { text: "Email" },
+  value: { text: case.serviceUserPersonalDetails.email }
+  }
+  ]
+  }) }}
+
+  <p class="govuk-body">
+    <a href="/cases/{{ CRN }}/address-book-personal">View address book</a>
+  </p>
+
+  <h2 class="govuk-heading-m">
+    Personal details and circumstances
+  </h2>
+
+  {{ govukSummaryList({
+  classes: 'govuk-summary-list--no-border',
+  rows: [
+  {
+  key: { text: "Preferred language" },
+  value: { text: case.serviceUserPersonalDetails.preferredLanguage }
+  },
+  {
+  key: { text: "Disabilities and adjustments" },
+  value: { text: case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') }
+  },
+  {
+  key: { text: "Employment status" },
+  value: { text: case.serviceUserPersonalDetails.circumstances.employment }
+  },
+  {
+  key: { text: "Housing status" },
+  value: { text: case.serviceUserPersonalDetails.circumstances.housingStatus }
+  }
+  ]
+  }) }}
+
+  <h2 class="govuk-heading-m">
+    Probation history
+  </h2>
+
+  <p class="govuk-body">
+  <ul class="govuk-list">
+    <li>
+      <span class="govuk-tag govuk-tag--grey">{{ case.breachesCount }}</span> Breaches
+    </li>
+    <li>
+      <span class="govuk-tag govuk-tag--grey">{{ case.restrainingOrdersCount }}</span> Restraining orders
+    </li>
+  </ul>
+  </p>
+
+  {% if case.previousOrders.length > 0 %}
+  <p class="govuk-body">
+    <a class="govuk-heading-s" href="/cases/{{ CRN }}/previous-orders">Previous orders ({{ case.previousOrders.length
+      }})</a>
+  </p>
+
+  <p class="govuk-body">
+    Last ended on {{ case.previousOrders[0].endDate | dateWithYearShortMonth }}
+  </p>
+  {% endif %}
+
+  {% if case.professionalContacts.length > 0 %}
+  <p class="govuk-body">
+    <a class="govuk-heading-s" href="/cases/{{ CRN }}/address-book-professional">Previous professional contacts ({{
+      case.professionalContacts.length }})</a>
+  </p>
+  {% endif %}
+
+  <p class="govuk-body">
+    <a href="/cases/{{ CRN }}/previous-orders">View full probation history</a>
+  </p>
+</div>
 </div>
 
 {% endblock %}

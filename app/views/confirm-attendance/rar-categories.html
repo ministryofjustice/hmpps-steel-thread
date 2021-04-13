@@ -3,61 +3,61 @@
 {% set buttonText = 'Save and continue' %}
 
 {% block form %}
-  {% set rarCategories = [
-    'Employment, Training and Education',
-    'Wellbeing – both physical and mental',
-    'Finance, benefit and debt',
-    'Relationships',
-    'Restorative Justice Interventions',
-    'Substance Misuse',
-    'Alcohol Treatment Requirements or Mental Health Treatment Requirements',
-    'Thinking skills, attitudes and behaviour'
-  ] %}
+{% set rarCategories = [
+'Employment, Training and Education',
+'Wellbeing – both physical and mental',
+'Finance, benefit and debt',
+'Relationships',
+'Restorative Justice Interventions',
+'Substance Misuse',
+'Alcohol Treatment Requirements or Mental Health Treatment Requirements',
+'Thinking skills, attitudes and behaviour'
+] %}
 
-  {% set rarRadioItems = [] %}
-  {% for rarCategory in rarCategories %}
-    {% set rarRadioItems = (rarRadioItems.push({
-      text: rarCategory,
-      value: rarCategory,
-      checked: checked("session-rar-category", rarCategory)
-    }), rarRadioItems) %}
-  {% endfor %}
+{% set rarRadioItems = [] %}
+{% for rarCategory in rarCategories %}
+{% set rarRadioItems = (rarRadioItems.push({
+text: rarCategory,
+value: rarCategory,
+checked: checked("session-rar-category", rarCategory)
+}), rarRadioItems) %}
+{% endfor %}
 
-  {% set rarCategoryHtml %}
-    {{ govukRadios({
-           fieldset: {
-             legend: {
-               text: "What will this session count towards?"
-             }
-           },
-           items: rarRadioItems
-         } | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'RARCategory']) )
-      }}
-  {% endset %}
+{% set rarCategoryHtml %}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: "What will this appointment count towards?"
+}
+},
+items: rarRadioItems
+} | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'RARCategory']) )
+}}
+{% endset %}
 
-  {{ govukRadios({
-       fieldset: {
-         legend: {
-           text: title,
-           classes: "govuk-label--xl",
-           isPageHeading: true
-         }
-       },
-       hint: {
-         html: 'This will account for one day of Rehabilitation Activity Requirement (RAR).'
-       },
-       items: [
-         {
-           text: 'Yes',
-           value: 'Yes',
-           conditional: {
-             html: rarCategoryHtml
-           }
-         },
-         {
-           text: 'No',
-           value: 'No'
-         }
-       ]
-       } | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'countsTowardsRAR']) ) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+classes: "govuk-label--xl",
+isPageHeading: true
+}
+},
+hint: {
+html: 'This will account for one day of Rehabilitation Activity Requirement (RAR).'
+},
+items: [
+{
+text: 'Yes',
+value: 'Yes',
+conditional: {
+html: rarCategoryHtml
+}
+},
+{
+text: 'No',
+value: 'No'
+}
+]
+} | decorateFormAttributes(['confirm-attendance', CRN, sessionId, 'countsTowardsRAR']) ) }}
 {% endblock %}

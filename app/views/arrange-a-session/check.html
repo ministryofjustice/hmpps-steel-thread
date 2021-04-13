@@ -1,11 +1,11 @@
 {% extends "_wizard-form.html" %}
 {% set rearranging = data['arrange-a-session'][CRN][sessionId]['rearrange-or-cancel'] %}
-{% set buttonText = 'Rearrange session' if rearranging else 'Arrange session' %}
-{% set title = 'Check your answers and confirm session' %}
+{% set buttonText = 'Rearrange appointment' if rearranging else 'Arrange appointment' %}
+{% set title = 'Check your answers and confirm appointment' %}
 
 {% block form %}
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
+<h1 class="govuk-heading-xl">{{ title }}</h1>
 
-  {% set showAction = true %}
-  {% include 'arrange-a-session/_session-details.html' %}
+{% set showAction = true %}
+{% include 'arrange-a-session/_session-details.html' %}
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set title = 'Case activity' %}
+{% set title = 'Communication' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
@@ -20,51 +20,52 @@
 
     <div class="moj-timeline">
       {% for entry in case.contactHistory %}
-        {% if entry.outcome %}
-          {% set tagText = 'Comply' if entry.outcome.comply else 'Failed to comply' %}
-          {% set tagColour = 'green' if entry.outcome.comply else 'red' %}
-        {% else %}
-          {% set tagText = null %}
-          {% set tagColour = null %}
-        {% endif %}
+      {% if entry.outcome %}
+      {% set tagText = 'Comply' if entry.outcome.comply else 'Failed to comply' %}
+      {% set tagColour = 'green' if entry.outcome.comply else 'red' %}
+      {% else %}
+      {% set tagText = null %}
+      {% set tagColour = null %}
+      {% endif %}
 
-        {% if entry.contents %}
-          {% set truncatedContents = entry.contents | truncate(300) %}
-          {% set isTruncated = (truncatedContents !== entry.contents) %}
-          {% set body %}
-            <div class="note-panel">
-              <p class="{{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
-              {% if isTruncated %}
-                <a href="#">View full details</a>
-              {% endif %}
-            </div>
-          {% endset %}
-        {% elseif entry.attachments %}
-          {% set body %}
-            <div class="note-panel">
-              <ul class="moj-timeline__documents">
-                {% for attachment in entry.attachments %}
-                  <li class="moj-timeline__document-item">
-                    <a class="moj-timeline__document-link" href="#">{{ attachment }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endset %}
-        {% elseif entry.type === 'Office visit' and not entry.outcome %}
-          {% set body %}
-            {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
-          {% endset %}
+      {% if entry.contents %}
+      {% set truncatedContents = entry.contents | truncate(300) %}
+      {% set isTruncated = (truncatedContents !== entry.contents) %}
+      {% set body %}
+      <div class="note-panel">
+        <p class="{{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
+        {% if isTruncated %}
+        <a href="#">View full details</a>
         {% endif %}
+      </div>
+      {% endset %}
+      {% elseif entry.attachments %}
+      {% set body %}
+      <div class="note-panel">
+        <ul class="moj-timeline__documents">
+          {% for attachment in entry.attachments %}
+          <li class="moj-timeline__document-item">
+            <a class="moj-timeline__document-link" href="#">{{ attachment }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endset %}
+      {% elseif entry.type === 'Office visit' and not entry.outcome %}
+      {% set body %}
+      {{ appWarningBanner('Attendance not confirmed. <a
+        href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
+      {% endset %}
+      {% endif %}
 
-        {{ appTimelineItem({
-            title: entry.type | replace('Service User', case.serviceUserPersonalDetails.firstName),
-            time: entry.timestamp,
-            author: entry.probationPractitioner,
-            tagText: tagText,
-            tagColour: tagColour,
-            body: body})
-           }}
+      {{ appTimelineItem({
+      title: entry.type | replace('Service User', case.serviceUserPersonalDetails.firstName),
+      time: entry.timestamp,
+      author: entry.probationPractitioner,
+      tagText: tagText,
+      tagColour: tagColour,
+      body: body})
+      }}
       {% endfor %}
     </div>
   </div>
@@ -84,7 +85,7 @@
         </p>
       </div>-->
 
-      <h2 class="govuk-heading-m">{{ case.serviceUserPersonalDetails.firstName }}’s session summary</h2>
+      <h2 class="govuk-heading-m">{{ case.serviceUserPersonalDetails.firstName }}’s appointment summary</h2>
       <p class="govuk-body">Summary up to and including 22 April 2021</p>
 
       <div class="govuk-!-margin-bottom-7">

@@ -3,59 +3,64 @@
 {% set title = 'Check your answers' %}
 
 {% block form %}
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
+<h1 class="govuk-heading-xl">{{ title }}</h1>
 
-  {% set complianceText = case.serviceUserPersonalDetails.firstName + ' was absent' if data['confirm-attendance'][CRN][sessionId]['did-service-user-comply'] == 'Absent' else data['confirm-attendance'][CRN][sessionId]['did-service-user-comply']  %}
+{% set complianceText = case.serviceUserPersonalDetails.firstName + ' was absent' if
+data['confirm-attendance'][CRN][sessionId]['did-service-user-comply'] == 'Absent' else
+data['confirm-attendance'][CRN][sessionId]['did-service-user-comply'] %}
 
-  {{ govukSummaryList({
-    classes: 'govuk-!-margin-bottom-9',
-    rows: [
-      {
-        key: { text: "RAR activity" },
-        value: { text: data['confirm-attendance'][CRN][sessionId]['RARCategory'] if data['confirm-attendance'][CRN][sessionId]['countsTowardsRAR'] == 'Yes' else 'None'  },
-        actions: {
-          items: [
-            {
-              href: "rar-categories",
-              text: "Change",
-              visuallyHiddenText: "RAR activity"
-            }
-          ]
-        }
-      },
-      {
-        key: { text: case.serviceUserPersonalDetails.firstName + " complied?" },
-        value: { text: complianceText },
-        actions: {
-          items: [
-            {
-              href: "compliance",
-              text: "Change",
-              visuallyHiddenText: "compliance"
-            }
-          ]
-        }
-      },
-      {
-        key: { text: "Session notes" },
-        value: { text: data['confirm-attendance'][CRN][sessionId]['notes'] if data['confirm-attendance'][CRN][sessionId]['add-notes'] == 'Yes' else 'None' },
-        actions: {
-          items: [
-            {
-              href: "add-notes",
-              text: "Change",
-              visuallyHiddenText: "session notes"
-            }
-          ]
-        }
-      }
-    ]
-    }) }}
+{{ govukSummaryList({
+classes: 'govuk-!-margin-bottom-9',
+rows: [
+{
+key: { text: "RAR activity" },
+value: { text: data['confirm-attendance'][CRN][sessionId]['RARCategory'] if
+data['confirm-attendance'][CRN][sessionId]['countsTowardsRAR'] == 'Yes' else 'None' },
+actions: {
+items: [
+{
+href: "rar-categories",
+text: "Change",
+visuallyHiddenText: "RAR activity"
+}
+]
+}
+},
+{
+key: { text: case.serviceUserPersonalDetails.firstName + " complied?" },
+value: { text: complianceText },
+actions: {
+items: [
+{
+href: "compliance",
+text: "Change",
+visuallyHiddenText: "compliance"
+}
+]
+}
+},
+{
+key: { text: "Appointment notes" },
+value: { text: data['confirm-attendance'][CRN][sessionId]['notes'] if
+data['confirm-attendance'][CRN][sessionId]['add-notes'] == 'Yes' else 'None' },
+actions: {
+items: [
+{
+href: "add-notes",
+text: "Change",
+visuallyHiddenText: "appointment notes"
+}
+]
+}
+}
+]
+}) }}
 
-  <p class="govuk-body">You’re confirming attendance for:</p>
+<p class="govuk-body">You’re confirming attendance for:</p>
 
-  <div class="govuk-inset-text">
-    <strong>{{ case.previousAppointment.type }}</strong><br>
-    {{ case.previousAppointment.timestamp | dateWithDayAndWithoutYear }} from {{ case.previousAppointment.timestamp | govukTime }} to {{ case.previousAppointment.endTime | govukTime }}
-  </div>
+<div class="govuk-inset-text">
+  <strong>{{ case.previousAppointment.type }}</strong><br>
+  {{ case.previousAppointment.timestamp | dateWithDayAndWithoutYear }} from {{ case.previousAppointment.timestamp |
+  govukTime }} to {{ case.previousAppointment.endTime | govukTime }}
+</div>
 {% endblock %}

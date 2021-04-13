@@ -3,32 +3,20 @@
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'quick-look' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}">Quick look</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentNavSection=='quick-look' %}
+            aria-current="page" {% endif %} href="/cases/{{ CRN }}">Quick look</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'timeline' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}/timeline">Case activity</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentNavSection=='timeline' %}
+            aria-current="page" {% endif %} href="/cases/{{ CRN }}/timeline">Communication</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'details' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}/details">Personal details</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentNavSection=='details' %}
+            aria-current="page" {% endif %} href="/cases/{{ CRN }}/details">Personal details</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'sentence' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}/sentence">Sentence</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentNavSection=='sentence' %}
+            aria-current="page" {% endif %} href="/cases/{{ CRN }}/sentence">Sentence</a>
         </li>
       </ul>
     </nav>

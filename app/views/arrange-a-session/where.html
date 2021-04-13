@@ -1,23 +1,23 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Where will the session be?' %}
+{% set title = 'Where will the appointment be?' %}
 
 {% block form %}
-  {% set locationItems = [] %}
-  {% for location in possibleLocations(data['provider-code'], data['team-codes']) | sort(false, false, 'description') %}
-    {% set locationItems = (locationItems.push({
-      text: location.description,
-      value: location.code
-    }), locationItems) %}
-  {% endfor %}
+{% set locationItems = [] %}
+{% for location in possibleLocations(data['provider-code'], data['team-codes']) | sort(false, false, 'description') %}
+{% set locationItems = (locationItems.push({
+text: location.description,
+value: location.code
+}), locationItems) %}
+{% endfor %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: title,
-        classes: "govuk-label--xl govuk-!-margin-bottom-6",
-        isPageHeading: true
-      }
-    },
-    items: locationItems
-  }  | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-location-code'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: title,
+classes: "govuk-label--xl govuk-!-margin-bottom-6",
+isPageHeading: true
+}
+},
+items: locationItems
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'session-location-code'])) }}
 {% endblock %}

@@ -1,138 +1,126 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'When will the session be?' %}
+{% set title = 'When will the appointment be?' %}
 
 {% block form %}
-  <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-    {{ title }}
-  </h1>
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+  {{ title }}
+</h1>
 
-  {% set circumstancesHTML %}
-    <p class="govuk-body">
-      <strong>Preferred language</strong><br>
-      {{ case.serviceUserPersonalDetails.preferredLanguage }}
-    </p>
-    <p class="govuk-body">
-      <strong>Disabilities and adjustments</strong><br>
-      {{ case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') }}
-    </p>
-    <p class="govuk-body">
-      <strong>Employment status</strong><br>
-      {{ case.serviceUserPersonalDetails.circumstances.employment }}
-    </p>
-  {% endset %}
+{% set circumstancesHTML %}
+<p class="govuk-body">
+  <strong>Preferred language</strong><br>
+  {{ case.serviceUserPersonalDetails.preferredLanguage }}
+</p>
+<p class="govuk-body">
+  <strong>Disabilities and adjustments</strong><br>
+  {{ case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') }}
+</p>
+<p class="govuk-body">
+  <strong>Employment status</strong><br>
+  {{ case.serviceUserPersonalDetails.circumstances.employment }}
+</p>
+{% endset %}
 
-  {{ govukDetails({
-    summaryText: case.serviceUserPersonalDetails.firstName + "’s circumstances",
-    html: circumstancesHTML
-  }) }}
+{{ govukDetails({
+summaryText: case.serviceUserPersonalDetails.firstName + "’s circumstances",
+html: circumstancesHTML
+}) }}
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" role="group">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Date
-      </legend>
-      <div class="govuk-date-input">
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <input
-              class="govuk-input govuk-date-input__input"
-              type="date"
-              id="[arrange-a-session][{{CRN}}][{{sessionId}}][session-date]"
-              name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-date]"
-              value="{{ data['arrange-a-session'][CRN][sessionId]['session-date'] }}"
-              placeholder="DD/MM/YYYY">
-          </div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Date
+    </legend>
+    <div class="govuk-date-input">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-date-input__input" type="date"
+            id="[arrange-a-session][{{CRN}}][{{sessionId}}][session-date]"
+            name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-date]"
+            value="{{ data['arrange-a-session'][CRN][sessionId]['session-date'] }}" placeholder="DD/MM/YYYY">
         </div>
       </div>
-    </fieldset>
-  </div>
-
-  <div class="govuk-form-group app-time-autocomplete">
-    <div class="autocomplete">
-      <label class="govuk-label govuk-!-font-weight-bold" for="session-start-time">
-        Time
-      </label>
-      <input
-        class="govuk-input govuk-input--width-5"
-        type="text"
-        id="session-start-time"
-        name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-start-time]"
-        value="{{ data['arrange-a-session'][CRN][sessionId]['session-start-time'] }}">
     </div>
-    <span class="govuk-body" style="margin:0 0.75rem 0 0.75rem;">to</span>
-    <div class="autocomplete">
-      <input
-        class="govuk-input govuk-input--width-5"
-        type="text"
-        id="session-end-time"
-        name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-end-time]"
-        value="{{ data['arrange-a-session'][CRN][sessionId]['session-end-time'] }}">
-    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group app-time-autocomplete">
+  <div class="autocomplete">
+    <label class="govuk-label govuk-!-font-weight-bold" for="session-start-time">
+      Time
+    </label>
+    <input class="govuk-input govuk-input--width-5" type="text" id="session-start-time"
+      name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-start-time]"
+      value="{{ data['arrange-a-session'][CRN][sessionId]['session-start-time'] }}">
   </div>
+  <span class="govuk-body" style="margin:0 0.75rem 0 0.75rem;">to</span>
+  <div class="autocomplete">
+    <input class="govuk-input govuk-input--width-5" type="text" id="session-end-time"
+      name="[arrange-a-session][{{CRN}}][{{sessionId}}][session-end-time]"
+      value="{{ data['arrange-a-session'][CRN][sessionId]['session-end-time'] }}">
+  </div>
+</div>
 
-  {% set repeatingHtml %}
-    {{ govukRadios({
-      fieldset: {
-        legend: {
-          text: "How frequently will it repeat?",
-          classes: "govuk-label--s"
-        }
-      },
-      items: [
-        {
-          text: "Daily"
-        },
-        {
-          text: "Weekly"
-        },
-        {
-          text: "Every 2 weeks"
-        },
-        {
-          text: "Monthly"
-        }
-      ]
-    } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'repeating-frequency'])) }}
+{% set repeatingHtml %}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: "How frequently will it repeat?",
+classes: "govuk-label--s"
+}
+},
+items: [
+{
+text: "Daily"
+},
+{
+text: "Weekly"
+},
+{
+text: "Every 2 weeks"
+},
+{
+text: "Monthly"
+}
+]
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'repeating-frequency'])) }}
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" role="group">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          End date
-        </legend>
-        <div class="govuk-date-input">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <input
-                class="govuk-input govuk-date-input__input"
-                type="date"
-                id="[arrange-a-session][{{CRN}}][{{sessionId}}][repeat-end-date]"
-                name="[arrange-a-session][{{CRN}}][{{sessionId}}][repeat-end-date]"
-                value="{{ data['arrange-a-session'][CRN][sessionId]['repeat-end-date'] }}"
-                placeholder="DD/MM/YYYY">
-            </div>
-          </div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      End date
+    </legend>
+    <div class="govuk-date-input">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-date-input__input" type="date"
+            id="[arrange-a-session][{{CRN}}][{{sessionId}}][repeat-end-date]"
+            name="[arrange-a-session][{{CRN}}][{{sessionId}}][repeat-end-date]"
+            value="{{ data['arrange-a-session'][CRN][sessionId]['repeat-end-date'] }}" placeholder="DD/MM/YYYY">
         </div>
-      </fieldset>
+      </div>
     </div>
-  {% endset %}
+  </fieldset>
+</div>
+{% endset %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Will this be a repeating session?",
-        classes: "govuk-label--m"
-      }
-    },
-    items: [
-      {
-        text: "Yes",
-        conditional: {
-          html: repeatingHtml
-        }
-      },
-      {
-        text: "No, it’s a one-off session"
-      }
-    ]
-  } | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'repeating'])) }}
+{{ govukRadios({
+fieldset: {
+legend: {
+text: "Will this be a repeating appointment?",
+classes: "govuk-label--m"
+}
+},
+items: [
+{
+text: "Yes",
+conditional: {
+html: repeatingHtml
+}
+},
+{
+text: "No, it’s a one-off appointment"
+}
+]
+} | decorateFormAttributes(['arrange-a-session', CRN, sessionId, 'repeating'])) }}
 {% endblock %}
