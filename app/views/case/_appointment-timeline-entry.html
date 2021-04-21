@@ -1,7 +1,5 @@
 <h3 class="govuk-heading-s">
-  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">
-    {{ entry['type-of-session'] }}
-  </a>
+  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }}</a>
 
   {% if entry['session-counts-towards-rar'] === 'Yes' %}
     {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
