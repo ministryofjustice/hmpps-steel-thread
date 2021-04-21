@@ -1,0 +1,106 @@
+{% extends "_wizard-form.html" %}
+{%- set label -%}
+  {%- if type === 'phonecall' -%}
+    phone call
+  {%- elif type === 'text' -%}
+    text message
+  {%- elif type === 'email' -%}
+    email
+  {%- endif -%}
+{%- endset %}
+{% set title = ('Add an ' + label if label === 'email' else 'Add a ' + label ) %}
+
+{% block form %}
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+  {{ title }}
+</h1>
+
+  {% set whenLegendText = ('When was the ' + label + '?') if label === 'phone call' else 'When did the ' + label + ' arrive?' %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: whenLegendText,
+        classes: "govuk-label--m govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: "Today",
+        value: '2021-04-21'
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'date'])) }}
+
+  <div class="govuk-form-group app-time-autocomplete">
+    <div class="autocomplete">
+      <label class="govuk-label govuk-label--m" for="other-communication-time">
+        {% if label === 'phone call' %}
+          What time was the {{ label }}?
+        {% else %}
+          What time did the {{ label }} arrive?
+        {% endif %}
+      </label>
+      <input
+        class="govuk-input govuk-input--width-5"
+        type="text"
+        id="other-communication-time"
+        name="[communication][{{CRN}}][{{sessionId}}][time]"
+        value="{{ data['communication'][CRN][sessionId]['time'] }}">
+    </div>
+  </div>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: 'Who was the ' + label + ' to?',
+        classes: "govuk-label--m govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: case.serviceUserPersonalDetails.firstName
+      },
+      {
+        text: 'You',
+        value: 'Mark Berridge'
+      },
+      {
+        text: 'Other'
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'to'])) }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: 'Who was the ' + label + ' from?',
+        classes: "govuk-label--m govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: case.serviceUserPersonalDetails.firstName
+      },
+      {
+        text: 'You',
+        value: 'Mark Berridge'
+      },
+      {
+        text: 'Other'
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'from'])) }}
+
+  {{ govukTextarea({
+    label: {
+      text: 'Details',
+      classes: 'govuk-label--m'
+    }
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'contents'])) }}
+
+  <input type="hidden" id="type" name="[communication][{{ CRN }}][{{ sessionId }}][type]" value="{{ label | capitalize }}">
+  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="Mark Berridge">
+  <input type="hidden" id="sessionId" name="[communication][{{ CRN }}][{{ sessionId }}][sessionId]" value="{{ sessionId }}">
+
+{% endblock %}
