@@ -1,42 +1,34 @@
 .app-card__meta-list {
-    font-family: "GDS Transport", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.25;
-    width: 100%;
-    margin: 0 0 20px;
-  }
-  
-  .app-card__meta-list-item {
-    margin-bottom: 10px;
-  }
-  
-  .app-card__meta-list-key, .app-card__meta-list-value {
-    display: block;
-  }
-  
-  .app-card__meta-list-key {
-    font-weight: 700;
-  }
-  
-  .app-card__meta-list-value {
-    margin: 0;
-  }
-  
-  @media (min-width: 48.0625em) {
+  @include govuk-font($size: 16);
+  margin-bottom: govuk-spacing(4);
+}
+
+@media (min-width: 48.0625em) {
   .app-card__meta-list {
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      grid-gap: 15px;
-    } 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: govuk-spacing(3);
   }
-  
-  @media (min-width: 40.0625em) {
+}
+
+@media (min-width: 40.0625em) {
   .app-card__meta-list {
-      font-size: 19px;
-      line-height: 1.5;
-  
-    }
+    @include govuk-font($size: 19);
   }
+}
+
+.app-card__meta-list-item {
+  margin-bottom: govuk-spacing(2);
+}
+
+.app-card__meta-list-key, .app-card__meta-list-value {
+  display: block;
+}
+
+.app-card__meta-list-key {
+  font-weight: 700;
+}
+
+.app-card__meta-list-value {
+  margin: 0;
+}
