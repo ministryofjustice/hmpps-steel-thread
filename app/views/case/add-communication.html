@@ -1,0 +1,35 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'What are you adding?' %}
+
+{% block pageNavigation %}
+  {{ govukBackLink({
+    href: '/cases/' + CRN + '/communication'
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: "Phone call",
+        value: 'phonecall'
+      },
+      {
+        text: "Text message",
+        value: 'text'
+      },
+      {
+        text: "Email",
+        value: 'email'
+      }
+    ]
+  } | decorateFormAttributes(['add-communication', CRN, 'type-of-new-other-communication'])) }}
+
+{% endblock %}
