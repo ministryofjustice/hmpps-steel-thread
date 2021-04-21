@@ -1,4 +1,4 @@
-<h3 class="govuk-heading-s">
+<h3 class="govuk-heading-m">
   <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }}</a>
 
   {% if entry['session-counts-towards-rar'] === 'Yes' %}
@@ -12,9 +12,8 @@
   {% elseif entry['did-service-user-comply'] === 'Absent' %}
     {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
   {% endif %}
-  <br>
 
-  <div class="govuk-!-margin-top-1">
+  <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
     {{ entry['session-date'] | dateWithYear }} from {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
     {% if entry.repeat === 'Yes' %}
       {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
