@@ -1,5 +1,11 @@
 {% set complianceText = case.serviceUserPersonalDetails.firstName + ' was absent' if data['communication'][CRN][sessionId]['did-service-user-comply'] == 'Absent' else data['communication'][CRN][sessionId]['did-service-user-comply']  %}
 
+{% set uploadedFilesHtml %}
+  {% for file in data['communication'][CRN][sessionId]['filenames'] | forceArray %}
+    <a href="#">{{ file }}</a><br />
+  {% endfor %}
+{% endset %}
+
 {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-9',
   rows: [
@@ -50,12 +56,27 @@
       actions: {
         items: [
           {
-            href: "add-notes",
+            href: "notes",
             text: "Change",
             visuallyHiddenText: "appointment notes"
           }
         ]
       } if showAction
-    }
+    },
+    {
+      key: { text: "Uploaded files" },
+      value: {
+        html: uploadedFilesHtml
+      },
+      actions: {
+        items: [
+          {
+            href: "notes",
+            text: "Change",
+            visuallyHiddenText: "uploaded files"
+          }
+        ]
+      } if showAction
+    } if data['communication'][CRN][sessionId]['filenames'].length > 0
   ]
   }) }}
