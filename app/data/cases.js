@@ -133,12 +133,12 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to themselves',
-        class: 'red'
+        text: 'Risk to known adults',
+        class: 'orange'
       },
       {
-        text: 'Risk to children',
-        class: 'red'
+        text: 'Risk to public',
+        class: 'orange'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -221,9 +221,9 @@ module.exports = [
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 24 Nov 2016',
     'appointmentStatistics': {
-      'complied': 5,
-      'acceptableAbsence': 1,
-      'failureToComply': 2
+      'complied': 2,
+      'acceptableAbsence': 0,
+      'failureToComply': 1
     },
     'contactHistory': [
       {
@@ -562,7 +562,7 @@ module.exports = [
         'session-end-time': '11am',
         'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'Yes',
-        'session-rar-category': 'ES - RAR Programme',
+        'session-rar-category': 'TSP (Thinking Skills)',
         'session-rar-subcategory': 'TSP (Thinking Skills)',
         'sessionId': 600
       },
@@ -656,10 +656,10 @@ module.exports = [
         '27 Camber Road',
         'Leeds',
         'West Yorkshire',
-        'LS6 5BR'
+        'LS2 7EW'
       ],
-      'phone': '07811 011 188',
-      'email': 'gilspencer@gmail.com',
+      'phone': '07700 900469',
+      'email': 'example@example.com',
       'aliases': [],
       'preferredLanguage': 'English',
       'nationality': 'British',
@@ -682,7 +682,7 @@ module.exports = [
           '27 Camber Road',
           'Leeds',
           'West Yorkshire',
-          'LS6 5BR'
+          'LS2 7EW'
         ]
       }
     ],
@@ -698,8 +698,8 @@ module.exports = [
       'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: helpers.happenedOn({daysAgo: '3'})}),
       'offenceDate': '2021-01-03',
       'convictionDate': helpers.happenedOn({daysAgo: '3'}),
-      'court': "Leeds Crown Court",
-      'responsibleCourt': "Leeds Crown Court",
+      'court': 'Leeds Crown Court',
+      'responsibleCourt': 'Leeds Crown Court',
       'requirements': {
         'rar': {
           'type': 'Rehabilitation Activity Requirement (RAR)',
@@ -1079,7 +1079,7 @@ module.exports = [
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
-        'session-rar-category': 'ES - RAR Programme',
+        'session-rar-category': 'TSP (Thinking Skills)',
         'session-rar-subcategory': 'TSP (Thinking Skills)',
         'type-of-session': 'Office visit',
         'repeating': 'No, it’s a one-off appointment',
@@ -1131,7 +1131,7 @@ module.exports = [
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
-        'session-rar-category': 'ES - RAR Programme',
+        'session-rar-category': 'TSP (Thinking Skills)',
         'session-rar-subcategory': 'TSP (Thinking Skills)',
         'type-of-session': 'Office visit',
         'repeating': 'No, it’s a one-off appointment',
@@ -1158,7 +1158,7 @@ module.exports = [
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
-        'session-rar-category': 'ES - RAR Programme',
+        'session-rar-category': 'TSP (Thinking Skills)',
         'session-rar-subcategory': 'TSP (Thinking Skills)',
         'type-of-session': 'Office visit',
         'repeating': 'No, it’s a one-off appointment',
@@ -1253,6 +1253,360 @@ module.exports = [
         Carina Hart
         born 13/03/2009`,
         'sessionId': 1
+      }
+    ]
+  },
+  {
+    'serviceUserPersonalDetails': {
+      'name': 'Andrei Edwards',
+      'firstName': 'Andrei',
+      'dateOfBirth': '1992-02-01',
+      'address': [
+        '22 Smith Street',
+        'Walker',
+        'Newcastle-upon-Tyne',
+        'NE6 4EY'
+      ],
+      'phone': '09100 822 429',
+      'email': 'felis@ataugue.co.uk',
+      'aliases': [],
+      'preferredLanguage': 'English',
+      'nationality': 'British',
+      'ethnicity': 'White: British',
+      'religion': 'None',
+      'gender': 'Male',
+      'sexualOrientation': 'Bisexual',
+      'disabilitiesAndAdjustments': [],
+      'circumstances': {
+        'employment': 'Part-time employment',
+        'housingStatus': 'Living alone',
+        'safeguardingIssues': []
+      }
+    },
+    'personalContacts': [
+      {
+        'name': 'Shelly Davis',
+        'relationship': 'Partner',
+        'address': [
+          '100 Drive Street',
+          'Flat 10',
+          'Sheffield',
+          'S23 5FW'
+        ]
+      },
+      {
+        'name': 'John Edwards',
+        'relationship': 'Brother',
+        'address': [
+          '64 Pharetra Ave',
+          'Blaydon',
+          'Newcastle-upon-Tyne',
+          'NE4 7YB'
+        ]
+      }
+    ],
+    'professionalContacts': [
+      {
+        'name': 'Ted Brown',
+        'phone': '07624 503311',
+        'email': 'Cras.eget@orci.co.uk',
+        'provider': 'Community Health and Social Care Direct'
+      }
+    ],
+    'PNC': '2021/156400000G',
+    'CRN': 'H6785129',
+    'currentOrder': {
+      'type': 'ORA Community Order (12 Months)',
+      'description': 'Use threatening / abusive / insulting words / behaviour with intent to cause fear of / provoke unlawful violence',
+      'lengthInMonths': 12,
+      'progressInMonths': 1,
+      'startDate': '2021-03-12',
+      'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: '2021-03-12'}),
+      'offenceDate': '2021-01-31',
+      'convictionDate': '2021-03-10',
+      'court': "South Tyneside Magistrates' Court",
+      'responsibleCourt': "South Tyneside Magistrates' Court",
+      'requirements': {
+        'rar': {
+          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'value': '22 days',
+          'lengthInDays': 22,
+          'progressInDays': 3
+        },
+        'upw': {
+          'type': 'Unpaid work',
+          'value': '150 hours',
+          'lengthInHours': 150,
+          'progressInHours': 35
+        }
+      },
+      'courtDocuments': [
+        {
+          'name': 'Pre-sentence report',
+          'lastUpdateDate': '2021-03-11'
+        },
+        {
+          'name': 'Order',
+          'lastUpdateDate': '2021-03-10'
+        },
+        {
+          'name': 'CPS Pack',
+          'lastUpdateDate': '2021-02-10'
+        },
+        {
+          'name': 'Previous convictions',
+          'lastUpdateDate': '2020-10-19'
+        }
+      ],
+      'personalDocuments': [
+        {
+          'name': 'Induction pack',
+          'lastUpdateDate': '2021-03-15'
+        }
+      ]
+    },
+    'previousOrders': [
+      {
+        'title': 'ORA Suspended Sentence (18 months)',
+        'description': 'Common assault and battery',
+        'endDate': '2019-01-05'
+      }
+    ],
+    'breachesCount': 0,
+    'restrainingOrdersCount': 1,
+    'riskBadges': [
+      {
+        text: 'Risk to known adults',
+        class: 'red'
+      },
+      {
+        text: 'Risk to themselves',
+        class: 'orange'
+      }
+    ],
+    'riskOfSeriousHarmLevel': {
+      text: 'Medium',
+      class: 'orange'
+    },
+    'riskOfHarm': [
+      {
+        'riskTo': 'Themselves',
+        'inCommunity': {
+          text: 'Medium',
+          class: 'orange'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      },
+      {
+        'riskTo': 'Children',
+        'inCommunity': {
+          text: 'Medium',
+          class: 'orange'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      },
+      {
+        'riskTo': 'Public',
+        'inCommunity': {
+          text: 'High',
+          class: 'red'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      },
+      {
+        'riskTo': 'Known adult',
+        'inCommunity': {
+          text: 'High',
+          class: 'red'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      },
+      {
+        'riskTo': 'Staff',
+        'inCommunity': {
+          text: 'Medium',
+          class: 'orange'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      },
+      {
+        'riskTo': 'Prisoners',
+        'inCommunity': {
+          text: 'Medium',
+          class: 'orange'
+        },
+        'inCustody': {
+          text: 'High',
+          class: 'red'
+        }
+      }
+    ],
+    'criminogenicNeeds': [
+      'Substance misuse',
+      'Lifestyle'
+    ],
+    'status': 'Previously known',
+    'previousOrderStatus': 'Order ended 05 Jan 2019',
+    'appointmentStatistics': {
+      'complied': 6,
+      'acceptableAbsence': 0,
+      'failureToComply': 0
+    },
+    'contactHistory': [
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': helpers.today({ atTime: '15:30' }),
+        'session-date': helpers.today(),
+        'session-start-time': '3:30pm',
+        'session-end-time': '4:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'TSP (Thinking Skills)',
+        'session-rar-subcategory': 'TSP (Thinking Skills)',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'sessionId': 699
+      },
+      // {
+      //   'lastUpdatedBy': 'Mark Berridge',
+      //   'type': 'Email',
+      //   'to': [],
+      //   'from': 'Mark Berridge',
+      //   'timestamp': '2021-04-14T11:55',
+      //   'contents': `After Andrei's check in appointment, I've started the interventions process for substance misuse. He was clearly under the influence when he arrived for his appointment. He was uncommunicative and sluggish and it was apparent when he arrived at the reception desk that he wouldn't be able to engage with me for the check in appointment.`,
+      //   'sessionId': 700
+      // },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-04-14T11:30',
+        'session-date': '2021-04-14',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'No',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.`,
+        'sessionId': 701
+      },
+      {
+        'type': 'Appointment',
+        'timestamp': '2021-04-07T11:30',
+        'session-date': '2021-04-07',
+        'session-start-time': '10am',
+        'session-end-time': '11am',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'TSP (Thinking Skills)',
+        'session-rar-subcategory': 'TSP (Thinking Skills)',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Yes',
+        'lastUpdatedBy': 'Mark Berridge',
+        'session-notes': `Andrei had completed the homework assigned last week and engaged well with the session. He told me about how he had already tried using the thinking skills when he felt angry at the shop a few days ago. He is making progress.`,
+        'sessionId': 702
+      },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-31T11:30',
+        'session-date': '2021-03-31',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'Yes',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `Andrei was very distracted but he did engage with me. We talked about working on a RAR activity in the next session and he was a agreeable to that. I assigned him some homework and we talked about technique for him to control his anger when he is confronted. He agreed to try and think about it. He took the paperwork.`,
+        'sessionId': 703
+      },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-24T11:30',
+        'session-date': '2021-03-24',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'Yes',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `Andrei turned up but is still angry about having to do UPW. He wants to increase his hours at his job and is upset that he can't take the hours they offered him because of UPW and having to attend appointments here. We discussed how he might approach his employer to find time around these commitments but he was negative about how well it would go. He did not disclose the RI and I didn't bring it up with him in this meeting because it wouldn't have been a productive conversation in his angry state.`,
+        'sessionId': 704
+      },
+      {
+        'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Email',
+        'to': 'someone@socialservices.gov.uk',
+        'from': 'Mark Berridge',
+        'timestamp': '2021-03-22T13:33',
+        'contents': `Email from Case Admin to confirm a Reportable Incident took place on Friday 19/03. Andrei was reported to the police for shouting at a group of women from the other side of the road on Friday night. He appeared to be under the influence of alcohol.`,
+        'sessionId': 705
+      },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-17T11:30',
+        'session-date': '2021-03-17',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'Yes',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `After the last session when we worked on the ISP, we ran through it together to ensure Andrei understands what is expected and how I will work with him to progress this. We discussed RAR activities in more detail and I explained they would involve doing some preparation homework the week prior. Andrei struggles with his handwriting and asked if he could do the RAR homework online but I explained this is not currently available.`,
+        'sessionId': 706
+      },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-12T11:30',
+        'session-date': '2021-03-12',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'Yes',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `This was Andrei's second appointment and we discussed his Sentence Plan and what to include and what he thought would help him. He has been through this process before and was quite negative about how likely it was that he could change his behaviour. We discussed the different types of future he might have and he left the session with a more positive attitude. The ISP was completed.`,
+        'sessionId': 707
+      },
+      {
+        'type': 'Appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-10T11:30',
+        'session-date': '2021-03-10',
+        'session-start-time': '11:30am',
+        'session-end-time': '12:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'did-service-user-comply': 'Yes',
+        'repeating': 'No, it’s a one-off session',
+        'confirmed': true,
+        'session-notes': `Andrei arrived on time for his Induction appointment. He has been on probation before and so he was familiar with the process and all the paperwork. He complained about having to repeat it all and asked why we couldn't just use the previous answers he gave. He was reluctant to engage and is angry and feels wronged by having to complete this order. We went through the paperwork as quickly as possible to alleviate the tension. Induction pack has been scanned and uploaded by Case Admin.`,
+        'sessionId': 708
       }
     ]
   }
