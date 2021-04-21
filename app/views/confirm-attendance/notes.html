@@ -59,13 +59,15 @@
 
   </div>
 
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-!-font-weight-bold" for="case-note-description">
-      Upload files
-    </label>
-    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file"
-      aria-describedby="file-upload-1-hint">
-  </div>
+  {{ govukFileUpload({
+    label: {
+      classes: "govuk-label--s",
+      text: "Upload files"
+    },
+    attributes: {
+      multiple: ""
+    }
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'filenames'])) }}
 
   <p class="govuk-hint">
     This will be added to the nDelius contact log.

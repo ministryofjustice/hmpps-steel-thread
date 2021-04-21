@@ -38,5 +38,9 @@ module.exports = function (env) {
     return DateTime.fromISO(datetimeString).toFormat('d MMM yyyy')
   }
 
+  filters.forceArray = stringOrArray => {
+    return Array.isArray(stringOrArray) ? stringOrArray : [stringOrArray]
+  }
+
   return filters
 }
