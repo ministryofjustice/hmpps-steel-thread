@@ -1,12 +1,13 @@
 {% extends "_wizard-form.html" %}
 {%- set label -%}
-  {%- if type === 'phonecall' -%}
+  {%- switch type -%}
+  {%- case 'phonecall' -%}
     phone call
-  {%- elif type === 'text' -%}
+  {%- case 'text' -%}
     text message
-  {%- elif type === 'email' -%}
+  {%- case 'email' -%}
     email
-  {%- endif -%}
+  {%- endswitch -%}
 {%- endset %}
 {% set title = ('Add an ' + label if label === 'email' else 'Add a ' + label ) %}
 
