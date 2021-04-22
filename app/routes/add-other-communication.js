@@ -44,6 +44,15 @@ module.exports = router => {
       ['communication', req.params.CRN, req.params.sessionId, 'timestamp'],
       dateTimeFrom({ date: dateString, time: timeString}).toISO()
     )
+
+    if (getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'to']) === 'Other') {
+      setDataValue(
+        req.session.data,
+        ['communication', req.params.CRN, req.params.sessionId, 'to'],
+        getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'other-to'])
+      )
+    }
+
     next()
   })
 

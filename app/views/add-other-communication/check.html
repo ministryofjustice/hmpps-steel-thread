@@ -25,7 +25,7 @@
       },
       {
         key: { text: "To" },
-        value: { text: data['communication'][CRN][sessionId]['to'] }
+        value: { text: data['communication'][CRN][sessionId]['to'] if data['communication'][CRN][sessionId]['to'] !== 'Other' else data['communication'][CRN][sessionId]['other-to'] }
       },
       {
         key: { text: "Details" },

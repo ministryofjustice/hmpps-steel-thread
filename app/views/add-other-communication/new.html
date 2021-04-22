@@ -76,6 +76,15 @@
     </div>
   </div>
 
+  {% set toOtherHtml %}
+    {{ govukInput({
+      label: {
+        text: "Recipient"
+      },
+      classes: 'govuk-!-width-two-thirds'
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'other-to'])) }}
+  {% endset %}
+
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -92,7 +101,8 @@
         value: 'Mark Berridge'
       },
       {
-        text: 'Other'
+        text: 'Other',
+        conditional: { html: toOtherHtml }
       }
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'to'])) }}
