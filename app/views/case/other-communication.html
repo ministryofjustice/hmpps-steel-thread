@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 {% set entry = data['communication'][CRN][sessionId] %}
-{% set title = entry.type + " to " + (case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to) %}
+{%- set title -%}
+  {%- if entry.to === 'Service user' -%}
+    {{ entry.type }} to {{ case.serviceUserPersonalDetails.name }}
+  {%- elif entry.to -%}
+    {{ entry.type }} to {{ entry.to }}
+  {%- else -%}
+    {{ entry.type }}
+  {%- endif -%}
+{%- endset -%}
+
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
@@ -35,7 +44,7 @@
           value: {
             text: case.serviceUserPersonalDetails.name if entry.from === 'Service user' else entry.from
           }
-        },
+        } if entry.from,
         {
           key: {
             text: "To"
@@ -43,7 +52,7 @@
           value: {
             text: case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to
           }
-        },
+        } if entry.to,
         {
           key: {
             text: "Date"

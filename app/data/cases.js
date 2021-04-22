@@ -611,7 +611,7 @@ module.exports = [
         'session-counts-towards-rar': 'No',
         'did-service-user-comply': 'Yes',
         'confirmed': true,
-        'session-notes': `Brian answered as arranged. Brian is concerned about his living arrangements as he has received a few threats. 
+        'session-notes': `Brian answered as arranged. Brian is concerned about his living arrangements as he has received a few threats.
         We discussed B's objectives and I asked him to reflect on his progress over the last few months. He thinks he is progressing well and when asked what alternatives he now uses to deal with his emotions he explained that he likes to keep himself busy and have a routine in place.`,
         'sessionId': 604
       },
@@ -1483,15 +1483,13 @@ module.exports = [
         'confirmed': true,
         'sessionId': 699
       },
-      // {
-      //   'lastUpdatedBy': 'Mark Berridge',
-      //   'type': 'Email',
-      //   'to': [],
-      //   'from': 'Mark Berridge',
-      //   'timestamp': '2021-04-14T11:55',
-      //   'contents': `After Andrei's check in appointment, I've started the interventions process for substance misuse. He was clearly under the influence when he arrived for his appointment. He was uncommunicative and sluggish and it was apparent when he arrived at the reception desk that he wouldn't be able to engage with me for the check in appointment.`,
-      //   'sessionId': 700
-      // },
+      {
+        'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Note',
+        'timestamp': '2021-04-14T11:55',
+        'contents': `After Andrei's check in appointment, I've started the interventions process for substance misuse. He was clearly under the influence when he arrived for his appointment. He was uncommunicative and sluggish and it was apparent when he arrived at the reception desk that he wouldn't be able to engage with me for the check in appointment.`,
+        'sessionId': 700
+      },
       {
         'type': 'Appointment',
         'lastUpdatedBy': 'Mark Berridge',

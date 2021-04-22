@@ -83,7 +83,7 @@
 
       {% if entry.type === 'Appointment' %}
         {% include "case/_appointment-timeline-entry.html" %}
-      {% elseif entry.type === 'Text message' or entry.type === 'Email' or entry.type === 'Phone call' %}
+      {% elseif entry.type in ['Text message', 'Email', 'Phone call', 'Note'] %}
         {% include "case/_communication-timeline-entry.html" %}
       {% endif %}
 
