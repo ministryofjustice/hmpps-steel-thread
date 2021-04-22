@@ -10,21 +10,21 @@
   classes: 'govuk-!-margin-bottom-9',
   rows: [
     {
-      key: { text: case.serviceUserPersonalDetails.firstName + " complied?" },
+      key: { text: "Complied" },
       value: { text: complianceText },
       actions: {
         items: [
           {
             href: "compliance",
             text: "Change",
-            visuallyHiddenText: "compliance"
+            visuallyHiddenText: "complied"
           }
         ]
       } if showAction
     },
     {
       key: { text: "RAR activity" },
-      value: { text: data['communication'][CRN][sessionId]['session-rar-category'] if data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes' else 'None'  },
+      value: { text: data['communication'][CRN][sessionId]['session-rar-category'] if data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes' else 'No'  },
       actions: {
         items: [
           {
