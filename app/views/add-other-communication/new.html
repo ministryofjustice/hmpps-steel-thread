@@ -107,6 +107,15 @@
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'to'])) }}
 
+  {% set fromOtherHtml %}
+    {{ govukInput({
+      label: {
+        text: "Sender"
+      },
+      classes: 'govuk-!-width-two-thirds'
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'other-from'])) }}
+  {% endset %}
+
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -123,7 +132,8 @@
         value: 'Mark Berridge'
       },
       {
-        text: 'Other'
+        text: 'Other',
+        conditional: { html: fromOtherHtml }
       }
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'from'])) }}
