@@ -1,5 +1,6 @@
 {% extends "_wizard-form.html" %}
 {% set title = 'Will this appointment count towards RAR?' %}
+{% set buttonText = 'Save and continue' %}
 
 {% block form %}
   {{ govukRadios({
@@ -23,10 +24,4 @@
       ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'session-counts-towards-rar'])) }}
 
-  {{ govukTextarea({
-    label: {
-      text: 'Add a calendar note (optional)',
-      classes: 'govuk-label--l'
-    }
-  } | decorateFormAttributes(['communication', CRN, sessionId, 'session-notes'])) }}
 {% endblock %}
