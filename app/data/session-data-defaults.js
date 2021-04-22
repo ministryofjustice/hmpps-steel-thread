@@ -10,12 +10,13 @@ const contactHistoryDefaults = (map, su) => {
 }
 
 module.exports = {
-  'provider-code': 'C17', // CPA London
+  'provider-code': 'N55', // Yorkshire and the Humber
+  'team-codes': ['N55LNG'],
   'default-teams': {
     'C17': ['C17ETE'],
-    'N07': ['N07L10']
+    'N07': ['N07L10'],
+    'N55': ['N55LNG']
   },
-  'team-codes': ['C17ETE'],
   cases: cases,
   'communication': cases.reduce(contactHistoryDefaults, {})
 }
