@@ -1,0 +1,29 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Would you like to add notes about this appointment?" %}
+{% set buttonText = 'Save and continue' %}
+
+{% block form %}
+  {{ govukRadios({
+       fieldset: {
+         legend: {
+           text: title,
+           classes: "govuk-label--xl",
+           isPageHeading: true
+         }
+       },
+       hint: {
+         html: 'Notes can also be added later'
+       },
+       items: [
+         {
+           text: 'Yes',
+           value: 'Yes'
+         },
+         {
+           text: 'No',
+           value: 'No'
+         }
+       ]
+       } | decorateFormAttributes(['communication', CRN, sessionId, 'add-notes']))
+  }}
+{% endblock %}

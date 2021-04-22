@@ -14,6 +14,8 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-a-session/${CRN}/${sessionId}/when`,
     `/arrange-a-session/${CRN}/${sessionId}/rar`,
     `/arrange-a-session/${CRN}/${sessionId}/rar-categories`,
+    `/arrange-a-session/${CRN}/${sessionId}/add-notes`,
+    `/arrange-a-session/${CRN}/${sessionId}/notes`,
     `/arrange-a-session/${CRN}/${sessionId}/check`,
     `/arrange-a-session/${CRN}/${sessionId}/confirmation`,
     `/cases/${CRN}`,
@@ -40,6 +42,12 @@ function arrangeSessionWizardForks (req) {
     {
       currentPath: `/arrange-a-session/${CRN}/${sessionId}/rar`,
       storedData: ['communication', CRN, sessionId, 'session-counts-towards-rar'],
+      values: ['No'],
+      forkPath: `/arrange-a-session/${CRN}/${sessionId}/add-notes`
+    },
+    {
+      currentPath: `/arrange-a-session/${CRN}/${sessionId}/add-notes`,
+      storedData: ['communication', CRN, sessionId, 'add-notes'],
       values: ['No'],
       forkPath: `/arrange-a-session/${CRN}/${sessionId}/check`
     },
