@@ -20,7 +20,9 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/notes`,
     `${basePath}/check`,
     `${basePath}/confirmation`,
-    `/arrange-a-session/${CRN}/start`
+    `/arrange-a-session/${CRN}/start`,
+    `/cases/${CRN}/communication/add`,
+    `/confirm-attendance/${CRN}`
   ]
 
   return nextAndBackPaths(paths, req)

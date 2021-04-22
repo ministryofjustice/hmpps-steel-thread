@@ -1,0 +1,27 @@
+{% extends "_wizard-form.html" %}
+{% set title = "When was the appointment?" %}
+{% set buttonText = 'Save and continue' %}
+
+{% block form %}
+  {% set appointmentRadioItems = [] %}
+
+  {% for appointment in previousAppointmentsWithoutOutcomes(CRN, data) %}
+    {% set appointmentRadioItems = (appointmentRadioItems.push({
+      text: appointment['type-of-session'] + ' – ' + appointment['session-date'] | dateWithDayAndWithoutYear +
+              ' from ' + appointment['session-start-time'] + ' to ' + appointment['session-end-time'],
+      value: appointment.sessionId
+    }), appointmentRadioItems) %}
+  {% endfor %}
+
+  {{ govukRadios({
+       fieldset: {
+         legend: {
+           text: title,
+           classes: "govuk-label--xl",
+           isPageHeading: true
+         }
+       },
+       items: appointmentRadioItems
+       } | decorateFormAttributes(['confirm-attendance', CRN, 'appointment-to-confirm']))
+  }}
+{% endblock %}

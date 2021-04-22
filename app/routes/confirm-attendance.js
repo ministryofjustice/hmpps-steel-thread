@@ -1,3 +1,5 @@
+const { getDataValue } = require('../utils/helpers')
+
 const {
   confirmAttendanceWizardPaths,
   confirmAttendanceWizardForks
@@ -16,6 +18,17 @@ module.exports = router => {
     })
     next()
   })
+
+  router.get('/confirm-attendance/:CRN', function (req, res) {
+    res.locals.CRN = req.params.CRN
+    res.render(`confirm-attendance/index`, { paths: confirmAttendanceWizardPaths(req) })
+  })
+
+  router.post('/confirm-attendance/:CRN', function (req, res) {
+    const sessionId = getDataValue(req.session.data, ['confirm-attendance', req.params.CRN, 'appointment-to-confirm'])
+    res.redirect(`/confirm-attendance/${req.params.CRN}/${sessionId}`)
+  })
+
 
   router.get('/confirm-attendance/:CRN/:sessionId/:view', function (req, res) {
     res.render(`confirm-attendance/${req.params.view}`, { paths: confirmAttendanceWizardPaths(req) })
