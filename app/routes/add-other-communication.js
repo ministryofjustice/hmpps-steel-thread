@@ -5,7 +5,8 @@ const {
 } = require('../utils/helpers')
 
 const {
-  dateTimeFrom
+  dateTimeFrom,
+  today
 } = require('../../lib/helpers')
 
 const {
@@ -27,34 +28,22 @@ module.exports = router => {
   })
 
   router.get('/add-other-communication/:CRN/:sessionId/confirmation', (req, res, next) => {
-    setDataValue(req.session.data,
-      [
-        'communication',
-        req.params.CRN,
-        req.params.sessionId,
-        'confirmed'
-      ], true)
+    setDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'confirmed'], true)
 
-    const dateString = getDataValue(req.session.data, [
-      'communication',
-      req.params.CRN,
-      req.params.sessionId,
-      'date'
-    ])
-    const timeString = getDataValue(req.session.data, [
-      'communication',
-      req.params.CRN,
-      req.params.sessionId,
-      'time'
-    ])
+    const typeOfDate = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'type-of-date'])
+    var dateString
+    if (typeOfDate === 'Today') {
+      dateString = today()
+    } else {
+      dateString = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'date'])
+    }
+    const timeString = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'time'])
 
-    setDataValue(req.session.data,
-      [
-        'communication',
-        req.params.CRN,
-        req.params.sessionId,
-        'timestamp'
-      ], dateTimeFrom({ date: dateString, time: timeString}).toISO())
+    setDataValue(
+      req.session.data,
+      ['communication', req.params.CRN, req.params.sessionId, 'timestamp'],
+      dateTimeFrom({ date: dateString, time: timeString}).toISO()
+    )
     next()
   })
 

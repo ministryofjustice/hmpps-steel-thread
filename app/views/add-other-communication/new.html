@@ -17,6 +17,29 @@
 
   {% set whenLegendText = ('When was the ' + label + '?') if label === 'phone call' else 'When did the ' + label + ' arrive?' %}
 
+  {% set otherDayHTML %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          Date
+        </legend>
+        <div class="govuk-date-input">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <input
+                class="govuk-input govuk-date-input__input"
+                type="date"
+                id="[communication][{{CRN}}][{{sessionId}}][date]"
+                name="[communication][{{CRN}}][{{sessionId}}][date]"
+                value="{{ data['communication'][CRN][sessionId]['date'] }}"
+                placeholder="DD/MM/YYYY">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  {% endset %}
+
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -26,11 +49,14 @@
     },
     items: [
       {
-        text: "Today",
-        value: '2021-04-21'
+        text: "Today"
+      },
+      {
+        text: 'On another day',
+        conditional: { html: otherDayHTML }
       }
     ]
-  } | decorateFormAttributes(['communication', CRN, sessionId, 'date'])) }}
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-date'])) }}
 
   <div class="govuk-form-group app-time-autocomplete">
     <div class="autocomplete">

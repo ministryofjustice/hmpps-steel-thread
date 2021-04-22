@@ -13,7 +13,7 @@
       },
       {
         key: { text: "Date" },
-        value: { text: data['communication'][CRN][sessionId]['date'] | dateWithYear }
+        value: { text: today() | dateWithYear if data['communication'][CRN][sessionId]['type-of-date'] === 'Today' else data['communication'][CRN][sessionId]['date'] | dateWithYear  }
       },
       {
         key: { text: "Time" },
