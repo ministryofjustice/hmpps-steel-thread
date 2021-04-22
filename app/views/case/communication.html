@@ -78,8 +78,7 @@
 
     {% set hr = joiner('<hr>') %}
     {% for entry in communicationEntries(CRN, data, {category: category}) %}
-
-      {{ hr() | safe }}
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
       {% if entry.type === 'Appointment' %}
         {% include "case/_appointment-timeline-entry.html" %}

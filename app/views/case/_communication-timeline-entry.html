@@ -1,12 +1,11 @@
-<h3 class="govuk-heading-s">
+<h3 class="govuk-heading-m">
   <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
     {{ entry.type }}
     {% if entry.to %}
     to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to }}
     {% endif %}
   </a>
-  <br>
-  <div class="govuk-!-margin-top-1">
+  <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
   {{ entry.timestamp | dateWithYear }}
   </div>
 </h3>

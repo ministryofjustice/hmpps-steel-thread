@@ -1,7 +1,5 @@
-<h3 class="govuk-heading-s">
-  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">
-    {{ entry['type-of-session'] }}
-  </a>
+<h3 class="govuk-heading-m">
+  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }}</a>
 
   {% if entry['session-counts-towards-rar'] === 'Yes' %}
     {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
@@ -14,9 +12,8 @@
   {% elseif entry['did-service-user-comply'] === 'Absent' %}
     {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
   {% endif %}
-  <br>
 
-  <div class="govuk-!-margin-top-1">
+  <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
     {{ entry['session-date'] | dateWithYear }} from {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
     {% if entry.repeat === 'Yes' %}
       {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
@@ -49,17 +46,17 @@
 {% set hasAppointmentTimePassed = isInThePast({date: entry['session-date'], time: entry['session-end-time']}) %}
 {% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentTimePassed %}
 
-{% if entry['session-notes'] or shouldPromptToConfirmAttendance %}
-  <div class="note-panel">
-    {% if shouldPromptToConfirmAttendance  %}
-      {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
-    {% endif %}
+{% if shouldPromptToConfirmAttendance  %}
+  {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
+{% endif %}
 
-    {% set truncatedContents = entry['session-notes'] | truncate(300) %}
-    {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
-    <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
-    {% if isTruncated %}
-      <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">View full details</a>
-    {% endif %}
-  </div>
+{% if entry['session-notes'] %}
+<div class="note-panel">
+  {% set truncatedContents = entry['session-notes'] | truncate(300) %}
+  {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
+  <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
+  {% if isTruncated %}
+    <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">View full details</a>
+  {% endif %}
+</div>
 {% endif %}
