@@ -2,6 +2,7 @@ const path = require('path')
 const helpers = require(path.join(__dirname, '../../lib/helpers.js'))
 
 module.exports = [
+  // Dylan
   {
     'serviceUserPersonalDetails': {
       'name': 'Dylan Adam Armstrong',
@@ -149,23 +150,23 @@ module.exports = [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -175,8 +176,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -186,30 +187,30 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       }
     ],
@@ -345,6 +346,7 @@ module.exports = [
       }
     ]
   },
+  // Brian
   {
     'serviceUserPersonalDetails': {
       'name': 'Brian Wilson',
@@ -396,7 +398,7 @@ module.exports = [
     'PNC': '2015/0292174J',
     'CRN': 'E577913',
     'currentOrder': {
-      'type': 'ORA Suspended Sentence Order (24 Months)',
+      'type': 'Suspended Sentence Order (24 Months)',
       'description': 'Breach of Sexual Offences Prevention Order (Sex Offs Act 2003) [incl Breaches of Sex Offender Order (C&D Act 1998) & Restraining Order (prior to SOA 2003)] - 06608',
       'lengthInMonths': 24,
       'progressInMonths': 17,
@@ -556,10 +558,10 @@ module.exports = [
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': helpers.today({atTime: '10:00'}),
+        'timestamp': helpers.today({atTime: '10:30'}),
         'session-date': helpers.today(),
-        'session-start-time': '10am',
-        'session-end-time': '11am',
+        'session-start-time': '10:30am',
+        'session-end-time': '11:00am',
         'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'Yes',
         'session-rar-category': 'TSP (Thinking Skills)',
@@ -647,6 +649,7 @@ module.exports = [
       }
     ]
   },
+  // Spencer
   {
     'serviceUserPersonalDetails': {
       'name': 'Spencer Gil',
@@ -698,8 +701,8 @@ module.exports = [
       'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: helpers.happenedOn({daysAgo: '3'})}),
       'offenceDate': '2021-01-03',
       'convictionDate': helpers.happenedOn({daysAgo: '3'}),
-      'court': 'Leeds Crown Court',
-      'responsibleCourt': 'Leeds Crown Court',
+      'court': "Leeds Magistrates' Court",
+      'responsibleCourt': "Leeds Magistrates' Court",
       'requirements': {
         'rar': {
           'type': 'Rehabilitation Activity Requirement (RAR)',
@@ -744,12 +747,8 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to themselves',
-        class: 'red'
-      },
-      {
-        text: 'Risk to children',
-        class: 'red'
+        text: 'Risk to public',
+        class: 'orange'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -760,23 +759,23 @@ module.exports = [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -786,41 +785,41 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       }
     ],
@@ -839,7 +838,7 @@ module.exports = [
         'timestamp': helpers.today({ atTime: '16:00' }),
         'session-date': helpers.today(),
         'session-start-time': '9:30am',
-        'session-end-time': '10:30am',
+        'session-end-time': '10:00am',
         'session-counts-towards-rar': 'No',
         'type-of-session': 'Office visit',
         'repeating': 'No, it’s a one-off appointment',
@@ -849,6 +848,7 @@ module.exports = [
       }
     ]
   },
+  // Gary
   {
     'serviceUserPersonalDetails': {
       'name': 'Gary Hart',
@@ -910,7 +910,7 @@ module.exports = [
     'PNC': 'BC34587',
     'CRN': '493227',
     'currentOrder': {
-      'type': 'ORA Suspended Sentence Order',
+      'type': 'Suspended Sentence Order',
       'description': 'Common assault and battery (Criminal Law Act/CJ and Public Order Act) - 10501',
       'lengthInMonths': 12,
       'progressInMonths': 6,
@@ -927,9 +927,9 @@ module.exports = [
           'lengthInDays': 15,
           'progressInDays': 3
         },
-        'fine': {
-          'type': 'Alcohol treatment requirement',
-          'value': null
+        'ap': {
+          'type': 'Accredited Programme ',
+          'value': 'Building Building Relationships'
         }
       },
       'courtDocuments': [
@@ -968,8 +968,16 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
+        text: 'Risk to children',
+        class: 'orange'
+      },
+      {
         text: 'Risk to known adults',
-        class: 'red'
+        class: 'orange'
+      },
+      {
+        text: 'Risk to public',
+        class: 'orange'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -980,12 +988,12 @@ module.exports = [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -995,8 +1003,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -1006,8 +1014,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -1017,30 +1025,30 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       }
     ],
@@ -1063,7 +1071,7 @@ module.exports = [
         'timestamp': helpers.today({ atTime: '10:00' }),
         'session-date': helpers.today(),
         'session-start-time': '10am',
-        'session-end-time': '11am',
+        'session-end-time': '10:30am',
         'session-counts-towards-rar': 'No',
         'type-of-session': 'Office visit',
         'repeating': 'No, it’s a one-off session',
@@ -1256,6 +1264,7 @@ module.exports = [
       }
     ]
   },
+  // Andrei
   {
     'serviceUserPersonalDetails': {
       'name': 'Andrei Edwards',
@@ -1316,7 +1325,7 @@ module.exports = [
     'PNC': '2021/156400000G',
     'CRN': 'H6785129',
     'currentOrder': {
-      'type': 'ORA Community Order (12 Months)',
+      'type': 'Community Order (12 Months)',
       'description': 'Use threatening / abusive / insulting words / behaviour with intent to cause fear of / provoke unlawful violence',
       'lengthInMonths': 12,
       'progressInMonths': 1,
@@ -1377,10 +1386,10 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Risk to known adults',
-        class: 'red'
+        class: 'orange'
       },
       {
-        text: 'Risk to themselves',
+        text: 'Risk to public',
         class: 'orange'
       }
     ],
@@ -1392,67 +1401,67 @@ module.exports = [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
-          text: 'High',
-          class: 'red'
+          text: 'Medium',
+          class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
-          text: 'High',
-          class: 'red'
+          text: 'Medium',
+          class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
+          text: 'Low',
+          class: 'green'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       }
     ],
@@ -1471,10 +1480,10 @@ module.exports = [
       {
         'type': 'Appointment',
         'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': helpers.today({ atTime: '15:30' }),
+        'timestamp': helpers.today({ atTime: '11:00' }),
         'session-date': helpers.today(),
-        'session-start-time': '3:30pm',
-        'session-end-time': '4:30pm',
+        'session-start-time': '11:00am',
+        'session-end-time': '11:30am',
         'session-counts-towards-rar': 'Yes',
         'session-rar-category': 'TSP (Thinking Skills)',
         'session-rar-subcategory': 'TSP (Thinking Skills)',
@@ -1502,7 +1511,9 @@ module.exports = [
         'did-service-user-comply': 'No',
         'repeating': 'No, it’s a one-off session',
         'confirmed': true,
-        'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.`,
+        'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.
+        
+        Verbal warning given on this occasion.`,
         'sessionId': 701
       },
       {
