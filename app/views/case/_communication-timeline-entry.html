@@ -1,6 +1,9 @@
 <h3 class="govuk-heading-s">
   <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
-    {{ entry.type }} to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to }}
+    {{ entry.type }}
+    {% if entry.to %}
+    to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to }}
+    {% endif %}
   </a>
   <br>
   <div class="govuk-!-margin-top-1">
@@ -8,6 +11,7 @@
   </div>
 </h3>
 
+{% if entry.from or entry.to %}
 <dl class="app-card__one-third-column-list">
   <div class="app-card__one-third-column-list-item">
     <dt class="app-card__one-third-column-list-key">
@@ -26,6 +30,7 @@
     </dd>
   </div>
 </dl>
+{% endif %}
 
 <div class="note-panel">
   {% set truncatedContents = entry.contents | truncate(300) %}
