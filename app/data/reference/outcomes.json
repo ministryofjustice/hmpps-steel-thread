@@ -119,6 +119,46 @@
     "compliantAcceptable": "Y",
     "description": "Suspended"
   },
+  "POLY01": {
+    "attended": null,
+    "compliantAcceptable": null,
+    "description": "PG - Not Suitable for Polygraph"
+  },
+  "POLY02": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "PG - Deception Indicated"
+  },
+  "POLY03": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "PG - Deception Not Indicated"
+  },
+  "POLY04": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "PG - Attempted to trick polygraph"
+  },
+  "POLY05": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "PG - Refused Polygraph"
+  },
+  "POLY06": {
+    "attended": "Y",
+    "compliantAcceptable": "N",
+    "description": "PG - Failed to co-operate"
+  },
+  "POLY07": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "PG - Test Terminated: NPS Responsible"
+  },
+  "POLY08": {
+    "attended": "Y",
+    "compliantAcceptable": "Y",
+    "description": "PG - Invalid polygraph result"
+  },
   "RSOF": {
     "attended": "N",
     "compliantAcceptable": "Y",
