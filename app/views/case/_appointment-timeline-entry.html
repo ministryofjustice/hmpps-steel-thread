@@ -43,8 +43,8 @@
 </dl>
 
 {% set hasAttendanceAlreadyBeenConfirmed = not not entry['did-service-user-comply'] %}
-{% set hasAppointmentTimePassed = isInThePast({date: entry['session-date'], time: entry['session-end-time']}) %}
-{% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentTimePassed %}
+{% set hasAppointmentStartTimePassed = isInThePast({date: entry['session-date'], time: entry['session-start-time']}) %}
+{% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentStartTimePassed %}
 
 {% if shouldPromptToConfirmAttendance  %}
   {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
