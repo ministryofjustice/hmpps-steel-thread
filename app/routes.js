@@ -6,6 +6,7 @@ const router = express.Router()
 require('./routes/cases')(router)
 require('./routes/arrange-a-session')(router)
 require('./routes/confirm-attendance')(router)
+require('./routes/add-other-communication')(router)
 
 router.get('/switch-provider/:newProvider', function (req, res) {
   const newProvider = req.params['newProvider']

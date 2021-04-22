@@ -108,3 +108,6 @@ if (document.getElementById('session-start-time')) {
 if (document.getElementById('session-end-time')) {
   autocomplete(document.getElementById('session-end-time'), times)
 }
+if (document.getElementById('other-communication-time')) {
+  autocomplete(document.getElementById('other-communication-time'), times)
+}

@@ -15,6 +15,15 @@ module.exports = router => {
     res.render('case/index')
   })
 
+  router.get('/cases/:CRN/communication/add', (req, res) => {
+    res.render('case/add-communication')
+  })
+
+  router.post('/cases/:CRN/communication/add', (req, res) => {
+    const typeOfOtherComms = req.session.data['add-communication'][req.params.CRN]['type-of-new-other-communication']
+    res.redirect(`/add-other-communication/${req.params.CRN}/new?type=${typeOfOtherComms}`)
+  })
+
   router.all('/cases/:CRN/communication/:category', function (req, res) {
     res.locals.category = req.params.category
     res.render('case/communication')
