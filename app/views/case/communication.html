@@ -10,11 +10,11 @@
 {% include "case/_case-nav.html" %}
 
 {% set categoryLabel %}
-  {% if category === 'upcoming' %}
+  {% if category === 'upcoming-appointments' %}
     Upcoming appointments
-  {% elif category === 'previous' %}
+  {% elif category === 'previous-appointments' %}
     Previous appointments
-  {% elif category === 'other' %}
+  {% elif category === 'other-communication' %}
     Other communication
   {% else %}
     All communication
@@ -48,24 +48,24 @@
         <li>
           <ul class="govuk-list govuk-!-margin-left-2">
             <li>
-              {% if category === 'upcoming' %}
+              {% if category === 'upcoming-appointments' %}
                 <strong>Upcoming appointments</strong>
               {% else %}
-                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/upcoming">Upcoming appointments</a>
+                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/upcoming-appointments">Upcoming appointments</a>
               {% endif %}
             </li>
             <li>
-              {% if category === 'previous' %}
+              {% if category === 'previous-appointments' %}
                 <strong>Previous appointments</strong>
               {% else %}
-                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/previous">Previous appointments</a>
+                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/previous-appointments">Previous appointments</a>
               {% endif %}
             </li>
             <li>
-              {% if category === 'other' %}
+              {% if category === 'other-communication' %}
                 <strong>Other communication</strong>
               {% else %}
-                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/other">Other communication</a>
+                <a class="govuk-link--no-visited-state" href="/cases/{{ CRN }}/communication/other-communication">Other communication</a>
               {% endif %}
             </li>
           </ul>
