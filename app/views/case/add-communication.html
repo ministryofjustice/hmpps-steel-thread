@@ -8,6 +8,25 @@
 {% endblock %}
 
 {% block form %}
+  {% set otherCommunicationHTML %}
+    {{ govukRadios({
+      items: [
+        {
+          text: "Phone call",
+          value: 'phonecall'
+        },
+        {
+          text: "Text message",
+          value: 'text'
+        },
+        {
+          text: "Email",
+          value: 'email'
+        }
+      ]
+    } | decorateFormAttributes(['add-communication', CRN, 'type-of-new-other-communication'])) }}
+  {% endset %}
+
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -18,18 +37,14 @@
     },
     items: [
       {
-        text: "Phone call",
-        value: 'phonecall'
-      },
+        text: "Appointment attendance",
+        value: 'confirm-attendance'
+      } if previousAppointmentsWithoutOutcomes(CRN, data).length > 0,
       {
-        text: "Text message",
-        value: 'text'
-      },
-      {
-        text: "Email",
-        value: 'email'
+        text: "Other communication",
+        value: 'other',
+        conditional: { html: otherCommunicationHTML }
       }
     ]
-  } | decorateFormAttributes(['add-communication', CRN, 'type-of-new-other-communication'])) }}
-
+  } | decorateFormAttributes(['add-communication', CRN, 'type-of-thing-to-add'])) }}
 {% endblock %}
