@@ -97,7 +97,7 @@
       } if showAction
     } if session.summary.rarCategory,
     {
-      key: { text: "Counts towards RAR?" },
+      key: { text: "RAR activity" },
       value: { text: 'Yes' if session.summary.countsTowardsRAR else 'No' },
       actions: {
         items: [
@@ -110,14 +110,14 @@
       } if showAction
     } if not session.summary.countsTowardsRAR,
     {
-      key: { text: "Calendar note" },
+      key: { text: "Appointment notes" },
       value: { text: data['communication'][CRN][sessionId]['session-notes'] or 'None' },
       actions: {
         items: [
           {
             href: arrangeSessionPath + "/rar",
             text: "Change",
-            visuallyHiddenText: "calendar note"
+            visuallyHiddenText: "appointment notes"
           }
         ]
       } if showAction
