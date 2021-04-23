@@ -64,7 +64,7 @@ function confirmAttendanceWizardForks (req) {
     {
       currentPath: `${basePath}/add-notes`,
       storedData: ['communication', CRN, sessionId, 'add-notes'],
-      values: ['No'],
+      values: ['No (notes can be added later)'],
       forkPath: `${basePath}/check`
     }
   ]
