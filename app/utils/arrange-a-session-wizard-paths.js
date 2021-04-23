@@ -48,7 +48,7 @@ function arrangeSessionWizardForks (req) {
     {
       currentPath: `/arrange-a-session/${CRN}/${sessionId}/add-notes`,
       storedData: ['communication', CRN, sessionId, 'add-notes'],
-      values: ['No'],
+      values: ['No (notes can be added later)'],
       forkPath: `/arrange-a-session/${CRN}/${sessionId}/check`
     },
     {
