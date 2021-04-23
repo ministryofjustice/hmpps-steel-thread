@@ -20,8 +20,13 @@ module.exports = router => {
   })
 
   router.post('/cases/:CRN/communication/add', (req, res) => {
-    const typeOfOtherComms = req.session.data['add-communication'][req.params.CRN]['type-of-new-other-communication']
-    res.redirect(`/add-other-communication/${req.params.CRN}/new?type=${typeOfOtherComms}`)
+    const typeOfThingToAdd = req.session.data['add-communication'][req.params.CRN]['type-of-thing-to-add']
+    if (typeOfThingToAdd === 'confirm-attendance') {
+      res.redirect(`/confirm-attendance/${req.params.CRN}`)
+    } else {
+      const typeOfOtherComms = req.session.data['add-communication'][req.params.CRN]['type-of-new-other-communication']
+      res.redirect(`/add-other-communication/${req.params.CRN}/new?type=${typeOfOtherComms}`)
+    }
   })
 
   router.all('/cases/:CRN/communication/:category', function (req, res) {
