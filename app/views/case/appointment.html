@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set entry = data['communication'][CRN][sessionId] %}
-{% set appointmentType = 'previous' if isInThePast({date: entry['session-date'], time: entry['session-end-time']}) else 'upcoming' %}
+{% set appointmentType = 'previous' if isInThePast({date: entry['session-date'], time: entry['session-start-time']}) else 'upcoming' %}
 {% set title = entry['type-of-session'] + ' details' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
