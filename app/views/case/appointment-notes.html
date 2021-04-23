@@ -1,0 +1,28 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Edit appointment notes" %}
+{% set buttonText = 'Save' %}
+
+{% block pageNavigation %}
+  {{ govukBackLink({href: '/cases/' + CRN + '/appointments/' + sessionId}) }}
+{% endblock %}
+
+{% block form %}
+  <div class="govuk-form-group">
+
+    {{ govukTextarea({
+      name: "notes",
+      id: "notes",
+      label: {
+        text: title,
+        classes: "govuk-label--xl",
+        isPageHeading: true
+      },
+      rows: 10
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'session-notes'])) }}
+
+  </div>
+
+  <p class="govuk-hint">
+    This will be updated on the NDelius contact log.
+  </p>
+{% endblock %}

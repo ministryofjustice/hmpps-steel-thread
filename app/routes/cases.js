@@ -39,6 +39,15 @@ module.exports = router => {
     res.render('case/appointment')
   })
 
+  router.get('/cases/:CRN/appointments/:sessionId/notes', function (req, res) {
+    res.locals.sessionId = req.params.sessionId
+    res.render('case/appointment-notes')
+  })
+
+  router.post('/cases/:CRN/appointments/:sessionId/notes', function (req, res) {
+    res.redirect(`/cases/${req.params.CRN}/appointments/${req.params.sessionId}`)
+  })
+
   router.all('/cases/:CRN/other-communication/:sessionId', function (req, res) {
     res.locals.sessionId = req.params.sessionId
     res.render('case/other-communication')

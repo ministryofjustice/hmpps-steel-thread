@@ -52,6 +52,7 @@
 
     {% set showAction = false %}
     {% set hideNotes = isOutcomeRecorded %}
+    {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
     {% include 'arrange-a-session/_session-details.html' %}
 
     {% if appointmentType === 'upcoming' %}
