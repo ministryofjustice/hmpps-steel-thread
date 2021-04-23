@@ -16,4 +16,13 @@ router.get('/switch-provider/:newProvider', function (req, res) {
   res.redirect('/cases')
 })
 
+router.get('/unhide/:CRN', function (req, res) {
+  const entry = req.session.data.cases.find(obj => {
+    return obj.CRN === req.params.CRN
+  })
+
+  entry.hidden = false
+  res.redirect('/cases')
+})
+
 module.exports = router

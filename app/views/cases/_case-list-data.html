@@ -15,7 +15,7 @@
       </thead>
 
       <tbody class="govuk-table__body">
-        {% for case in data.cases %}
+        {% for case in allVisibleCases(data) %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <a href="{% if case.CRN %}/cases/{{ case.CRN }}{% else %}#{% endif %}" class="govuk-link govuk-link--no-visited-state">

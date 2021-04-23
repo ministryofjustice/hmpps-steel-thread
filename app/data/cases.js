@@ -850,6 +850,7 @@ module.exports = [
   },
   // Gary
   {
+    'hidden': true,
     'serviceUserPersonalDetails': {
       'name': 'Gary Hart',
       'firstName': 'Gary',
@@ -1512,7 +1513,7 @@ module.exports = [
         'repeating': 'No, it’s a one-off session',
         'confirmed': true,
         'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.
-        
+
         Verbal warning given on this occasion.`,
         'sessionId': 701
       },
