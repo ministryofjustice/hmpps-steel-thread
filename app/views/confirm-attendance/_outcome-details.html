@@ -56,12 +56,12 @@
       actions: {
         items: [
           {
-            href: "notes",
+            href: notesEditPath or "notes",
             text: "Change",
             visuallyHiddenText: "appointment notes"
           }
         ]
-      } if showAction
+      } if showAction or notesEditPath
     },
     {
       key: { text: "Uploaded files" },

@@ -115,12 +115,12 @@
       actions: {
         items: [
           {
-            href: arrangeSessionPath + "/notes",
+            href: notesEditPath or (arrangeSessionPath + "/notes"),
             text: "Change",
             visuallyHiddenText: "appointment notes"
           }
         ]
-      } if showAction
+      } if showAction or notesEditPath
     } if not hideNotes
   ]
   }) }}
