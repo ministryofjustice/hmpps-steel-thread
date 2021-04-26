@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set title = "Sign in" %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">Sign in</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/cases" method="post" class="form">
+      {{ govukInput({
+        label: {
+          text: "First name",
+          classes: "govuk-label--s"
+        }
+      } | decorateFormAttributes(['user', 'first-name'])) }}
+
+      {{ govukInput({
+        label: {
+          text: "Last name",
+          classes: "govuk-label--s"
+        }
+      } | decorateFormAttributes(['user', 'last-name'])) }}
+
+      {{ govukInput({
+        label: {
+          text: "Team",
+          classes: "govuk-label--s"
+        }
+      } | decorateFormAttributes(['user', 'team'])) }}
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

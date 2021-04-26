@@ -99,7 +99,7 @@
       },
       {
         text: 'You',
-        value: 'Mark Berridge'
+        value: userName(data)
       },
       {
         text: 'Other',
@@ -130,7 +130,7 @@
       },
       {
         text: 'You',
-        value: 'Mark Berridge'
+        value: userName(data)
       },
       {
         text: 'Other',
@@ -147,7 +147,7 @@
   } | decorateFormAttributes(['communication', CRN, sessionId, 'contents'])) }}
 
   <input type="hidden" id="type" name="[communication][{{ CRN }}][{{ sessionId }}][type]" value="{{ label | capitalize }}">
-  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="Mark Berridge">
+  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="{{ userName(data) }}">
   <input type="hidden" id="sessionId" name="[communication][{{ CRN }}][{{ sessionId }}][sessionId]" value="{{ sessionId }}">
 
 {% endblock %}
