@@ -245,7 +245,7 @@ module.exports = [
         'from': 'Service user',
         'to': 'Mark Berridge',
         'timestamp': '2021-04-11T13:00',
-        'contents': 'Hi Mark, got the email. I’ll be there. D.',
+        'contents': 'Hi, got the email. I’ll be there. D.',
         'sessionId': 987
       },
       {
@@ -269,8 +269,7 @@ module.exports = [
 
         I’m writing to enquire after Dylan and confirm he is settled in his new room? I have written to him about his non compliance in our last meeting and need to confirm that the letter has reached him?
 
-        Cheers,
-        Mark`,
+        Thanks`,
         'sessionId': 985
       },
       {
@@ -296,7 +295,7 @@ module.exports = [
         'from': 'Jane Goodhall',
         'to': 'Mark Berridge',
         'timestamp': '2021-03-12T13:00',
-        'contents': `Dear Mark,
+        'contents': `Hello,
 
         Thanks for your email, I’ve received Dylan’s request and we have a room available on the ground floor coming available on the 19th of March.
 
@@ -314,8 +313,7 @@ module.exports = [
 
         I’m writing to confirm that you have received my application on behalf of Dylan to change the room he has been allocated at the hostel. He now has part time work with very early shifts and is struggling with some of the noisier occupants on his floor.
 
-        Thanks in advance,
-        Mark`,
+        Thanks in advance`,
         'sessionId': 982
       },
       {
@@ -589,7 +587,7 @@ module.exports = [
         'from': 'Mark Berridge',
         'to': 'Service user',
         'timestamp': '2021-04-06T12:23',
-        'contents': 'Hi Brian - it was good to speak today. To confirm, your next probation appointment is by telephone on 7th April 2021 at 10:00. I will call you. Telephone appointments are mandatory and enforceable. Many thanks, Mark',
+        'contents': 'Hi Brian - it was good to speak today. To confirm, your next probation appointment is by telephone on 7th April 2021 at 10:00. I will call you. Telephone appointments are mandatory and enforceable. Many thanks',
         'sessionId': 602
       },
       {
@@ -598,7 +596,7 @@ module.exports = [
         'from': 'Mark Berridge',
         'to': 'Social Services',
         'timestamp': '2021-04-06T10:27',
-        'contents': `I have tried to call you today regarding Brian Wilson. Could you give me a call back please when you can to for an update on the case. Kind regards, Mark`,
+        'contents': `I have tried to call you today regarding Brian Wilson. Could you give me a call back please when you can to for an update on the case. Kind regards`,
         'sessionId': 603
       },
       {
