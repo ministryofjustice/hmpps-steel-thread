@@ -2,7 +2,7 @@
   <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
     {{ entry.type }}
     {% if entry.to %}
-    to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to }}
+    to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
     {% endif %}
   </a>
   <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
@@ -17,7 +17,7 @@
       From
     </dt>
     <dd class="app-card__one-third-column-list-value">
-      {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else entry.from }}
+      {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
     </dd>
   </div>
   <div class="app-card__one-third-column-list-item">
@@ -25,7 +25,7 @@
      To
     </dt>
     <dd class="app-card__one-third-column-list-value">
-      {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to }}
+      {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
     </dd>
   </div>
 </dl>

@@ -245,7 +245,7 @@ module.exports = [
         'from': 'Service user',
         'to': 'Mark Berridge',
         'timestamp': '2021-04-11T13:00',
-        'contents': 'Hi Mark, got the email. I’ll be there. D.',
+        'contents': 'Hi, got the email. I’ll be there. D.',
         'sessionId': 987
       },
       {
@@ -269,8 +269,7 @@ module.exports = [
 
         I’m writing to enquire after Dylan and confirm he is settled in his new room? I have written to him about his non compliance in our last meeting and need to confirm that the letter has reached him?
 
-        Cheers,
-        Mark`,
+        Thanks`,
         'sessionId': 985
       },
       {
@@ -296,7 +295,7 @@ module.exports = [
         'from': 'Jane Goodhall',
         'to': 'Mark Berridge',
         'timestamp': '2021-03-12T13:00',
-        'contents': `Dear Mark,
+        'contents': `Hello,
 
         Thanks for your email, I’ve received Dylan’s request and we have a room available on the ground floor coming available on the 19th of March.
 
@@ -314,8 +313,7 @@ module.exports = [
 
         I’m writing to confirm that you have received my application on behalf of Dylan to change the room he has been allocated at the hostel. He now has part time work with very early shifts and is struggling with some of the noisier occupants on his floor.
 
-        Thanks in advance,
-        Mark`,
+        Thanks in advance`,
         'sessionId': 982
       },
       {
@@ -589,7 +587,7 @@ module.exports = [
         'from': 'Mark Berridge',
         'to': 'Service user',
         'timestamp': '2021-04-06T12:23',
-        'contents': 'Hi Brian - it was good to speak today. To confirm, your next probation appointment is by telephone on 7th April 2021 at 10:00. I will call you. Telephone appointments are mandatory and enforceable. Many thanks, Mark',
+        'contents': 'Hi Brian - it was good to speak today. To confirm, your next probation appointment is by telephone on 7th April 2021 at 10:00. I will call you. Telephone appointments are mandatory and enforceable. Many thanks',
         'sessionId': 602
       },
       {
@@ -598,7 +596,7 @@ module.exports = [
         'from': 'Mark Berridge',
         'to': 'Social Services',
         'timestamp': '2021-04-06T10:27',
-        'contents': `I have tried to call you today regarding Brian Wilson. Could you give me a call back please when you can to for an update on the case. Kind regards, Mark`,
+        'contents': `I have tried to call you today regarding Brian Wilson. Could you give me a call back please when you can to for an update on the case. Kind regards`,
         'sessionId': 603
       },
       {
@@ -916,7 +914,7 @@ module.exports = [
       'lengthInMonths': 12,
       'progressInMonths': 6,
       'startDate': '2020-10-19',
-      'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: '2020-10-19'}),
+      'endDate': helpers.sentenceEndDate({ lengthInMonths: 12, startDate: '2020-10-19' }),
       'offenceDate': '2020-01-02',
       'convictionDate': '2020-03-03',
       'court': "Sheffield Magistrates' Court",
@@ -1068,7 +1066,7 @@ module.exports = [
     'contactHistory': [
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'timestamp': helpers.today({ atTime: '14:30' }),
         'session-date': helpers.today(),
         'session-start-time': '2:30pm',
@@ -1094,7 +1092,7 @@ module.exports = [
         'repeating': 'No, it’s a one-off appointment',
         'confirmed': true,
         'did-service-user-comply': 'Yes',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'session-notes': `Gary has managed to pay off his gambling debt sooner than he expected by taking on some overtime at work. He seems really delighted with the progress. We discussed methods on how to not accumulate debt from now on and that his next goal was to start saving for a flat.
 
         His alcohol consumption has reduced however he still struggles when out with his mates. We moved on to another are to help focus on this by
@@ -1106,7 +1104,7 @@ module.exports = [
       },
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'timestamp': '2021-01-11T10:00',
         'session-date': '2021-01-11',
         'session-start-time': '10am',
@@ -1126,7 +1124,7 @@ module.exports = [
       {
         'type': 'Phone call',
         'from': 'Service user',
-        'to': 'Mark Berridge',
+        'to': 'Sally Smith',
         'timestamp': '2021-01-04T13:00',
         'contents': `Phone call from Gary to double check when his next appointment was, we talked briefly about how his Christmas and new year had been. He mentioned that he got quite drunk and had an argument with his ex partner Shelly over the phone. He admitted that he had gone to her home and shouted outside the door and the police were called but Shelly refused to press charges. This matched the Reportable incidents information I received this morning.
 
@@ -1146,7 +1144,7 @@ module.exports = [
         'repeating': 'No, it’s a one-off appointment',
         'confirmed': true,
         'did-service-user-comply': 'Yes',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'session-notes': `Gary mentioned that his mum had helped him with his homework prior to the session. He was worried this would mean he had “cheated”. We discussed how leaning on others for support was a good thing when trying to complete a task especially someone like his mum who he has a good relationship with.
 
           Gary has completed the tasks set for him at our previous meeting and has set out 3 goals for the next 6 months
@@ -1173,7 +1171,7 @@ module.exports = [
         'repeating': 'No, it’s a one-off appointment',
         'confirmed': true,
         'did-service-user-comply': 'Yes',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'session-notes': `Gary presented on time and engaged well with the session.
 
         Started working with Gary on Thinking Skills and attitudes and agreed that our aim is to cover the following areas over the next few session
@@ -1187,10 +1185,10 @@ module.exports = [
         'sessionId': 5
       },
       {
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'type': 'Email',
         'to': 'someone@socialservices.gov.uk',
-        'from': 'Mark Berridge',
+        'from': 'Sally Smith',
         'timestamp': '2020-11-24T13:00',
         'contents': `SUBJECT: Gary Hart
         Hi there,
@@ -1202,7 +1200,7 @@ module.exports = [
       },
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'timestamp': '2020-11-23T10:00',
         'session-date': '2020-11-23',
         'session-start-time': '10am',
@@ -1225,7 +1223,7 @@ module.exports = [
       },
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'timestamp': '2020-10-24T10:00',
         'session-date': '2020-10-24',
         'session-start-time': '10am',
@@ -1248,10 +1246,10 @@ module.exports = [
         'sessionId': 2
       },
       {
-        'lastUpdatedBy': 'Mark Berridge',
+        'lastUpdatedBy': 'Sally Smith',
         'type': 'Email',
         'from': 'someone@socialservices.gov',
-        'to': 'Mark Berridge',
+        'to': 'Sally Smith',
         'timestamp': '2020-10-23T13:00',
         'contents': `Hi there,
         I got your message about Gary Hart. Yes he is known to us.
@@ -1331,7 +1329,7 @@ module.exports = [
       'lengthInMonths': 12,
       'progressInMonths': 1,
       'startDate': '2021-03-12',
-      'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: '2021-03-12'}),
+      'endDate': helpers.sentenceEndDate({ lengthInMonths: 12, startDate: '2021-03-12' }),
       'offenceDate': '2021-01-31',
       'convictionDate': '2021-03-10',
       'court': "South Tyneside Magistrates' Court",

@@ -27,7 +27,7 @@
       With
     </dt>
     <dd class="app-card__one-third-column-list-value">
-      {{ entry.lastUpdatedBy }}
+      {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
     </dd>
   </div>
   <div class="app-card__one-third-column-list-item">

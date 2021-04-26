@@ -4,7 +4,7 @@
   {%- if entry.to === 'Service user' -%}
     {{ entry.type }} to {{ case.serviceUserPersonalDetails.name }}
   {%- elif entry.to -%}
-    {{ entry.type }} to {{ entry.to }}
+    {{ entry.type }} to {{ replaceDefaultUserWithSignedInUser(entry.to, data) }}
   {%- else -%}
     {{ entry.type }}
   {%- endif -%}
@@ -42,7 +42,7 @@
             text: "From"
           },
           value: {
-            text: case.serviceUserPersonalDetails.name if entry.from === 'Service user' else entry.from
+            text: case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data)
           }
         } if entry.from,
         {
@@ -50,7 +50,7 @@
             text: "To"
           },
           value: {
-            text: case.serviceUserPersonalDetails.name if entry.to === 'Service user' else entry.to
+            text: case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data)
           }
         } if entry.to,
         {
@@ -80,7 +80,7 @@
       ]
       }) }}
 
-    <p class="govuk-body-s govuk-hint-s">Last updated by {{ entry.lastUpdatedBy }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
+    <p class="govuk-body-s govuk-hint-s">Last updated by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
   </div>
 </div>
 
