@@ -25,7 +25,7 @@ module.exports = router => {
     const typeOfThingToAdd = req.session.data['add-communication'][req.params.CRN]['type-of-thing-to-add']
     if (typeOfThingToAdd === 'confirm-attendance') {
       res.redirect(`/confirm-attendance/${req.params.CRN}`)
-    } else if (typeOfThingToAdd === 'appointment-note') {
+    } else if (typeOfThingToAdd === 'appointment-notes') {
       res.redirect(`/cases/${req.params.CRN}/appointments/notes`)
     } else {
       const typeOfOtherComms = req.session.data['add-communication'][req.params.CRN]['type-of-new-other-communication']
