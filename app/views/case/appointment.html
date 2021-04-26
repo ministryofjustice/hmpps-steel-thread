@@ -61,7 +61,11 @@
     {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
     {% include 'arrange-a-session/_session-details.html' %}
 
+
     {% if appointmentType === 'upcoming' %}
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance and add notes</a>
+    </p>
       <p class="govuk-body govuk-!-margin-bottom-6">
         <a href="/arrange-a-session/{{ CRN }}/{{ sessionId }}/cancel">Cancel appointment</a>
       </p>
