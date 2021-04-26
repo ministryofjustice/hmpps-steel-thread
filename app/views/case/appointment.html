@@ -67,7 +67,7 @@
       </p>
     {% endif %}
 
-    <p class="govuk-body-s govuk-hint-s">Last updated by {{ entry.lastUpdatedBy }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
+    <p class="govuk-body-s govuk-hint-s">Last updated by {{ lastUpdatedBy(entry.lastUpdatedBy, data) }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
   </div>
 </div>
 
