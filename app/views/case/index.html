@@ -45,6 +45,15 @@
           {{ case.currentOrder.requirements.upw.progressInHours }} hours completed (of {{ case.currentOrder.requirements.upw.lengthInHours }} hours)
         </p>
       {% endif %}
+
+      {% if case.currentOrder.requirements.ap %}
+      <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+        Accredited Programme
+      </h3>
+      <p class="govuk-!-margin-bottom-0">
+        {{ case.currentOrder.requirements.ap.value }}
+      </p>
+    {% endif %}
     </div>
 
     <h2 class="govuk-heading-m">
