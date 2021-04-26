@@ -50,7 +50,7 @@
   } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-session'])) }}
 
   <input type="hidden" id="type" name="[communication][{{ CRN }}][{{ sessionId }}][type]" value="Appointment">
-  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="Mark Berridge">
+  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="{{ userName(data) }}">
   <input type="hidden" id="timestamp" name="[communication][{{ CRN }}][{{ sessionId }}][timestamp]" value="{{ currentTimeString() }}">
   <input type="hidden" id="sessionId" name="[communication][{{ CRN }}][{{ sessionId }}][sessionId]" value="{{ sessionId }}">
 {% endblock %}
