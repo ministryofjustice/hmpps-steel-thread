@@ -718,11 +718,11 @@ module.exports = [
       'courtDocuments': [
         {
           'name': 'Pre-sentence report',
-          'lastUpdateDate': null
+          'lastUpdateDate': helpers.happenedOn({daysAgo: '3'})
         },
         {
           'name': 'Order',
-          'lastUpdateDate': null
+          'lastUpdateDate': helpers.happenedOn({daysAgo: '3'})
         },
         {
           'name': 'CPS Pack',
