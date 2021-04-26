@@ -1,0 +1,30 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Which appointment?" %}
+
+{% block pageNavigation %}
+  {{ govukBackLink({href: '/cases/' + CRN + '/communication/add'}) }}
+{% endblock %}
+
+{% block form %}
+  {% set appointmentRadioItems = [] %}
+
+  {% for appointment in communicationEntries(CRN, data, {category: 'all-appointments'}) %}
+    {% set appointmentRadioItems = (appointmentRadioItems.push({
+      text: appointment['type-of-session'] + ' – ' + appointment['session-date'] | dateWithDayAndWithoutYear +
+              ' from ' + appointment['session-start-time'] + ' to ' + appointment['session-end-time'],
+      value: appointment.sessionId
+    }), appointmentRadioItems) %}
+  {% endfor %}
+
+  {{ govukRadios({
+       fieldset: {
+         legend: {
+           text: title,
+           classes: "govuk-label--xl",
+           isPageHeading: true
+         }
+       },
+       items: appointmentRadioItems
+     } | decorateFormAttributes(['appointment-to-add-notes-to', CRN]))
+  }}
+{% endblock %}
