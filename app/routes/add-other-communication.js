@@ -15,14 +15,25 @@ const {
 } = require('../utils/add-other-communication-wizard-paths')
 
 module.exports = router => {
+  router.all([
+    '/add-other-communication/:CRN/:sessionId',
+    '/add-other-communication/:CRN/:sessionId/:view'
+  ], (req, res, next) => {
+    const data = req.session.data
+    res.locals.CRN = req.params.CRN
+    res.locals.sessionId = req.params.sessionId
+    res.locals.case = data.cases.find(obj => {
+      return obj.CRN === req.params.CRN
+    })
+    next()
+  })
+
   router.get('/add-other-communication/:CRN/new', (req, res) => {
     const sessionId = generateRandomString()
     res.redirect(`/add-other-communication/${req.params.CRN}/${sessionId}/new?type=${req.query.type}`)
   })
 
   router.get('/add-other-communication/:CRN/:sessionId/new', (req, res) => {
-    res.locals.CRN = req.params.CRN
-    res.locals.sessionId = req.params.sessionId
     res.locals.type = req.query.type
     res.render(`add-other-communication/new`, { paths: addOtherCommunicationWizardPaths(req) })
   })
@@ -42,7 +53,7 @@ module.exports = router => {
     setDataValue(
       req.session.data,
       ['communication', req.params.CRN, req.params.sessionId, 'timestamp'],
-      dateTimeFrom({ date: dateString, time: timeString}).toISO()
+      dateTimeFrom({ date: dateString, time: timeString }).toISO()
     )
 
     if (getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'from']) === 'Other') {
@@ -61,19 +72,6 @@ module.exports = router => {
       )
     }
 
-    next()
-  })
-
-  router.all([
-    '/add-other-communication/:CRN/:sessionId',
-    '/add-other-communication/:CRN/:sessionId/:view'
-  ], (req, res, next) => {
-    const data = req.session.data
-    res.locals.CRN = req.params.CRN
-    res.locals.sessionId = req.params.sessionId
-    res.locals.case = data.cases.find(obj => {
-      return obj.CRN === req.params.CRN
-    })
     next()
   })
 
