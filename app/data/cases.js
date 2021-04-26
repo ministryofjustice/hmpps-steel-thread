@@ -56,7 +56,7 @@ module.exports = [
     'PNC': '2012/123400000F',
     'CRN': 'J678910',
     'currentOrder': {
-      'type': 'Community Order',
+      'type': 'Community Order (12 Months)',
       'description': 'Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563',
       'lengthInMonths': 12,
       'progressInMonths': 6,
@@ -691,7 +691,7 @@ module.exports = [
     'PNC': '2021/234511111G',
     'CRN': 'K789021',
     'currentOrder': {
-      'type': 'Suspended Sentence',
+      'type': 'Suspended Sentence Order (12 Months)',
       'description': 'Drive whilst disqualified (Revised 2017). Road Traffic Act 1988',
       'lengthInMonths': 12,
       'progressInMonths': 0,
@@ -718,11 +718,11 @@ module.exports = [
       'courtDocuments': [
         {
           'name': 'Pre-sentence report',
-          'lastUpdateDate': null
+          'lastUpdateDate': helpers.happenedOn({daysAgo: '3'})
         },
         {
           'name': 'Order',
-          'lastUpdateDate': null
+          'lastUpdateDate': helpers.happenedOn({daysAgo: '3'})
         },
         {
           'name': 'CPS Pack',
@@ -928,7 +928,7 @@ module.exports = [
         },
         'ap': {
           'type': 'Accredited Programme ',
-          'value': 'Building Building Relationships'
+          'value': 'Building Better Relationships'
         }
       },
       'courtDocuments': [
