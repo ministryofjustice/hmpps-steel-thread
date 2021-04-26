@@ -6,6 +6,11 @@
 
 {% block content %}
 
+{{ govukNotificationBanner({
+  text: messages[0],
+  type: 'success'
+}) if messages.length > 0 }}
+
 {% include "case/_case-service-user-banner.html" %}
 
 {{ govukBackLink({

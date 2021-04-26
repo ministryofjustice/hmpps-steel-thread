@@ -5,6 +5,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 const express = require('express')
+const flash = require('connect-flash')
 const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
@@ -142,6 +143,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+app.use(flash())
 
 // Set up v6 app for backwards compatibility
 if (useV6) {

@@ -36,7 +36,7 @@ module.exports = router => {
 
   router.all('/cases/:CRN/appointments/:sessionId', function (req, res) {
     res.locals.sessionId = req.params.sessionId
-    res.render('case/appointment')
+    res.render('case/appointment', { messages: req.flash('success') })
   })
 
   router.get('/cases/:CRN/appointments/:sessionId/notes', function (req, res) {
@@ -45,6 +45,7 @@ module.exports = router => {
   })
 
   router.post('/cases/:CRN/appointments/:sessionId/notes', function (req, res) {
+    req.flash('success', 'Appointment notes saved')
     res.redirect(`/cases/${req.params.CRN}/appointments/${req.params.sessionId}`)
   })
 
