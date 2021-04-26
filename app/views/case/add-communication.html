@@ -41,8 +41,8 @@
         value: 'confirm-attendance'
       } if previousAppointmentsWithoutOutcomes(CRN, data).length > 0,
       {
-        text: "Appointment note",
-        value: 'appointment-note'
+        text: "Appointment notes",
+        value: 'appointment-notes'
       } if communicationEntries(CRN, data, {category: 'all-appointments'}).length > 0,
       {
         text: "Other communication",
