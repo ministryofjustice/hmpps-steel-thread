@@ -22,7 +22,7 @@ router.get('/show-case/:CRN', function (req, res) {
   })
 
   entry.hidden = false
-  res.redirect('/cases')
+  res.redirect(`/cases/${req.params.CRN}`)
 })
 
 module.exports = router
