@@ -64,7 +64,7 @@
 
     {% if appointmentType === 'upcoming' %}
     <p class="govuk-body govuk-!-margin-bottom-6">
-      <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance and add notes</a>
+      <a href="/confirm-attendance/{{ CRN }}/{{ sessionId }}">Confirm attendance and add notes</a>
     </p>
       <p class="govuk-body govuk-!-margin-bottom-6">
         <a href="/arrange-a-session/{{ CRN }}/{{ sessionId }}/cancel">Cancel appointment</a>
