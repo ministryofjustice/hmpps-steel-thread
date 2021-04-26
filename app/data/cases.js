@@ -928,7 +928,7 @@ module.exports = [
         },
         'ap': {
           'type': 'Accredited Programme ',
-          'value': 'Building Building Relationships'
+          'value': 'Building Better Relationships'
         }
       },
       'courtDocuments': [
