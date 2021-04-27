@@ -3,7 +3,7 @@ const setKeypath = require('keypather/set')
 
 const generateRandomString = (length) => {
   length = length || 3
-  return (Number(new Date())).toString(36).slice(-length).toUpperCase()
+  return Math.random().toString(36).substr(2, length)
 }
 
 const getDataValue = (data, sections) => {
