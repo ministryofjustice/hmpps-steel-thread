@@ -81,7 +81,7 @@
           {
             href: arrangeSessionPath + "/when",
             text: "Change",
-            visuallyHiddenText: "time"
+            visuallyHiddenText: "repeating appointment"
           }
         ]
       } if showAction
@@ -94,11 +94,11 @@
           {
             href: arrangeSessionPath + "/when",
             text: "Change",
-            visuallyHiddenText: "date"
+            visuallyHiddenText: "repeat end date"
           }
         ]
       } if showAction
-    },
+    } if session.summary.repeatEndDate,
     {
       key: { text: "RAR activity" },
       value: { text: session.summary.rarCategory },
