@@ -1077,7 +1077,7 @@ module.exports = [
         'confirmed': true,
         'session-notes': `• Update Gary on referral to group programme
         • Review alcohol diary`,
-        'sessionId': 10
+        'sessionId': 'A10'
       },
       {
         'type': 'Appointment',
@@ -1100,7 +1100,7 @@ module.exports = [
         • demonstrating improved emotional self management
 
         His diary is a good step towards this but we discussed additional methods. He mentioned he likes going to his local gym, so we set a time early on Saturday mornings for him to book in a gym session so he avoids drinking too much the night before. We agreed to try this for a few weeks to see if it helps with his decision making.`,
-        'sessionId': 9
+        'sessionId': 'A09'
       },
       {
         'type': 'Appointment',
@@ -1119,7 +1119,7 @@ module.exports = [
         We discussed that I felt he would really benefit from group work on Building Better Relationships and he agreed he felt ready for group work now as he wanted to talk to other people “like him”
 
         Our next meeting we shall review his alcohol diary once more and continue work on thinking skills and attitudes`,
-        'sessionId': 8
+        'sessionId': 'A08'
       },
       {
         'type': 'Phone call',
@@ -1129,7 +1129,7 @@ module.exports = [
         'contents': `Phone call from Gary to double check when his next appointment was, we talked briefly about how his Christmas and new year had been. He mentioned that he got quite drunk and had an argument with his ex partner Shelly over the phone. He admitted that he had gone to her home and shouted outside the door and the police were called but Shelly refused to press charges. This matched the Reportable incidents information I received this morning.
 
         We talked about his goal to reduce his alcohol intake and that he will now keep a diary of his drinking and agreed to book in a supervision appointment for a week's time.`,
-        'sessionId': 7
+        'sessionId': 'A07'
       },
       {
         'type': 'Appointment',
@@ -1156,7 +1156,7 @@ module.exports = [
           We discussed techniques for each off those goals and agreed we will review them every month to monitor progress. We also discussed how his 2nd goal needed to have something we can measure success by and have agreed to change it to “save £500 towards the first months rent as deposit on a flat”
 
           I have set Gary some further work for him to write down how he is going to achieve these things and break them down into steps`,
-        'sessionId': 6
+        'sessionId': 'A06'
       },
       {
         'type': 'Appointment',
@@ -1182,7 +1182,7 @@ module.exports = [
         • develop more positive relationships
 
         This session we discussed problem solving and goal setting skills. I have set Gary some homework to set 5 things he would like to achieve over the next 6 months that will improve his well being. For review at our next session. `,
-        'sessionId': 5
+        'sessionId': 'A05'
       },
       {
         'lastUpdatedBy': 'Sally Smith',
@@ -1196,7 +1196,7 @@ module.exports = [
         Just to inform you that Gary Hart is now longer living with his partner and her daughter which has reduced concerns I had over his living arrangements
 
         I’ll update you if that changes in the future.`,
-        'sessionId': 4
+        'sessionId': 'A04'
       },
       {
         'type': 'Appointment',
@@ -1219,7 +1219,7 @@ module.exports = [
           His current relationship with his partner Shelly has ended since our last meeting and he has moved in with his parents, with whom he has a good relationship. He understands that this is a good opportunity to get his alcohol consumption under control in a supportive environment. However he is adamant that he does not want to do any group work. I believe that group work is important to him rehabilitating and reducing his chance of reoffending so will approach this with him in the future.
 
           First 1-1 RAR session to be booked for 2 weeks time`,
-        'sessionId': 3
+        'sessionId': 'A03'
       },
       {
         'type': 'Appointment',
@@ -1243,7 +1243,7 @@ module.exports = [
         Gary has no children.
 
         Gary reports no issues with drug misuse. Gary reports good physical and mental health. There is no history of self-harm or suicide.`,
-        'sessionId': 2
+        'sessionId': 'A02'
       },
       {
         'lastUpdatedBy': 'Sally Smith',
@@ -1259,7 +1259,7 @@ module.exports = [
         Daughter’s details follows:
         Carina Hart
         born 13/03/2009`,
-        'sessionId': 1
+        'sessionId': 'A01'
       }
     ]
   },
