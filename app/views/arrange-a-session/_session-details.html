@@ -10,7 +10,9 @@
   countsTowardsRAR: data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
   rarCategory: data['communication'][CRN][sessionId]['session-rar-category'],
   rarSubCategory: data['communication'][CRN][sessionId]['session-rar-subcategory'],
-  locationCode: data['communication'][CRN][sessionId]['session-location-code']
+  locationCode: data['communication'][CRN][sessionId]['session-location-code'],
+  repeating: data['communication'][CRN][sessionId]['repeating'],
+  repeatingFrequency: data['communication'][CRN][sessionId]['repeating-frequency']
 }) %}
 
 {{ govukSummaryList({
@@ -60,6 +62,19 @@
     {
       key: { text: "Time" },
       value: { text: session.summary.time },
+      actions: {
+        items: [
+          {
+            href: arrangeSessionPath + "/when",
+            text: "Change",
+            visuallyHiddenText: "time"
+          }
+        ]
+      } if showAction
+    },
+    {
+      key: { text: "Repeating appointment" },
+      value: { text: session.summary.repeating },
       actions: {
         items: [
           {
