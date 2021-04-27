@@ -19,7 +19,8 @@ class ArrangedSession {
       'countsTowardsRAR': this.params.countsTowardsRAR,
       'rarCategory': this.params.countsTowardsRAR ? this.params.rarCategory : null,
       'rarSubCategory': this.params.countsTowardsRAR ? this.params.rarSubCategory : null,
-      'repeating': this.params.repeating === 'Yes' ? this.params.repeatingFrequency : 'No'
+      'repeating': this.params.repeating === 'Yes' ? this.params.repeatingFrequency : 'No',
+      'repeatEndDate': this.params.repeating === 'Yes' && this.params.repeatEndDate ? this.params.repeatEndDate : null
     }
   }
 
