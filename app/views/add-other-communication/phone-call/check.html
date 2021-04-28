@@ -36,7 +36,7 @@
       },
       {
         key: { text: "Date" },
-        value: { text: today() | dateWithYear if data['communication'][CRN][sessionId]['type-of-date'] === 'Today' else data['communication'][CRN][sessionId]['date'] | dateWithYear  },
+        value: { text: (today() | dateWithYear if data['communication'][CRN][sessionId]['type-of-date'] === 'Today' else data['communication'][CRN][sessionId]['date'] | dateWithYear) + ' at ' + data['communication'][CRN][sessionId]['time'] },
         actions: {
           items: [
             {
@@ -47,10 +47,6 @@
           ]
         }
       },
-      {
-        key: { text: "Time" },
-        value: { text: data['communication'][CRN][sessionId]['time'] }
-      } if false,
       {
         key: { text: "Details" },
         value: { text: data['communication'][CRN][sessionId]['contents'] },

@@ -46,7 +46,7 @@
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-date'])) }}
 
-  <!-- <div class="govuk-form-group app-time-autocomplete">
+  <div class="govuk-form-group app-time-autocomplete">
     <div class="autocomplete">
       <label class="govuk-label govuk-label--m" for="other-communication-time">
         {{ timeLabel }}
@@ -58,5 +58,5 @@
         name="[communication][{{CRN}}][{{sessionId}}][time]"
         value="{{ data['communication'][CRN][sessionId]['time'] }}">
     </div>
-  </div> -->
+  </div>
 {% endblock %}

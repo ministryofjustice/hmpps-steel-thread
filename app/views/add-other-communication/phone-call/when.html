@@ -1,6 +1,7 @@
 {% extends "_wizard-form.html" %}
 {% set userSentEmail = data['communication'][CRN][sessionId]['from'] == userName(data) %}
 {% set title = 'When did you make the phone call?' if userSentEmail else 'When was the phone call?' %}
+{% set timeLabel = 'When did the call start?' %}
 
 {% block form %}
   {% set otherDayHTML %}
@@ -44,4 +45,18 @@
       }
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-date'])) }}
+
+  <div class="govuk-form-group app-time-autocomplete">
+    <div class="autocomplete">
+      <label class="govuk-label govuk-label--m" for="other-communication-time">
+        {{ timeLabel }}
+      </label>
+      <input
+        class="govuk-input govuk-input--width-5"
+        type="text"
+        id="other-communication-time"
+        name="[communication][{{CRN}}][{{sessionId}}][time]"
+        value="{{ data['communication'][CRN][sessionId]['time'] }}">
+    </div>
+  </div>
 {% endblock %}
