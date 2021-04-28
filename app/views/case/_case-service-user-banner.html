@@ -2,7 +2,7 @@
 {% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else case.serviceUserPersonalDetails.name %}
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
-  <span class="govuk-caption-l">CRN: {{ CRN }}</span>
+  <span class="govuk-caption-l"><abbr title="Case reference number" style="text-decoration: none">CRN</abbr>: {{ CRN }}</span>
   {{ name }}
 </h1>
 
