@@ -58,7 +58,7 @@ module.exports = router => {
       dateTimeFrom({ date: dateString, time: timeString }).toISO()
     )
 
-    if (getDataValue(data, ['communication', CRN, sessionId, 'from']) === 'Other') {
+    if (getDataValue(data, ['communication', CRN, sessionId, 'from']) === 'other') {
       setDataValue(
         data,
         ['communication', CRN, sessionId, 'from'],
@@ -66,7 +66,7 @@ module.exports = router => {
       )
     }
 
-    if (getDataValue(data, ['communication', CRN, sessionId, 'to']) === 'Other') {
+    if (getDataValue(data, ['communication', CRN, sessionId, 'to']) === 'other') {
       setDataValue(
         data,
         ['communication', CRN, sessionId, 'to'],

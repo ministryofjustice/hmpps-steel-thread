@@ -10,7 +10,7 @@
     rows: [
       {
         key: { text: "From" },
-        value: { text: data['communication'][CRN][sessionId]['from'] if data['communication'][CRN][sessionId]['from'] !== 'Other' else data['communication'][CRN][sessionId]['other-from'] },
+        value: { text: data['communication'][CRN][sessionId]['from'] if data['communication'][CRN][sessionId]['from'] !== 'other' else data['communication'][CRN][sessionId]['other-from'] },
         actions: {
           items: [
             {
@@ -23,7 +23,7 @@
       },
       {
         key: { text: "To" },
-        value: { text: data['communication'][CRN][sessionId]['to'] if data['communication'][CRN][sessionId]['to'] !== 'Other' else data['communication'][CRN][sessionId]['other-to'] },
+        value: { text: data['communication'][CRN][sessionId]['to'] if data['communication'][CRN][sessionId]['to'] !== 'other' else data['communication'][CRN][sessionId]['other-to'] },
         actions: {
           items: [
             {
