@@ -1,7 +1,10 @@
 {% set alias = case.serviceUserPersonalDetails.aliases[0] %}
 {% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else case.serviceUserPersonalDetails.name %}
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ name }}</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+  <span class="govuk-caption-l"><abbr title="Case reference number" style="text-decoration: none">CRN</abbr>: {{ CRN }}</span>
+  {{ name }}
+</h1>
 
 <p>
   {% for badge in case.riskBadges %}
@@ -10,30 +13,3 @@
     </span>
   {% endfor %}
 </p>
-
-<dl class="app-card__meta-list">
-  <div class="app-card__meta-list-item">
-    <dt class="app-card__meta-list-key">
-      CRN
-    </dt>
-    <dd class="app-card__meta-list-value">
-      {{ CRN }}
-    </dd>
-  </div>
-  <div class="app-card__meta-list-item">
-    <dt class="app-card__meta-list-key">
-      PNC
-    </dt>
-    <dd class="app-card__meta-list-value">
-      {{ case.PNC }}
-    </dd>
-  </div>
-  <div class="app-card__meta-list-item">
-    <dt class="app-card__meta-list-key">
-      Date of birth
-    </dt>
-    <dd class="app-card__meta-list-value">
-      {{ case.serviceUserPersonalDetails.dateOfBirth | dateWithYearShortMonth + " (age " + yearsSince(case.serviceUserPersonalDetails.dateOfBirth) + ")" }}
-    </dd>
-  </div>
-</dl>
