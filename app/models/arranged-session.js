@@ -1,6 +1,8 @@
 const path = require('path')
 const contactTypes = require(path.join(__dirname, '../data/reference/contact-types.json'))
 const { RARCategories } = require(path.join(__dirname, './rar-categories.js'))
+const { generateRandomString } = require('../utils/helpers')
+const { DateTime } = require('luxon-business-days')
 
 class ArrangedSession {
   constructor (params) {
@@ -55,6 +57,21 @@ class ArrangedSession {
 
   get contactType () {
     return contactTypes[this.rarCategories.contactTypeCode]
+  }
+
+  static generateRepeatedWeeklyAppointments (appointment, number = 3) {
+    const numberOfRepeatedAppts = (appointment['repeating'] === 'Yes' ? number : 0)
+    return Array.from(Array(numberOfRepeatedAppts)).map((_, i) => {
+      return this.generateRepeatAppointment({appointment: appointment, weeksInFuture: i+1})
+    })
+  }
+
+  static generateRepeatAppointment (params) {
+    var clonedAppointment = Object.assign({}, params.appointment)
+    return Object.assign(clonedAppointment, {
+      sessionId: generateRandomString(),
+      'session-date': DateTime.fromISO(clonedAppointment['session-date']).plus({weeks: params.weeksInFuture}).toISODate()
+    })
   }
 }
 

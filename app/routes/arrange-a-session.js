@@ -9,6 +9,8 @@ const {
   arrangeSessionWizardForks
 } = require('../utils/arrange-a-session-wizard-paths')
 
+const { ArrangedSession } = require('../models/arranged-session.js')
+
 module.exports = router => {
   router.get('/arrange-a-session/:CRN/start', (req, res) => {
     const sessionId = generateRandomString()
@@ -23,6 +25,18 @@ module.exports = router => {
         req.params.sessionId,
         'confirmed'
       ], true)
+
+    const originalAppointment = req.session.data['communication'][req.params.CRN][req.params.sessionId]
+    const repeatAppointments = ArrangedSession.generateRepeatedWeeklyAppointments(originalAppointment, 3)
+
+    repeatAppointments.forEach(appointment => {
+      setDataValue(req.session.data,
+        [
+          'communication',
+          req.params.CRN,
+          appointment.sessionId,
+        ], appointment)
+    })
     next()
   })
 
