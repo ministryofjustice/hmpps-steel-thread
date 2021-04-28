@@ -43,11 +43,7 @@ function addOtherCommunicationWizardPaths (req) {
 }
 
 function addOtherCommunicationWizardForks (req) {
-  const CRN = req.params.CRN
-  const sessionId = req.params.sessionId
-
   var forks = []
-
   return nextForkPath(forks, req)
 }
 
