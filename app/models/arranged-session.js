@@ -61,13 +61,16 @@ class ArrangedSession {
 
   static generateRepeatedWeeklyAppointments (appointment, number = 3) {
     const numberOfRepeatedAppts = (appointment['repeating'] === 'Yes' ? number : 0)
+    return Array.from(Array(numberOfRepeatedAppts)).map((_, i) => {
+      return this.generateRepeatAppointment({appointment: appointment, weeksInFuture: i+1})
+    })
+  }
 
-    return Array(numberOfRepeatedAppts).fill().map((_, i) => {
-      var clonedAppointment = Object.assign({}, appointment)
-      return Object.assign(clonedAppointment, {
-        sessionId: generateRandomString(),
-        'session-date': DateTime.fromISO(appointment['session-date']).plus({weeks: i + 1}).toISODate()
-      })
+  static generateRepeatAppointment (params) {
+    var clonedAppointment = Object.assign({}, params.appointment)
+    return Object.assign(clonedAppointment, {
+      sessionId: generateRandomString(),
+      'session-date': DateTime.fromISO(clonedAppointment['session-date']).plus({weeks: params.weeksInFuture}).toISODate()
     })
   }
 }
