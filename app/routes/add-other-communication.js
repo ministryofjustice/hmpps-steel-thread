@@ -32,6 +32,51 @@ module.exports = router => {
     next()
   })
 
+  router.get([
+    '/add-phone-call/:CRN/:sessionId/confirmation',
+    '/add-email/:CRN/:sessionId/confirmation',
+    '/add-text/:CRN/:sessionId/confirmation'
+  ], (req, res, next) => {
+    const sessionId = req.params.sessionId
+    const CRN = req.params.CRN
+    const data = req.session.data
+
+    setDataValue(data, ['communication', CRN, sessionId, 'confirmed'], true)
+
+    const timeString = getDataValue(data, ['communication', CRN, sessionId, 'time'])
+    const typeOfDate = getDataValue(data, ['communication', CRN, sessionId, 'type-of-date'])
+    var dateString
+    if (typeOfDate === 'Today') {
+      dateString = today()
+    } else {
+      dateString = getDataValue(data, ['communication', CRN, sessionId, 'date'])
+    }
+
+    setDataValue(
+      data,
+      ['communication', CRN, sessionId, 'timestamp'],
+      dateTimeFrom({ date: dateString, time: timeString }).toISO()
+    )
+
+    if (getDataValue(data, ['communication', CRN, sessionId, 'from']) === 'Other') {
+      setDataValue(
+        data,
+        ['communication', CRN, sessionId, 'from'],
+        getDataValue(data, ['communication', CRN, sessionId, 'other-from'])
+      )
+    }
+
+    if (getDataValue(data, ['communication', CRN, sessionId, 'to']) === 'Other') {
+      setDataValue(
+        data,
+        ['communication', CRN, sessionId, 'to'],
+        getDataValue(req.session.data, ['communication', CRN, sessionId, 'other-to'])
+      )
+    }
+
+    next()
+  })
+
   router.get('/add-phone-call/:CRN/:sessionId/:view', (req, res) => {
     res.render(`add-other-communication/phone-call/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
   })
@@ -42,52 +87,6 @@ module.exports = router => {
 
   router.get('/add-text/:CRN/:sessionId/:view', (req, res) => {
     res.render(`add-other-communication/text/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
-  })
-
-  router.get('/add-other-communication/:CRN/:sessionId/new', (req, res) => {
-    res.locals.type = req.query.type
-    res.render(`add-other-communication/new`, { paths: addOtherCommunicationWizardPaths(req) })
-  })
-
-  router.get('/add-other-communication/:CRN/:sessionId/confirmation', (req, res, next) => {
-    setDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'confirmed'], true)
-
-    const typeOfDate = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'type-of-date'])
-    var dateString
-    if (typeOfDate === 'Today') {
-      dateString = today()
-    } else {
-      dateString = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'date'])
-    }
-    const timeString = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'time'])
-
-    setDataValue(
-      req.session.data,
-      ['communication', req.params.CRN, req.params.sessionId, 'timestamp'],
-      dateTimeFrom({ date: dateString, time: timeString }).toISO()
-    )
-
-    if (getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'from']) === 'Other') {
-      setDataValue(
-        req.session.data,
-        ['communication', req.params.CRN, req.params.sessionId, 'from'],
-        getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'other-from'])
-      )
-    }
-
-    if (getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'to']) === 'Other') {
-      setDataValue(
-        req.session.data,
-        ['communication', req.params.CRN, req.params.sessionId, 'to'],
-        getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId, 'other-to'])
-      )
-    }
-
-    next()
-  })
-
-  router.get('/add-other-communication/:CRN/:sessionId/:view', function (req, res) {
-    res.render(`add-other-communication/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
   })
 
   router.post([
