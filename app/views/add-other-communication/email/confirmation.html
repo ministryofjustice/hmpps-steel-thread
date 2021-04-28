@@ -1,0 +1,14 @@
+{% extends "_wizard-page.html" %}
+{% set buttonText = 'Finish' %}
+{% set title = 'Email saved' %}
+
+{% block page %}
+  {% set panelHtml %}
+    <strong>from {{ data['communication'][CRN][sessionId]['from'] }} to {{ data['communication'][CRN][sessionId]['to'] }}</strong><br />
+  {% endset %}
+
+  {{ govukPanel({
+    titleText: title,
+    html: panelHtml
+  }) }}
+{% endblock %}

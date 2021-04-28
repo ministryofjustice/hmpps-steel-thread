@@ -1,0 +1,40 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Who sent the email?' %}
+
+{% block form %}
+  {% set toOtherHtml %}
+    {{ govukInput({
+      label: {
+        text: "Name of sender"
+      },
+      classes: 'govuk-!-width-two-thirds'
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'other-from'])) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: 'I sent it',
+        value: userName(data)
+      },
+      {
+        text: case.serviceUserPersonalDetails.firstName + ' sent it',
+        value: case.serviceUserPersonalDetails.firstName
+      },
+
+      {
+        text: 'Someone else sent it',
+        value: 'other',
+        conditional: { html: toOtherHtml }
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'from'])) }}
+
+{% endblock %}

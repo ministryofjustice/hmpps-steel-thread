@@ -1,0 +1,19 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Text message details' %}
+
+{% block form %}
+  {{ govukTextarea({
+    label: {
+      text: title,
+      isPageHeading: true,
+      classes: 'govuk-label--xl'
+    },
+    hint: {
+      text: 'Paste the text message or give a summary'
+    }
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'contents'])) }}
+
+  <input type="hidden" id="type" name="[communication][{{ CRN }}][{{ sessionId }}][type]" value="Text message">
+  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="{{ userName(data) }}">
+  <input type="hidden" id="sessionId" name="[communication][{{ CRN }}][{{ sessionId }}][sessionId]" value="{{ sessionId }}">
+{% endblock %}

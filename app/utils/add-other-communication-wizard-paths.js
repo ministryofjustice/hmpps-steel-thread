@@ -8,10 +8,34 @@ function addOtherCommunicationWizardPaths (req) {
   const sessionId = req.params.sessionId
 
   var paths = [
+    // Phone
     `/cases/${CRN}/communication/add`,
-    `/add-other-communication/${CRN}/${sessionId}/new`,
-    `/add-other-communication/${CRN}/${sessionId}/check`,
-    `/add-other-communication/${CRN}/${sessionId}/confirmation`,
+    `/add-phone-call/${CRN}/${sessionId}/new`,
+    `/add-phone-call/${CRN}/${sessionId}/receiver`,
+    `/add-phone-call/${CRN}/${sessionId}/when`,
+    `/add-phone-call/${CRN}/${sessionId}/details`,
+    `/add-phone-call/${CRN}/${sessionId}/check`,
+    `/add-phone-call/${CRN}/${sessionId}/confirmation`,
+    `/cases/${CRN}/communication`,
+
+    // Email
+    `/cases/${CRN}/communication/add`,
+    `/add-email/${CRN}/${sessionId}/new`,
+    `/add-email/${CRN}/${sessionId}/receiver`,
+    `/add-email/${CRN}/${sessionId}/when`,
+    `/add-email/${CRN}/${sessionId}/details`,
+    `/add-email/${CRN}/${sessionId}/check`,
+    `/add-email/${CRN}/${sessionId}/confirmation`,
+    `/cases/${CRN}/communication`,
+
+    // Text
+    `/cases/${CRN}/communication/add`,
+    `/add-text/${CRN}/${sessionId}/new`,
+    `/add-text/${CRN}/${sessionId}/receiver`,
+    `/add-text/${CRN}/${sessionId}/when`,
+    `/add-text/${CRN}/${sessionId}/details`,
+    `/add-text/${CRN}/${sessionId}/check`,
+    `/add-text/${CRN}/${sessionId}/confirmation`,
     `/cases/${CRN}/communication`
   ]
 
@@ -19,11 +43,7 @@ function addOtherCommunicationWizardPaths (req) {
 }
 
 function addOtherCommunicationWizardForks (req) {
-  const CRN = req.params.CRN
-  const sessionId = req.params.sessionId
-
   var forks = []
-
   return nextForkPath(forks, req)
 }
 
