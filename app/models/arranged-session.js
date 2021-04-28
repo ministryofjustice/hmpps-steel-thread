@@ -59,8 +59,8 @@ class ArrangedSession {
     return contactTypes[this.rarCategories.contactTypeCode]
   }
 
-  static generateRepeatedAppointments (appointment) {
-    const numberOfRepeatedAppts = (appointment['repeating'] === 'Yes' ? 3 : 0)
+  static generateRepeatedWeeklyAppointments (appointment, number = 3) {
+    const numberOfRepeatedAppts = (appointment['repeating'] === 'Yes' ? number : 0)
 
     return Array(numberOfRepeatedAppts).fill().map((_, i) => {
       var clonedAppointment = Object.assign({}, appointment)
