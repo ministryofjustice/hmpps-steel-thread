@@ -1,0 +1,40 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Who received the call?' %}
+
+{% block form %}
+  {% set toOtherHtml %}
+    {{ govukInput({
+      label: {
+        text: "Name of recipient"
+      },
+      classes: 'govuk-!-width-two-thirds'
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'other-to'])) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: 'I did',
+        value: userName(data)
+      } if not (data['communication'][CRN][sessionId]['from'] == userName(data)),
+      {
+        text: case.serviceUserPersonalDetails.firstName + ' did',
+        value: case.serviceUserPersonalDetails.firstName
+      } if not (data['communication'][CRN][sessionId]['from'] == case.serviceUserPersonalDetails.firstName),
+
+      {
+        text: 'Someone else did',
+        value: 'other',
+        conditional: { html: toOtherHtml }
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'to'])) }}
+
+{% endblock %}

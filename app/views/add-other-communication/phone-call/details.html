@@ -1,0 +1,19 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Phone call details' %}
+
+{% block form %}
+  {{ govukTextarea({
+    label: {
+      text: title,
+      isPageHeading: true,
+      classes: 'govuk-label--xl'
+    },
+    hint: {
+      text: 'Give a summary of the phone call'
+    }
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'contents'])) }}
+
+  <input type="hidden" id="type" name="[communication][{{ CRN }}][{{ sessionId }}][type]" value="Phone call">
+  <input type="hidden" id="lastUpdatedBy" name="[communication][{{ CRN }}][{{ sessionId }}][lastUpdatedBy]" value="{{ userName(data) }}">
+  <input type="hidden" id="sessionId" name="[communication][{{ CRN }}][{{ sessionId }}][sessionId]" value="{{ sessionId }}">
+{% endblock %}

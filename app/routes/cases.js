@@ -1,4 +1,7 @@
-const { getDataValue } = require('../utils/helpers')
+const {
+  generateRandomString,
+  getDataValue
+} = require('../utils/helpers')
 
 module.exports = router => {
   router.get([
@@ -29,7 +32,20 @@ module.exports = router => {
       res.redirect(`/cases/${req.params.CRN}/appointments/notes`)
     } else {
       const typeOfOtherComms = req.session.data['add-communication'][req.params.CRN]['type-of-new-other-communication']
-      res.redirect(`/add-other-communication/${req.params.CRN}/new?type=${typeOfOtherComms}`)
+      const sessionId = generateRandomString()
+      const dynamicPath = `${req.params.CRN}/${sessionId}/new`
+
+      switch (typeOfOtherComms) {
+        case 'phonecall':
+          res.redirect(`/add-phone-call/${dynamicPath}`)
+          break
+        case 'email':
+          res.redirect(`/add-email/${dynamicPath}`)
+          break
+        default:
+          res.redirect(`/add-text/${dynamicPath}`)
+          break
+      }
     }
   })
 

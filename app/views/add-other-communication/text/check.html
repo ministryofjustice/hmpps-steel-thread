@@ -1,0 +1,69 @@
+{% extends "_wizard-form.html" %}
+{% set buttonText = 'Add text message' %}
+{% set title = 'Check your answers before adding this text message' %}
+{% set path = '/add-text/' + CRN + '/' + sessionId %}
+
+{% block form %}
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "From" },
+        value: { text: data['communication'][CRN][sessionId]['from'] if data['communication'][CRN][sessionId]['from'] !== 'Other' else data['communication'][CRN][sessionId]['other-from'] },
+        actions: {
+          items: [
+            {
+              href: path + '/new',
+              text: "Change",
+              visuallyHiddenText: "sender"
+            }
+          ]
+        }
+      },
+      {
+        key: { text: "To" },
+        value: { text: data['communication'][CRN][sessionId]['to'] if data['communication'][CRN][sessionId]['to'] !== 'Other' else data['communication'][CRN][sessionId]['other-to'] },
+        actions: {
+          items: [
+            {
+              href: path + '/receiver',
+              text: "Change",
+              visuallyHiddenText: "receipient"
+            }
+          ]
+        }
+      },
+      {
+        key: { text: "Date" },
+        value: { text: today() | dateWithYear if data['communication'][CRN][sessionId]['type-of-date'] === 'Today' else data['communication'][CRN][sessionId]['date'] | dateWithYear  },
+        actions: {
+          items: [
+            {
+              href: path + '/when',
+              text: "Change",
+              visuallyHiddenText: "date"
+            }
+          ]
+        }
+      },
+      {
+        key: { text: "Time" },
+        value: { text: data['communication'][CRN][sessionId]['time'] }
+      } if false,
+      {
+        key: { text: "Details" },
+        value: { text: data['communication'][CRN][sessionId]['contents'] },
+        actions: {
+          items: [
+            {
+              href: path + '/details',
+              text: "Change",
+              visuallyHiddenText: "details"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+{% endblock %}

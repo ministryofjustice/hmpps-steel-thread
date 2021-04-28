@@ -16,8 +16,12 @@ const {
 
 module.exports = router => {
   router.all([
-    '/add-other-communication/:CRN/:sessionId',
-    '/add-other-communication/:CRN/:sessionId/:view'
+    '/add-phone-call/:CRN/:sessionId',
+    '/add-phone-call/:CRN/:sessionId/:view',
+    '/add-email/:CRN/:sessionId',
+    '/add-email/:CRN/:sessionId/:view',
+    '/add-text/:CRN/:sessionId',
+    '/add-text/:CRN/:sessionId/:view'
   ], (req, res, next) => {
     const data = req.session.data
     res.locals.CRN = req.params.CRN
@@ -28,9 +32,16 @@ module.exports = router => {
     next()
   })
 
-  router.get('/add-other-communication/:CRN/new', (req, res) => {
-    const sessionId = generateRandomString()
-    res.redirect(`/add-other-communication/${req.params.CRN}/${sessionId}/new?type=${req.query.type}`)
+  router.get('/add-phone-call/:CRN/:sessionId/:view', (req, res) => {
+    res.render(`add-other-communication/phone-call/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
+  })
+
+  router.get('/add-email/:CRN/:sessionId/:view', (req, res) => {
+    res.render(`add-other-communication/email/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
+  })
+
+  router.get('/add-text/:CRN/:sessionId/:view', (req, res) => {
+    res.render(`add-other-communication/text/${req.params.view}`, { paths: addOtherCommunicationWizardPaths(req) })
   })
 
   router.get('/add-other-communication/:CRN/:sessionId/new', (req, res) => {
@@ -80,8 +91,12 @@ module.exports = router => {
   })
 
   router.post([
-    '/add-other-communication/:CRN/:sessionId',
-    '/add-other-communication/:CRN/:sessionId/:view'
+    '/add-phone-call/:CRN/:sessionId',
+    '/add-phone-call/:CRN/:sessionId/:view',
+    '/add-email/:CRN/:sessionId',
+    '/add-email/:CRN/:sessionId/:view',
+    '/add-text/:CRN/:sessionId',
+    '/add-text/:CRN/:sessionId/:view'
   ], function (req, res) {
     const fork = addOtherCommunicationWizardForks(req)
     const paths = addOtherCommunicationWizardPaths(req)

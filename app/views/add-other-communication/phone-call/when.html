@@ -1,0 +1,47 @@
+{% extends "_wizard-form.html" %}
+{% set userSentEmail = data['communication'][CRN][sessionId]['from'] == userName(data) %}
+{% set title = 'When did you make the phone call?' if userSentEmail else 'When was the phone call?' %}
+
+{% block form %}
+  {% set otherDayHTML %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          Date
+        </legend>
+        <div class="govuk-date-input">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <input
+                class="govuk-input govuk-date-input__input"
+                type="date"
+                id="[communication][{{CRN}}][{{sessionId}}][date]"
+                name="[communication][{{CRN}}][{{sessionId}}][date]"
+                value="{{ data['communication'][CRN][sessionId]['date'] }}"
+                placeholder="DD/MM/YYYY">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: "Today"
+      },
+      {
+        text: 'On another day',
+        conditional: { html: otherDayHTML }
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-date'])) }}
+{% endblock %}
