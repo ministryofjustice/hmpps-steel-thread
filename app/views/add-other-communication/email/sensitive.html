@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Did this email include anything sensitive?' %}
+{% set title = 'Does this email include sensitive information?' %}
 
 {% block form %}
   {{ govukRadios({
@@ -12,11 +12,11 @@
     },
     items: [
       {
-        text: 'Yes, it included something sensitive. It must not be shared with the service user.',
+        html: 'Yes, it includes sensitive information.<br />It must not be shared with ' + case.serviceUserPersonalDetails.firstName + '.',
         value: 'Yes'
       },
       {
-        text: 'No, it was not sensitive',
+        text: 'No, it is not sensitive',
         value: 'No'
       }
     ]
