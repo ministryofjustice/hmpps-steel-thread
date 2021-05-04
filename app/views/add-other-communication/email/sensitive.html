@@ -1,0 +1,30 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Did this email include anything sensitive?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        text: 'Yes, it included something sensitive. It must not be shared with the service user.',
+        value: 'Yes'
+      },
+      {
+        text: 'No, it was not sensitive',
+        value: 'No'
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'sensitive'])) }}
+
+
+  {{ govukDetails({
+    summaryText: "Help with sensitive content",
+    text: ""
+  }) }}
+{% endblock %}

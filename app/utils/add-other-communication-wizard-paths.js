@@ -14,6 +14,7 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-phone-call/${CRN}/${sessionId}/receiver`,
     `/add-phone-call/${CRN}/${sessionId}/when`,
     `/add-phone-call/${CRN}/${sessionId}/details`,
+    `/add-phone-call/${CRN}/${sessionId}/sensitive`,
     `/add-phone-call/${CRN}/${sessionId}/check`,
     `/add-phone-call/${CRN}/${sessionId}/confirmation`,
     `/cases/${CRN}/communication`,
@@ -24,6 +25,7 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-email/${CRN}/${sessionId}/receiver`,
     `/add-email/${CRN}/${sessionId}/when`,
     `/add-email/${CRN}/${sessionId}/details`,
+    `/add-email/${CRN}/${sessionId}/sensitive`,
     `/add-email/${CRN}/${sessionId}/check`,
     `/add-email/${CRN}/${sessionId}/confirmation`,
     `/cases/${CRN}/communication`,
@@ -34,6 +36,7 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-text/${CRN}/${sessionId}/receiver`,
     `/add-text/${CRN}/${sessionId}/when`,
     `/add-text/${CRN}/${sessionId}/details`,
+    `/add-text/${CRN}/${sessionId}/sensitive`,
     `/add-text/${CRN}/${sessionId}/check`,
     `/add-text/${CRN}/${sessionId}/confirmation`,
     `/cases/${CRN}/communication`
