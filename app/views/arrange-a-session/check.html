@@ -1,7 +1,7 @@
 {% extends "_wizard-form.html" %}
 {% set rearranging = data['communication'][CRN][sessionId]['rearrange-or-cancel'] %}
-{% set buttonText = 'Rearrange appointment' if rearranging else 'Arrange appointment' %}
-{% set title = 'Check your answers' %}
+{% set buttonText = 'Confirm rearranged appointment' if rearranging else 'Confirm this appointment' %}
+{% set title = 'Check your answers and confirm appointment' %}
 
 {% block form %}
   <h1 class="govuk-heading-xl">{{ title }}</h1>
