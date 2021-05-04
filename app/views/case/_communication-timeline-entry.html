@@ -5,6 +5,9 @@
     to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
     {% endif %}
   </a>
+  {% if entry.sensitive %}
+    {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+  {% endif %}
   <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
   {{ entry.timestamp | dateWithYear }}
   </div>
