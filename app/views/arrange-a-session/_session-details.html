@@ -13,7 +13,7 @@
   locationCode: data['communication'][CRN][sessionId]['session-location-code'],
   repeating: data['communication'][CRN][sessionId]['repeating'],
   repeatingFrequency: data['communication'][CRN][sessionId]['repeating-frequency'],
-  repeatEndDate: data['communication'][CRN][sessionId]['repeat-end-date']
+  repeatingCount: data['communication'][CRN][sessionId]['repeating-count']
 }) %}
 
 {{ govukSummaryList({
@@ -87,8 +87,8 @@
       } if showAction
     },
     {
-      key: { text: "Repeat end date" },
-      value: { text: session.summary.repeatEndDate | dateWithDayAndWithoutYear },
+      key: { text: "Number of repeat appointments" },
+      value: { text: session.summary.repeatingCount },
       actions: {
         items: [
           {
@@ -98,7 +98,7 @@
           }
         ]
       } if showAction
-    } if session.summary.repeatEndDate,
+    } if session.summary.repeatingCount,
     {
       key: { text: "RAR activity" },
       value: { text: session.summary.rarCategory },

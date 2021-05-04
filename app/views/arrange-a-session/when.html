@@ -91,26 +91,13 @@
       ]
     } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-frequency'])) }}
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" role="group">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          End date
-        </legend>
-        <div class="govuk-date-input">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <input
-                class="govuk-input govuk-date-input__input"
-                type="date"
-                id="[communication][{{CRN}}][{{sessionId}}][repeat-end-date]"
-                name="[communication][{{CRN}}][{{sessionId}}][repeat-end-date]"
-                value="{{ data['communication'][CRN][sessionId]['repeat-end-date'] }}"
-                placeholder="DD/MM/YYYY">
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+    {{ govukInput({
+      label: {
+        text: "Number of repeat appointments",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-input--width-3"
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-count'])) }}
   {% endset %}
 
   {{ govukRadios({
