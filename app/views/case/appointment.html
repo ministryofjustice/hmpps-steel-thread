@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
-{% set entry = data['communication'][CRN][sessionId] %}
-{% set appointmentType = 'previous' if isInThePast({date: entry['session-date'], time: entry['session-start-time']}) else 'upcoming' %}
-{% set title = entry['type-of-session'] + ' details' %}
+{% set appointmentType = 'previous' if isInThePast({date: appointment['session-date'], time: appointment['session-start-time']}) else 'upcoming' %}
+{% set title = appointment['type-of-session'] + ' details' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
@@ -22,36 +21,36 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
       <span class="govuk-caption-l">{{ appointmentType | capitalize }} appointment</span>
-      {{ entry['type-of-session'] }}
+      {{ appointment['type-of-session'] }}
 
-      {% if entry['session-counts-towards-rar'] === 'Yes' %}
+      {% if appointment['session-counts-towards-rar'] === 'Yes' %}
         {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
       {% endif %}
 
-      {% if entry['did-service-user-comply'] === 'Yes' %}
+      {% if appointment['did-service-user-comply'] === 'Yes' %}
         {{ govukTag({text: 'Complied', classes: 'govuk-tag--green'}) }}
-      {% elseif entry['did-service-user-comply'] === 'No' %}
+      {% elseif appointment['did-service-user-comply'] === 'No' %}
         {{ govukTag({text: 'Failed to comply', classes: 'govuk-tag--red'}) }}
-      {% elseif entry['did-service-user-comply'] === 'Absent' %}
+      {% elseif appointment['did-service-user-comply'] === 'Absent' %}
         {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
       {% endif %}
     </h1>
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-6">
-      {{ entry['session-date'] | dateWithYear }} from {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
-      {% if entry.repeat === 'Yes' %}
+      {{ appointment['session-date'] | dateWithYear }} from {{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}
+      {% if appointment.repeat === 'Yes' %}
         {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
       {% endif %}
     </h2>
 
-    {% set isOutcomeRecorded = (not not entry['did-service-user-comply'] ) %}
+    {% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
     {% if isOutcomeRecorded %}
       <h3 class="govuk-heading-s">Outcome details</h3>
 
       {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
       {% include 'confirm-attendance/_outcome-details.html' %}
     {% elif appointmentType === 'previous' and not isOutcomeRecorded %}
-      {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
+      {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Confirm attendance</a>') }}
     {% endif %}
 
     <h3 class="govuk-heading-s">Appointment details</h3>
@@ -71,7 +70,7 @@
       </p>
     {% endif %}
 
-    <p class="govuk-body-s govuk-hint-s">Last updated by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
+    <p class="govuk-body-s govuk-hint-s">Last updated by {{ replaceDefaultUserWithSignedInUser(appointment.lastUpdatedBy, data) }} on {{ appointment.timestamp | dateWithYear }} at {{ appointment.timestamp | govukTimeWithMinutes }}</p>
   </div>
 </div>
 
