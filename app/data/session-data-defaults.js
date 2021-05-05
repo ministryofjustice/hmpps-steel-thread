@@ -11,7 +11,7 @@ const contactHistoryDefaults = (map, su) => {
 
 module.exports = {
   'provider-code': 'N55', // Yorkshire and the Humber
-  'team-codes': ['N55LNG'],
+  'team-codes': ['N55NP3'],
   'default-teams': {
     'C17': ['C17ETE'],
     'N07': ['N07L10'],
