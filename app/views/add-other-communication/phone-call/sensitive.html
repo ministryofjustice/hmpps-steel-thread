@@ -1,0 +1,30 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Did this phone call include sensitive information?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-label--xl govuk-!-margin-bottom-6"
+      }
+    },
+    items: [
+      {
+        html: 'Yes, it included sensitive information.<br />It must not be shared with ' + case.serviceUserPersonalDetails.firstName + '.',
+        value: 'Yes'
+      },
+      {
+        text: 'No, it was not sensitive',
+        value: 'No'
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'sensitive'])) }}
+
+
+  {{ govukDetails({
+    summaryText: "Help with sensitive content",
+    text: ""
+  }) }}
+{% endblock %}
