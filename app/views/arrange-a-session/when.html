@@ -26,26 +26,38 @@
     html: circumstancesHTML
   }) }}
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" role="group">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Date
-      </legend>
-      <div class="govuk-date-input">
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <input
-              class="govuk-input govuk-date-input__input"
-              type="date"
-              id="[communication][{{CRN}}][{{sessionId}}][session-date]"
-              name="[communication][{{CRN}}][{{sessionId}}][session-date]"
-              value="{{ data['communication'][CRN][sessionId]['session-date'] }}"
-              placeholder="DD/MM/YYYY">
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+  {{ govukDateInput({
+    id: 'session-date',
+    fieldset: {
+      legend: {
+        text: "Date",
+        classes: "govuk-label--s"
+      }
+    },
+    items: [
+      {
+        name: '[communication][' + CRN + '][' + sessionId + '][session-date-day]',
+        value: data['communication'][CRN][sessionId]['session-date-day'],
+        classes: "govuk-input--width-2",
+        label: 'Day'
+      },
+      {
+        name: '[communication][' + CRN + '][' + sessionId + '][session-date-month]',
+        value: data['communication'][CRN][sessionId]['session-date-month'],
+        classes: "govuk-input--width-2",
+        label: 'Month'
+      },
+      {
+        name: '[communication][' + CRN + '][' + sessionId + '][session-date-year]',
+        value: data['communication'][CRN][sessionId]['session-date-year'],
+        classes: "govuk-input--width-4",
+        label: 'Year'
+      }
+    ],
+    hint: {
+      text: "For example, 20 5 2021"
+    }
+  }) }}
 
   <div class="govuk-form-group app-time-autocomplete">
     <div class="autocomplete">
