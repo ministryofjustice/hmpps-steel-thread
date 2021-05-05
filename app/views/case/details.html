@@ -25,28 +25,56 @@
       </h2>
 
       {{ govukSummaryList({
-      classes: 'govuk-summary-list--no-border',
-      rows: [
-      {
-      key: { text: "Address" },
-      value: { html: case.serviceUserPersonalDetails.address.join('<br>') }
-      },
-      {
-      key: { text: "Phone number" },
-      value: { text: case.serviceUserPersonalDetails.phone }
-      },
-      {
-      key: { text: "Email" },
-      value: { text: case.serviceUserPersonalDetails.email }
-      }
-      ]
+        classes: 'govuk-summary-list--no-border',
+        rows: [
+          {
+            key: { text: "Address" },
+            value: { html: case.serviceUserPersonalDetails.address.join('<br>') },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "address on National Delius"
+                }
+              ]
+            }
+          },
+          {
+            key: { text: "Phone number" },
+            value: { text: case.serviceUserPersonalDetails.phone },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "phone number on National Delius"
+                }
+              ]
+            }
+          },
+          {
+            key: { text: "Email" },
+            value: { text: case.serviceUserPersonalDetails.email },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "email address on National Delius"
+                }
+              ]
+            }
+          }
+        ]
       }) }}
 
       {% if case.personalContacts.length > 0 %}
-      <p class="govuk-body">
-        <a href="/cases/{{ CRN }}/address-book-personal">View all personal contacts ({{ case.personalContacts.length }})</a>
-      </p>
-    {% endif %}
+        <p class="govuk-body">
+          <a href="/cases/{{ CRN }}/address-book-personal">View all personal contacts ({{ case.personalContacts.length }})</a>
+        </p>
+      {% endif %}
+
       <p class="govuk-body-s govuk-hint-s">
         Last updated 15 March 2021
       </p>
