@@ -8,9 +8,26 @@ class ArrangedSession {
   constructor (params) {
     this.params = params
 
-    this.params.date = params.date || '2021-03-25'
+    this.params.date = this.getDateString(params)
     this.params.startTime = params.startTime || '10am'
     this.params.endTime = params.endTime || '11am'
+  }
+
+  getDateString (params) {
+    if (params.date) {
+      return params.date
+    } else if (params.year) {
+      const day = this.zeroPad(params.day)
+      const month = this.zeroPad(params.month)
+      const year = params.year
+      return `${year}-${month}-${day}`
+    }
+
+    return '2021-03-25'
+  }
+
+  zeroPad (number) {
+    return ('00' + number).slice(-2)
   }
 
   get summary () {
