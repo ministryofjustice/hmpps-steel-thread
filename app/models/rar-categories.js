@@ -13,7 +13,7 @@ class RARCategories {
     return this
       .availableNSIsForSession
       .filter(value => Object.keys(this.availableNSIsForProvider).includes(value))
-      .map(code => this.availableNSIsForProvider[code])
+      .map(code => this.mapFriendlyDescriptions(this.availableNSIsForProvider[code], code))
       .sort((a, b) => a.description < b.description ? -1 : 1)
   }
 
@@ -37,6 +37,28 @@ class RARCategories {
 
   get availableNSIsForSession () {
     return (this.contactTypeCode == null ? [] : contactTypes[this.contactTypeCode].nsis) || []
+  }
+
+  mapFriendlyDescriptions (nsi, code) {
+    const friendlyDescriptions = {
+      'NPS001': 'Accommodation',
+      'NPS002': 'Attitudes, thinking and behaviour',
+      'NPS003': 'Children and families',
+      'NPS004': 'Drugs and alcohol',
+      'NPS005': 'Education, training and employment',
+      'NPS006': 'Finance, benefits and debt',
+      'NPS007': 'Mental health',
+      'NPS008': 'Physical health',
+      'NPS009': 'Restorative justice',
+      'NPS010': 'Specific interventions for women',
+      'NPS011': 'Other'
+    }
+
+    if (friendlyDescriptions[code]) {
+      nsi.description = friendlyDescriptions[code]
+    }
+
+    return nsi
   }
 }
 
