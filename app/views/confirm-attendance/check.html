@@ -6,6 +6,7 @@
   <h1 class="govuk-heading-xl">{{ title }}</h1>
 
   {% set showAction = true %}
+  {% set entry = data['communication'][CRN][sessionId] %}
   {% include 'confirm-attendance/_outcome-details.html' %}
 
   <p class="govuk-body">You’re confirming attendance for:</p>

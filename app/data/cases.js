@@ -283,6 +283,8 @@ module.exports = [
         'type-of-session': 'Office visit',
         'did-service-user-comply': 'No',
         'repeating': 'No, it’s a one-off session',
+        'non-compliance-reason': 'Other',
+        'non-compliance-reason-other': 'Attended - Failed to Comply',
         'confirmed': true,
         'session-notes': `Dylan turned up for his appointment on time however he refused to talk about anything with me until “his new room was sorted out”.
 
@@ -339,6 +341,8 @@ module.exports = [
         'session-end-time': '2pm',
         'session-counts-towards-rar': 'No',
         'did-service-user-comply': 'No',
+        'non-compliance-reason': 'Other',
+        'non-compliance-reason-other': 'Attended - Failed to Comply',
         'session-notes': 'I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Monday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.',
         'sessionId': 980
       }
@@ -1508,6 +1512,8 @@ module.exports = [
         'session-counts-towards-rar': 'No',
         'type-of-session': 'Office visit',
         'did-service-user-comply': 'No',
+        'non-compliance-reason': 'Other',
+        'non-compliance-reason-other': 'Unacceptable Behaviour',
         'repeating': 'No, it’s a one-off session',
         'confirmed': true,
         'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.

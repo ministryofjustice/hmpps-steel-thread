@@ -9,7 +9,7 @@
         text: "Give details"
       },
       classes: 'govuk-!-width-two-thirds'
-    } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason'])) }}
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason-other'])) }}
   {% endset %}
 
   {{ govukRadios({
@@ -23,17 +23,15 @@
        name: 'session-counts-towards-rar',
        items: [
          {
-           text: 'Behavioural issues',
-           value: 'Behavioural issues'
+           text: 'Behavioural issues'
          },
          {
            text: 'Other',
-           value: 'Other',
            conditional: {
              html: whyAcceptableHtml
            }
          }
        ]
-       } | decorateFormAttributes(['communication', CRN, sessionId, 'was-absence-acceptable']))
+       } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason']))
   }}
 {% endblock %}
