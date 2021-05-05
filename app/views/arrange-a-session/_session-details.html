@@ -19,6 +19,10 @@
   repeatingCount: data['communication'][CRN][sessionId]['repeating-count']
 }) %}
 
+{% if showAction %}
+  <input type="hidden" id="date-string" name="[communication][{{ CRN }}][{{ sessionId }}][session-date]" value="{{ session.summary.date }}">
+{% endif %}
+
 {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-9',
   rows: [
