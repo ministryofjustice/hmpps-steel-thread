@@ -2,21 +2,21 @@
 
 {% set session = arrangedSession({
   providerCode: data['provider-code'],
-  typeOfSession: data['communication'][CRN][sessionId]['type-of-session'],
-  contactType: data['communication'][CRN][sessionId]['other-type-of-session'],
-  date: data['communication'][CRN][sessionId]['session-date'],
-  day: data['communication'][CRN][sessionId]['session-date-day'],
-  month: data['communication'][CRN][sessionId]['session-date-month'],
-  year: data['communication'][CRN][sessionId]['session-date-year'],
-  startTime: data['communication'][CRN][sessionId]['session-start-time'],
-  endTime: data['communication'][CRN][sessionId]['session-end-time'],
-  countsTowardsRAR: data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
-  rarCategory: data['communication'][CRN][sessionId]['session-rar-category'],
-  rarSubCategory: data['communication'][CRN][sessionId]['session-rar-subcategory'],
-  locationCode: data['communication'][CRN][sessionId]['session-location-code'],
-  repeating: data['communication'][CRN][sessionId]['repeating'],
-  repeatingFrequency: data['communication'][CRN][sessionId]['repeating-frequency'],
-  repeatingCount: data['communication'][CRN][sessionId]['repeating-count']
+  typeOfSession: appointment['type-of-session'],
+  contactType: appointment['other-type-of-session'],
+  date: appointment['session-date'],
+  day: appointment['session-date-day'],
+  month: appointment['session-date-month'],
+  year: appointment['session-date-year'],
+  startTime: appointment['session-start-time'],
+  endTime: appointment['session-end-time'],
+  countsTowardsRAR: appointment['session-counts-towards-rar'] == 'Yes',
+  rarCategory: appointment['session-rar-category'],
+  rarSubCategory: appointment['session-rar-subcategory'],
+  locationCode: appointment['session-location-code'],
+  repeating: appointment['repeating'],
+  repeatingFrequency: appointment['repeating-frequency'],
+  repeatingCount: appointment['repeating-count']
 }) %}
 
 {% if showAction %}
@@ -29,7 +29,7 @@
     {
       key: { text: "Reason for cancelling" if cancelling else "Reason for rearranging" },
       value: {
-        text: data['communication'][CRN][sessionId]['rearrange-or-cancel-reason']
+        text: appointment['rearrange-or-cancel-reason']
       },
       actions: {
         items: [
@@ -40,7 +40,7 @@
           }
         ]
       }
-    } if data['communication'][CRN][sessionId]['rearrange-or-cancel-reason'],
+    } if appointment['rearrange-or-cancel-reason'],
     {
       key: { text: "Type of appointment" },
       value: { text: session.summary.typeOfSession },
@@ -134,7 +134,7 @@
     } if not session.summary.countsTowardsRAR,
     {
       key: { text: "Appointment notes" },
-      value: { text: data['communication'][CRN][sessionId]['session-notes'] or 'None' },
+      value: { text: appointment['session-notes'] or 'None' },
       actions: {
         items: [
           {
