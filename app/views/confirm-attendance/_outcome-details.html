@@ -70,19 +70,6 @@
       } if showAction
     },
     {
-      key: { text: "RAR activity subcategory" },
-      value: { text: data['communication'][CRN][sessionId]['session-rar-subcategory'] },
-      actions: {
-        items: [
-          {
-            href: "rar",
-            text: "Change",
-            visuallyHiddenText: "RAR activity"
-          }
-        ]
-      } if showAction
-    } if data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes',
-    {
       key: { text: "Appointment notes" },
       value: {
         html: data['communication'][CRN][sessionId]['session-notes'] | nl2br | safe if data['communication'][CRN][sessionId]['session-notes'] else 'None'

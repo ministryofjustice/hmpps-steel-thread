@@ -8,26 +8,8 @@
     data['provider-code'],
     data['communication'][CRN][sessionId]['type-of-session'],
     data['communication'][CRN][sessionId]['other-type-of-session']) %}
-    {% set rarSubCategoryRadioItems = [] %}
-    {% for rarSubCategoryCode, subCategory in rarCategory.nsiSubTypes %}
-      {% set rarSubCategoryRadioItems = (rarSubCategoryRadioItems.push({
-        text: subCategory.description,
-        value: subCategory.description
-      }), rarSubCategoryRadioItems) %}
-    {% endfor %}
-
-    {% set rarSubCategoryHtml %}
-      {{ govukRadios({
-        items: rarSubCategoryRadioItems
-      } | decorateFormAttributes(['communication', CRN, sessionId, 'session-rar-subcategory'])) }}
-    {% endset %}
-
     {% set rarRadioItems = (rarRadioItems.push({
-      text: rarCategory.description,
-      value: rarCategory.description,
-      conditional: {
-        html: rarSubCategoryHtml
-      }
+      text: rarCategory.description
     }), rarRadioItems) %}
   {% endfor %}
 
