@@ -37,19 +37,19 @@
     items: [
       {
         name: '[communication][' + CRN + '][' + sessionId + '][session-date-day]',
-        value: data['communication'][CRN][sessionId]['session-date-day'],
+        value: appointment['session-date-day'],
         classes: "govuk-input--width-2",
         label: 'Day'
       },
       {
         name: '[communication][' + CRN + '][' + sessionId + '][session-date-month]',
-        value: data['communication'][CRN][sessionId]['session-date-month'],
+        value: appointment['session-date-month'],
         classes: "govuk-input--width-2",
         label: 'Month'
       },
       {
         name: '[communication][' + CRN + '][' + sessionId + '][session-date-year]',
-        value: data['communication'][CRN][sessionId]['session-date-year'],
+        value: appointment['session-date-year'],
         classes: "govuk-input--width-4",
         label: 'Year'
       }
@@ -69,7 +69,7 @@
         type="text"
         id="session-start-time"
         name="[communication][{{CRN}}][{{sessionId}}][session-start-time]"
-        value="{{ data['communication'][CRN][sessionId]['session-start-time'] }}">
+        value="{{ appointment['session-start-time'] }}">
     </div>
     <span class="govuk-body" style="margin:0 0.75rem 0 0.75rem;">to</span>
     <div class="autocomplete">
@@ -78,7 +78,7 @@
         type="text"
         id="session-end-time"
         name="[communication][{{CRN}}][{{sessionId}}][session-end-time]"
-        value="{{ data['communication'][CRN][sessionId]['session-end-time'] }}">
+        value="{{ appointment['session-end-time'] }}">
     </div>
   </div>
 

@@ -65,6 +65,7 @@ module.exports = router => {
 
   router.all('/cases/:CRN/appointments/:sessionId', function (req, res) {
     res.locals.sessionId = req.params.sessionId
+    res.locals.appointment = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId])
     res.render('case/appointment', { messages: req.flash('success') })
   })
 

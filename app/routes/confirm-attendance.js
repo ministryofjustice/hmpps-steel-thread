@@ -16,6 +16,7 @@ module.exports = router => {
     res.locals.case = data.cases.find(obj => {
       return obj.CRN === req.params.CRN
     })
+    res.locals.appointment = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId])
     next()
   })
 

@@ -6,8 +6,8 @@
   {% set rarRadioItems = [] %}
   {% for rarCategory in possibleRARCategories(
     data['provider-code'],
-    data['communication'][CRN][sessionId]['type-of-session'],
-    data['communication'][CRN][sessionId]['other-type-of-session']) %}
+    appointment['type-of-session'],
+    appointment['other-type-of-session']) %}
     {% set rarRadioItems = (rarRadioItems.push({
       text: rarCategory.description
     }), rarRadioItems) %}

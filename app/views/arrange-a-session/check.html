@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set rearranging = data['communication'][CRN][sessionId]['rearrange-or-cancel'] %}
+{% set rearranging = appointment['rearrange-or-cancel'] %}
 {% set buttonText = 'Confirm rearranged appointment' if rearranging else 'Confirm this appointment' %}
 {% set title = 'Check your answers and confirm appointment' %}
 

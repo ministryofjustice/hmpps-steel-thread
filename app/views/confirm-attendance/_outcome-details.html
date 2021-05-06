@@ -1,15 +1,15 @@
 {% set complianceText %}
-  {%- if (entry['did-service-user-comply'] === 'Yes') or (entry['did-service-user-comply'] === 'No') -%}
-    {{ entry['did-service-user-comply'] }}
-  {%- elif entry['did-service-user-comply'] === 'Absent' and entry['was-absence-acceptable'] === 'Yes' -%}
+  {%- if (appointment['did-service-user-comply'] === 'Yes') or (appointment['did-service-user-comply'] === 'No') -%}
+    {{ appointment['did-service-user-comply'] }}
+  {%- elif appointment['did-service-user-comply'] === 'Absent' and appointment['was-absence-acceptable'] === 'Yes' -%}
     Acceptable absence
-  {%- elif entry['did-service-user-comply'] === 'Absent' and entry['was-absence-acceptable'] === 'No' -%}
+  {%- elif appointment['did-service-user-comply'] === 'Absent' and appointment['was-absence-acceptable'] === 'No' -%}
     Unacceptable absence
   {%- endif -%}
 {% endset %}
 
 {% set uploadedFilesHtml %}
-  {% for file in data['communication'][CRN][sessionId]['filenames'] | forceArray %}
+  {% for file in appointment['filenames'] | forceArray %}
     <a href="#">{{ file }}</a><br />
   {% endfor %}
 {% endset %}
@@ -32,7 +32,7 @@
     },
     {
       key: { text: "Reason for not complying" },
-      value: { text: entry['non-compliance-reason'] if entry['non-compliance-reason'] !== 'Other' else entry['non-compliance-reason-other'] },
+      value: { text: appointment['non-compliance-reason'] if appointment['non-compliance-reason'] !== 'Other' else appointment['non-compliance-reason-other'] },
       actions: {
         items: [
           {
@@ -42,10 +42,10 @@
           }
         ]
       } if showAction
-    } if entry['did-service-user-comply'] === 'No',
+    } if appointment['did-service-user-comply'] === 'No',
     {
       key: { text: "Reason for absence" },
-      value: { text: entry['why-absence-acceptable'] if entry['was-absence-acceptable'] === 'Yes' },
+      value: { text: appointment['why-absence-acceptable'] if appointment['was-absence-acceptable'] === 'Yes' },
       actions: {
         items: [
           {
@@ -55,10 +55,10 @@
           }
         ]
       } if showAction
-    } if entry['was-absence-acceptable'] === 'Yes',
+    } if appointment['was-absence-acceptable'] === 'Yes',
     {
       key: { text: "RAR activity" },
-      value: { text: data['communication'][CRN][sessionId]['session-rar-category'] if data['communication'][CRN][sessionId]['session-counts-towards-rar'] == 'Yes' else 'No'  },
+      value: { text: appointment['session-rar-category'] if appointment['session-counts-towards-rar'] == 'Yes' else 'No'  },
       actions: {
         items: [
           {
@@ -72,7 +72,7 @@
     {
       key: { text: "Appointment notes" },
       value: {
-        html: data['communication'][CRN][sessionId]['session-notes'] | nl2br | safe if data['communication'][CRN][sessionId]['session-notes'] else 'None'
+        html: appointment['session-notes'] | nl2br | safe if appointment['session-notes'] else 'None'
       },
       actions: {
         items: [
@@ -98,6 +98,6 @@
           }
         ]
       } if showAction
-    } if data['communication'][CRN][sessionId]['filenames'].length > 0
+    } if appointment['filenames'].length > 0
   ]
   }) }}
