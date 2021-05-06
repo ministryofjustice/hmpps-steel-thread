@@ -43,23 +43,6 @@ class ArrangedSession {
     }
   }
 
-  get contactRecord () {
-    return {
-      'typeCode': this.rarCategories.contactTypeCode,
-      'typeDescription': this.rarCategories.contactTypeCode ? contactTypes[this.rarCategories.contactTypeCode].description : null,
-      'locationCode': this.params.locationCode
-    }
-  }
-
-  get nsiRecord () {
-    if (this.params.countsTowardsRAR) {
-      return {
-        'typeDescription': this.params.rarCategory,
-        'subtypeDescription': this.params.rarSubCategory
-      }
-    }
-  }
-
   get sessionLabel () {
     if (this.params.typeOfSession === 'Other' && this.params.contactTypeCode) {
       return contactTypes[this.params.contactTypeCode].description
