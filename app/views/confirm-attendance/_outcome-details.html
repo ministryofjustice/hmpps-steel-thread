@@ -18,6 +18,10 @@
   classes: 'govuk-!-margin-bottom-9',
   rows: [
     {
+      key: { text: "Appointment" },
+      value: { html: appointment['type-of-session'] + '<br />' + appointment['session-date'] | dateWithDayAndWithoutYear + ' from ' + appointment['session-start-time'] + ' to ' + appointment['session-end-time'] }
+    } if checkingAnswers,
+    {
       key: { text: "Complied" },
       value: { text: complianceText },
       actions: {
