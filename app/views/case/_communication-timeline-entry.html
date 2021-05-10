@@ -9,6 +9,9 @@
     {% if entry.to %}
     to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
     {% endif %}
+    {% if entry.type == 'Note' %}
+    Note by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
+    {% endif %}
   </a>
   {% if entry.sensitive %}
     {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
