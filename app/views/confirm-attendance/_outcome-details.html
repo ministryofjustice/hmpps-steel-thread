@@ -28,7 +28,7 @@
             visuallyHiddenText: "complied"
           }
         ]
-      } if showAction
+      } if checkingAnswers
     },
     {
       key: { text: "Reason for not complying" },
@@ -41,7 +41,7 @@
             visuallyHiddenText: "reason for not complying"
           }
         ]
-      } if showAction
+      } if checkingAnswers
     } if appointment['did-service-user-comply'] === 'No',
     {
       key: { text: "Reason for absence" },
@@ -54,7 +54,7 @@
             visuallyHiddenText: "reason for absence"
           }
         ]
-      } if showAction
+      } if checkingAnswers
     } if appointment['was-absence-acceptable'] === 'Yes',
     {
       key: { text: "RAR activity" },
@@ -67,12 +67,12 @@
             visuallyHiddenText: "RAR activity"
           }
         ]
-      } if showAction
+      } if checkingAnswers
     },
     {
       key: { text: "Appointment notes" },
       value: {
-        html: appointment['session-notes'] | nl2br | safe if appointment['session-notes'] else 'None'
+        html: (appointment['session-notes'] | nl2br | safe) if appointment['session-notes'] else 'None'
       },
       actions: {
         items: [
@@ -82,7 +82,7 @@
             visuallyHiddenText: "appointment notes"
           }
         ]
-      } if showAction or notesEditPath
+      } if checkingAnswers or notesEditPath
     },
     {
       key: { text: "Uploaded files" },
@@ -97,7 +97,7 @@
             visuallyHiddenText: "uploaded files"
           }
         ]
-      } if showAction
+      } if checkingAnswers
     } if appointment['filenames'].length > 0
   ]
   }) }}
