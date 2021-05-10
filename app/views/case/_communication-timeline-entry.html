@@ -19,7 +19,7 @@
 </h3>
 
 <div class="note-panel">
-  {% set truncatedContents = entry.contents | truncate(300) %}
+  {% set truncatedContents = entry.contents | truncate(250) %}
   {% set isTruncated = (truncatedContents !== entry.contents) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
   {% if isTruncated %}

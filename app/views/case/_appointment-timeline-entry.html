@@ -33,7 +33,7 @@
 
 {% if entry['session-notes'] %}
 <div class="note-panel">
-  {% set truncatedContents = entry['session-notes'] | truncate(300) %}
+  {% set truncatedContents = entry['session-notes'] | truncate(250) %}
   {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
   {% if isTruncated %}
