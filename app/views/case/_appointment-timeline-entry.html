@@ -18,16 +18,9 @@
 </h3>
 
 {% if entry['session-counts-towards-rar'] == 'Yes' %}
-<dl class="app-card__one-third-column-list">
-  <div class="app-card__one-third-column-list-item">
-    <dt class="app-card__one-third-column-list-key">
-     RAR
-    </dt>
-    <dd class="app-card__one-third-column-list-value">
-      {{ entry['session-rar-category'] }}
-    </dd>
-  </div>
-</dl>
+  <p>
+    RAR – {{ entry['session-rar-category'] }}
+  </p>
 {% endif %}
 
 {% set hasAttendanceAlreadyBeenConfirmed = not not entry['did-service-user-comply'] %}
