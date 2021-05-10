@@ -13,13 +13,9 @@
   {% set checkingAnswers = true %}
   {% include 'confirm-attendance/_outcome-details.html' %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form method="post" autocomplete="off" action="{{ paths.current }}">
-        {{ govukButton({
-          html: buttonText
-        }) }}
-      </form>
-    </div>
-  </div>
+  <form method="post" autocomplete="off" action="{{ paths.current }}">
+    {{ govukButton({
+      html: buttonText
+    }) }}
+  </form>
 {% endblock %}
