@@ -1,6 +1,11 @@
-<h3 class="govuk-heading-m">
+<h3 class="govuk-heading-s">
+  <div class="govuk-caption-m govuk-font-size-19">
+  <span class="govuk-!-font-weight-bold">{{ entry.type }}</span> – {{ entry.timestamp | dateWithYear }}
+  </div>
   <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
-    {{ entry.type }}
+    {% if entry.from %}
+    {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
+    {% endif %}
     {% if entry.to %}
     to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
     {% endif %}
@@ -8,37 +13,15 @@
   {% if entry.sensitive %}
     {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
   {% endif %}
-  <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
-  {{ entry.timestamp | dateWithYear }}
-  </div>
 </h3>
-
-{% if entry.from or entry.to %}
-<dl class="app-card__one-third-column-list">
-  <div class="app-card__one-third-column-list-item">
-    <dt class="app-card__one-third-column-list-key">
-      From
-    </dt>
-    <dd class="app-card__one-third-column-list-value">
-      {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
-    </dd>
-  </div>
-  <div class="app-card__one-third-column-list-item">
-    <dt class="app-card__one-third-column-list-key">
-     To
-    </dt>
-    <dd class="app-card__one-third-column-list-value">
-      {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
-    </dd>
-  </div>
-</dl>
-{% endif %}
 
 <div class="note-panel">
   {% set truncatedContents = entry.contents | truncate(300) %}
   {% set isTruncated = (truncatedContents !== entry.contents) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
   {% if isTruncated %}
-    <a href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">View full details</a>
+    <p class="govuk-body">
+      <a href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">View full details</a>
+    </p>
   {% endif %}
 </div>
