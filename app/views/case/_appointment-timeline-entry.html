@@ -28,7 +28,7 @@
 {% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentStartTimePassed %}
 
 {% if shouldPromptToConfirmAttendance  %}
-  {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Confirm attendance</a>') }}
+  {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Record attendance</a>') }}
 {% endif %}
 
 {% if entry['session-notes'] %}

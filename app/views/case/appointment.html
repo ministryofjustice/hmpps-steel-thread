@@ -42,25 +42,28 @@
         {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
       {% endif %}
     </h2>
+  </div>
+</div>
 
-    {% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
-    {% if isOutcomeRecorded %}
-      <h3 class="govuk-heading-s">Outcome details</h3>
+{% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
+{% if isOutcomeRecorded %}
+  <h3 class="govuk-heading-s">Outcome details</h3>
 
-      {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
-      {% include 'confirm-attendance/_outcome-details.html' %}
-    {% elif appointmentType === 'previous' and not isOutcomeRecorded %}
-      {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Confirm attendance</a>') }}
-    {% endif %}
+  {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
+  {% include 'confirm-attendance/_outcome-details.html' %}
+{% elif appointmentType === 'previous' and not isOutcomeRecorded %}
+  {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>') }}
+{% endif %}
 
-    <h3 class="govuk-heading-s">Appointment details</h3>
+<h3 class="govuk-heading-s">Appointment details</h3>
 
-    {% set showAction = false %}
-    {% set hideNotes = isOutcomeRecorded %}
-    {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
-    {% include 'arrange-a-session/_session-details.html' %}
+{% set showAction = false %}
+{% set hideNotes = isOutcomeRecorded %}
+{% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
+{% include 'arrange-a-session/_session-details.html' %}
 
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     {% if appointmentType === 'upcoming' %}
       <p class="govuk-body govuk-!-margin-bottom-6">
         <a href="/confirm-attendance/{{ CRN }}/{{ sessionId }}">Confirm attendance and add notes</a>
