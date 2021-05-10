@@ -39,7 +39,8 @@ module.exports = [
           'Sheffield',
           'South Yorkshire',
           'S10 1AG'
-        ]
+        ],
+        'phone': '07700 900 141'
       }
     ],
     'professionalContacts': [
@@ -359,7 +360,7 @@ module.exports = [
         'Bradford',
         'BR7 6DZ'
       ],
-      'phone': '07700 900721',
+      'phone': '07700 900 721',
       'email': 'example@example.biz',
       'aliases': ['Baz'],
       'preferredLanguage': 'English',
@@ -378,7 +379,7 @@ module.exports = [
     'personalContacts': [
       {
         'name': 'Lewis Wilson',
-        'relationship': 'Son',
+        'relationship': 'Son (30 years old)',
         'address': [
           '57 Whatlington Road',
           'Coventry',
@@ -421,7 +422,7 @@ module.exports = [
           'type': 'Unpaid work',
           'value': '150 hours',
           'lengthInHours': 150,
-          'progressInHours': 5
+          'progressInHours': 50
         },
         'ap': {
           'type': 'Accredited Programme ',
@@ -663,7 +664,7 @@ module.exports = [
         'West Yorkshire',
         'LS2 7EW'
       ],
-      'phone': '07700 900469',
+      'phone': '07700 900 469',
       'email': 'example@example.com',
       'aliases': [],
       'preferredLanguage': 'English',
@@ -688,7 +689,8 @@ module.exports = [
           'Leeds',
           'West Yorkshire',
           'LS2 7EW'
-        ]
+        ],
+        'phone': '07700 900 559'
       }
     ],
     'professionalContacts': [],
@@ -862,7 +864,7 @@ module.exports = [
         'Sheffield',
         'S2 9NL'
       ],
-      'phone': '07700 900721',
+      'phone': '07700 900 721',
       'email': 'example@example.com',
       'aliases': [],
       'preferredLanguage': 'English',
@@ -1101,7 +1103,7 @@ module.exports = [
 
         His alcohol consumption has reduced however he still struggles when out with his mates. We moved on to another are to help focus on this by
 
-        • demonstrating improved emotional self management
+        Demonstrating improved emotional self management
 
         His diary is a good step towards this but we discussed additional methods. He mentioned he likes going to his local gym, so we set a time early on Saturday mornings for him to book in a gym session so he avoids drinking too much the night before. We agreed to try this for a few weeks to see if it helps with his decision making.`,
         'sessionId': 'A09'
