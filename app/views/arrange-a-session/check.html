@@ -2,10 +2,25 @@
 {% set rearranging = appointment['rearrange-or-cancel'] %}
 {% set buttonText = 'Confirm rearranged appointment' if rearranging else 'Confirm this appointment' %}
 {% set title = 'Check your answers and confirm appointment' %}
+{% set notStandardForm = true %}
 
-{% block form %}
-  <h1 class="govuk-heading-xl">{{ title }}</h1>
+{% block primary %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+    </div>
+  </div>
 
   {% set showAction = true %}
   {% include 'arrange-a-session/_session-details.html' %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post" autocomplete="off" action="{{ paths.current }}">
+        {{ govukButton({
+          html: buttonText
+        }) }}
+      </form>
+    </div>
+  </div>
 {% endblock %}

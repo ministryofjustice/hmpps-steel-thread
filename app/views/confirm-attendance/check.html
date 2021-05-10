@@ -14,7 +14,7 @@
   {% include 'confirm-attendance/_outcome-details.html' %}
 
   <div class="govuk-grid-row">
-    <div class="{{ gridColumnClass if gridColumnClass else 'govuk-grid-column-two-thirds' }}">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" autocomplete="off" action="{{ paths.current }}">
         {{ govukButton({
           html: buttonText
