@@ -50,7 +50,7 @@
       {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
       {% include 'confirm-attendance/_outcome-details.html' %}
     {% elif appointmentType === 'previous' and not isOutcomeRecorded %}
-      {{ appWarningBanner('Attendance not confirmed. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Confirm attendance</a>') }}
+      {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>') }}
     {% endif %}
 
     <h3 class="govuk-heading-s">Appointment details</h3>
