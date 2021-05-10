@@ -31,59 +31,57 @@
     {% if entry.sensitive %}
       {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey govuk-!-margin-bottom-6" }) }}
     {% endif %}
+  </div>
+</div>
 
-    <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-6">
-      {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTime }}
-    </h2> -->
+{{ govukSummaryList({
+  classes: 'govuk-!-margin-bottom-9',
+  rows: [
+    {
+      key: {
+        text: "From"
+      },
+      value: {
+        text: case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data)
+      }
+    } if entry.from,
+    {
+      key: {
+        text: "To"
+      },
+      value: {
+        text: case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data)
+      }
+    } if entry.to,
+    {
+      key: {
+        text: "Date"
+      },
+      value: {
+        text: entry.timestamp | dateWithYear
+      }
+    },
+    {
+      key: {
+        text: "Time"
+      },
+      value: {
+        text: entry.timestamp | govukTime
+      }
+    },
+    {
+      key: {
+        text: "Details"
+      },
+      value: {
+        text: entry.contents | nl2br | safe or 'None'
+      }
+    }
+  ]
+}) }}
 
-    <!-- <h3 class="govuk-heading-s">Communication details</h3> -->
-
-    {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-9',
-      rows: [
-        {
-          key: {
-            text: "From"
-          },
-          value: {
-            text: case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data)
-          }
-        } if entry.from,
-        {
-          key: {
-            text: "To"
-          },
-          value: {
-            text: case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data)
-          }
-        } if entry.to,
-        {
-          key: {
-            text: "Date"
-          },
-          value: {
-            text: entry.timestamp | dateWithYear
-          }
-        },
-        {
-          key: {
-            text: "Time"
-          },
-          value: {
-            text: entry.timestamp | govukTime
-          }
-        },
-        {
-          key: {
-            text: "Details"
-          },
-          value: {
-            text: entry.contents | nl2br | safe or 'None'
-          }
-        }
-      ]
-      }) }}
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body-s govuk-hint-s">Last updated by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
   </div>
 </div>
