@@ -37,7 +37,7 @@
   {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
   {% if isTruncated %}
-    <p class="govuk-body">
+    <p class="govuk-body govuk-!-margin-bottom-0">
       <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">View full details</a>
     </p>
   {% endif %}
