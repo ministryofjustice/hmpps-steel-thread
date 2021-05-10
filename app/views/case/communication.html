@@ -82,15 +82,12 @@
 
     {% set hr = joiner('<hr>') %}
     {% for entry in communicationEntries(CRN, data, {category: category}) %}
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+      <hr class="govuk-section-break govuk-section-break--m">
       {% if entry.type === 'Appointment' %}
         {% include "case/_appointment-timeline-entry.html" %}
       {% elseif entry.type in ['Text message', 'Email', 'Phone call', 'Note'] %}
         {% include "case/_communication-timeline-entry.html" %}
       {% endif %}
-
-      <p class="govuk-body-s govuk-hint-s">Last updated by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }} on {{ entry.timestamp | dateWithYear }} at {{ entry.timestamp | govukTimeWithMinutes }}</p>
     {% endfor %}
   </div>
 </div>

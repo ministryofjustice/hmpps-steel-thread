@@ -1,5 +1,8 @@
-<h3 class="govuk-heading-m">
-  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }}</a>
+<h3 class="govuk-heading-s">
+  <div class="govuk-caption-m govuk-!-font-size-19">
+    <span class="govuk-!-font-weight-bold">Appointment</span> – {{ entry['session-date'] | dateWithYear }}, {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
+  </div>
+  <a class="govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a>
 
   {% if entry['session-counts-towards-rar'] === 'Yes' %}
     {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
@@ -12,35 +15,13 @@
   {% elseif entry['did-service-user-comply'] === 'Absent' %}
     {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
   {% endif %}
-
-  <div class="govuk-!-margin-top-1 govuk-!-font-size-19">
-    {{ entry['session-date'] | dateWithYear }} from {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
-    {% if entry.repeat === 'Yes' %}
-      {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
-    {% endif %}
-  </div>
 </h3>
 
-<dl class="app-card__one-third-column-list">
-  <div class="app-card__one-third-column-list-item">
-    <dt class="app-card__one-third-column-list-key">
-      With
-    </dt>
-    <dd class="app-card__one-third-column-list-value">
-      {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
-    </dd>
-  </div>
-  <div class="app-card__one-third-column-list-item">
-    {% if entry['session-counts-towards-rar'] == 'Yes' %}
-    <dt class="app-card__one-third-column-list-key">
-     RAR
-    </dt>
-    <dd class="app-card__one-third-column-list-value">
-      {{ entry['session-rar-category'] }}
-    </dd>
-    {% endif %}
-  </div>
-</dl>
+{% if entry['session-counts-towards-rar'] == 'Yes' %}
+  <p>
+    RAR – {{ entry['session-rar-category'] }}
+  </p>
+{% endif %}
 
 {% set hasAttendanceAlreadyBeenConfirmed = not not entry['did-service-user-comply'] %}
 {% set hasAppointmentStartTimePassed = isInThePast({date: entry['session-date'], time: entry['session-start-time']}) %}
@@ -52,11 +33,13 @@
 
 {% if entry['session-notes'] %}
 <div class="note-panel">
-  {% set truncatedContents = entry['session-notes'] | truncate(300) %}
+  {% set truncatedContents = entry['session-notes'] | truncate(250) %}
   {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>
   {% if isTruncated %}
-    <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">View full details</a>
+    <p class="govuk-body govuk-!-margin-bottom-0">
+      <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">View full details</a>
+    </p>
   {% endif %}
 </div>
 {% endif %}
