@@ -23,11 +23,11 @@
       {
         text: 'I did',
         value: userName(data)
-      } if not (data['communication'][CRN][sessionId]['from'] == userName(data)),
+      } if not (communication['from'] == userName(data)),
       {
         text: case.serviceUserPersonalDetails.firstName + ' did',
         value: case.serviceUserPersonalDetails.firstName
-      } if not (data['communication'][CRN][sessionId]['from'] == case.serviceUserPersonalDetails.firstName),
+      } if not (communication['from'] == case.serviceUserPersonalDetails.firstName),
 
       {
         text: 'Someone else did',

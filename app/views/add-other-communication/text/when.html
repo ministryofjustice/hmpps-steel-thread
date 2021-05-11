@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set userSentEmail = data['communication'][CRN][sessionId]['from'] == userName(data) %}
+{% set userSentEmail = communication['from'] == userName(data) %}
 {% set title = 'When did you send the text message?' if userSentEmail else 'When was the text message received?' %}
 {% set timeLabel = 'What time was the text message sent?' %}
 
@@ -18,7 +18,7 @@
                 type="date"
                 id="[communication][{{CRN}}][{{sessionId}}][date]"
                 name="[communication][{{CRN}}][{{sessionId}}][date]"
-                value="{{ data['communication'][CRN][sessionId]['date'] }}"
+                value="{{ communication['date'] }}"
                 placeholder="DD/MM/YYYY">
             </div>
           </div>
@@ -56,7 +56,7 @@
         type="text"
         id="other-communication-time"
         name="[communication][{{CRN}}][{{sessionId}}][time]"
-        value="{{ data['communication'][CRN][sessionId]['time'] }}">
+        value="{{ communication['time'] }}">
     </div>
   </div>
 {% endblock %}

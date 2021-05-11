@@ -4,7 +4,7 @@
 
 {% block page %}
   {% set panelHtml %}
-    <strong>from {{ data['communication'][CRN][sessionId]['from'] }} to {{ data['communication'][CRN][sessionId]['to'] }}</strong><br />
+    <strong>from {{ communication['from'] }} to {{ communication['to'] }}</strong><br />
   {% endset %}
 
   {{ govukPanel({

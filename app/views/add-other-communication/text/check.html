@@ -15,7 +15,7 @@
     rows: [
       {
         key: { text: "From" },
-        value: { text: data['communication'][CRN][sessionId]['from'] if data['communication'][CRN][sessionId]['from'] !== 'other' else data['communication'][CRN][sessionId]['other-from'] },
+        value: { text: communication['from'] if communication['from'] !== 'other' else communication['other-from'] },
         actions: {
           items: [
             {
@@ -28,7 +28,7 @@
       },
       {
         key: { text: "To" },
-        value: { text: data['communication'][CRN][sessionId]['to'] if data['communication'][CRN][sessionId]['to'] !== 'other' else data['communication'][CRN][sessionId]['other-to'] },
+        value: { text: communication['to'] if communication['to'] !== 'other' else communication['other-to'] },
         actions: {
           items: [
             {
@@ -41,7 +41,7 @@
       },
       {
         key: { text: "Date" },
-        value: { text: (today() | dateWithYear if data['communication'][CRN][sessionId]['type-of-date'] === 'Today' else data['communication'][CRN][sessionId]['date'] | dateWithYear) + ' at ' + data['communication'][CRN][sessionId]['time'] },
+        value: { text: (today() | dateWithYear if communication['type-of-date'] === 'Today' else communication['date'] | dateWithYear) + ' at ' + communication['time'] },
         actions: {
           items: [
             {
@@ -54,7 +54,7 @@
       },
       {
         key: { text: "Details" },
-        value: { text: data['communication'][CRN][sessionId]['contents'] },
+        value: { text: communication['contents'] },
         actions: {
           items: [
             {
@@ -67,7 +67,7 @@
       },
       {
         key: { text: "Sensitive" },
-        value: { text: data['communication'][CRN][sessionId]['sensitive'] },
+        value: { text: communication['sensitive'] },
         actions: {
           items: [
             {
