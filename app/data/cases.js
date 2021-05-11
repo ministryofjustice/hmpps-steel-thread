@@ -135,12 +135,12 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to known adults',
+        text: 'Medium risk of harm',
         class: 'orange'
       },
       {
-        text: 'Risk to public',
-        class: 'orange'
+        text: 'IOM',
+        class: 'blue'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -402,7 +402,7 @@ module.exports = [
     'CRN': 'E577913',
     'currentOrder': {
       'type': 'Suspended Sentence Order (24 Months)',
-      'description': 'Breach of Sexual Offences Prevention Order (Sex Offs Act 2003) [incl Breaches of Sex Offender Order (C&D Act 1998) & Restraining Order (prior to SOA 2003)] - 06608',
+      'description': 'Breach of Sexual Offences Prevention Order (Sex Offs Act 2003) [incl Breaches of Sex Offender Order (C&D Act 1998)',
       'lengthInMonths': 24,
       'progressInMonths': 17,
       'startDate': '2019-11-29',
@@ -426,7 +426,7 @@ module.exports = [
         },
         'ap': {
           'type': 'Accredited Programme ',
-          'value': 'Horizon'
+          'value': 'Horizon completed'
         }
       },
       'courtDocuments': [
@@ -462,15 +462,19 @@ module.exports = [
       }
     ],
     'breachesCount': 1,
-    'restrainingOrdersCount': 1,
+    'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to children',
+        text: 'High risk of harm',
         class: 'red'
       },
       {
-        text: 'Risk to known adults',
-        class: 'red'
+        text: 'Sex Offender',
+        class: 'purple'
+      },
+      {
+        text: 'MAPPA',
+        class: 'purple'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -751,7 +755,7 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to public',
+        text: 'Medium risk of harm',
         class: 'orange'
       }
     ],
@@ -973,16 +977,12 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Risk to children',
+        text: 'Medium risk of harm',
         class: 'orange'
       },
       {
-        text: 'Risk to known adults',
-        class: 'orange'
-      },
-      {
-        text: 'Risk to public',
-        class: 'orange'
+        text: 'Domestic abuse',
+        class: 'turquoise'
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -1390,12 +1390,12 @@ module.exports = [
     'restrainingOrdersCount': 1,
     'riskBadges': [
       {
-        text: 'Risk to known adults',
+        text: 'Medium risk of harm',
         class: 'orange'
-      },
+      },     
       {
-        text: 'Risk to public',
-        class: 'orange'
+        text: 'Restraining Order',
+        class: 'turquoise'
       }
     ],
     'riskOfSeriousHarmLevel': {
