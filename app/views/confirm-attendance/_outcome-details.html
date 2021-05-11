@@ -102,6 +102,19 @@
           }
         ]
       } if checkingAnswers
-    } if appointment['filenames'].length > 0
+    } if appointment['filenames'].length > 0,
+    {
+      key: { text: "Sensitive" },
+      value: { text: data['communication'][CRN][sessionId]['sensitive'] },
+      actions: {
+        items: [
+          {
+            href: path + '/sensitive',
+            text: "Change",
+            visuallyHiddenText: "if this was sensitive"
+          }
+        ]
+      } if showAction
+    }
   ]
   }) }}

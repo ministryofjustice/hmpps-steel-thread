@@ -15,6 +15,10 @@
   {% elseif entry['did-service-user-comply'] === 'Absent' %}
     {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
   {% endif %}
+
+  {% if entry.sensitive %}
+    {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+  {% endif %}
 </h3>
 
 {% if entry['session-counts-towards-rar'] == 'Yes' %}

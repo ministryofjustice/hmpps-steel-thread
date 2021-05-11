@@ -144,6 +144,19 @@
           }
         ]
       } if showAction or notesEditPath
-    } if not hideNotes
+    } if not hideNotes,
+    {
+      key: { text: "Sensitive" },
+      value: { text: data['communication'][CRN][sessionId]['sensitive'] },
+      actions: {
+        items: [
+          {
+            href: path + '/sensitive',
+            text: "Change",
+            visuallyHiddenText: "if this was sensitive"
+          }
+        ]
+      } if showAction
+    }
   ]
   }) }}
