@@ -8,7 +8,7 @@
 
 <p>
   {% for badge in case.riskBadges %}
-    <span class="govuk-tag govuk-tag--{{ badge.class }}{{ ' govuk-!-margin-right-2' if loop.first else '' }}">
+    <span class="govuk-tag govuk-tag--{{ badge.class }}{{ ' govuk-!-margin-right-2' }}">
       {{ badge.text }}
     </span>
   {% endfor %}
