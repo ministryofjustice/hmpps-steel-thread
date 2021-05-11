@@ -426,7 +426,7 @@ module.exports = [
         },
         'ap': {
           'type': 'Accredited Programme ',
-          'value': 'Horizon'
+          'value': 'Horizon completed'
         }
       },
       'courtDocuments': [
