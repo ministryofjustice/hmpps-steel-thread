@@ -18,6 +18,7 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/rar-categories`,
     `${basePath}/add-notes`,
     `${basePath}/notes`,
+    `${basePath}/sensitive`,
     `${basePath}/check`,
     `${basePath}/confirmation`,
     `/arrange-a-session/${CRN}/start`,
@@ -65,7 +66,7 @@ function confirmAttendanceWizardForks (req) {
       currentPath: `${basePath}/add-notes`,
       storedData: ['communication', CRN, sessionId, 'add-notes'],
       values: ['No (notes can be added later)'],
-      forkPath: `${basePath}/check`
+      forkPath: `${basePath}/sensitive`
     }
   ]
 

@@ -34,6 +34,10 @@
       {% elseif appointment['did-service-user-comply'] === 'Absent' %}
         {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
       {% endif %}
+
+      {% if appointment.sensitive %}
+        {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+      {% endif %}
     </h1>
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-6">
