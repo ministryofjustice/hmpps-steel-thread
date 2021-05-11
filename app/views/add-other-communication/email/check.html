@@ -41,7 +41,7 @@
       },
       {
         key: { text: "Date" },
-        value: { text: today() | dateWithYear if communication['type-of-date'] === 'Today' else communication['date'] | dateWithYear + ' at ' + communication['time'] },
+        value: { text: (today() | dateWithYear if communication['type-of-date'] === 'Today' else isoDateFromDateInputs(communication['date-year'], communication['date-month'], communication['date-day']) | dateWithYear) + ' at ' + communication['time'] },
         actions: {
           items: [
             {
