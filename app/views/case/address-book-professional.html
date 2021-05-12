@@ -59,7 +59,7 @@
                   {
                     href: "/to-delius",
                     text: "Change",
-                    visuallyHiddenText: "email address on National Delius"
+                    visuallyHiddenText: "phone number on National Delius"
                   }
                 ]
               }
@@ -85,7 +85,7 @@
                   {
                     href: "/to-delius",
                     text: "Change",
-                    visuallyHiddenText: "email address on National Delius"
+                    visuallyHiddenText: "provider on National Delius"
                   }
                 ]
               }
@@ -98,7 +98,7 @@
                   {
                     href: "/to-delius",
                     text: "Change",
-                    visuallyHiddenText: "email address on National Delius"
+                    visuallyHiddenText: "Local Delivery Unit on National Delius"
                   }
                 ]
               }
@@ -111,23 +111,14 @@
                   {
                     href: "/to-delius",
                     text: "Change",
-                    visuallyHiddenText: "email address on National Delius"
+                    visuallyHiddenText: "team on National Delius"
                   }
                 ]
               }
             },
             {
               key: { text: "Allocated until" },
-              value: { text: contact.allocatedUntilDate | dateWithYear },
-              actions: {
-                items: [
-                  {
-                    href: "/to-delius",
-                    text: "Change",
-                    visuallyHiddenText: "email address on National Delius"
-                  }
-                ]
-              }
+              value: { text: contact.allocatedUntilDate | dateWithYear }
             }
           ]
         }) }}
