@@ -35,7 +35,7 @@
         {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
       {% endif %}
 
-      {% if appointment.sensitive %}
+      {% if appointment.sensitive === 'Yes' %}
         {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
       {% endif %}
     </h1>
