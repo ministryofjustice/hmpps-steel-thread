@@ -48,15 +48,42 @@
         rows: [
           {
             key: { text: "Address" },
-            value: { html: case.serviceUserPersonalDetails.address.join('<br>') }
+            value: { html: case.serviceUserPersonalDetails.address.join('<br>') },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "address on National Delius"
+                }
+              ]
+            }
           },
           {
             key: { text: "Phone number" },
-            value: { text: case.serviceUserPersonalDetails.phone }
+            value: { text: case.serviceUserPersonalDetails.phone },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "phone number on National Delius"
+                }
+              ]
+            }
           },
           {
             key: { text: "Email" },
-            value: { text: case.serviceUserPersonalDetails.email }
+            value: { text: case.serviceUserPersonalDetails.email },
+            actions: {
+              items: [
+                {
+                  href: "/to-delius",
+                  text: "Change",
+                  visuallyHiddenText: "email address on National Delius"
+                }
+              ]
+            }
           }
         ]
       }) }}
@@ -73,15 +100,42 @@
           rows: [
             {
               key: { text: "Relationship to " + case.serviceUserPersonalDetails.firstName },
-              value: { text: contact.relationship }
+              value: { text: contact.relationship },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Address" },
-              value: { html: contact.address.join('<br>') }
+              value: { html: contact.address.join('<br>') },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Phone number" },
-              value: { html: contact.phone }
+              value: { html: contact.phone },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             }
           ]
         }) }}

@@ -53,27 +53,81 @@
           rows: [
             {
               key: { text: "Phone number" },
-              value: { text: contact.phone }
+              value: { text: contact.phone },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Email" },
-              value: { text: contact.email }
+              value: { text: contact.email },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Provider" },
-              value: { text: contact.provider }
+              value: { text: contact.provider },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Local Delivery Unit (LDU)" },
-              value: { text: contact.localDeliveryUnit }
+              value: { text: contact.localDeliveryUnit },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Team" },
-              value: { text: contact.team }
+              value: { text: contact.team },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             },
             {
               key: { text: "Allocated until" },
-              value: { text: contact.allocatedUntilDate | dateWithYear }
+              value: { text: contact.allocatedUntilDate | dateWithYear },
+              actions: {
+                items: [
+                  {
+                    href: "/to-delius",
+                    text: "Change",
+                    visuallyHiddenText: "email address on National Delius"
+                  }
+                ]
+              }
             }
           ]
         }) }}
