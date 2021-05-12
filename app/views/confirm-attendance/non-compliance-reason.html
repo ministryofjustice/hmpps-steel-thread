@@ -3,35 +3,23 @@
 {% set buttonText = 'Save and continue' %}
 
 {% block form %}
-  {% set whyAcceptableHtml %}
-    {{ govukInput({
-      label: {
-        text: "Give details"
-      },
-      classes: 'govuk-!-width-two-thirds'
-    } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason-other'])) }}
-  {% endset %}
+  {% set reasons = failureToComplyReasons(data['provider-code'], appointment['type-of-session'], appointment['other-type-of-session']) | sort %}
+
+  {% set nonComplianceReasonsRadioItems = [] %}
+  {% for reason in reasons %}
+    {% set nonComplianceReasonsRadioItems = (nonComplianceReasonsRadioItems.push({
+      text: reason | capitalize
+    }), nonComplianceReasonsRadioItems) %}
+  {% endfor %}
 
   {{ govukRadios({
-       fieldset: {
-         legend: {
-           text: "How did " + case.serviceUserPersonalDetails.firstName + " not comply?",
-           classes: "govuk-label--xl",
-           isPageHeading: true
-         }
-       },
-       name: 'session-counts-towards-rar',
-       items: [
-         {
-           text: 'Behavioural issues'
-         },
-         {
-           text: 'Other',
-           conditional: {
-             html: whyAcceptableHtml
-           }
-         }
-       ]
-       } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason']))
-  }}
+      fieldset: {
+        legend: {
+          text: title,
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        }
+      },
+      items: nonComplianceReasonsRadioItems
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'non-compliance-reason'])) }}
 {% endblock %}
