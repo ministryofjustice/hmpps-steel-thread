@@ -274,7 +274,7 @@ module.exports = [
         'confirmed': true,
         'did-service-user-comply': 'Yes',
         'lastUpdatedBy': 'Mark Berridge',
-        'session-notes': `Dylan came on time to his latest session.
+        'session-notes': `Dylan arrived on time for his session with me today but seemed quiet at first.
 
         We discussed his home life with his mum; he seemed a bit reluctant to talk about her and eventually opened up about the fact they had had a minor argument over Dylan contributing some money to the weekly shop, in addition to the bills.
 
@@ -410,8 +410,7 @@ module.exports = [
 
         I explained that this was a necessary part of his supervision and that my purpose for being there was to help understand more about his circumstances. He mentioned that he would like his own place again someday but can’t afford one.
 
-        I currently have no concerns about his living situation and feel his mum is a stable influence on his life. He mentioned that “things go
-        wrong” before when he tried to “make it on his own.”`,
+        I currently have no concerns about his living situation and feel his mum is a stable influence on his life. He mentioned that “things have gone wrong” before when he tried to “make it on his own.”`,
         'sessionId': 980
       },
       {
