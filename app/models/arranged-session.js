@@ -8,7 +8,7 @@ class ArrangedSession {
   constructor (params) {
     this.params = params
 
-    this.params.date = DateTime.local(params.year, params.month, params.day).toISODate()
+    this.params.date = DateTime.local(parseInt(params.year), parseInt(params.month), parseInt(params.day)).toISODate()
     this.params.startTime = params.startTime || '10am'
     this.params.endTime = params.endTime || '11am'
   }
