@@ -6,7 +6,8 @@ const {
 
 const {
   dateTimeFrom,
-  today
+  today,
+  isoDateFromDateInputs
 } = require('../../lib/helpers')
 
 const {
@@ -29,6 +30,7 @@ module.exports = router => {
     res.locals.case = data.cases.find(obj => {
       return obj.CRN === req.params.CRN
     })
+    res.locals.communication = getDataValue(req.session.data, ['communication', req.params.CRN, req.params.sessionId])
     next()
   })
 
@@ -49,7 +51,11 @@ module.exports = router => {
     if (typeOfDate === 'Today') {
       dateString = today()
     } else {
-      dateString = getDataValue(data, ['communication', CRN, sessionId, 'date'])
+      dateString = isoDateFromDateInputs(
+        getDataValue(data, ['communication', CRN, sessionId, 'date-year']),
+        getDataValue(data, ['communication', CRN, sessionId, 'date-month']),
+        getDataValue(data, ['communication', CRN, sessionId, 'date-day'])
+      )
     }
 
     setDataValue(

@@ -1,30 +1,42 @@
 {% extends "_wizard-form.html" %}
-{% set userSentEmail = data['communication'][CRN][sessionId]['from'] == userName(data) %}
+{% set userSentEmail = communication['from'] == userName(data) %}
 {% set title = 'When did you send the email?' if userSentEmail else 'When was the email received?' %}
 {% set timeLabel = 'What time did you send it?' if userSentEmail else 'What time was it received?' %}
 
 {% block form %}
   {% set otherDayHTML %}
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" role="group">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          Date
-        </legend>
-        <div class="govuk-date-input">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <input
-                class="govuk-input govuk-date-input__input"
-                type="date"
-                id="[communication][{{CRN}}][{{sessionId}}][date]"
-                name="[communication][{{CRN}}][{{sessionId}}][date]"
-                value="{{ data['communication'][CRN][sessionId]['date'] }}"
-                placeholder="DD/MM/YYYY">
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+    {{ govukDateInput({
+      id: 'session-date',
+      fieldset: {
+        legend: {
+          text: "Date",
+          classes: "govuk-label--s"
+        }
+      },
+      items: [
+        {
+          name: '[communication][' + CRN + '][' + sessionId + '][date-day]',
+          value: communication['date-day'],
+          classes: "govuk-input--width-2",
+          label: 'Day'
+        },
+        {
+          name: '[communication][' + CRN + '][' + sessionId + '][date-month]',
+          value: communication['date-month'],
+          classes: "govuk-input--width-2",
+          label: 'Month'
+        },
+        {
+          name: '[communication][' + CRN + '][' + sessionId + '][date-year]',
+          value: communication['date-year'],
+          classes: "govuk-input--width-4",
+          label: 'Year'
+        }
+      ],
+      hint: {
+        text: "For example, 20 5 2021"
+      }
+    }) }}
   {% endset %}
 
   {{ govukRadios({
@@ -56,7 +68,7 @@
         type="text"
         id="other-communication-time"
         name="[communication][{{CRN}}][{{sessionId}}][time]"
-        value="{{ data['communication'][CRN][sessionId]['time'] }}">
+        value="{{ communication['time'] }}">
     </div>
   </div>
 {% endblock %}
