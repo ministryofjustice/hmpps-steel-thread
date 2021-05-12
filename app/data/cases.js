@@ -26,7 +26,7 @@ module.exports = [
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
         'employment': 'Full-time employed',
-        'housingStatus': 'Living alone',
+        'housingStatus': 'Living with family',
         'safeguardingIssues': []
       }
     },
@@ -35,7 +35,7 @@ module.exports = [
         'name': 'Pippa Wade',
         'relationship': 'Mum',
         'address': [
-          '2 Grey Lane',
+          '1 Grey Lane',
           'Sheffield',
           'South Yorkshire',
           'S10 1AG'
@@ -216,14 +216,13 @@ module.exports = [
       }
     ],
     'criminogenicNeeds': [
-      'Accommodation',
       'Relationships',
       'Thinking and attitudes'
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 24 Nov 2016',
     'appointmentStatistics': {
-      'complied': 2,
+      'complied': 9,
       'acceptableAbsence': 0,
       'failureToComply': 1
     },
@@ -234,118 +233,218 @@ module.exports = [
         'lastUpdatedBy': 'Mark Berridge',
         'timestamp': helpers.yesterday({atTime: '13:00'}),
         'session-date': helpers.yesterday(),
-        'session-start-time': '10am',
-        'session-end-time': '11am',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
         'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'No',
         'sessionId': 456
       },
       {
+        'type': 'Appointment',
+        'timestamp': '2021-05-06T17:30',
+        'session-date': '2021-05-06',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'Attitudes, thinking and behaviour',
+        'session-rar-subcategory': 'Attitudes, thinking and behaviour',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Yes',
         'lastUpdatedBy': 'Mark Berridge',
-        'type': 'Text message',
-        'from': 'Service user',
-        'to': 'Mark Berridge',
-        'timestamp': '2021-04-11T13:00',
-        'contents': 'Hi, got the email. I’ll be there. D.',
+        'session-notes': `During today’s session we discussed how Dylan was progressing with the anger management worksheets I had sent him. He has read through them and says he understands why they may be beneficial, but would like to understand how to apply some of the tactics in a real life situation, as they “feel a bit unrealistic.”
+
+        Dylan states that he and his mum are doing much better after their argument last week, and that Dylan is now contributing a bit to the weekly shop when he can. His mum is happy with this arrangement.
+
+        Dylan’s work is still consistent and I believe that this is still an important factor in his rehabilitation, as it gives him structure and routine. He is continuing to engage and I don’t believe that there are any issues that merit a change in the level of RoSH.`,
         'sessionId': 987
       },
       {
+        'type': 'Appointment',
+        'timestamp': '2021-04-29T17:30',
+        'session-date': '2021-04-29',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'Attitudes, thinking and behaviour',
+        'session-rar-subcategory': 'Attitudes, thinking and behaviour',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Yes',
         'lastUpdatedBy': 'Mark Berridge',
-        'type': 'Email',
-        'from': 'Mark Berridge',
-        'to': 'Service user',
-        'timestamp': '2021-04-10T13:00',
-        'contents': `Hi Dylan,
+        'session-notes': `Dylan arrived on time for his session with me today but seemed quiet at first.
 
-        It’s really important that you come back in to see me. I understand that my last letter was sent to your old room so I’m trying you on the email address you provided me. We talked at the beginning of your probation about what might happen if you refuse to comply...`,
+        We discussed his home life with his mum; he seemed a bit reluctant to talk about her and eventually opened up about the fact they had had a minor argument over Dylan contributing some money to the weekly shop, in addition to the bills.
+
+        I asked about how he had felt about his mum asking him to do this. He said that initially he felt angry towards her as he didn’t “see why she suddenly needed more money.” We discussed the positive impact his mother was having in his life by supporting him, and talked about how this evidenced that his mum thought he had made enough progress to be positively contributing to their home. Dylan felt happier about viewing the request in this light, and said he would apologise to his mum for being angry at her.
+
+        Dylan confirmed he had received the anger management worksheets I had sent, but hasn’t had time to review them yet as he’s busy with work. I have asked him to review them in time for our next session.`,
         'sessionId': 986
       },
       {
+        'type': 'Appointment',
+        'timestamp': '2021-04-22T17:30',
+        'session-date': '2021-04-22',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'Attitudes, thinking and behaviour',
+        'session-rar-subcategory': 'Attitudes, thinking and behaviour',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Yes',
         'lastUpdatedBy': 'Mark Berridge',
-        'type': 'Email',
-        'from': 'Mark Berridge',
-        'to': 'Jane Goodhall',
-        'timestamp': '2021-03-31T13:00',
-        'contents': `Dear Jane
+        'session-notes': `Dylan presented well to his latest appointment. He is still working as a labourer full time and the new appointment routine is working with his schedule.
 
-        I’m writing to enquire after Dylan and confirm he is settled in his new room? I have written to him about his non compliance in our last meeting and need to confirm that the letter has reached him?
+        We decided now was a good time to make the move to work on his attitudes, thinking and behaviour, with a focus on reflecting on how his previous violent behaviour has impacted his decisions. Dylan was more responsive towards starting this work than he was when we initially discussed it, after the success he’s had with managing his finances over the last few sessions.
 
-        Thanks`,
+        In the session we reviewed Dylan’s behaviour and decisions up until the point of his offence, plotting them out on a ripple-effect map. Dylan was engaged with the process and began to see how his behaviour had led him to committing his offence. As a result of this work, Dylan commented that he needs “to work on my anger management.”
+
+        I sent Dylan some anger management worksheets in the post to read through and complete at home.`,
         'sessionId': 985
       },
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': '2021-03-16T13:00',
-        'session-date': '2021-03-16',
-        'session-end-time': '11am',
-        'session-start-time': '10am',
-        'session-counts-towards-rar': 'No',
+        'timestamp': '2021-04-15T17:30',
+        'session-date': '2021-04-15',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'Finance',
+        'session-rar-subcategory': 'Finance',
         'type-of-session': 'Office visit',
-        'did-service-user-comply': 'No',
-        'repeating': 'No, it’s a one-off session',
-        'non-compliance-reason': 'Other',
-        'non-compliance-reason-other': 'Attended - Failed to Comply',
+        'repeating': 'No, it’s a one-off appointment',
         'confirmed': true,
-        'session-notes': `Dylan turned up for his appointment on time however he refused to talk about anything with me until “his new room was sorted out”.
+        'did-service-user-comply': 'Yes',
+        'lastUpdatedBy': 'Mark Berridge',
+        'session-notes': `During today’s session I helped Dylan set up a bank account online with a debit card being sent to him in the post. I explained how this works as he was concerned it would get him into debt. I explained that this isn’t the same as a credit card.
 
-                          I explained it wasn’t possible to move him until the 19th to which he stormed out of the meeting.`,
+        Now that he has his account set up he has agreed to pay in 50% of his cash wages into the account every saturday morning after he has put away his savings and given his mum money to help with bills.
+
+        We talked about how this amount might build up over time and that eventually he could look to set up a savings account.
+
+        We reviewed his budget and he was able to stick to it with £5 left over. He seemed pleased with this outcome and we have agreed to try and do the same next week. Dylan has made great progress in a short period of time and I’m happy to keep reviewing this as part of his regular supervision session.`,
         'sessionId': 984
       },
       {
+        'type': 'Appointment',
+        'timestamp': '2021-04-08T17:30',
+        'session-date': '2021-04-08',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'Yes',
+        'session-rar-category': 'Finance',
+        'session-rar-subcategory': 'Finance',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Yes',
         'lastUpdatedBy': 'Mark Berridge',
-        'type': 'Email',
-        'from': 'Jane Goodhall',
-        'to': 'Mark Berridge',
-        'timestamp': '2021-03-12T13:00',
-        'contents': `Hello,
+        'session-notes': `Dylan arrived on time and well kept, he mentioned that he had been speaking with his mum about the RAR work and that she has encouraged him to “give it his best”
 
-        Thanks for your email, I’ve received Dylan’s request and we have a room available on the ground floor coming available on the 19th of March.
+        We discussed what his goals for this work could be, he outlined the following
 
-        All the best,
-        Jane`,
+        - Open his own bank account
+        - Manage his money better so that he could save for his own place
+        - Help his mum with the bills whilst he is living with her
+
+        He mentioned that he currently earns £200 per week for his labouring job and that he is paid cash at the end of each week. His employer deducts his national insurance and tax before paying him. His usual strategy is to spend all his money and he normally struggles to buy food on a Thursday because he’s waiting to get paid at the end of the day.
+
+        We first noted down all of his expenses including credit for his mobile phone. Our first step was to create a budget for him to stick to next week and come to his next appointment with the budget and talk to me about whether he was able to stick to it. He is currently spending at least £50 per week on online gambling and has agreed to half this going forward.
+
+        He has also agreed that £20 per week will start to go to his mum to help with the bills whilst he is living with her and that he will pay her this on pay day so that it doesn’t get spent elsewhere.
+
+        We also discussed £10 going into a savings jar.`,
         'sessionId': 983
       },
       {
+        'type': 'Appointment',
+        'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'type': 'Email',
-        'from': 'Mark Berridge',
-        'to': 'Jane Goodhall',
-        'timestamp': '2021-02-27T13:00',
-        'contents': `Dear Jane
+        'timestamp': '2021-04-01T17:53',
+        'session-date': '2021-04-01',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Yes',
+        'confirmed': true,
+        'session-notes': `Dylan’s sentencing planning is now complete and we have agreed to weekly appointments for the foreseeable future. He is currently working as a labourer full time and seems stressed about trying to fit in 30 minute appointments around work. As full time work is such a positive thing in terms of his routine and wellbeing we have agreed that we will ensure that all office visits are at the end of the day. 5pm appointments are okay for him.
 
-        I’m writing to confirm that you have received my application on behalf of Dylan to change the room he has been allocated at the hostel. He now has part time work with very early shifts and is struggling with some of the noisier occupants on his floor.
-
-        Thanks in advance`,
+        We also discussed how to use his RAR days. I mentioned I would like to do some one on one work on thinking skills and attitudes which he seemed dismissive of at first to which he replied “do I have to?” I reiterated that this was part of his sentence requirements and important to engage with this work to help him move forward. I also plan to do work with him on finance as he mentioned that he would like help in this area. He currently doesn’t have a bank account so this is where we’ll start.`,
         'sessionId': 982
       },
       {
         'type': 'Appointment',
-        'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': '2021-02-08T13:00',
-        'session-date': '2021-02-08',
-        'session-start-time': '1pm',
-        'session-end-time': '2pm',
-        'session-counts-towards-rar': 'No',
         'type-of-session': 'Office visit',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-25T14:53',
+        'session-date': '2021-03-25',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
         'did-service-user-comply': 'Yes',
-        'session-notes': 'Dylan arrived on time and presented well for his induction appointment. He filled in all the paperwork required without any resistance and said he understood the process. He mentioned his mum had talked to him a lot over the weekend and helped him to calm down. His mum appears to be a positive influence in his life, which I would like to explore further with him.',
+        'confirmed': true,
+        'session-notes': `Dylan turned up for his appointment on time however appeared agitated and anxious. We discussed the reason for his anxiety and he mentioned how in the past he would manage his emotions with marijauna. He is currently not using and was honest about his usage in the past.
+
+        We began his sentence planning but it’s my opinion that this will need a second appointment to complete this work. Dylan clearly has issues managing his emotions and I would like to explore this as a possible cause for his offending.`,
         'sessionId': 981
       },
       {
         'type': 'Appointment',
+        'type-of-session': 'Home visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'type-of-session': 'Phone call',
-        'timestamp': '2021-02-03T14:00',
-        'session-date': '2021-02-03',
-        'session-start-time': '1pm',
-        'session-end-time': '2pm',
+        'timestamp': '2021-03-18T14:53',
+        'session-date': '2021-03-18',
+        'session-start-time': '2pm',
+        'session-end-time': '3pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Yes',
+        'confirmed': true,
+        'session-notes': `Home visit for Dylan conducted. He is living with his mum currently. The home is well kept and he has his own room. His mum was available for a brief conversation in which she reiterated how much Dylan wanted to “be better”, she asked if there was anything that she could do to help him. Dylan however seemed agitated and anxious at my being at his home. I asked him about this and he said he felt it was an invasion of his privacy.
+
+        I explained that this was a necessary part of his supervision and that my purpose for being there was to help understand more about his circumstances. He mentioned that he would like his own place again someday but can’t afford one.
+
+        I currently have no concerns about his living situation and feel his mum is a stable influence on his life. He mentioned that “things have gone wrong” before when he tried to “make it on his own.”`,
+        'sessionId': 980
+      },
+      {
+        'type': 'Appointment',
+        'type-of-session': 'Office visit',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-11T14:53',
+        'session-date': '2021-03-11',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Yes',
+        'confirmed': true,
+        'session-notes': `Dylan arrived on time and presented well for his induction appointment. He filled in all the paperwork required without any resistance and said he understood the process. He mentioned his mum had talked to him a lot over the weekend and helped him to calm down. His mum appears to be a positive influence in his life, which I would like to explore further with him.
+        I discussed with him what is expected of him on probation and informed him of next steps. In his next appointment we’ll start his sentence planning.`,
+        'sessionId': 979
+      },
+      {
+        'type': 'Appointment',
+        'type-of-session': 'Phone appointment',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-09T14:53',
+        'session-date': '2021-03-09',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'No',
         'did-service-user-comply': 'No',
         'non-compliance-reason': 'Other',
         'non-compliance-reason-other': 'Attended - Failed to Comply',
-        'session-notes': 'I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Monday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.',
-        'sessionId': 980
+        'confirmed': true,
+        'session-notes': `I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Thursday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.`,
+        'sessionId': 978
       }
     ]
   },
