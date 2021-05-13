@@ -28,7 +28,7 @@
       {{ title }}
     </h1>
 
-    {% if entry.sensitive %}
+    {% if entry.sensitive === 'Yes' %}
       {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey govuk-!-margin-bottom-6" }) }}
     {% endif %}
   </div>

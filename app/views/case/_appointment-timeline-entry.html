@@ -16,7 +16,7 @@
     {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
   {% endif %}
 
-  {% if entry.sensitive %}
+  {% if entry.sensitive === 'Yes' %}
     {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
   {% endif %}
 </h3>
