@@ -27,12 +27,14 @@
        items: [
          {
            text: 'Yes',
+           value: 'Yes',
            conditional: {
              html: whyAcceptableHtml
            }
          },
          {
-           text: 'No, ' + case.serviceUserPersonalDetails.firstName + "'s absence was unacceptable"
+           text: 'No, ' + case.serviceUserPersonalDetails.firstName + "'s absence was unacceptable",
+           value: 'No'
          }
        ]
        } | decorateFormAttributes(['communication', CRN, sessionId, 'was-absence-acceptable']))
