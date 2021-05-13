@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Did ' + case.serviceUserPersonalDetails.firstName + ' comply?' %}
+{% set title = 'Did ' + case.serviceUserPersonalDetails.firstName + ' attend and comply?' %}
 {% set buttonText = 'Save and continue' %}
 
 {% block form %}
@@ -17,11 +17,11 @@
            value: 'Yes'
          },
          {
-           text: 'No',
+           text: 'No, ' + case.serviceUserPersonalDetails.firstName + ' attended but failed to comply',
            value: 'No'
          },
          {
-           text: case.serviceUserPersonalDetails.firstName + ' was absent',
+           text: 'No, ' + case.serviceUserPersonalDetails.firstName + ' was absent',
            value: 'Absent'
          }
        ]

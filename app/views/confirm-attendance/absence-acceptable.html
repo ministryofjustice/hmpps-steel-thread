@@ -5,7 +5,11 @@
   {% set whyAcceptableHtml %}
     {{ govukInput({
       label: {
-        text: "Why was this absence acceptable?"
+        text: "Why was Dylan absent?",
+        classes: "govuk-!-font-weight-bold"
+      },
+      hint: {
+        text: "For example, childcare, court, holiday, medical, religious, remanded in custody, stood down, work or other"
       },
       classes: 'govuk-!-width-two-thirds'
     } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable'])) }}
@@ -28,7 +32,7 @@
            }
          },
          {
-           text: 'No'
+           text: 'No, ' + case.serviceUserPersonalDetails.firstName + "'s absence was unacceptable"
          }
        ]
        } | decorateFormAttributes(['communication', CRN, sessionId, 'was-absence-acceptable']))
