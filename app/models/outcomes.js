@@ -10,6 +10,15 @@ class Outcomes {
       .filter(outcome => outcome.compliantAcceptable === 'N')
       .map(outcome => outcome.description)
   }
+
+  static acceptableAbsenceReasons(contactType) {
+    return contactType
+      .outcomes
+      .map(code => outcomes[code])
+      .filter(outcome => outcome.attended === 'N')
+      .filter(outcome => outcome.compliantAcceptable === 'Y')
+      .map(outcome => outcome.description)
+  }
 }
 
 module.exports = {

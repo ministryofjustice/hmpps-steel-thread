@@ -2,6 +2,15 @@
 {% set title = "Was " + case.serviceUserPersonalDetails.firstName + "’s absence acceptable?" %}
 
 {% block form %}
+  {% set reasons = acceptableAbsenceReasons(data['provider-code'], appointment['type-of-session'], appointment['other-type-of-session']) | sort %}
+
+  {% set acceptableAbsenceReasonsRadioItems = [] %}
+  {% for reason in reasons %}
+    {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+      text: reason | capitalize
+    }), acceptableAbsenceReasonsRadioItems) %}
+  {% endfor %}
+
   {% set whyAcceptableHtml %}
     {{ govukRadios({
        fieldset: {
@@ -10,17 +19,7 @@
            classes: "govuk-!-font-weight-bold"
          }
        },
-       items: [
-         { text: 'Childcare or family' },
-         { text: 'Court or legal' },
-         { text: 'Holiday or annual leave' },
-         { text: 'Medical' },
-         { text: 'Religious' },
-         { text: 'Remanded in custody' },
-         { text: 'Stood down' },
-         { text: 'Work or employment' },
-         { text: 'Other' }
-       ]
+       items: acceptableAbsenceReasonsRadioItems
      } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable']))
     }}
   {% endset %}
