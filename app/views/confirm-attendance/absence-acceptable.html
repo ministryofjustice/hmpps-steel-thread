@@ -3,16 +3,23 @@
 
 {% block form %}
   {% set whyAcceptableHtml %}
-    {{ govukInput({
-      label: {
-        text: "Why was Dylan absent?",
-        classes: "govuk-!-font-weight-bold"
-      },
-      hint: {
-        text: "For example, childcare, court, holiday, medical, religious, remanded in custody, stood down, work or other"
-      },
-      classes: 'govuk-!-width-two-thirds'
-    } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable'])) }}
+    {{ govukRadios({
+       fieldset: {
+         legend: {
+           text: 'Why was Dylan absent?',
+           classes: "govuk-!-font-weight-bold"
+         }
+       },
+       items: [
+         { text: 'Childcare or family' },
+         { text: 'Court or legal' },
+         { text: 'Holiday or annual leave' },
+         { text: 'Medical' },
+         { text: 'Religious' },
+         { text: 'Work or employment' }
+       ]
+       } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable']))
+    }}
   {% endset %}
 
   {{ govukRadios({
@@ -23,7 +30,6 @@
            isPageHeading: true
          }
        },
-       name: 'session-counts-towards-rar',
        items: [
          {
            text: 'Yes',
