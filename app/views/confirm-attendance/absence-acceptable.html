@@ -7,7 +7,7 @@
   {% set acceptableAbsenceReasonsRadioItems = [] %}
   {% for reason in reasons %}
     {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
-      text: reason | capitalize
+      text: reason
     }), acceptableAbsenceReasonsRadioItems) %}
   {% endfor %}
 
