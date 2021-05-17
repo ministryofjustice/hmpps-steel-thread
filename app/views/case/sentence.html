@@ -20,11 +20,69 @@
 
       <div class="govuk-!-margin-bottom-7">
         <h2 class="govuk-heading-m">
-          {{ case.currentOrder.type }}
+          Offences
         </h2>
         <p class="govuk-body">{{ case.currentOrder.description }}</p>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View offence details
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+              <dl class="govuk-summary-list govuk-summary-list--no-border">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Offence date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ case.currentOrder.offenceDate | dateWithYear }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Conviction date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ case.currentOrder.convictionDate | dateWithYear }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Court
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ case.currentOrder.court }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Responsible court
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ case.currentOrder.responsibleCourt }}
+                  </dd>
+                </div>
+                </dl>
+            </div>
+        </details>
+  
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">
+          Sentence details
+        </h2>
         <dl class="govuk-summary-list govuk-summary-list--no-border">
-        <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sentence
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ case.currentOrder.type }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Length
           </dt>
@@ -59,6 +117,7 @@
         </dl>
       </div>
 
+
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       <div class="govuk-!-margin-bottom-7">
@@ -78,48 +137,7 @@
           {% endfor %}
         </dl>
       </div>
-
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-        <div class="govuk-!-margin-bottom-7">
-          <h3 class="govuk-heading-m">
-            Offence details
-          </h3>
-          <dl class="govuk-summary-list govuk-summary-list--no-border">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Offence date
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.offenceDate | dateWithYear }}
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Conviction date
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.convictionDate | dateWithYear }}
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Court
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.court }}
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Responsible court
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.responsibleCourt }}
-              </dd>
-            </div>
-            </dl>
-        </div>
+    
 
   </div><!--END COL TWO THIRDS-->
 
