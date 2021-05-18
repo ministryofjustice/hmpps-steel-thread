@@ -48,6 +48,7 @@
     "prompt": "^1.0.0",
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
+    "timepicker": "^1.13.18",
     "universal-analytics": "^0.4.16",
     "uuid": "^3.2.1"
   },
