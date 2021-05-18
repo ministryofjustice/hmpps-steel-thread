@@ -25,6 +25,9 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/app-card-one-third-column-list";
 
 @import 'accessible-autocomplete.min';
+
+@import 'node_modules/timepicker/jquery.timepicker.css';
+
 // @import 'max-widths';
 @import 'govuk-page-masthead';
 
