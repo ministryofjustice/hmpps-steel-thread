@@ -120,6 +120,9 @@ app.use('/public', express.static(path.join(__dirname, '/public')))
 // Serve govuk-frontend in from node_modules (so not to break pre-extenstions prototype kits)
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
 
+app.use('/node_modules/timepicker', express.static(path.join(__dirname, '/node_modules/timepicker')))
+app.use('/public/stylesheets/node_modules/timepicker', express.static(path.join(__dirname, '/node_modules/timepicker')))
+
 // Set up documentation app
 if (useDocumentation) {
   var documentationViews = [
