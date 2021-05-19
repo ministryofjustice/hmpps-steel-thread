@@ -2,36 +2,6 @@
 {% set title = "Was " + case.serviceUserPersonalDetails.firstName + "’s absence acceptable?" %}
 
 {% block form %}
-  {% set reasons = acceptableAbsenceReasons(data['provider-code'], appointment['type-of-session'], appointment['other-type-of-session']) | sort %}
-
-  {% set acceptableAbsenceReasonsRadioItems = [] %}
-  {% for reason in reasons %}
-    {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
-      text: reason
-    }), acceptableAbsenceReasonsRadioItems) %}
-  {% endfor %}
-
-  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
-    divider: "or"
-  }), acceptableAbsenceReasonsRadioItems) %}
-
-  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
-    text: "Other"
-  }), acceptableAbsenceReasonsRadioItems) %}
-
-  {% set whyAcceptableHtml %}
-    {{ govukRadios({
-       fieldset: {
-         legend: {
-           text: 'Why was Dylan absent?',
-           classes: "govuk-!-font-weight-bold"
-         }
-       },
-       items: acceptableAbsenceReasonsRadioItems
-     } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable']))
-    }}
-  {% endset %}
-
   {{ govukRadios({
        fieldset: {
          legend: {
@@ -42,11 +12,7 @@
        },
        items: [
          {
-           text: 'Yes',
-           value: 'Yes',
-           conditional: {
-             html: whyAcceptableHtml
-           }
+           text: 'Yes'
          },
          {
            text: 'No, ' + case.serviceUserPersonalDetails.firstName + "'s absence was unacceptable",
