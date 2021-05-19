@@ -25,12 +25,6 @@
   {% endif %}
 </h3>
 
-{% if entry['session-counts-towards-rar'] == 'Yes' %}
-  <p>
-    RAR – {{ entry['session-rar-category'] }}
-  </p>
-{% endif %}
-
 {% set hasAttendanceAlreadyBeenConfirmed = not not entry['did-service-user-comply'] %}
 {% set hasAppointmentStartTimePassed = isInThePast({date: entry['session-date'], time: entry['session-start-time']}) %}
 {% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentStartTimePassed %}
