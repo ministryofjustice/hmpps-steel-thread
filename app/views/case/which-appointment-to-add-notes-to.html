@@ -8,7 +8,7 @@
 {% block form %}
   {% set appointmentRadioItems = [] %}
 
-  {% for appointment in communicationEntries(CRN, data, {category: 'all-appointments'}) %}
+  {% for appointment in activityLog(CRN, data, {category: 'all-appointments'}) %}
     {% set appointmentRadioItems = (appointmentRadioItems.push({
       text: appointment['type-of-session'] + ' – ' + appointment['session-date'] | dateWithDayAndWithoutYear +
               ' from ' + appointment['session-start-time'] | govukTime + ' to ' + appointment['session-end-time'] | govukTime,

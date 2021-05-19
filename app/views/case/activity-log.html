@@ -99,9 +99,9 @@
   </div>
 
   <div class="govuk-grid-column-two-thirds">
-    {% set entries = communicationEntries(CRN, data, {category: category}) %}
+    {% set entries = activityLog(CRN, data, {category: category}) %}
     {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
-    {% for entry in communicationEntries(CRN, data, {category: category}) %}
+    {% for entry in entries %}
       {{ hr() | safe }}
       {% if entry.type === 'Appointment' %}
         {% include "case/_appointment-timeline-entry.html" %}
