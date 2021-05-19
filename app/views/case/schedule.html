@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% set title = 'Schedule' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'schedule' %}
+{% include "case/_case-nav.html" %}
+
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ title }}</h1>
+{{ govukButton({
+  html: 'Arrange an appointment',
+  href: '/arrange-a-session/' + CRN + '/start',
+  classes: 'govuk-!-margin-bottom-8'
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-font-size-27">Future appointments</h2>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header">Date</th>
+      <th class="govuk-table__header">Day</th>
+      <th class="govuk-table__header">Time</th>
+      <th class="govuk-table__header" style="width: 50%">Appointment</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">19 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Phone appointment with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">22 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">30 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">1pm to 2pm</td>
+      <td class="govuk-table__cell"><a href="#">Home visit with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">1 June 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m govuk-!-font-size-27">Recent appointments</h2>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header">Date</th>
+      <th class="govuk-table__header">Day</th>
+      <th class="govuk-table__header">Time</th>
+      <th class="govuk-table__header" style="width: 50%">Appointment</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">19 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">10 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">2 May 2021</td>
+      <td class="govuk-table__cell">Monday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">24 April 2021</td>
+      <td class="govuk-table__cell">Wednesday</td>
+      <td class="govuk-table__cell">3pm to 3:30pm</td>
+      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul class="govuk-list">
+  <li><a href="#">View all past appointments</a></li>
+  <li><a href="#">View full contact history</a></li>
+</ul>
+
+{% endblock %}
