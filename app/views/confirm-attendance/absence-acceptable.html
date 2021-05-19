@@ -11,6 +11,14 @@
     }), acceptableAbsenceReasonsRadioItems) %}
   {% endfor %}
 
+  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+    divider: "or"
+  }), acceptableAbsenceReasonsRadioItems) %}
+
+  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+    text: "Other"
+  }), acceptableAbsenceReasonsRadioItems) %}
+
   {% set whyAcceptableHtml %}
     {{ govukRadios({
        fieldset: {
