@@ -29,30 +29,14 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">19 May 2021</td>
-      <td class="govuk-table__cell">Monday</td>
-      <td class="govuk-table__cell">3pm to 3:30pm</td>
-      <td class="govuk-table__cell"><a href="#">Phone appointment with Mark Berridge</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">22 May 2021</td>
-      <td class="govuk-table__cell">Monday</td>
-      <td class="govuk-table__cell">3pm to 3:30pm</td>
-      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">30 May 2021</td>
-      <td class="govuk-table__cell">Monday</td>
-      <td class="govuk-table__cell">1pm to 2pm</td>
-      <td class="govuk-table__cell"><a href="#">Home visit with Mark Berridge</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">1 June 2021</td>
-      <td class="govuk-table__cell">Monday</td>
-      <td class="govuk-table__cell">3pm to 3:30pm</td>
-      <td class="govuk-table__cell"><a href="#">Office visit with Mark Berridge</a></td>
-    </tr>
+    {% for entry in futureAppointments(CRN, data) %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ entry.timestamp | dateWithYear }}</td>
+        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }}</td>
+        <td class="govuk-table__cell">{{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}</td>
+        <td class="govuk-table__cell"><a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a></td>
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
 
