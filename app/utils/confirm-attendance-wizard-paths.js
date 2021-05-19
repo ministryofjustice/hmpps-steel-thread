@@ -9,7 +9,7 @@ function confirmAttendanceWizardPaths (req) {
   const basePath = `/confirm-attendance/${CRN}/${sessionId}`
 
   var paths = [
-    `/cases/${CRN}/communication`,
+    `/cases/${CRN}/activity-log`,
     `${basePath}`,
     `${basePath}/compliance`,
     `${basePath}/non-compliance-reason`,
@@ -23,7 +23,7 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/check`,
     `${basePath}/confirmation`,
     `/arrange-a-session/${CRN}/start`,
-    `/cases/${CRN}/communication/add`,
+    `/cases/${CRN}/activity-log/add`,
     `/confirm-attendance/${CRN}`
   ]
 

@@ -80,3 +80,8 @@ $govuk-assets-path: '/govuk/assets/';
 .govuk-hint-s {
   color: govuk-colour("dark-grey");
 }
+
+.app-filter {
+  border: 1px solid $govuk-border-colour;
+  padding: govuk-spacing(3);
+}
