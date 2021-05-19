@@ -1,0 +1,34 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Why was ' + case.serviceUserPersonalDetails.firstName + ' absent?' %}
+
+{% block form %}
+  {% set reasons = acceptableAbsenceReasons(data['provider-code'], appointment['type-of-session'], appointment['other-type-of-session']) | sort %}
+
+  {% set acceptableAbsenceReasonsRadioItems = [] %}
+  {% for reason in reasons %}
+    {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+      text: reason
+    }), acceptableAbsenceReasonsRadioItems) %}
+  {% endfor %}
+
+  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+    divider: "or"
+  }), acceptableAbsenceReasonsRadioItems) %}
+
+  {% set acceptableAbsenceReasonsRadioItems = (acceptableAbsenceReasonsRadioItems.push({
+    text: "Other"
+  }), acceptableAbsenceReasonsRadioItems) %}
+
+  {{ govukRadios({
+     fieldset: {
+       legend: {
+         text: title,
+         classes: "govuk-label--xl",
+         isPageHeading: true
+       }
+     },
+     items: acceptableAbsenceReasonsRadioItems
+   } | decorateFormAttributes(['communication', CRN, sessionId, 'why-absence-acceptable']))
+  }}
+
+{% endblock %}

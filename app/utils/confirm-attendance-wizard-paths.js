@@ -14,6 +14,7 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/compliance`,
     `${basePath}/non-compliance-reason`,
     `${basePath}/absence-acceptable`,
+    `${basePath}/absence-reason`,
     `${basePath}/rar`,
     `${basePath}/rar-categories`,
     `${basePath}/add-notes`,
@@ -54,6 +55,12 @@ function confirmAttendanceWizardForks (req) {
       currentPath: `${basePath}/non-compliance-reason`,
       storedData: ['communication', CRN, sessionId, 'was-absence-acceptable'],
       excludedValues: [],
+      forkPath: `${basePath}/rar`
+    },
+    {
+      currentPath: `${basePath}/absence-acceptable`,
+      storedData: ['communication', CRN, sessionId, 'was-absence-acceptable'],
+      values: ['No'],
       forkPath: `${basePath}/rar`
     },
     {
