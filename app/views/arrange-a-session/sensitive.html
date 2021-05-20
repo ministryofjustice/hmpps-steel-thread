@@ -22,8 +22,5 @@
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'sensitive'])) }}
 
-  {{ govukDetails({
-    summaryText: "Help with sensitive content",
-    text: ""
-  }) }}
+  {% include "includes/sensitive-guidance.html" %}
 {% endblock %}
