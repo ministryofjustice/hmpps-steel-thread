@@ -9,8 +9,8 @@ class ArrangedSession {
     this.params = params
 
     this.params.date = this.getDateString(params)
-    this.params.startTime = params.startTime || '10am'
-    this.params.endTime = params.endTime || '11am'
+    this.params.startTime = params.startTime || '10:00am'
+    this.params.endTime = params.endTime || '11:00am'
   }
 
   getDateString (params) {
@@ -27,7 +27,6 @@ class ArrangedSession {
     return {
       'typeOfSession': this.sessionLabel || 'Office visit',
       'date': this.params.date,
-      'time': this.params.startTime + ' to ' + this.params.endTime,
       'countsTowardsRAR': this.params.countsTowardsRAR,
       'rarCategory': this.params.countsTowardsRAR ? this.params.rarCategory : null,
       'rarSubCategory': this.params.countsTowardsRAR ? this.params.rarSubCategory : null,

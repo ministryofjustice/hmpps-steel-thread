@@ -21,7 +21,7 @@
 
   {% set panelHtml %}
     <strong>{{ session.summary.typeOfSession }}</strong><br />
-    {{ session.summary.date | dateWithDayAndWithoutYear }} from {{ session.summary.time }}
+    {{ session.summary.date | dateWithDayAndWithoutYear }} from {{ appointment['session-start-time'] | govukTime }} to {{ appointment['session-end-time'] | govukTime }}
   {% endset %}
 
   {{ govukPanel({

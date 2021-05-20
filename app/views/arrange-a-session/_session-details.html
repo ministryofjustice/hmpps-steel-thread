@@ -69,7 +69,7 @@
     },
     {
       key: { text: "Time" },
-      value: { text: session.summary.time },
+      value: { text: appointment['session-start-time'] | govukTime + ' to ' + appointment['session-end-time'] | govukTime },
       actions: {
         items: [
           {

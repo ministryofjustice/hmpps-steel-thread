@@ -41,7 +41,7 @@
     </h1>
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-6">
-      {{ appointment['session-date'] | dateWithYear }} from {{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}
+      {{ appointment['session-date'] | dateWithYear }} from {{ appointment['session-start-time'] | govukTime }} to {{ appointment['session-end-time'] | govukTime }}
       {% if appointment.repeat === 'Yes' %}
         {{ govukTag({text: 'Repeat', classes: 'govuk-tag--turquoise'}) }}
       {% endif %}

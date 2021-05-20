@@ -14,4 +14,6 @@ $(document).ready(function () {
       selectElement: document.querySelector('#other-type-of-session')
     })
   }
+
+  $('#session-start-time, #session-end-time, #other-communication-time').timepicker({ minTime: '9:00AM', maxTime: '4:45PM', step: 15 })
 })
