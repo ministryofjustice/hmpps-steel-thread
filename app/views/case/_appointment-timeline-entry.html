@@ -1,6 +1,6 @@
 <h3 class="govuk-heading-s">
   <div class="govuk-caption-m govuk-!-font-size-19">
-    <span class="govuk-!-font-weight-bold">Appointment</span> – {{ entry['session-date'] | dateWithYear }}, {{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}
+    <span class="govuk-!-font-weight-bold">Appointment</span> – {{ entry['session-date'] | dateWithYear }}, {{ entry['session-start-time'] | govukTime }} to {{ entry['session-end-time'] | govukTime }}
   </div>
   <a class="govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a>
 

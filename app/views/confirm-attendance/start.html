@@ -8,6 +8,6 @@
 
   <div class="govuk-inset-text">
     <strong>{{ appointment['type-of-session'] }}</strong><br>
-    {{ appointment['session-date'] | dateWithDayAndWithoutYear }} from {{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}
+    {{ appointment['session-date'] | dateWithDayAndWithoutYear }} from {{ appointment['session-start-time'] | govukTime }} to {{ appointment['session-end-time'] | govukTime }}
   </div>
 {% endblock %}

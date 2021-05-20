@@ -11,7 +11,7 @@
   {% for appointment in communicationEntries(CRN, data, {category: 'all-appointments'}) %}
     {% set appointmentRadioItems = (appointmentRadioItems.push({
       text: appointment['type-of-session'] + ' – ' + appointment['session-date'] | dateWithDayAndWithoutYear +
-              ' from ' + appointment['session-start-time'] + ' to ' + appointment['session-end-time'],
+              ' from ' + appointment['session-start-time'] | govukTime + ' to ' + appointment['session-end-time'] | govukTime,
       value: appointment.sessionId
     }), appointmentRadioItems) %}
   {% endfor %}

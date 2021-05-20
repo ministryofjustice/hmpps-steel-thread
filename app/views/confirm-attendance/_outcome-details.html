@@ -19,7 +19,7 @@
   rows: [
     {
       key: { text: "Appointment" },
-      value: { html: appointment['type-of-session'] + '<br />' + appointment['session-date'] | dateWithDayAndWithoutYear + ' from ' + appointment['session-start-time'] + ' to ' + appointment['session-end-time'] }
+      value: { html: appointment['type-of-session'] + '<br />' + appointment['session-date'] | dateWithDayAndWithoutYear + ' from ' + appointment['session-start-time'] | govukTime + ' to ' + appointment['session-end-time'] | govukTime }
     } if checkingAnswers,
     {
       key: { text: "Complied" },

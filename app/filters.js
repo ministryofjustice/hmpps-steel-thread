@@ -14,10 +14,24 @@ module.exports = function (env) {
     return DateTime.fromISO(datetimeString).toFormat('cccc d MMMM')
   }
 
-  // example: 3:30pm
-  // example: 1am
+  // example output: 3:30pm
+  // example output: 1am
   filters.govukTime = datetimeString => {
-    const datetime = DateTime.fromISO(datetimeString)
+    if (datetimeString === undefined) return ''
+
+    timeOnly = !datetimeString.includes('-')
+
+    var datetime
+    if (timeOnly) {
+      // normalise 4pm => 4:00pm
+      if (!datetimeString.includes(':')) {
+        datetimeString = datetimeString.replace(/(\d+)(am|pm)/, '$1:00$2')
+      }
+
+      datetime = DateTime.fromString(datetimeString, 'h:mma')
+    } else {
+      datetime = DateTime.fromISO(datetimeString)
+    }
     const hourMinuteFormat = datetime.minute === 0 ? 'ha' : 'h:mma'
     return datetime.toFormat(hourMinuteFormat).toLowerCase()
   }

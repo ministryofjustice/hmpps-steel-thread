@@ -254,7 +254,7 @@
         {{ nextApp['type-of-session'] }}<br>
         <strong>
           {{ nextApp['session-date'] | dateWithDayAndWithoutYear }} from<br>
-          {{ nextApp['session-start-time'] }} to {{ nextApp['session-end-time'] }}
+          {{ nextApp['session-start-time'] | govukTime }} to {{ nextApp['session-end-time'] | govukTime }}
         </strong>
         <a href="/arrange-a-session/{{ CRN }}/{{ nextApp.sessionId }}/rearrange-or-cancel" class="govuk-button govuk-button--secondary govuk-!-margin-top-4 govuk-!-margin-bottom-0"
           data-module="govuk-button">
