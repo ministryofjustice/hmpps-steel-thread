@@ -57,7 +57,7 @@ module.exports = [
     'PNC': '2012/123400000F',
     'CRN': 'J678910',
     'currentOrder': {
-      'type': 'Community Order (12 Months)',
+      'type': 'Community Order',
       'description': 'Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563',
       'lengthInMonths': 12,
       'progressInMonths': 6,
@@ -69,7 +69,7 @@ module.exports = [
       'responsibleCourt': "Sheffield Magistrates' Court",
       'requirements': {
         'rar': {
-          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'type': 'RAR',
           'value': '15 days',
           'lengthInDays': 15,
           'progressInDays': 5
@@ -535,7 +535,7 @@ module.exports = [
     'PNC': '2015/0292174J',
     'CRN': 'E577913',
     'currentOrder': {
-      'type': 'Suspended Sentence Order (24 Months)',
+      'type': 'Suspended Sentence Order',
       'description': 'Breach of Sexual Offences Prevention Order (Sex Offs Act 2003) [incl Breaches of Sex Offender Order (C&D Act 1998)',
       'lengthInMonths': 24,
       'progressInMonths': 17,
@@ -547,7 +547,7 @@ module.exports = [
       'responsibleCourt': 'Bradford Crown Court',
       'requirements': {
         'rar': {
-          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'type': 'RAR',
           'value': '20 days',
           'lengthInDays': 20,
           'progressInDays': 18
@@ -835,7 +835,7 @@ module.exports = [
     'PNC': '2021/234511111G',
     'CRN': 'K789021',
     'currentOrder': {
-      'type': 'Suspended Sentence Order (12 Months)',
+      'type': 'Suspended Sentence Order',
       'description': 'Drive whilst disqualified (Revised 2017). Road Traffic Act 1988',
       'lengthInMonths': 12,
       'progressInMonths': 0,
@@ -847,7 +847,7 @@ module.exports = [
       'responsibleCourt': "Leeds Magistrates' Court",
       'requirements': {
         'rar': {
-          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'type': 'RAR',
           'value': '20 days',
           'lengthInDays': 20,
           'progressInDays': 0
@@ -1065,7 +1065,7 @@ module.exports = [
       'responsibleCourt': "Sheffield Magistrates' Court",
       'requirements': {
         'rar': {
-          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'type': 'RAR',
           'value': '15 days',
           'lengthInDays': 15,
           'progressInDays': 3
@@ -1464,7 +1464,7 @@ module.exports = [
     'PNC': '2021/156400000G',
     'CRN': 'H6785129',
     'currentOrder': {
-      'type': 'Community Order (12 Months)',
+      'type': 'Community Order',
       'description': 'Use threatening / abusive / insulting words / behaviour with intent to cause fear of / provoke unlawful violence',
       'lengthInMonths': 12,
       'progressInMonths': 1,
@@ -1476,7 +1476,7 @@ module.exports = [
       'responsibleCourt': "South Tyneside Magistrates' Court",
       'requirements': {
         'rar': {
-          'type': 'Rehabilitation Activity Requirement (RAR)',
+          'type': 'RAR',
           'value': '22 days',
           'lengthInDays': 22,
           'progressInDays': 3
