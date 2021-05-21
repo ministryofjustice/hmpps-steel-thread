@@ -14,12 +14,17 @@ module.exports = function (env) {
     return DateTime.fromISO(datetimeString).toFormat('cccc d MMMM')
   }
 
-  // example output: 3:30pm
-  // example output: 1am
+  // example: Monday
+  filters.dayOfWeek = datetimeString => {
+    return DateTime.fromISO(datetimeString).toFormat('cccc')
+  }
+
+  // example: 3:30pm
+  // example: 1am
   filters.govukTime = datetimeString => {
     if (datetimeString === undefined) return ''
 
-    timeOnly = !datetimeString.includes('-')
+    const timeOnly = !datetimeString.includes('-')
 
     var datetime
     if (timeOnly) {

@@ -3,7 +3,7 @@
 
 {% block pageNavigation %}
   {{ govukBackLink({
-    href: '/cases/' + CRN + '/communication'
+    href: '/cases/' + CRN + '/activity-log'
   }) }}
 {% endblock %}
 
@@ -43,7 +43,7 @@
       {
         text: "Appointment notes",
         value: 'appointment-notes'
-      } if communicationEntries(CRN, data, {category: 'all-appointments'}).length > 0,
+      } if activityLog(CRN, data, {category: 'all-appointments'}).length > 0,
       {
         text: "Other communication",
         value: 'other',

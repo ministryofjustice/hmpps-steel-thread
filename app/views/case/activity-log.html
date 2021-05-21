@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% set title = 'Activity log' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+{% set currentNavSection = 'timeline' %}
+{% include "case/_case-nav.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ title }}</h1>
+    {{ govukButton({
+      text: 'Add to log',
+      href: '/cases/' + CRN + '/activity-log/add'
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-third">
+    <div class="app-filter">
+      <h3 class="govuk-heading-m">Filter</h3>
+      {{ govukButton({
+        html: 'Apply filters',
+        classes: 'govuk-button--secondary',
+        href: '#'
+      }) }}
+
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of contact",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            text: "Appointment"
+          },
+          {
+            text: "Communication"
+          },
+          {
+            text: "Notes"
+          }
+        ]
+      } | decorateFormAttributes(['contact-filter-type'])) }}
+
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Appointments",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            text: "Complied"
+          },
+          {
+            text: "Failed to comply"
+          },
+          {
+            text: "Absent"
+          },
+          {
+            text: "RAR"
+          },
+          {
+            text: "No notes"
+          }
+        ]
+      } | decorateFormAttributes(['contact-filter-type'])) }}
+
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Communications",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            text: "Phone call"
+          },
+          {
+            text: "Text message"
+          },
+          {
+            text: "Email"
+          }
+        ]
+      } | decorateFormAttributes(['contact-filter-type'])) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    {% set entries = activityLog(CRN, data, {category: 'all-previous-activity'}) %}
+    {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
+    {% for entry in entries %}
+      {{ hr() | safe }}
+      {% if entry.type === 'Appointment' %}
+        {% include "case/_appointment-timeline-entry.html" %}
+      {% elseif entry.type in ['Text message', 'Email', 'Phone call', 'Note'] %}
+        {% include "case/_communication-timeline-entry.html" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

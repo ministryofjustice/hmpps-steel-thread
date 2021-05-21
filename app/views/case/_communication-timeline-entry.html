@@ -1,8 +1,9 @@
-<h3 class="govuk-heading-s">
-  <div class="govuk-caption-m govuk-font-size-19">
-  <span class="govuk-!-font-weight-bold">{{ entry.type }}</span> – {{ entry.timestamp | dateWithYear }}
-  </div>
-  <a class="govuk-!-font-weight-bold govuk-!-margin-right-2" href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
+<h3 class="govuk-heading-m">
+  {{ entry.timestamp | dateWithYear }}
+  <span class="govuk-!-margin-left-1 govuk-!-font-size-19 govuk-!-font-weight-regular">{{ entry.timestamp | govukTime }}</span>
+  <br />
+  <a href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
+    {{ entry.type }} –
     {% if entry.from %}
     {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
     {% endif %}
@@ -14,7 +15,9 @@
     {% endif %}
   </a>
   {% if entry.sensitive === 'Yes' %}
-    {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+    <div class="govuk-!-margin-top-1">
+      {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+    </div>
   {% endif %}
 </h3>
 

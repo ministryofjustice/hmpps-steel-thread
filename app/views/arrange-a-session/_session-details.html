@@ -134,7 +134,7 @@
     } if not session.summary.countsTowardsRAR,
     {
       key: { text: "Appointment notes" },
-      value: { text: appointment['session-notes'] or 'None' },
+      value: { html: (appointment['session-notes'] | nl2br | safe) if appointment['session-notes'] else 'None' },
       actions: {
         items: [
           {

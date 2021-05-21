@@ -1,42 +1,44 @@
-<h3 class="govuk-heading-s">
-  <div class="govuk-caption-m govuk-!-font-size-19">
-    <span class="govuk-!-font-weight-bold">Appointment</span> – {{ entry['session-date'] | dateWithYear }}, {{ entry['session-start-time'] | govukTime }} to {{ entry['session-end-time'] | govukTime }}
+<h3 class="govuk-heading-m">
+  {{ entry['session-date'] | dateWithYear }}
+  <span class="govuk-!-margin-left-1 govuk-!-font-size-19 govuk-!-font-weight-regular">{{ entry['session-start-time'] | govukTime }} to {{ entry['session-end-time'] | govukTime }}</span>
+  <br />
+  <a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">Appointment – {{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a>
+
+  {% if entry['did-service-user-comply'] or entry.sensitive === 'Yes' or entry['session-counts-towards-rar'] === 'Yes' %}
+  <div class="govuk-!-margin-top-1">
+    {% if entry['session-counts-towards-rar'] === 'Yes' %}
+      {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
+    {% endif %}
+
+    {% if entry['did-service-user-comply'] === 'Yes' %}
+      {{ govukTag({text: 'Complied', classes: 'govuk-tag--green'}) }}
+    {% elseif entry['did-service-user-comply'] === 'No' %}
+      {{ govukTag({text: 'Failed to comply', classes: 'govuk-tag--red'}) }}
+    {% elseif entry['did-service-user-comply'] === 'Absent' %}
+      {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
+    {% endif %}
+
+    {% if entry.sensitive === 'Yes' %}
+      {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
+    {% endif %}
   </div>
-  <a class="govuk-!-margin-right-2" href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a>
-
-  {% if entry['session-counts-towards-rar'] === 'Yes' %}
-    {{ govukTag({text: 'RAR', classes: 'govuk-tag--purple'}) }}
-  {% endif %}
-
-  {% if entry['did-service-user-comply'] === 'Yes' %}
-    {{ govukTag({text: 'Complied', classes: 'govuk-tag--green'}) }}
-  {% elseif entry['did-service-user-comply'] === 'No' %}
-    {{ govukTag({text: 'Failed to comply', classes: 'govuk-tag--red'}) }}
-  {% elseif entry['did-service-user-comply'] === 'Absent' %}
-    {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
-  {% endif %}
-
-  {% if entry.sensitive === 'Yes' %}
-    {{ govukTag({ text: "Sensitive", classes: "govuk-tag--grey" }) }}
   {% endif %}
 </h3>
-
-{% if entry['session-counts-towards-rar'] == 'Yes' %}
-  <p>
-    RAR – {{ entry['session-rar-category'] }}
-  </p>
-{% endif %}
 
 {% set hasAttendanceAlreadyBeenConfirmed = not not entry['did-service-user-comply'] %}
 {% set hasAppointmentStartTimePassed = isInThePast({date: entry['session-date'], time: entry['session-start-time']}) %}
 {% set shouldPromptToConfirmAttendance = (not hasAttendanceAlreadyBeenConfirmed) and hasAppointmentStartTimePassed %}
 
-{% if shouldPromptToConfirmAttendance  %}
-  {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Record attendance</a>') }}
-{% endif %}
-
-{% if entry['session-notes'] %}
+{% if entry['session-notes'] or shouldPromptToConfirmAttendance %}
 <div class="note-panel">
+  {% if shouldPromptToConfirmAttendance  %}
+    {{ govukWarningText({
+      html: 'Attendance not recorded<br /><a href="/confirm-attendance/' + CRN + '/' + entry.sessionId + '">Record attendance</a>',
+      iconFallbackText: 'Warning',
+      classes: 'govuk-!-margin-bottom-0'
+    }) }}
+  {% endif %}
+
   {% set truncatedContents = entry['session-notes'] | truncate(250) %}
   {% set isTruncated = entry['session-notes'] and (truncatedContents !== entry['session-notes']) %}
   <p class="govuk-body {{ 'govuk-!-margin-bottom-0' if not isTruncated }}">{{ truncatedContents | nl2br | safe }}</p>

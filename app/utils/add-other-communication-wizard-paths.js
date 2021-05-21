@@ -9,7 +9,7 @@ function addOtherCommunicationWizardPaths (req) {
 
   var paths = [
     // Phone
-    `/cases/${CRN}/communication/add`,
+    `/cases/${CRN}/activity-log/add`,
     `/add-phone-call/${CRN}/${sessionId}/new`,
     `/add-phone-call/${CRN}/${sessionId}/receiver`,
     `/add-phone-call/${CRN}/${sessionId}/when`,
@@ -17,10 +17,10 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-phone-call/${CRN}/${sessionId}/sensitive`,
     `/add-phone-call/${CRN}/${sessionId}/check`,
     `/add-phone-call/${CRN}/${sessionId}/confirmation`,
-    `/cases/${CRN}/communication`,
+    `/cases/${CRN}/activity-log`,
 
     // Email
-    `/cases/${CRN}/communication/add`,
+    `/cases/${CRN}/activity-log/add`,
     `/add-email/${CRN}/${sessionId}/new`,
     `/add-email/${CRN}/${sessionId}/receiver`,
     `/add-email/${CRN}/${sessionId}/when`,
@@ -28,10 +28,10 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-email/${CRN}/${sessionId}/sensitive`,
     `/add-email/${CRN}/${sessionId}/check`,
     `/add-email/${CRN}/${sessionId}/confirmation`,
-    `/cases/${CRN}/communication`,
+    `/cases/${CRN}/activity-log`,
 
     // Text
-    `/cases/${CRN}/communication/add`,
+    `/cases/${CRN}/activity-log/add`,
     `/add-text/${CRN}/${sessionId}/new`,
     `/add-text/${CRN}/${sessionId}/receiver`,
     `/add-text/${CRN}/${sessionId}/when`,
@@ -39,7 +39,7 @@ function addOtherCommunicationWizardPaths (req) {
     `/add-text/${CRN}/${sessionId}/sensitive`,
     `/add-text/${CRN}/${sessionId}/check`,
     `/add-text/${CRN}/${sessionId}/confirmation`,
-    `/cases/${CRN}/communication`
+    `/cases/${CRN}/activity-log`
   ]
 
   return nextAndBackPaths(paths, req)

@@ -20,11 +20,11 @@ module.exports = router => {
     res.render('case/index')
   })
 
-  router.get('/cases/:CRN/communication/add', (req, res) => {
+  router.get('/cases/:CRN/activity-log/add', (req, res) => {
     res.render('case/add-communication')
   })
 
-  router.post('/cases/:CRN/communication/add', (req, res) => {
+  router.post('/cases/:CRN/activity-log/add', (req, res) => {
     const typeOfThingToAdd = req.session.data['add-communication'][req.params.CRN]['type-of-thing-to-add']
     if (typeOfThingToAdd === 'confirm-attendance') {
       res.redirect(`/confirm-attendance/${req.params.CRN}`)
@@ -49,9 +49,9 @@ module.exports = router => {
     }
   })
 
-  router.all('/cases/:CRN/communication/:category', function (req, res) {
+  router.all('/cases/:CRN/activity-log/:category', function (req, res) {
     res.locals.category = req.params.category
-    res.render('case/communication')
+    res.render('case/activity-log')
   })
 
   router.get('/cases/:CRN/appointments/notes', function (req, res) {
