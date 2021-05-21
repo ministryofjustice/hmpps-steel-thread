@@ -24,7 +24,8 @@
       <h3 class="govuk-heading-m">Filter</h3>
       {{ govukButton({
         html: 'Apply filters',
-        classes: 'govuk-button--secondary'
+        classes: 'govuk-button--secondary',
+        href: '#'
       }) }}
 
       {{ govukCheckboxes({
@@ -99,7 +100,7 @@
   </div>
 
   <div class="govuk-grid-column-two-thirds">
-    {% set entries = activityLog(CRN, data, {category: category}) %}
+    {% set entries = activityLog(CRN, data, {category: 'all-previous-activity'}) %}
     {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
     {% for entry in entries %}
       {{ hr() | safe }}
