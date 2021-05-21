@@ -59,28 +59,23 @@
     }
   }) }}
 
-  <div class="govuk-form-group app-time-autocomplete">
-    <div class="autocomplete">
-      <label class="govuk-label govuk-!-font-weight-bold" for="session-start-time">
-        Time
-      </label>
-      <input
-        class="govuk-input govuk-input--width-5 time-field time-from"
-        type="text"
-        id="session-start-time"
-        name="[communication][{{CRN}}][{{sessionId}}][session-start-time]"
-        value="{{ appointment['session-start-time'] }}">
-    </div>
-    <span class="govuk-body" style="margin:0 0.75rem 0 0.75rem;">to</span>
-    <div class="autocomplete">
-      <input
-        class="govuk-input govuk-input--width-5 time-field time-from"
-        type="text"
-        id="session-end-time"
-        name="[communication][{{CRN}}][{{sessionId}}][session-end-time]"
-        value="{{ appointment['session-end-time'] }}">
-    </div>
-  </div>
+  {{ govukInput({
+    label: {
+      text: "Start time",
+      classes: "govuk-label--s"
+    },
+    classes: "govuk-input--width-5 time-field",
+    id: 'session-start-time'
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'session-start-time'])) }}
+
+  {{ govukInput({
+    label: {
+      text: "End time",
+      classes: "govuk-label--s"
+    },
+    classes: "govuk-input--width-5 time-field",
+    id: 'session-end-time'
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'session-end-time'])) }}
 
   {% set repeatingHtml %}
     {{ govukRadios({

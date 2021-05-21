@@ -15,5 +15,5 @@ $(document).ready(function () {
     })
   }
 
-  $('#session-start-time, #session-end-time, #other-communication-time').timepicker({ minTime: '9:00AM', maxTime: '4:45PM', step: 15 })
+  $('.time-field').timepicker({ minTime: '9:00AM', maxTime: '4:45PM', step: 15 })
 })

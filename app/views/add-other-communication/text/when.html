@@ -58,17 +58,11 @@
     ]
   } | decorateFormAttributes(['communication', CRN, sessionId, 'type-of-date'])) }}
 
-  <div class="govuk-form-group app-time-autocomplete">
-    <div class="autocomplete">
-      <label class="govuk-label govuk-label--m" for="other-communication-time">
-        {{ timeLabel }}
-      </label>
-      <input
-        class="govuk-input govuk-input--width-5 time-field"
-        type="text"
-        id="other-communication-time"
-        name="[communication][{{CRN}}][{{sessionId}}][time]"
-        value="{{ communication['time'] }}">
-    </div>
-  </div>
+  {{ govukInput({
+    label: {
+      text: timeLabel,
+      classes: "govuk-label--s"
+    },
+    classes: "govuk-input--width-5 time-field"
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'time'])) }}
 {% endblock %}
