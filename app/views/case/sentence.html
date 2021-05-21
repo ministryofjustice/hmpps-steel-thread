@@ -24,100 +24,69 @@
         </h2>
         <p class="govuk-body">{{ case.currentOrder.description }}</p>
 
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              View offence details
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-              <dl class="govuk-summary-list govuk-summary-list--no-border">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Offence date
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ case.currentOrder.offenceDate | dateWithYear }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Conviction date
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ case.currentOrder.convictionDate | dateWithYear }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Court
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ case.currentOrder.court }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Responsible court
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ case.currentOrder.responsibleCourt }}
-                  </dd>
-                </div>
-                </dl>
-            </div>
-        </details>
+        {% set detailsHtml %}
+          {{ govukSummaryList({
+            classes: 'govuk-summary-list--no-border',
+            rows: [
+              {
+                key: { text: "Offence date" },
+                value: { html: case.currentOrder.offenceDate | dateWithYear }
+              },
+              {
+                key: { text: "Conviction date" },
+                value: { html: case.currentOrder.convictionDate | dateWithYear }
+              },
+              {
+                key: { text: "Court" },
+                value: { html: case.currentOrder.court }
+              },
+              {
+                key: { text: "Responsible court" },
+                value: { html: case.currentOrder.responsibleCourt }
+              }
+            ]
+          }) }}
+        {% endset %}
+
+        {{ govukDetails({
+          summaryText: "View offence details",
+          html: detailsHtml
+        }) }}
   
         <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
+        
         <h2 class="govuk-heading-m">
           Sentence details
         </h2>
-        <dl class="govuk-summary-list govuk-summary-list--no-border">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Sentence
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ case.currentOrder.type }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Length
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ case.currentOrder.lengthInMonths }} months
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Start date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ case.currentOrder.startDate | dateWithYear }}
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            End date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ case.currentOrder.endDate | dateWithYear }}
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Time elapsed
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ case.currentOrder.progressInMonths }} months elapsed (of {{ case.currentOrder.lengthInMonths }} months)
-          </dd>
-        </div>
-        </dl>
+        {{ govukSummaryList({
+          classes: 'govuk-summary-list--no-border',
+          rows: [
+            {
+              key: { text: "Sentence" },
+              value: { html: case.currentOrder.type }
+            },
+            {
+              key: { text: "Length" },
+              value: { html: case.currentOrder.lengthInMonths + ' months' }
+            },
+            {
+              key: { text: "Start date" },
+              value: { html: case.currentOrder.startDate | dateWithYear }
+            },
+            {
+              key: { text: "End date" },
+              value: { html: case.currentOrder.endDate | dateWithYear }
+            },
+            {
+              key: { text: "Time elapsed" },
+              value: { html: case.currentOrder.progressInMonths + ' months elapsed (of ' + case.currentOrder.lengthInMonths + ' months)' }
+            }
+          ]
+        }) }}
+
       </div>
 
-
+      
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       <div class="govuk-!-margin-bottom-7">
@@ -137,7 +106,7 @@
           {% endfor %}
         </dl>
       </div>
-    
+
 
   </div><!--END COL TWO THIRDS-->
 
