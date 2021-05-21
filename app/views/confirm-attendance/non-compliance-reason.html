@@ -1,6 +1,6 @@
 {% extends "_wizard-form.html" %}
 {% set title = "How did " + case.serviceUserPersonalDetails.firstName + " not comply?" %}
-{% set buttonText = 'Save and continue' %}
+{% set buttonText = 'Continue' %}
 
 {% block form %}
   {% set reasons = failureToComplyReasons(data['provider-code'], appointment['type-of-session'], appointment['other-type-of-session']) | sort %}
