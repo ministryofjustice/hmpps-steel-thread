@@ -23,16 +23,14 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th class="govuk-table__header">Date</th>
-      <th class="govuk-table__header">Day</th>
-      <th class="govuk-table__header">Time</th>
+      <th class="govuk-table__header" style="width: 20%">Time</th>
       <th class="govuk-table__header" style="width: 50%">Appointment</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     {% for entry in futureAppointments(CRN, data) %}
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell">{{ entry.timestamp | dateWithYear }}</td>
-        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }}</td>
+        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }} {{ entry.timestamp | dateWithYear }}</td>
         <td class="govuk-table__cell">{{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}</td>
         <td class="govuk-table__cell"><a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a></td>
       </tr>
@@ -46,16 +44,14 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th class="govuk-table__header">Date</th>
-      <th class="govuk-table__header">Day</th>
-      <th class="govuk-table__header">Time</th>
+      <th class="govuk-table__header" style="width: 20%">Time</th>
       <th class="govuk-table__header" style="width: 50%">Appointment</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     {% for entry in previousAppointments(CRN, data) %}
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell">{{ entry.timestamp | dateWithYear }}</td>
-        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }}</td>
+        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }} {{ entry.timestamp | dateWithYear }}</td>
         <td class="govuk-table__cell">{{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}</td>
         <td class="govuk-table__cell"><a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a></td>
       </tr>
