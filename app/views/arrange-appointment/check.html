@@ -1,8 +1,40 @@
 {% extends "_wizard-form.html" %}
 {% set rearranging = appointment['rearrange-or-cancel'] %}
-{% set buttonText = 'Confirm rearranged appointment' if rearranging else 'Confirm this appointment' %}
-{% set title = 'Check your answers and confirm appointment' %}
+{% set isRepeating = appointment.repeating == 'Yes' %}
+
+{% if rearranging %}
+  {% set title = 'Check your answers and confirm appointment' %}
+  {% set buttonText = 'Confirm rearranged appointment' %}
+{% elseif isRepeating %}
+  {% set title = 'Check your answers and confirm appointments' %}
+  {% set buttonText = 'Confirm appointments' %}
+{% else %}
+  {% set title = 'Check your answers and confirm appointment' %}
+  {% set buttonText = 'Confirm this appointment' %}
+{% endif %}
+
 {% set notStandardForm = true %}
+{% set arrangeSessionPath = "/arrange-appointment/" +  CRN + "/" + sessionId %}
+
+
+{% set session = arrangedSession({
+  providerCode: data['provider-code'],
+  typeOfSession: appointment['type-of-session'],
+  contactType: appointment['other-type-of-session'],
+  date: appointment['session-date'],
+  day: appointment['session-date-day'],
+  month: appointment['session-date-month'],
+  year: appointment['session-date-year'],
+  startTime: appointment['session-start-time'],
+  endTime: appointment['session-end-time'],
+  countsTowardsRAR: appointment['session-counts-towards-rar'] == 'Yes',
+  rarCategory: appointment['session-rar-category'],
+  rarSubCategory: appointment['session-rar-subcategory'],
+  locationCode: appointment['session-location-code'],
+  repeating: appointment['repeating'],
+  repeatingFrequency: appointment['repeating-frequency'],
+  repeatingCount: appointment['repeating-count']
+}) %}
 
 {% block primary %}
   <div class="govuk-grid-row">
@@ -14,6 +46,81 @@
   <form method="post" autocomplete="off" action="{{ paths.current }}">
     {% set showAction = true %}
     {% include 'arrange-appointment/_appointment-details.html' %}
+
+    {% if isRepeating %}
+      <h2 class="govuk-heading-l">Repeat appointments</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: { text: "Repeating" },
+            value: { text: session.summary.repeating },
+            actions: {
+              items: [
+                {
+                  href: arrangeSessionPath + "/when",
+                  text: "Change",
+                  visuallyHiddenText: "repeating appointment"
+                }
+              ]
+            }
+          },
+          {
+            key: { text: "Number of repeat appointments" },
+            value: { text: session.summary.repeatingCount },
+            actions: {
+              items: [
+                {
+                  href: arrangeSessionPath + "/when",
+                  text: "Change",
+                  visuallyHiddenText: "number of repeat appointments"
+                }
+              ]
+            }
+          } if session.summary.repeatingCount,
+          {
+            key: { text: "RAR activity" },
+            value: { text: session.summary.rarCategory if appointment['repeating-session-counts-towards-rar'] == 'yes' else 'No' },
+            actions: {
+              items: [
+                {
+                  href: arrangeSessionPath + "/rar-categories",
+                  text: "Change",
+                  visuallyHiddenText: "repeat appointment RAR activity"
+                }
+              ]
+            }
+          },
+          {
+            key: { text: "Appointment notes" },
+            value: { html: (appointment['session-notes'] | nl2br | safe) if (appointment['session-notes'] and appointment['repeating-session-notes'] == 'yes') else 'None' },
+            actions: {
+              items: [
+                {
+                  href: notesEditPath or (arrangeSessionPath + "/notes"),
+                  text: "Change",
+                  visuallyHiddenText: "repeat appointment notes"
+                }
+              ]
+            }
+          },
+          {
+            key: { text: "Sensitive" },
+            value: { text: appointment['repeating-sensitive'] },
+            actions: {
+              items: [
+                {
+                  href: arrangeSessionPath + '/sensitive',
+                  text: "Change",
+                  visuallyHiddenText: "if repeat appointments are sensitive"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+    {% endif %}
 
     {{ govukButton({
       html: buttonText

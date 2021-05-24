@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set isRepeating = data.communication[CRN][sessionId].repeating == 'Yes' %}
+{% set isRepeating = appointment.repeating == 'Yes' %}
 {% set title = "Add appointment notes" %}
 {% set buttonText = 'Continue' %}
 
