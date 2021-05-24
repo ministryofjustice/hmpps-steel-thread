@@ -7,17 +7,17 @@ const {
 const {
   arrangeSessionWizardPaths,
   arrangeSessionWizardForks
-} = require('../utils/arrange-a-session-wizard-paths')
+} = require('../utils/arrange-appointment-wizard-paths')
 
 const { ArrangedSession } = require('../models/arranged-session.js')
 
 module.exports = router => {
-  router.get('/arrange-a-session/:CRN/start', (req, res) => {
+  router.get('/arrange-appointment/:CRN/start', (req, res) => {
     const sessionId = generateRandomString()
-    res.redirect(`/arrange-a-session/${req.params.CRN}/${sessionId}`)
+    res.redirect(`/arrange-appointment/${req.params.CRN}/${sessionId}`)
   })
 
-  router.get('/arrange-a-session/:CRN/:sessionId/confirmation', (req, res, next) => {
+  router.get('/arrange-appointment/:CRN/:sessionId/confirmation', (req, res, next) => {
     setDataValue(req.session.data,
       [
         'communication',
@@ -40,7 +40,7 @@ module.exports = router => {
     next()
   })
 
-  router.get('/arrange-a-session/:CRN/:sessionId/cancel-confirmation', (req, res, next) => {
+  router.get('/arrange-appointment/:CRN/:sessionId/cancel-confirmation', (req, res, next) => {
     setDataValue(req.session.data,
       [
         'communication',
@@ -52,8 +52,8 @@ module.exports = router => {
   })
 
   router.all([
-    '/arrange-a-session/:CRN/:sessionId',
-    '/arrange-a-session/:CRN/:sessionId/:view'
+    '/arrange-appointment/:CRN/:sessionId',
+    '/arrange-appointment/:CRN/:sessionId/:view'
   ], (req, res, next) => {
     const data = req.session.data
     res.locals.CRN = req.params.CRN
@@ -65,17 +65,17 @@ module.exports = router => {
     next()
   })
 
-  router.get('/arrange-a-session/:CRN/:sessionId', function (req, res) {
-    res.render('arrange-a-session/index', { paths: arrangeSessionWizardPaths(req) })
+  router.get('/arrange-appointment/:CRN/:sessionId', function (req, res) {
+    res.render('arrange-appointment/index', { paths: arrangeSessionWizardPaths(req) })
   })
 
-  router.get('/arrange-a-session/:CRN/:sessionId/:view', function (req, res) {
-    res.render(`arrange-a-session/${req.params.view}`, { paths: arrangeSessionWizardPaths(req) })
+  router.get('/arrange-appointment/:CRN/:sessionId/:view', function (req, res) {
+    res.render(`arrange-appointment/${req.params.view}`, { paths: arrangeSessionWizardPaths(req) })
   })
 
   router.post([
-    '/arrange-a-session/:CRN/:sessionId',
-    '/arrange-a-session/:CRN/:sessionId/:view'
+    '/arrange-appointment/:CRN/:sessionId',
+    '/arrange-appointment/:CRN/:sessionId/:view'
   ], function (req, res) {
     const fork = arrangeSessionWizardForks(req)
     const paths = arrangeSessionWizardPaths(req)
