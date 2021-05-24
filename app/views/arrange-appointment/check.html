@@ -16,7 +16,6 @@
 {% set notStandardForm = true %}
 {% set arrangeSessionPath = "/arrange-appointment/" +  CRN + "/" + sessionId %}
 
-
 {% set session = arrangedSession({
   providerCode: data['provider-code'],
   typeOfSession: appointment['type-of-session'],
@@ -44,6 +43,11 @@
   </div>
 
   <form method="post" autocomplete="off" action="{{ paths.current }}">
+
+    {% if isRepeating %}
+      <h2 class="govuk-heading-l">This appointment</h2>
+    {% endif %}
+
     {% set showAction = true %}
     {% include 'arrange-appointment/_appointment-details.html' %}
 
