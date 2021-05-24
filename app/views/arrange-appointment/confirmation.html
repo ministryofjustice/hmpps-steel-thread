@@ -1,7 +1,14 @@
 {% extends "_wizard-page.html" %}
+{% set isRepeating = appointment.repeating == 'Yes' %}
 {% set rearranging = appointment['rearrange-or-cancel'] %}
 {% set buttonText = 'Finish' %}
-{% set title = "Appointment rearranged" if rearranging else "Appointment arranged" %}
+{% if rearranging %}
+  {% set title = 'Appointment rearranged' %}
+{% elseif isRepeating %}
+  {% set title = 'Appointments arranged' %}
+{% else %}
+  {% set title = 'Appointment arranged' %}
+{% endif %}
 
 {% block page %}
   {% set session = arrangedSession({

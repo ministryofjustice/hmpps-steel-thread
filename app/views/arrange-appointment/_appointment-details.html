@@ -92,20 +92,7 @@
           }
         ]
       } if showAction
-    },
-    {
-      key: { text: "Number of repeat appointments" },
-      value: { text: session.summary.repeatingCount },
-      actions: {
-        items: [
-          {
-            href: arrangeSessionPath + "/when",
-            text: "Change",
-            visuallyHiddenText: "repeat end date"
-          }
-        ]
-      } if showAction
-    } if session.summary.repeatingCount,
+    } if session.summary.repeating == 'No',
     {
       key: { text: "RAR activity" },
       value: { text: session.summary.rarCategory },
@@ -147,11 +134,11 @@
     } if not hideNotes,
     {
       key: { text: "Sensitive" },
-      value: { text: data['communication'][CRN][sessionId]['sensitive'] },
+      value: { text: appointment['sensitive'] },
       actions: {
         items: [
           {
-            href: path + '/sensitive',
+            href: arrangeSessionPath + '/sensitive',
             text: "Change",
             visuallyHiddenText: "if this was sensitive"
           }

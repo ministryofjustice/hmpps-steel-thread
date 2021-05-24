@@ -1,13 +1,14 @@
 {% extends "_wizard-form.html" %}
+{% set isRepeating = appointment.repeating == 'Yes' %}
 {% set title = "Add appointment notes" %}
 {% set buttonText = 'Continue' %}
 
 {% block form %}
   <div class="govuk-form-group">
-    
     {{ govukTextarea({
-      name: "notes",
-      id: "notes",
+      hint: {
+        text: 'This will be added to the NDelius contact log'
+      },
       label: {
         text: "Add appointment notes",
         classes: "govuk-label--xl",
@@ -15,10 +16,26 @@
       },
       rows: 10
     } | decorateFormAttributes(['communication', CRN, sessionId, 'session-notes'])) }}
-
   </div>
 
-  <p class="govuk-hint">
-    This will be added to the NDelius contact log.
-  </p>
+  {% if isRepeating %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: 'Add these notes to repeat appointments?',
+          classes: "govuk-label--m"
+        }
+      },
+      items: [
+        {
+          text: 'Yes',
+          value: 'yes'
+        },
+        {
+          text: 'No, only this appointment',
+          value: 'no'
+        }
+      ]
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-session-notes'])) }}
+  {% endif %}
 {% endblock %}

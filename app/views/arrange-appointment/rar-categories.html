@@ -1,4 +1,5 @@
 {% extends "_wizard-form.html" %}
+{% set isRepeating = appointment.repeating == 'Yes' %}
 {% set title = 'What will this appointment count towards?' %}
 {% set buttonText = 'Continue' %}
 
@@ -23,4 +24,25 @@
       },
       items: rarRadioItems
   } | decorateFormAttributes(['communication', CRN, sessionId, 'session-rar-category'])) }}
+
+  {% if isRepeating %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: 'Will this also count towards repeat appointments?',
+          classes: "govuk-label--s"
+        }
+      },
+      items: [
+        {
+          text: 'Yes',
+          value: 'yes'
+        },
+        {
+          text: 'No, only this appointment',
+          value: 'no'
+        }
+      ]
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-session-counts-towards-rar'])) }}
+  {% endif %}
 {% endblock %}

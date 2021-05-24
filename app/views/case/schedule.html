@@ -19,6 +19,7 @@
 
 <h2 class="govuk-heading-m govuk-!-font-size-27">Future appointments</h2>
 
+{% if futureAppointments(CRN, data).length > 0 %}
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -30,13 +31,17 @@
   <tbody class="govuk-table__body">
     {% for entry in futureAppointments(CRN, data) %}
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }} {{ entry.timestamp | dateWithYear }}</td>
+        <td class="govuk-table__cell">{{ entry['session-date'] | dayOfWeek }} {{ entry['session-date'] | dateWithYear }}</td>
         <td class="govuk-table__cell">{{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}</td>
         <td class="govuk-table__cell"><a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a></td>
       </tr>
     {% endfor %}
   </tbody>
 </table>
+{% else %}
+
+<p>There are no appointments scheduled</p>
+{% endif %}
 
 <h2 class="govuk-heading-m govuk-!-font-size-27">Recent appointments</h2>
 

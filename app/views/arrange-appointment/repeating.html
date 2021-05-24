@@ -1,0 +1,55 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Will this be a repeating appointment?' %}
+
+{% block form %}
+  {% set repeatingHtml %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: "How frequently will it repeat?",
+          classes: "govuk-label--m"
+        }
+      },
+      items: [
+        {
+          text: "Weekly"
+        },
+        {
+          text: "Every 2 weeks"
+        },
+        {
+          text: "Monthly"
+        }
+      ]
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-frequency'])) }}
+
+    {{ govukInput({
+      label: {
+        text: "Number of repeat appointments",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-3"
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-count'])) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageTitle: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      {
+        text: "Yes",
+        conditional: {
+          html: repeatingHtml
+        }
+      },
+      {
+        text: "No, it’s a one-off appointment"
+      }
+    ]
+  } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating'])) }}
+{% endblock %}

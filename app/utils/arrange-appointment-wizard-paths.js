@@ -12,6 +12,7 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-appointment/${CRN}/${sessionId}`,
     `/arrange-appointment/${CRN}/${sessionId}/where`,
     `/arrange-appointment/${CRN}/${sessionId}/when`,
+    `/arrange-appointment/${CRN}/${sessionId}/repeating`,
     `/arrange-appointment/${CRN}/${sessionId}/rar`,
     `/arrange-appointment/${CRN}/${sessionId}/rar-categories`,
     `/arrange-appointment/${CRN}/${sessionId}/add-notes`,
@@ -19,11 +20,11 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-appointment/${CRN}/${sessionId}/sensitive`,
     `/arrange-appointment/${CRN}/${sessionId}/check`,
     `/arrange-appointment/${CRN}/${sessionId}/confirmation`,
-    `/cases/${CRN}`,
+    `/cases/${CRN}/schedule`,
     `/arrange-appointment/${CRN}/${sessionId}/rearrange-or-cancel`,
     `/arrange-appointment/${CRN}/${sessionId}/cancel`,
     `/arrange-appointment/${CRN}/${sessionId}/cancel-confirmation`,
-    `/cases/${CRN}`
+    `/cases/${CRN}/schedule`
   ]
 
   return nextAndBackPaths(paths, req)
