@@ -22,7 +22,7 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/sensitive`,
     `${basePath}/check`,
     `${basePath}/confirmation`,
-    `/arrange-a-session/${CRN}/start`,
+    `/arrange-appointment/${CRN}/start`,
     `/cases/${CRN}/activity-log/add`,
     `/confirm-attendance/${CRN}`
   ]

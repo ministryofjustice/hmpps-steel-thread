@@ -4,7 +4,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 require('./routes/cases')(router)
-require('./routes/arrange-a-session')(router)
+require('./routes/arrange-appointment')(router)
 require('./routes/confirm-attendance')(router)
 require('./routes/add-other-communication')(router)
 
