@@ -27,14 +27,14 @@ module.exports = router => {
       ], true)
 
     const originalAppointment = req.session.data['communication'][req.params.CRN][req.params.sessionId]
-    const repeatAppointments = ArrangedSession.generateRepeatedWeeklyAppointments(originalAppointment, 3)
+    const repeatAppointments = ArrangedSession.generateRepeatedWeeklyAppointments(originalAppointment)
 
     repeatAppointments.forEach(appointment => {
       setDataValue(req.session.data,
         [
           'communication',
           req.params.CRN,
-          appointment.sessionId,
+          appointment.sessionId
         ], appointment)
     })
     next()

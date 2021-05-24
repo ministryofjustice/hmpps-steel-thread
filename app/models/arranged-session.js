@@ -51,10 +51,11 @@ class ArrangedSession {
     return contactTypes[this.rarCategories.contactTypeCode]
   }
 
-  static generateRepeatedWeeklyAppointments (appointment, number = 3) {
-    const numberOfRepeatedAppts = (appointment['repeating'] === 'Yes' ? number : 0)
+  static generateRepeatedWeeklyAppointments (appointment) {
+    const hasRepeatAppointments = appointment['repeating'] === 'Yes' && appointment['repeating-count']
+    const numberOfRepeatedAppts = hasRepeatAppointments ? parseInt(appointment['repeating-count'], 10) : 0
     return Array.from(Array(numberOfRepeatedAppts)).map((_, i) => {
-      return this.generateRepeatAppointment({appointment: appointment, weeksInFuture: i+1})
+      return this.generateRepeatAppointment({ appointment: appointment, weeksInFuture: i + 1 })
     })
   }
 
@@ -62,7 +63,7 @@ class ArrangedSession {
     var clonedAppointment = Object.assign({}, params.appointment)
     return Object.assign(clonedAppointment, {
       sessionId: generateRandomString(),
-      'session-date': DateTime.fromISO(clonedAppointment['session-date']).plus({weeks: params.weeksInFuture}).toISODate()
+      'session-date': DateTime.fromISO(clonedAppointment['session-date']).plus({ weeks: params.weeksInFuture }).toISODate()
     })
   }
 }
