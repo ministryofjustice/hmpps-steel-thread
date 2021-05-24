@@ -31,7 +31,7 @@
   <tbody class="govuk-table__body">
     {% for entry in futureAppointments(CRN, data) %}
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell">{{ entry.timestamp | dayOfWeek }} {{ entry.timestamp | dateWithYear }}</td>
+        <td class="govuk-table__cell">{{ entry['session-date'] | dayOfWeek }} {{ entry['session-date'] | dateWithYear }}</td>
         <td class="govuk-table__cell">{{ entry['session-start-time'] }} to {{ entry['session-end-time'] }}</td>
         <td class="govuk-table__cell"><a href="/cases/{{ CRN }}/appointments/{{ entry.sessionId }}">{{ entry['type-of-session'] }} with {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}</a></td>
       </tr>
