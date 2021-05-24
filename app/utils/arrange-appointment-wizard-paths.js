@@ -20,11 +20,11 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-appointment/${CRN}/${sessionId}/sensitive`,
     `/arrange-appointment/${CRN}/${sessionId}/check`,
     `/arrange-appointment/${CRN}/${sessionId}/confirmation`,
-    `/cases/${CRN}`,
+    `/cases/${CRN}/schedule`,
     `/arrange-appointment/${CRN}/${sessionId}/rearrange-or-cancel`,
     `/arrange-appointment/${CRN}/${sessionId}/cancel`,
     `/arrange-appointment/${CRN}/${sessionId}/cancel-confirmation`,
-    `/cases/${CRN}`
+    `/cases/${CRN}/schedule`
   ]
 
   return nextAndBackPaths(paths, req)
