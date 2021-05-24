@@ -12,6 +12,7 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-appointment/${CRN}/${sessionId}`,
     `/arrange-appointment/${CRN}/${sessionId}/where`,
     `/arrange-appointment/${CRN}/${sessionId}/when`,
+    `/arrange-appointment/${CRN}/${sessionId}/repeating`,
     `/arrange-appointment/${CRN}/${sessionId}/rar`,
     `/arrange-appointment/${CRN}/${sessionId}/rar-categories`,
     `/arrange-appointment/${CRN}/${sessionId}/add-notes`,

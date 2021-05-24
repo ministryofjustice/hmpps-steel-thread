@@ -1,7 +1,30 @@
 {% extends "_wizard-form.html" %}
+{% set isRepeating = data.communication[CRN][sessionId].repeating == 'Yes' %}
 {% set title = 'Does this appointment include sensitive information?' %}
 
 {% block form %}
+  {% set repeatingHtml %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: 'Are repeat appointments also sensitive?',
+          classes: "govuk-label--s"
+        }
+      },
+      items: [
+        {
+          text: 'Yes',
+          value: 'yes'
+        },
+        {
+          text: 'No, only this appointment',
+          value: 'no'
+        }
+      ]
+    } | decorateFormAttributes(['communication', CRN, sessionId, 'repeating-sensitive'])) }}
+  {% endset %}
+
+
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -13,7 +36,10 @@
     items: [
       {
         html: 'Yes, it includes sensitive information.<br />Some details must not be shared with ' + case.serviceUserPersonalDetails.firstName + '.',
-        value: 'Yes'
+        value: 'Yes',
+        conditional: {
+          html: repeatingHtml
+        } if isRepeating
       },
       {
         text: 'No, it is not sensitive',
