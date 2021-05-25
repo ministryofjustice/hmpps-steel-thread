@@ -45,44 +45,39 @@
   <form method="post" autocomplete="off" action="{{ paths.current }}">
 
     {% if isRepeating %}
-      <h2 class="govuk-heading-l">This appointment</h2>
+      <h2 class="govuk-heading-m govuk-!-font-size-27">This appointment</h2>
     {% endif %}
 
     {% set showAction = true %}
     {% include 'arrange-appointment/_appointment-details.html' %}
 
     {% if isRepeating %}
-      <h2 class="govuk-heading-l">Repeat appointments</h2>
+      <h2 class="govuk-heading-m govuk-!-font-size-27">{{ appointment['repeating-count'] }} repeat appointments</h2>
+
+      {% set repeatDatesHtml %}
+        <ul class="govuk-list">
+          {% for repeatAppointmentDate in repeatAppointmentDates %}
+            <li>{{ repeatAppointmentDate | dayOfWeek }} {{ repeatAppointmentDate | dateWithYear }}</li>
+          {% endfor %}
+        </ul>
+      {% endset %}
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
           {
-            key: { text: "Repeating" },
-            value: { text: session.summary.repeating },
+            key: { text: "Dates" },
+            value: { html: repeatDatesHtml },
             actions: {
               items: [
                 {
-                  href: arrangeSessionPath + "/when",
+                  href: arrangeSessionPath + "/repeating",
                   text: "Change",
                   visuallyHiddenText: "repeating appointment"
                 }
               ]
             }
           },
-          {
-            key: { text: "Number of repeat appointments" },
-            value: { text: session.summary.repeatingCount },
-            actions: {
-              items: [
-                {
-                  href: arrangeSessionPath + "/when",
-                  text: "Change",
-                  visuallyHiddenText: "number of repeat appointments"
-                }
-              ]
-            }
-          } if session.summary.repeatingCount,
           {
             key: { text: "RAR activity" },
             value: { text: session.summary.rarCategory if appointment['repeating-session-counts-towards-rar'] == 'yes' else 'No' },

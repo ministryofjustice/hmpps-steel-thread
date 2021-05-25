@@ -13,6 +13,7 @@ function arrangeSessionWizardPaths (req) {
     `/arrange-appointment/${CRN}/${sessionId}/where`,
     `/arrange-appointment/${CRN}/${sessionId}/when`,
     `/arrange-appointment/${CRN}/${sessionId}/repeating`,
+    `/arrange-appointment/${CRN}/${sessionId}/repeating-preview`,
     `/arrange-appointment/${CRN}/${sessionId}/rar`,
     `/arrange-appointment/${CRN}/${sessionId}/rar-categories`,
     `/arrange-appointment/${CRN}/${sessionId}/add-notes`,
@@ -40,6 +41,12 @@ function arrangeSessionWizardForks (req) {
       storedData: ['communication', CRN, sessionId, 'type-of-session'],
       excludedValues: ['Office visit', 'Other'],
       forkPath: `/arrange-appointment/${CRN}/${sessionId}/when`
+    },
+    {
+      currentPath: `/arrange-appointment/${CRN}/${sessionId}/repeating`,
+      storedData: ['communication', CRN, sessionId, 'repeating'],
+      excludedValues: ['Yes'],
+      forkPath: `/arrange-appointment/${CRN}/${sessionId}/rar`
     },
     {
       currentPath: `/arrange-appointment/${CRN}/${sessionId}/rar`,
