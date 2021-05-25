@@ -1221,8 +1221,8 @@ module.exports = [
       },
       {
         'type': 'Appointment',
-        'timestamp': '2021-02-11T10:00',
-        'session-date': '2021-02-11',
+        'timestamp': helpers.happenedOn({monthsAgo: 1, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 20}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
@@ -1245,8 +1245,8 @@ module.exports = [
       {
         'type': 'Appointment',
         'lastUpdatedBy': 'Sally Smith',
-        'timestamp': '2021-01-11T10:00',
-        'session-date': '2021-01-11',
+        'timestamp': helpers.happenedOn({daysAgo: 40, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 40}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'No',
@@ -1265,16 +1265,16 @@ module.exports = [
         'type': 'Phone call',
         'from': 'Service user',
         'to': 'Sally Smith',
-        'timestamp': '2021-01-04T13:00',
-        'contents': `Phone call from Gary to double check when his next appointment was, we talked briefly about how his Christmas and new year had been. He mentioned that he got quite drunk and had an argument with his ex partner Shelly over the phone. He admitted that he had gone to her home and shouted outside the door and the police were called but Shelly refused to press charges. This matched the Reportable incidents information I received this morning.
+        'timestamp': helpers.happenedOn({daysAgo: 45, atTime: '13:00'}),
+        'contents': `Phone call from Gary to double check when his next appointment was, we talked briefly about how his recent week off work had been. He mentioned that he got quite drunk and had an argument with his ex partner Shelly over the phone. He admitted that he had gone to her home and shouted outside the door and the police were called but Shelly refused to press charges. This matched the Reportable incidents information I received this morning.
 
         We talked about his goal to reduce his alcohol intake and that he will now keep a diary of his drinking and agreed to book in a supervision appointment for a week's time.`,
         'sessionId': 'A07'
       },
       {
         'type': 'Appointment',
-        'timestamp': '2020-12-23T10:00',
-        'session-date': '2020-12-23',
+        'timestamp': helpers.happenedOn({daysAgo: 50, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 50}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
@@ -1300,8 +1300,8 @@ module.exports = [
       },
       {
         'type': 'Appointment',
-        'timestamp': '2020-12-04T10:00',
-        'session-date': '2020-12-04',
+        'timestamp': helpers.happenedOn({daysAgo: 60, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 60}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'Yes',
@@ -1329,7 +1329,7 @@ module.exports = [
         'type': 'Email',
         'to': 'someone@socialservices.gov.uk',
         'from': 'Sally Smith',
-        'timestamp': '2020-11-24T13:00',
+        'timestamp': helpers.happenedOn({daysAgo: 69, atTime: '13:00'}),
         'contents': `SUBJECT: Gary Hart
         Hi there,
 
@@ -1341,8 +1341,8 @@ module.exports = [
       {
         'type': 'Appointment',
         'lastUpdatedBy': 'Sally Smith',
-        'timestamp': '2020-11-23T10:00',
-        'session-date': '2020-11-23',
+        'timestamp': helpers.happenedOn({daysAgo: 70, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 70}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'No',
@@ -1364,8 +1364,8 @@ module.exports = [
       {
         'type': 'Appointment',
         'lastUpdatedBy': 'Sally Smith',
-        'timestamp': '2020-10-24T10:00',
-        'session-date': '2020-10-24',
+        'timestamp': helpers.happenedOn({daysAgo: 90, atTime: '10:00'}),
+        'session-date': helpers.happenedOn({daysAgo: 90}),
         'session-start-time': '10am',
         'session-end-time': '11am',
         'session-counts-towards-rar': 'No',
@@ -1390,7 +1390,7 @@ module.exports = [
         'type': 'Email',
         'from': 'someone@socialservices.gov',
         'to': 'Sally Smith',
-        'timestamp': '2020-10-23T13:00',
+        'timestamp': helpers.happenedOn({daysAgo: 91, atTime: '13:00'}),
         'contents': `Hi there,
         I got your message about Gary Hart. Yes he is known to us.
 
