@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% set appointmentType = 'previous' if isInThePast({date: appointment['session-date'], time: appointment['session-start-time']}) else 'upcoming' %}
-{% set title = appointment['type-of-session'] + ' details' %}
+{% set title = appointment['type-of-session'] + ' with ' + replaceDefaultUserWithSignedInUser(appointment.lastUpdatedBy, data) %} %}
+{% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block beforeContent %}
@@ -26,9 +27,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
       <span class="govuk-caption-l">{{ appointmentType | capitalize }} appointment</span>
-      {{ appointment['type-of-session'] }}
+      {{ title }}
 
       {% if appointment['did-service-user-comply'] or appointment.sensitive === 'Yes' or appointment['session-counts-towards-rar'] === 'Yes' %}
       <div class="govuk-!-margin-top-1">
@@ -53,21 +54,31 @@
   </div>
 </div>
 
-<h3 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-6">Appointment details</h3>
+{% if appointmentType === 'previous' and not isOutcomeRecorded %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="note-panel govuk-!-margin-bottom-6">
+        {{ govukWarningText({
+          html: 'Attendance not recorded<br /><a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>',
+          iconFallbackText: 'Warning',
+          classes: 'govuk-!-margin-bottom-0'
+        }) }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<h3 class="govuk-heading-l govuk-!-font-size-27">Appointment details</h3>
 
 {% set showAction = false %}
-{% set hideNotes = isOutcomeRecorded %}
 {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
 {% include 'arrange-appointment/_appointment-details.html' %}
 
-{% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
 {% if isOutcomeRecorded %}
   <h3 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-6">Outcome details</h3>
 
   {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
   {% include 'confirm-attendance/_outcome-details.html' %}
-{% elif appointmentType === 'previous' and not isOutcomeRecorded %}
-  {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>') }}
 {% endif %}
 
 <div class="govuk-grid-row">
