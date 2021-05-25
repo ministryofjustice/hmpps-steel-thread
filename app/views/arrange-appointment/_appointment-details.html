@@ -134,7 +134,7 @@
     } if not hideNotes,
     {
       key: { text: "Sensitive" },
-      value: { text: appointment['sensitive'] },
+      value: { text: appointment['sensitive'] or 'No' },
       actions: {
         items: [
           {
