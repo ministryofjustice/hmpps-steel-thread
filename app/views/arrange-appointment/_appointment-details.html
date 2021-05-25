@@ -131,7 +131,7 @@
           }
         ]
       } if showAction or notesEditPath
-    } if not hideNotes,
+    } if not isOutcomeRecorded,
     {
       key: { text: "Sensitive" },
       value: { text: appointment['sensitive'] or 'No' },
@@ -144,6 +144,6 @@
           }
         ]
       } if showAction
-    }
+    } if not isOutcomeRecorded
   ]
   }) }}
