@@ -26,7 +26,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
       <span class="govuk-caption-l">{{ appointmentType | capitalize }} appointment</span>
       {{ appointment['type-of-session'] }}
 
@@ -53,7 +53,21 @@
   </div>
 </div>
 
-<h3 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-6">Appointment details</h3>
+{% if appointmentType === 'previous' and not isOutcomeRecorded %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="note-panel govuk-!-margin-bottom-6">
+        {{ govukWarningText({
+          html: 'Attendance not recorded<br /><a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>',
+          iconFallbackText: 'Warning',
+          classes: 'govuk-!-margin-bottom-0'
+        }) }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<h3 class="govuk-heading-l govuk-!-font-size-27">Appointment details</h3>
 
 {% set showAction = false %}
 {% set hideNotes = isOutcomeRecorded %}
@@ -66,8 +80,6 @@
 
   {% set notesEditPath = "/cases/" + CRN + "/appointments/" + sessionId + '/notes' %}
   {% include 'confirm-attendance/_outcome-details.html' %}
-{% elif appointmentType === 'previous' and not isOutcomeRecorded %}
-  {{ appWarningBanner('Attendance not recorded. <a href="/confirm-attendance/' + CRN + '/' + appointment.sessionId + '">Record attendance</a>') }}
 {% endif %}
 
 <div class="govuk-grid-row">
