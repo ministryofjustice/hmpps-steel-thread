@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set appointmentType = 'previous' if isInThePast({date: appointment['session-date'], time: appointment['session-start-time']}) else 'upcoming' %}
-{% set title = appointment['type-of-session'] + ' details' %}
+{% set title = appointment['type-of-session'] + ' with ' + replaceDefaultUserWithSignedInUser(appointment.lastUpdatedBy, data) %} %}
 {% set isOutcomeRecorded = (not not appointment['did-service-user-comply'] ) %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
@@ -29,7 +29,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
       <span class="govuk-caption-l">{{ appointmentType | capitalize }} appointment</span>
-      {{ appointment['type-of-session'] }}
+      {{ title }}
 
       {% if appointment['did-service-user-comply'] or appointment.sensitive === 'Yes' or appointment['session-counts-towards-rar'] === 'Yes' %}
       <div class="govuk-!-margin-top-1">
