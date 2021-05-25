@@ -1,0 +1,40 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Appointments you’re arranging' %}
+
+{% block form %}
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+  <h2 class="govuk-heading-m">This appointment</h2>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header">Date</th>
+        <th class="govuk-table__header" style="width: 50%">Time</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ thisAppointmentDate | dayOfWeek }} {{ thisAppointmentDate | dateWithYear }}</td>
+        <td class="govuk-table__cell">{{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="govuk-heading-m">{{ appointment['repeating-count'] }} repeat appointments</h2>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header">Date</th>
+        <th class="govuk-table__header" style="width: 50%">Time</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% for repeatAppointmentDate in repeatAppointmentDates %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ repeatAppointmentDate | dayOfWeek }} {{ repeatAppointmentDate | dateWithYear }}</td>
+          <td class="govuk-table__cell">{{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

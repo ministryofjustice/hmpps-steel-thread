@@ -10,6 +10,7 @@ const {
 } = require('../utils/arrange-appointment-wizard-paths')
 
 const { ArrangedSession } = require('../models/arranged-session.js')
+const { DateTime } = require('luxon')
 
 module.exports = router => {
   router.get('/arrange-appointment/:CRN/start', (req, res) => {
@@ -48,6 +49,28 @@ module.exports = router => {
         req.params.sessionId,
         'cancelled'
       ], true)
+    next()
+  })
+
+  router.get([
+    '/arrange-appointment/:CRN/:sessionId/repeating-preview',
+    '/arrange-appointment/:CRN/:sessionId/check'
+  ], (req, res, next) => {
+    const appointment = req.session.data['communication'][req.params.CRN][req.params.sessionId]
+    var clonedAppointment = Object.assign({}, appointment)
+
+    clonedAppointment['session-date'] = DateTime.local(
+      parseInt(appointment['session-date-year']),
+      parseInt(appointment['session-date-month']),
+      parseInt(appointment['session-date-day'])
+    ).toISODate()
+
+    res.locals.thisAppointmentDate = clonedAppointment['session-date']
+    const repeatAppointments = ArrangedSession.generateRepeatedWeeklyAppointments(clonedAppointment)
+
+    res.locals.repeatAppointmentDates = repeatAppointments.map(appointment => {
+      return appointment['session-date']
+    })
     next()
   })
 
