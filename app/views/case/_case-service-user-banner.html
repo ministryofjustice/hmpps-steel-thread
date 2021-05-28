@@ -8,8 +8,9 @@
 
 <p>
   {% for badge in case.riskBadges %}
-    <span class="govuk-tag govuk-tag--{{ badge.class }}{{ ' govuk-!-margin-right-2' }}">
+    {{ govukTag({ html: '<a href="#">' + badge.text + '</a>', classes: 'govuk-tag--link govuk-!-margin-right-1 govuk-tag--' + badge.class }) }}
+    <!-- <span class="govuk-tag govuk-tag--{{ badge.class }}{{ ' govuk-!-margin-right-2' }}">
       {{ badge.text }}
-    </span>
+    </span> -->
   {% endfor %}
 </p>

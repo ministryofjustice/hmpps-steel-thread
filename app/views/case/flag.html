@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% set title = 'Registered sex offender' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to risk flags",
+    href: "/cases/" + CRN + "/flags"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      <span class="govuk-caption-xl">Risk flag</span>
+      {{ title }}
+    </h1>
+  </div>
+</div>
+
+    <!-- {{ govukButton({
+      text: 'Review or amend flag',
+      href: '#'
+    }) }} -->
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Possession of indecent images"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Next review"
+          },
+          value: {
+            text: "10 November 2021"
+          }
+        },
+        {
+          key: {
+            text: "Added by"
+          },
+          value: {
+            text: "Mark Berridge on 10 November 2020"
+          }
+        },
+        {
+          key: {
+            text: "Last review by"
+          },
+          value: {
+            text: "Mark Berridge on 22 March 2021"
+          }
+        }
+      ]
+    }) }}
+
+    <p>
+      <a href="#">Remove flag</a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
