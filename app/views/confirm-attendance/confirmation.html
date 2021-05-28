@@ -1,22 +1,19 @@
 {% extends "_wizard-page.html" %}
-{% set buttonText = 'Arrange an appointment' %}
+{% set buttonText = 'Finish' %}
 {% set title = "Attendance recorded" %}
 
 {% block page %}
 
   {% set panelHtml %}
+  <div class="govuk-!-font-size-27">
     <strong>{{ appointment['type-of-session'] }}</strong><br>
     {{ appointment['session-date'] | dateWithDayAndWithoutYear }} from {{ appointment['session-start-time'] }} to {{ appointment['session-end-time'] }}
-  {% endset %}
+  </div>
+    {% endset %}
 
   {{ govukPanel({
     titleText: title,
     html: panelHtml
   }) }}
 
-  <h2 class="govuk-heading-m">Next steps</h2>
-
-    <div style="margin-top: 20px;">
-      <a class="govuk-body" href="/cases/{{ case.CRN }}/activity-log">Back to {{ case.serviceUserPersonalDetails.firstName }}’s communication</a>
-    </div>
 {% endblock %}

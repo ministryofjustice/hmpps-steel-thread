@@ -22,9 +22,7 @@ function confirmAttendanceWizardPaths (req) {
     `${basePath}/sensitive`,
     `${basePath}/check`,
     `${basePath}/confirmation`,
-    `/arrange-appointment/${CRN}/start`,
-    `/cases/${CRN}/activity-log/add`,
-    `/confirm-attendance/${CRN}`
+    `/cases/${CRN}/activity-log`
   ]
 
   return nextAndBackPaths(paths, req)
