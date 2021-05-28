@@ -28,9 +28,11 @@
   }) %}
 
   {% set panelHtml %}
+  <div class="govuk-!-font-size-27">
     <strong>{{ session.summary.typeOfSession }}</strong><br />
     {{ session.summary.date | dateWithDayAndWithoutYear }} from {{ appointment['session-start-time'] | govukTime }} to {{ appointment['session-end-time'] | govukTime }}
-  {% endset %}
+ </div>
+    {% endset %}
 
   {{ govukPanel({
     titleText: title,

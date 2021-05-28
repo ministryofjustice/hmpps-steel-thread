@@ -15,48 +15,80 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l govuk-!-margin-bottom-7">Overview</h1>
 
-    <h2 class="govuk-heading-m">
-      Sentence
-    </h2>
+    <div class="app-card">
+      <h2 class="govuk-heading-m">
+        Offences
+      </h2>
+      <p class="govuk-body">{{ case.currentOrder.description }}</p>
 
-    <div class="app-card govuk-!-margin-bottom-6">
-      <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-        <a href="/cases/{{ CRN }}/sentence">{{ case.currentOrder.type }}</a>
-      </h3>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      
+      <h2 class="govuk-heading-m">
+        Sentence
+      </h2>
+      <p class="govuk-body">{{ case.currentOrder.type }}</p>
 
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <div class="govuk-!-margin-bottom-7">
+
+        <h2 class="govuk-heading-m">
+          Progress
+        </h2>
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Sentence
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ case.currentOrder.progressInMonths }} months elapsed (of {{ case.currentOrder.lengthInMonths }} months)
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                RAR
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
+              </dd>
+            </div>
+        </dl>
+
+          <!---
+                {% if case.currentOrder.requirements.rar %}
+                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                    Rehabilitation activity requirement
+                  </h3>
+                  <p class="govuk-!-margin-bottom-0">
+                    {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
+                  </p>
+                {% endif %}
+
+                {% if case.currentOrder.requirements.upw %}
+                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                    Unpaid work
+                  </h3>
+                  <p class="govuk-!-margin-bottom-0">
+                    {{ case.currentOrder.requirements.upw.progressInHours }} hours completed (of {{ case.currentOrder.requirements.upw.lengthInHours }} hours)
+                  </p>
+                {% endif %}
+
+                {% if case.currentOrder.requirements.ap %}
+                <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                  Accredited Programme
+                </h3>
+                <p class="govuk-!-margin-bottom-0">
+                  {{ case.currentOrder.requirements.ap.value }}
+                </p>
+              {% endif %}-->
+      </div>
       <p>
-        {{ case.currentOrder.progressInMonths }} months elapsed (of {{ case.currentOrder.lengthInMonths }} months)
+        <a href="/cases/{{ CRN }}/sentence">View sentence</a>
       </p>
-
-      {% if case.currentOrder.requirements.rar %}
-        <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-          Rehabilitation activity requirement
-        </h3>
-        <p class="govuk-!-margin-bottom-0">
-          {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
-        </p>
-      {% endif %}
-
-      {% if case.currentOrder.requirements.upw %}
-        <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-          Unpaid work
-        </h3>
-        <p class="govuk-!-margin-bottom-0">
-          {{ case.currentOrder.requirements.upw.progressInHours }} hours completed (of {{ case.currentOrder.requirements.upw.lengthInHours }} hours)
-        </p>
-      {% endif %}
-
-      {% if case.currentOrder.requirements.ap %}
-      <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-        Accredited Programme
-      </h3>
-      <p class="govuk-!-margin-bottom-0">
-        {{ case.currentOrder.requirements.ap.value }}
-      </p>
-    {% endif %}
     </div>
+    <br><br>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
     <h2 class="govuk-heading-m">
       Risks
     </h2>
@@ -115,87 +147,72 @@
     <h2 class="govuk-heading-m">
       Contact details
     </h2>
-
-    <dl class="app-card__one-third-column-list">
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Address
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.address.join('<br>') | safe }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Phone number
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.phone }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Email
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.email }}
-        </dd>
-      </div>
-    </dl>
+    {{ govukSummaryList({
+      classes: 'govuk-summary-list--no-border',
+      rows: [
+        {
+          key: { text: "Address" },
+          value: { html: case.serviceUserPersonalDetails.address.join('<br>') }
+        },
+        {
+          key: { text: "Phone number" },
+          value: { text: case.serviceUserPersonalDetails.phone }
+        },
+        {
+          key: { text: "Email" },
+          value: { text: case.serviceUserPersonalDetails.email }
+        }
+      ]
+    }) }}
 
     {% if case.personalContacts.length > 0 %}
     <p class="govuk-body">
-      <a class="govuk-heading-s" href="/cases/{{ CRN }}/address-book-personal">View all personal contacts ({{ case.personalContacts.length }})</a>
+      <a href="/cases/{{ CRN }}/address-book-personal">View all personal contacts ({{ case.personalContacts.length }})</a>
     </p>
   {% endif %}
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    <h2 class="govuk-heading-m">
-      Personal details and circumstances
-    </h2>
 
-    <dl class="app-card__one-third-column-list">
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Preferred language
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.preferredLanguage }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Disabilities and adjustments
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') | default('<span class="govuk-hint-s">None known</span>', true) | safe }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Employment status
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.circumstances.employment }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Housing status
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.circumstances.housingStatus }}
-        </dd>
-      </div>
-      <div class="app-card__one-third-column-list-item">
-        <dt class="app-card__one-third-column-list-key">
-          Safeguarding issues
-        </dt>
-        <dd class="app-card__one-third-column-list-value">
-          {{ case.serviceUserPersonalDetails.circumstances.safeguardingIssues.join(', ') or 'None' }}
-        </dd>
-      </div>
-    </dl>
+    <h2 class="govuk-heading-m">
+      Personal details
+    </h2>
+    {{ govukSummaryList({
+      classes: 'govuk-summary-list--no-border',
+      rows: [
+        {
+          key: { text: "Preferred language" },
+          value: { text: case.serviceUserPersonalDetails.preferredLanguage }
+        },
+        {
+          key: { text: "Disabilities and adjustments" },
+          value: { text: case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') | default('<span class="govuk-hint-s">None known</span>', true) | safe }
+        }
+      ]
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
+        Circumstances
+      </h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-summary-list--no-border',
+        rows: [
+          {
+            key: { text: "Employment status" },
+            value: { text: case.serviceUserPersonalDetails.circumstances.employment }
+          },
+          {
+            key: { text: "Housing status" },
+            value: { text: case.serviceUserPersonalDetails.circumstances.housingStatus }
+          },
+          {
+            key: { text: "Safeguarding issues" },
+            value: { text: case.serviceUserPersonalDetails.circumstances.safeguardingIssues.join(', ') or 'None' }
+          }
+        ]
+        }) }}
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
     <h2 class="govuk-heading-m">
@@ -235,31 +252,17 @@
 
   <div class="govuk-grid-column-one-third">
 
-    <!--TIME ARRANGED-->
-    <h2 class="govuk-heading-m">
-      Actions
-    </h2>
-    <p class="govuk-body">
-      <a href="/arrange-appointment/{{ CRN }}/start" class="govuk-button govuk-!-margin-bottom-0">
-        Arrange an appointment
-      </a>
-    </p>
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-6">
-      Next appointment
-    </h2>
     {% set nextApp = nextAppointment(CRN, data) %}
     <div class="app-card app-card--blue govuk-!-margin-bottom-3">
+      <strong>
+        The next appointment is
+      </strong><br>
       {% if nextApp %}
-        {{ nextApp['type-of-session'] }}<br>
         <strong>
-          {{ nextApp['session-date'] | dateWithDayAndWithoutYear }} from<br>
-          {{ nextApp['session-start-time'] | govukTime }} to {{ nextApp['session-end-time'] | govukTime }}
-        </strong>
-        <a href="/arrange-appointment/{{ CRN }}/{{ nextApp.sessionId }}/rearrange-or-cancel" class="govuk-button govuk-button--secondary govuk-!-margin-top-4 govuk-!-margin-bottom-0"
-          data-module="govuk-button">
-          Rearrange or cancel appointment
-        </a>
+          {{ nextApp['session-date'] | dateWithDayAndWithoutYear }} at
+          {{ nextApp['session-start-time'] | govukTime }}
+        </strong><br>
+        <strong>{{ nextApp['type-of-session'] }}</strong>
       {% else %}
         <strong>No appointments scheduled</strong>
       {% endif %}

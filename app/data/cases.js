@@ -512,8 +512,19 @@ module.exports = [
     },
     'personalContacts': [
       {
+        'name': 'Mary Bell',
+        'relationship': 'Wife (separated)',
+        'phone': '01274 773 355',
+        'address': [
+          '21 Valley Parade',
+          'Bradford',
+          'BD8 7DY'
+        ]
+      },
+      {
         'name': 'Lewis Wilson',
         'relationship': 'Son (30 years old)',
+        'phone': '01632 960130',
         'address': [
           '57 Whatlington Road',
           'Coventry',
@@ -522,6 +533,15 @@ module.exports = [
       }
     ],
     'professionalContacts': [
+      {
+        'name': 'Fred Parker',
+        'phone': '01632 960 130',
+        'email': 'example@example.gov',
+        'provider': 'Public Protection Unit',
+        'localDeliveryUnit': 'Bradford',
+        'team': 'Sex offenders',
+        'allocatedUntilDate': '2014-04-11'
+      },
       {
         'name': 'Sian McDougall',
         'phone': '01274 496 0993',
@@ -623,8 +643,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -634,8 +654,8 @@ module.exports = [
           class: 'red'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -645,8 +665,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -656,8 +676,8 @@ module.exports = [
           class: 'red'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -667,8 +687,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       },
       {
@@ -678,8 +698,8 @@ module.exports = [
           class: 'orange'
         },
         'inCustody': {
-          text: 'High',
-          class: 'red'
+          text: 'Low',
+          class: 'green'
         }
       }
     ],

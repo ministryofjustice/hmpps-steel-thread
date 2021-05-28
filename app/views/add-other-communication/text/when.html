@@ -1,7 +1,7 @@
 {% extends "_wizard-form.html" %}
 {% set userSentEmail = communication['from'] == userName(data) %}
 {% set title = 'When did you send the text message?' if userSentEmail else 'When was the text message received?' %}
-{% set timeLabel = 'What time was the text message sent?' %}
+{% set timeLabel = 'What time did you send it?' if userSentEmail else 'What time was it received?' %}
 
 {% block form %}
   {% set otherDayHTML %}
