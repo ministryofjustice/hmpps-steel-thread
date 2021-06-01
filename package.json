@@ -47,6 +47,7 @@
     "portscanner": "^2.1.1",
     "prompt": "^1.0.0",
     "require-dir": "^1.0.0",
+    "slugify": "^1.5.3",
     "sync-request": "^6.0.0",
     "timepicker": "^1.13.18",
     "universal-analytics": "^0.4.16",
