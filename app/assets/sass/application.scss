@@ -101,3 +101,8 @@ $govuk-assets-path: '/govuk/assets/';
   border: 1px solid $govuk-border-colour;
   padding: govuk-spacing(3);
 }
+
+.app-flags-table-cell {
+  padding-top: govuk-spacing(3);
+  padding-bottom: govuk-spacing(3);
+}
