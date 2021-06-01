@@ -1,4 +1,5 @@
 const { DateTime } = require('luxon')
+const slugify = require('slugify')
 
 module.exports = function (env) {
   /**
@@ -8,6 +9,11 @@ module.exports = function (env) {
    * @type {Object}
    */
   var filters = {}
+
+  // example: Monday
+  filters.toSlug = string => {
+    return slugify(string, { lower: true })
+  }
 
   // example: Monday 7 December
   filters.dateWithDayAndWithoutYear = datetimeString => {

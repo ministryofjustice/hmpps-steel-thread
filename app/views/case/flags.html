@@ -63,8 +63,6 @@
   html: categoryHtml
 }) }}
 
-
-
 <h2 class="govuk-heading-m">Current flags</h2>
 <table class="govuk-table">
   <thead class="govuk-table__head">
@@ -75,21 +73,18 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="/cases/' + CRN + '/flag">Registered sex offender</a>', classes: 'govuk-tag--link govuk-tag--purple' }) }}</td>
-      <td class="govuk-table__cell app-flags-table-cell">Possession of indecent images</td>
-      <td class="govuk-table__cell app-flags-table-cell">5 days</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">MAPPA</a>', classes: 'govuk-tag--link govuk-tag--purple' }) }}</td>
-      <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
-      <td class="govuk-table__cell app-flags-table-cell"><a href="#">Needs review</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Restraining order</a>', classes: 'govuk-tag--link govuk-tag--turquoise' }) }}</td>
-      <td class="govuk-table__cell app-flags-table-cell">Against ex-partner</td>
-      <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
-    </tr>
+    {% for flag in case.riskBadges %}
+      {% if not flag.rosh %}
+        {% set tagHtml %}
+          <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
+        {% endset %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
   </tbody>
 </table>
 
@@ -110,7 +105,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Domestic abuse</a>', classes: 'govuk-tag--link govuk-tag--purple' }) }}</td>
-      <td class="govuk-table__cell app-flags-table-cell">Possession of indecent images</td>
+      <td class="govuk-table__cell app-flags-table-cell">Against ex-partner</td>
       <td class="govuk-table__cell app-flags-table-cell">Today</td>
     </tr>
     <tr class="govuk-table__row">

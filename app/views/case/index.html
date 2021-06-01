@@ -56,43 +56,25 @@
       Risk flags
     </h2>
 
-    <p><a href="#">Add, review or remove flags</a></p>
+    <p><a href="/cases/{{ CRN }}/flags">Add, review or remove flags</a></p>
 
-    {{ govukSummaryList({
-      classes: 'govuk-summary-list--no-border',
-      rows: [
-        {
-          key: {
-            html: govukTag({ html: '<a href="#">Registered sex offender</a>', classes: 'govuk-tag--link govuk-tag--purple' })
-          },
-          value: {
-            html: '
-              <p>Possession of indecent images</p>
-            '
-          }
-        },
-        {
-          key: {
-            html: govukTag({ html: '<a href="#">MAPPA</a>', classes: 'govuk-tag--link govuk-tag--purple' })
-          },
-          value: {
-            html: '
-              <p class="govuk-!-margin-bottom-1">Level 2, Category 3</p>
-            '
-          }
-        },
-        {
-          key: {
-            html: govukTag({ html: '<a href="#">Restraining order</a>', classes: 'govuk-tag--link govuk-tag--turquoise' })
-          },
-          value: {
-            html: '
-              <p class="govuk-!-margin-bottom-1">Against ex-partner</p>
-            '
-          }
-        }
-      ]
-    }) }}
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      {% for flag in case.riskBadges %}
+        {% if not flag.rosh %}
+          {% set tagHtml %}
+            <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
+          {% endset %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ flag.notes }}
+            </dd>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </dl>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 

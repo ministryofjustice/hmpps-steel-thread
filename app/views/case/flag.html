@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set title = 'Registered sex offender' %}
+{% set title = flag.text %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block beforeContent %}
@@ -31,7 +31,7 @@
         text: "Next review"
       },
       value: {
-        text: "10 November 2021"
+        text: flag.reviewDue | dateWithYear
       },
       actions: {
         items: [
@@ -48,7 +48,7 @@
         text: "Added"
       },
       value: {
-        text: "10 November 2020 by Mark Berridge"
+        text: flag.dateAdded | dateWithYear + " by Mark Berridge"
       }
     },
     {
@@ -56,7 +56,7 @@
         text: "Most recent review"
       },
       value: {
-        text: "22 March 2021 by Mark Berridge"
+        text: flag.mostRecentReviewDate | dateWithYear + " by Mark Berridge" if flag.mostRecentReviewDate else 'Not reviewed yet'
       },
       actions: {
         items: [
@@ -65,14 +65,14 @@
             text: "View review"
           }
         ]
-      }
+      } if flag.mostRecentReviewDate
     },
     {
       key: {
         text: "Notes"
       },
       value: {
-        text: "Possession of indecent images"
+        text: flag.notes
       },
       actions: {
         items: [
