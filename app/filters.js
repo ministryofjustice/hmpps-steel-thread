@@ -10,7 +10,7 @@ module.exports = function (env) {
    */
   var filters = {}
 
-  // example: Monday
+  // example: "This thing" becomes "this-thing"
   filters.toSlug = string => {
     return slugify(string, { lower: true })
   }
