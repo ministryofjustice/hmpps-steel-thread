@@ -623,12 +623,16 @@ module.exports = [
         class: 'red'
       },
       {
-        text: 'Sex Offender',
+        text: 'Registered Sex Offender',
         class: 'purple'
       },
       {
         text: 'MAPPA',
         class: 'purple'
+      },
+      {
+        text: 'Restraining order',
+        class: 'turquoise'
       }
     ],
     'riskOfSeriousHarmLevel': {
