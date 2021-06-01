@@ -19,61 +19,114 @@
   </div>
 </div>
 
-    <!-- {{ govukButton({
-      text: 'Review or amend flag',
-      href: '#'
-    }) }} -->
+<!-- {{ govukButton({
+  text: 'Review or amend flag',
+  href: '#'
+}) }} -->
 
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Description"
-          },
-          value: {
-            text: "Possession of indecent images"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "name"
-              }
-            ]
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Next review"
+      },
+      value: {
+        text: "10 November 2021"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Review",
+            visuallyHiddenText: "flag"
           }
-        },
-        {
-          key: {
-            text: "Next review"
-          },
-          value: {
-            text: "10 November 2021"
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Added"
+      },
+      value: {
+        text: "10 November 2020 by Mark Berridge"
+      }
+    },
+    {
+      key: {
+        text: "Most recent review"
+      },
+      value: {
+        text: "22 March 2021 by Mark Berridge"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View review"
           }
-        },
-        {
-          key: {
-            text: "Added by"
-          },
-          value: {
-            text: "Mark Berridge on 10 November 2020"
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Notes"
+      },
+      value: {
+        text: "Possession of indecent images"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "notes"
           }
-        },
-        {
-          key: {
-            text: "Last review by"
-          },
-          value: {
-            text: "Mark Berridge on 22 March 2021"
-          }
-        }
-      ]
-    }) }}
+        ]
+      }
+    }
+  ]
+}) }}
 
-    <p>
-      <a href="#">Remove flag</a>
-    </p>
+<p class="govuk-!-margin-bottom-7">
+  <a href="#">Remove flag</a>
+</p>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Guidance using this flag</h2>
+    <h3 class="govuk-heading-m">Purpose of use</h3>
+
+    <p>To identify offenders convicted under the Sexual Offences Act 2003 and therefore subject to the notification period and requirements of the Sex Offender Register.</p>
+
+    <h3 class="govuk-heading-m">Category</h3>
+
+    <p>{{ govukTag({ text: 'Public protection', classes: 'govuk-tag--purple' }) }}</p>
+    <p><a href="#">About this category</a></p>
+
+    <h3 class="govuk-heading-m">Suggested review frequency</h3>
+
+    <p>Every 3 months</p>
+
+    <h3 class="govuk-heading-m">Termination</h3>
+
+    <p>Remove at termination, except for life sentences.</p>
+
+    <h3 class="govuk-heading-m">Further information</h3>
+
+    <p>Notification Periods for offenders sentenced under the Sexual Offences Act 2003:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Imprisonment for a fixed period of 30 months or more, Imprisonment for an indefinite period, imprisonment for public protection, or admission to hospital under restriction order, or subject to an Order for Lifelong Restriction: Indefinitely </li>
+      <li>Imprisonment for more than 6 months but less than 30 months: 10 years</li>
+      <li>Imprisonment for 6 months or less, or admission to hospital without restriction order: 7 years</li>
+      <li>Caution: 2 years</li>
+      <li>Conditional discharge or (in Scotland) a probation order: Period of discharge or probation</li>
+      <li>Any other: 5 years</li>
+      <li>Finite notification periods are halved if the person is under 18 when convicted or cautioned.</li>
+    </ul>
+
+    <p>If an offender is on the register for an indefinite period they can apply to the police area managing them to come off the register 15 years from their initial notification (if made upon release from prison) or first registration upon release from custody (in case they registered upon conviction).</p>
+
+    <p>(Also extended licences will impact on this as well and will render people to be placed on the register indefinitely – stated case is R v Wiles.)
   </div>
 </div>
-
 {% endblock %}
