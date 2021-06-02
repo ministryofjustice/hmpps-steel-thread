@@ -15,79 +15,68 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l govuk-!-margin-bottom-7">Overview</h1>
 
-    <div class="app-card">
-      <h2 class="govuk-heading-m">
-        Offences
-      </h2>
-      <p class="govuk-body">{{ case.currentOrder.description }}</p>
+    <h2 class="govuk-heading-m">
+      Offences
+    </h2>
+    <p class="govuk-body">{{ case.currentOrder.description }}</p>
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      
-      <h2 class="govuk-heading-m">
-        Sentence
-      </h2>
-      <p class="govuk-body">{{ case.currentOrder.type }}</p>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+      Sentence
+    </h2>
+    <p class="govuk-body">{{ case.currentOrder.type }}</p>
 
-      <div class="govuk-!-margin-bottom-7">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+      Progress
+    </h2>
 
-        <h2 class="govuk-heading-m">
-          Progress
-        </h2>
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sentence
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ case.currentOrder.progressInMonths }} months elapsed (of {{ case.currentOrder.lengthInMonths }} months)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            RAR
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
+          </dd>
+        </div>
+    </dl>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <dl class="govuk-summary-list govuk-summary-list--no-border">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Sentence
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.progressInMonths }} months elapsed (of {{ case.currentOrder.lengthInMonths }} months)
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                RAR
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
-              </dd>
-            </div>
-        </dl>
+    <h2 class="govuk-heading-m">
+      Risk flags
+    </h2>
 
-          <!---
-                {% if case.currentOrder.requirements.rar %}
-                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-                    Rehabilitation activity requirement
-                  </h3>
-                  <p class="govuk-!-margin-bottom-0">
-                    {{ case.currentOrder.requirements.rar.progressInDays }} days completed (of {{ case.currentOrder.requirements.rar.lengthInDays }} days)
-                  </p>
-                {% endif %}
+    <p><a href="/cases/{{ CRN }}/flags">Add, review or remove flags</a></p>
 
-                {% if case.currentOrder.requirements.upw %}
-                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-                    Unpaid work
-                  </h3>
-                  <p class="govuk-!-margin-bottom-0">
-                    {{ case.currentOrder.requirements.upw.progressInHours }} hours completed (of {{ case.currentOrder.requirements.upw.lengthInHours }} hours)
-                  </p>
-                {% endif %}
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      {% for flag in case.riskBadges %}
+        {% if not flag.rosh %}
+          {% set tagHtml %}
+            <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
+          {% endset %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ flag.notes }}
+            </dd>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </dl>
 
-                {% if case.currentOrder.requirements.ap %}
-                <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-                  Accredited Programme
-                </h3>
-                <p class="govuk-!-margin-bottom-0">
-                  {{ case.currentOrder.requirements.ap.value }}
-                </p>
-              {% endif %}-->
-      </div>
-      <p>
-        <a href="/cases/{{ CRN }}/sentence">View sentence</a>
-      </p>
-    </div>
-    <br><br>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <h2 class="govuk-heading-m">
       Risks

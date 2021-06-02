@@ -136,11 +136,16 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange'
+        class: 'orange',
+        rosh: true
       },
       {
         text: 'IOM',
-        class: 'blue'
+        class: 'grey',
+        notes: 'Cross-agency',
+        reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '175' }),
+        mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -620,15 +625,31 @@ module.exports = [
     'riskBadges': [
       {
         text: 'High risk of harm',
-        class: 'red'
+        class: 'red',
+        rosh: true
       },
       {
-        text: 'Sex Offender',
-        class: 'purple'
+        text: 'Registered sex offender',
+        class: 'purple',
+        notes: 'Possession of indecent images',
+        reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '175' }),
+        mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       },
       {
         text: 'MAPPA',
-        class: 'purple'
+        class: 'purple',
+        notes: 'Level 2, Category 3',
+        reviewDue: helpers.happenedOn({ daysAgo: '1' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '91' })
+      },
+      {
+        text: 'Restraining order',
+        class: 'turquoise',
+        notes: 'Against ex-partner',
+        reviewDue: helpers.happeningIn({ daysLater: 60, atTime: '13:00' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '175' }),
+        mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -910,7 +931,8 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange'
+        class: 'orange',
+        rosh: true
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -1132,11 +1154,16 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange'
+        class: 'orange',
+        rosh: true
       },
       {
         text: 'Domestic abuse',
-        class: 'turquoise'
+        class: 'turquoise',
+        notes: 'Partner is the victim',
+        reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '175' }),
+        mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
     'riskOfSeriousHarmLevel': {
@@ -1545,11 +1572,16 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange'
+        class: 'orange',
+        rosh: true
       },
       {
         text: 'Restraining Order',
-        class: 'turquoise'
+        class: 'turquoise',
+        notes: 'Against ex-partner',
+        reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
+        dateAdded: helpers.happenedOn({ daysAgo: '175' }),
+        mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
     'riskOfSeriousHarmLevel': {

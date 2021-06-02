@@ -2,6 +2,7 @@ const {
   generateRandomString,
   getDataValue
 } = require('../utils/helpers')
+const slugify = require('slugify')
 
 module.exports = router => {
   router.get([
@@ -82,6 +83,15 @@ module.exports = router => {
   router.all('/cases/:CRN/other-communication/:sessionId', function (req, res) {
     res.locals.sessionId = req.params.sessionId
     res.render('case/other-communication')
+  })
+
+  router.all('/cases/:CRN/flag/:flagSlug', function (req, res) {
+    const riskBadges = res.locals.case.riskBadges
+    const flag = riskBadges.find(flag => {
+      return slugify(flag.text, { lower: true }) === req.params.flagSlug
+    })
+    res.locals.flag = flag
+    res.render('case/flag')
   })
 
   router.all('/cases/:CRN/:view', function (req, res) {

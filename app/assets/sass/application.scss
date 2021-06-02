@@ -1,5 +1,6 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
+$govuk-new-link-styles: true;
 
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
@@ -36,6 +37,21 @@ $govuk-assets-path: '/govuk/assets/';
 // Document icon image
 .moj-timeline__document-link {
   background-image: url(/public/images/icon-document.svg) !important;
+}
+
+.govuk-tag--link {
+  padding: 0
+}
+
+.govuk-tag--link a {
+  line-height: 1.5em;
+  color: inherit;
+  padding: 6px 10px;
+  display: inline-block;
+
+  &:focus {
+    color: $govuk-focus-text-colour;
+  }
 }
 
 // Secondary text colour
@@ -84,4 +100,9 @@ $govuk-assets-path: '/govuk/assets/';
 .app-filter {
   border: 1px solid $govuk-border-colour;
   padding: govuk-spacing(3);
+}
+
+.app-flags-table-cell {
+  padding-top: govuk-spacing(3);
+  padding-bottom: govuk-spacing(3);
 }

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% set title = 'Risk flags' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'flags' %}
+{% include "case/_case-nav.html" %}
+
+<!-- Alerts, Safeguarding, Public protection, Information -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-7">{{ title }}</h1>
+  </div>
+</div>
+
+{% set categoryHtml %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        html: govukTag({ text: 'Alerts', classes: 'govuk-tag--pink' })
+      },
+      value: {
+        text: "Description of alerts, for example Weapons or Serious group offending"
+      }
+    },
+    {
+      key: {
+        html: govukTag({ text: 'Safeguarding', classes: 'govuk-tag--turquoise' })
+      },
+      value: {
+        text: "Description of safeguarding, for example Victim or Vulnerable"
+      }
+    },
+    {
+      key: {
+        html: govukTag({ text: 'Public protection', classes: 'govuk-tag--purple' })
+      },
+      value: {
+        text: "Description of public protection, for example Domestic abuse"
+      }
+    },
+    {
+      key: {
+        html: govukTag({ text: 'Information', classes: 'govuk-tag--grey' })
+      },
+      value: {
+        text: "Description of information, for example Integrated Offender Management (IOM)"
+      }
+    }
+  ]
+}) }}
+{% endset %}
+
+{{ govukDetails({
+  summaryText: "Risk flag categories",
+  html: categoryHtml
+}) }}
+
+<h2 class="govuk-heading-m">Current flags</h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" style="width: 30%">Flag</th>
+      <th class="govuk-table__header" style="width: 55%">Notes</th>
+      <th class="govuk-table__header" style="width: 15%">Review due</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for flag in case.riskBadges %}
+      {% if not flag.rosh %}
+        {% set tagHtml %}
+          <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
+        {% endset %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m">Historic flags</h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" style="width: 30%">Flag</th>
+      <th class="govuk-table__header" style="width: 55%">Notes</th>
+      <th class="govuk-table__header" style="width: 20%">Date removed</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Weapons</a>', classes: 'govuk-tag--link govuk-tag--pink' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Caught carrying a knife</td>
+      <td class="govuk-table__cell app-flags-table-cell">Today</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Domestic abuse</a>', classes: 'govuk-tag--link govuk-tag--purple' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Against ex-partner</td>
+      <td class="govuk-table__cell app-flags-table-cell">Today</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Victim</a>', classes: 'govuk-tag--link govuk-tag--turquoise' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
+      <td class="govuk-table__cell app-flags-table-cell">2 Jan 2021</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Vulnerable</a>', classes: 'govuk-tag--link govuk-tag--turquoise' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
+      <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">IOM</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+      <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
