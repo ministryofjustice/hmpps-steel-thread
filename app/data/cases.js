@@ -512,7 +512,7 @@ module.exports = [
       'circumstances': {
         'employment': 'Retired (receiving a pension)',
         'housingStatus': 'Householder (Owner - freehold or leasehold)',
-        'safeguardingIssues': ['Risk to "Adult at Risk"']
+        'safeguardingIssues': ['Referral to Safeguarding Team-Response Received']
       }
     },
     'personalContacts': [
