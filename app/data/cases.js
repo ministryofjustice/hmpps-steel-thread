@@ -25,7 +25,7 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
-        'employment': 'Full-time employed',
+        'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Living with family',
         'safeguardingIssues': []
       }
@@ -854,7 +854,7 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
       'circumstances': {
-        'employment': 'Full-time employed',
+        'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Living with family',
         'safeguardingIssues': []
       }
@@ -1055,7 +1055,7 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
-        'employment': 'Full-time employed',
+        'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Living with parents',
         'safeguardingIssues': []
       }
@@ -1473,7 +1473,7 @@ module.exports = [
       'sexualOrientation': 'Bisexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
-        'employment': 'Part-time employment',
+        'employment': 'Part-time employed (under 16 hours per week)',
         'housingStatus': 'Living alone',
         'safeguardingIssues': []
       }
