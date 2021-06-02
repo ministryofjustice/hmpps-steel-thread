@@ -4,6 +4,20 @@
 {% set title = name %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name
+    }
+  ]
+}) }}
+{% endblock %}
+
 {% block content %}
 
 {% include "case/_case-service-user-banner.html" %}

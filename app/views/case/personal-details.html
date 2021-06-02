@@ -2,24 +2,30 @@
 {% set title = 'Full personal details' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
-{% block content %}
-
-{% include "case/_case-service-user-banner.html" %}
-
-{% set currentNavSection = 'details' %}
-{% include "case/_case-nav.html" %}
-
-{{ govukBackLink({
-  text: "Back to personal details",
-  href: "/cases/" + CRN + "/details"
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Personal details",
+      href: "/cases/" + CRN + "/details"
+    },
+    {
+      text: title
+    }
+  ]
 }) }}
+{% endblock %}
 
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-7">{{title}}</h1>
-  </div>
-</div>
+{% block content %}
+<h1 class="govuk-heading-xl">{{title}}</h1>
 
 <div class="govuk-!-margin-bottom-7">
   {% set dateOfBirthAndAge %}
@@ -27,7 +33,6 @@
   {% endset %}
 
   {{ govukSummaryList({
-    classes: 'govuk-summary-list--no-border',
     rows: [
       {
         key: { text: "Name" },
