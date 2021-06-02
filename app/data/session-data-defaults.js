@@ -1,15 +1,16 @@
-const path = require('path')
 const cases = require('./cases')
-const helpers = require(path.join(__dirname, '../../lib/helpers.js'))
 
 const contactHistoryDefaults = (map, su) => {
   if (su.contactHistory) {
-    map[su.CRN] = su.contactHistory.reduce((o, contact) => ({ ...o, [contact.sessionId]: contact}), {})
+    map[su.CRN] = su.contactHistory.reduce((o, contact) => ({ ...o, [contact.sessionId]: contact }), {})
   }
   return map
 }
 
 module.exports = {
+  features: {
+    filters: false
+  },
   'provider-code': 'N55', // Yorkshire and the Humber
   'team-codes': ['N55NIW'],
   'default-teams': {

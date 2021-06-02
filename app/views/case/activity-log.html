@@ -37,6 +37,7 @@
 </div>
 
 <div class="govuk-grid-row govuk-!-margin-top-4">
+  {% if data.features.filters %}
   <div class="govuk-grid-column-one-third">
     <div class="app-filter">
       <h3 class="govuk-heading-m">Filter</h3>
@@ -116,7 +117,7 @@
       } | decorateFormAttributes(['contact-filter-type'])) }}
     </div>
   </div>
-
+  {% endif %}
   <div class="govuk-grid-column-two-thirds">
     {% set entries = activityLog(CRN, data, {category: 'all-previous-activity'}) %}
     {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
