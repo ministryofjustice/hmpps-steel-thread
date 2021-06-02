@@ -2,18 +2,31 @@
 {% set title = 'Previous orders' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
-{% block content %}
-
-{% include "case/_case-service-user-banner.html" %}
-
-{{ govukBackLink({
-  text: "Back to sentence",
-  href: "/cases/" + CRN + "/sentence"
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Sentence",
+      href: "/cases/" + CRN + "/sentence"
+    },
+    {
+      text: title
+    }
+  ]
 }) }}
+{% endblock %}
 
+{% block content %}
 <div class="govuk-!-margin-bottom-8">
-
-  <h2 class="govuk-heading-m">Previous orders</h2>
+  <h2 class="govuk-heading-xl">Previous orders</h2>
 
   {% for order in case.previousOrders %}
     <p class="govuk-heading-s govuk-!-margin-bottom-0">

@@ -3,10 +3,25 @@
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back to risk flags",
-    href: "/cases/" + CRN + "/flags"
-  }) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Risk flags",
+      href: "/cases/" + CRN + "/flags"
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

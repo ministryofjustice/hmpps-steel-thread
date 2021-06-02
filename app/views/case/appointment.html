@@ -5,17 +5,25 @@
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block beforeContent %}
-  {% if appointmentType == 'upcoming'%}
-    {{ govukBackLink({
-      text: "Back to schedule",
-      href: "/cases/" + CRN + "/schedule"
-    }) }}
-  {% else %}
-    {{ govukBackLink({
-      text: "Back to activity log",
-      href: "/cases/" + CRN + "/activity-log"
-    }) }}
-  {% endif %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Schedule" if appointmentType == 'upcoming' else "Activity log",
+      href: "/cases/" + CRN + "/schedule" if appointmentType == 'upcoming' else "/cases/" + CRN + "/activity-log"
+    } ,
+    {
+      text: title
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

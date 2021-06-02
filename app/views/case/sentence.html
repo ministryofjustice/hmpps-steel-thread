@@ -2,6 +2,24 @@
 {% set title = 'Sentence' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
 {% block content %}
 
 {% include "case/_case-service-user-banner.html" %}
@@ -17,97 +35,90 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-m">
+        Offences
+      </h2>
+      <p class="govuk-body">{{ case.currentOrder.description }}</p>
 
-      <div class="govuk-!-margin-bottom-7">
-        <h2 class="govuk-heading-m">
-          Offences
-        </h2>
-        <p class="govuk-body">{{ case.currentOrder.description }}</p>
-
-        {% set detailsHtml %}
-          {{ govukSummaryList({
-            classes: 'govuk-summary-list--no-border',
-            rows: [
-              {
-                key: { text: "Offence date" },
-                value: { html: case.currentOrder.offenceDate | dateWithYear }
-              },
-              {
-                key: { text: "Conviction date" },
-                value: { html: case.currentOrder.convictionDate | dateWithYear }
-              },
-              {
-                key: { text: "Court" },
-                value: { html: case.currentOrder.court }
-              },
-              {
-                key: { text: "Responsible court" },
-                value: { html: case.currentOrder.responsibleCourt }
-              }
-            ]
-          }) }}
-        {% endset %}
-
-        {{ govukDetails({
-          summaryText: "View offence details",
-          html: detailsHtml
-        }) }}
-  
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-        
-        <h2 class="govuk-heading-m">
-          Sentence details
-        </h2>
+      {% set detailsHtml %}
         {{ govukSummaryList({
           classes: 'govuk-summary-list--no-border',
           rows: [
             {
-              key: { text: "Sentence" },
-              value: { html: case.currentOrder.type }
+              key: { text: "Offence date" },
+              value: { html: case.currentOrder.offenceDate | dateWithYear }
             },
             {
-              key: { text: "Length" },
-              value: { html: case.currentOrder.lengthInMonths + ' months' }
+              key: { text: "Conviction date" },
+              value: { html: case.currentOrder.convictionDate | dateWithYear }
             },
             {
-              key: { text: "Start date" },
-              value: { html: case.currentOrder.startDate | dateWithYear }
+              key: { text: "Court" },
+              value: { html: case.currentOrder.court }
             },
             {
-              key: { text: "End date" },
-              value: { html: case.currentOrder.endDate | dateWithYear }
-            },
-            {
-              key: { text: "Time elapsed" },
-              value: { html: case.currentOrder.progressInMonths + ' months elapsed (of ' + case.currentOrder.lengthInMonths + ' months)' }
+              key: { text: "Responsible court" },
+              value: { html: case.currentOrder.responsibleCourt }
             }
           ]
         }) }}
+      {% endset %}
 
-      </div>
+      {{ govukDetails({
+        summaryText: "View offence details",
+        html: detailsHtml
+      }) }}
 
-      
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-      <div class="govuk-!-margin-bottom-7">
-        <h3 class="govuk-heading-m">
-          Requirements
-        </h3>
-        <dl class="govuk-summary-list govuk-summary-list--no-border">
-          {% for _, requirement in case.currentOrder.requirements %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                {{ requirement.type }}
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ requirement.value }}
-              </dd>
-            </div>
-          {% endfor %}
-        </dl>
-      </div>
-
-
+      <h2 class="govuk-heading-m">
+        Sentence details
+      </h2>
+      {{ govukSummaryList({
+        classes: 'govuk-summary-list--no-border',
+        rows: [
+          {
+            key: { text: "Sentence" },
+            value: { html: case.currentOrder.type }
+          },
+          {
+            key: { text: "Length" },
+            value: { html: case.currentOrder.lengthInMonths + ' months' }
+          },
+          {
+            key: { text: "Start date" },
+            value: { html: case.currentOrder.startDate | dateWithYear }
+          },
+          {
+            key: { text: "End date" },
+            value: { html: case.currentOrder.endDate | dateWithYear }
+          },
+          {
+            key: { text: "Time elapsed" },
+            value: { html: case.currentOrder.progressInMonths + ' months elapsed (of ' + case.currentOrder.lengthInMonths + ' months)' }
+          }
+        ]
+      }) }}
+    </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <div class="govuk-!-margin-bottom-7">
+      <h3 class="govuk-heading-m">
+        Requirements
+      </h3>
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+        {% for _, requirement in case.currentOrder.requirements %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ requirement.type }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ requirement.value }}
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </div>
   </div><!--END COL TWO THIRDS-->
 
   <div class="govuk-grid-column-one-third">
@@ -148,8 +159,6 @@
         <a class="govuk-heading-s" href="/cases/{{ CRN }}/address-book-professional">Previous professional contacts ({{ case.professionalContacts.length }})</a>
       </p>
     {% endif %}
-
   </div>
 </div>
-
 {% endblock %}
