@@ -26,7 +26,7 @@ module.exports = [
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Living with family',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -855,7 +855,7 @@ module.exports = [
       'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Living with family',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -1056,7 +1056,7 @@ module.exports = [
       'disabilitiesAndAdjustments': [],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Living with parents',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -1474,7 +1474,7 @@ module.exports = [
       'disabilitiesAndAdjustments': [],
       'circumstances': {
         'employment': 'Part-time employed (under 16 hours per week)',
-        'housingStatus': 'Living alone',
+        'housingStatus': 'Rental accommodation - private rental',
         'safeguardingIssues': []
       }
     },
