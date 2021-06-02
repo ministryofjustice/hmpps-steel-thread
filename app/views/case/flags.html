@@ -29,59 +29,62 @@
 
 <!-- Alerts, Safeguarding, Public protection, Information -->
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-7">{{ title }}</h1>
-  </div>
-</div>
+    <h1 class="govuk-heading-l">{{ title }}</h1>
+    {% set categoryHtml %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: govukTag({ text: 'Alerts', classes: 'govuk-tag--pink' })
+            },
+            value: {
+              text: "Description of alerts, for example Weapons or Serious group offending"
+            }
+          },
+          {
+            key: {
+              html: govukTag({ text: 'Safeguarding', classes: 'govuk-tag--turquoise' })
+            },
+            value: {
+              text: "Description of safeguarding, for example Victim or Vulnerable"
+            }
+          },
+          {
+            key: {
+              html: govukTag({ text: 'Public protection', classes: 'govuk-tag--purple' })
+            },
+            value: {
+              text: "Description of public protection, for example Domestic abuse"
+            }
+          },
+          {
+            key: {
+              html: govukTag({ text: 'Information', classes: 'govuk-tag--grey' })
+            },
+            value: {
+              text: "Description of information, for example Integrated Offender Management (IOM)"
+            }
+          }
+        ]
+      }) }}
+    {% endset %}
 
-{% set categoryHtml %}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-{{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        html: govukTag({ text: 'Alerts', classes: 'govuk-tag--pink' })
-      },
-      value: {
-        text: "Description of alerts, for example Weapons or Serious group offending"
-      }
-    },
-    {
-      key: {
-        html: govukTag({ text: 'Safeguarding', classes: 'govuk-tag--turquoise' })
-      },
-      value: {
-        text: "Description of safeguarding, for example Victim or Vulnerable"
-      }
-    },
-    {
-      key: {
-        html: govukTag({ text: 'Public protection', classes: 'govuk-tag--purple' })
-      },
-      value: {
-        text: "Description of public protection, for example Domestic abuse"
-      }
-    },
-    {
-      key: {
-        html: govukTag({ text: 'Information', classes: 'govuk-tag--grey' })
-      },
-      value: {
-        text: "Description of information, for example Integrated Offender Management (IOM)"
-      }
-    }
-  ]
-}) }}
-{% endset %}
 
+<p>
+  {{ govukButton({
+    text: 'Add flag',
+    href: '#',
+    classes: 'govuk-button'
+  }) }}
+</p>
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Current flags</h2>
 {{ govukDetails({
   summaryText: "Risk flag categories",
   html: categoryHtml
 }) }}
 
-<h2 class="govuk-heading-m">Current flags</h2>
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
