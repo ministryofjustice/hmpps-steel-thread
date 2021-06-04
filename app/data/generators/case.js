@@ -6,8 +6,10 @@ const address = require('./address')
 const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
 const currentOrder = require('./current-order')
+const previousOrders = require('./previous-orders')
 const generatorHelpers = require('./generator-helpers')
 const serviceUser = person(faker)
+const serviceUserCurrentOrder = currentOrder(faker)
 
 const _case = {
   serviceUserPersonalDetails: {
@@ -39,56 +41,14 @@ const _case = {
   ],
   'PNC': `${faker.datatype.number({ min: 1980, max: 2021 })}/${faker.datatype.number({ min: 1000000, max: 1300000 })}${faker.random.alpha(1).toUpperCase()}`, // 2012/12340000F
   'CRN': `${faker.random.alpha(1).toUpperCase()}${faker.datatype.number({ min: 100000, max: 999999 })}`, // J123456
-  currentOrder: currentOrder(faker)
+  currentOrder: serviceUserCurrentOrder,
+  previousOrders: previousOrders(faker, serviceUserCurrentOrder, generatorHelpers),
+  breachesCount: 0,
+  restrainingOrdersCount: 0
 }
 
 module.exports = _case
 
-//   'currentOrder': {
-//     'type': 'Community Order',
-//     'description': 'Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563',
-//     'lengthInMonths': 12,
-//     'progressInMonths': 6,
-//     'startDate': '2021-01-05',
-//     'endDate': helpers.sentenceEndDate({lengthInMonths: 12, startDate: '2021-01-05'}),
-//     'offenceDate': '2020-11-15',
-//     'convictionDate': '2020-12-12',
-//     'court': "Sheffield Magistrates' Court",
-//     'responsibleCourt': "Sheffield Magistrates' Court",
-//     'requirements': {
-//       'rar': {
-//         'type': 'RAR',
-//         'value': '15 days',
-//         'lengthInDays': 15,
-//         'progressInDays': 5
-//       },
-//       'fine': {
-//         'type': 'Fine',
-//         'value': '£1000'
-//       }
-//     },
-//     'courtDocuments': [
-//       {
-//         'name': 'Pre-sentence report',
-//         'lastUpdateDate': '2020-12-03'
-//       }
-//     ],
-//     'personalDocuments': [
-//       {
-//         'name': 'Induction pack',
-//         'lastUpdateDate': '2020-12-03'
-//       }
-//     ]
-//   },
-//   'previousOrders': [
-//     {
-//       'title': 'ORA Community Order (12 Months)',
-//       'description': 'Careless driving - 80400',
-//       'endDate': '2018-05-17'
-//     }
-//   ],
-//   'breachesCount': 0,
-//   'restrainingOrdersCount': 0,
 //   'riskBadges': [
 //     {
 //       text: 'Medium risk of harm',
