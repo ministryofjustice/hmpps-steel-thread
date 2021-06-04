@@ -1,5 +1,5 @@
 const cases = require('./cases')
-const randomCase = require('./generators/case')
+const fakeCases = require('./fake-cases')
 
 const contactHistoryDefaults = (map, su) => {
   if (su.contactHistory) {
@@ -8,11 +8,12 @@ const contactHistoryDefaults = (map, su) => {
   return map
 }
 
+const sessionCases = cases.concat(fakeCases(10))
+
 module.exports = {
   features: {
     filters: false
   },
-  'random-case': randomCase,
   'provider-code': 'N55', // Yorkshire and the Humber
   'team-codes': ['N55NIW'],
   'default-teams': {
@@ -20,6 +21,6 @@ module.exports = {
     'N07': ['N07L10'],
     'N55': ['N55LNG']
   },
-  cases: cases,
-  'communication': cases.reduce(contactHistoryDefaults, {})
+  cases: sessionCases,
+  'communication': sessionCases.reduce(contactHistoryDefaults, {})
 }
