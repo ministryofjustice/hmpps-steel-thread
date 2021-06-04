@@ -37,27 +37,13 @@ const _case = {
   ],
   professionalContacts: [
     professionalContact(faker)
-  ]
+  ],
+  'PNC': `${faker.datatype.number({ min: 1980, max: 2021 })}/${faker.datatype.number({ min: 1000000, max: 1300000 })}${faker.random.alpha(1).toUpperCase()}`, // 2012/12340000F
+  'CRN': `${faker.random.alpha(1).toUpperCase()}${faker.datatype.number({ min: 100000, max: 999999 })}` // J123456
 }
 
 module.exports = _case
 
-//
-//
-//
-//   'professionalContacts': [
-//     {
-//       'name': 'Gary Millar',
-//       'phone': '0114 123 0000',
-//       'email': 'example@example.com',
-//       'provider': 'CPA South Yorkshire',
-//       'localDeliveryUnit': 'Rotherham',
-//       'team': 'Rotherham LMC',
-//       'allocatedUntilDate': '2019-11-19'
-//     }
-//   ],
-//   'PNC': '2012/123400000F',
-//   'CRN': 'J678910',
 //   'currentOrder': {
 //     'type': 'Community Order',
 //     'description': 'Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563',
