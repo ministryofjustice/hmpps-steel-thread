@@ -7,10 +7,12 @@ const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
 const currentOrder = require('./current-order')
 const previousOrders = require('./previous-orders')
-const riskFlags = require('./risk-flags')
+const risk = require('./risk')
 const generatorHelpers = require('./generator-helpers')
+
 const serviceUser = person(faker)
 const serviceUserCurrentOrder = currentOrder(faker)
+const serviceUserRisk = risk(faker)
 
 const _case = {
   serviceUserPersonalDetails: {
@@ -46,83 +48,13 @@ const _case = {
   previousOrders: previousOrders(faker, serviceUserCurrentOrder, generatorHelpers),
   breachesCount: 0,
   restrainingOrdersCount: 0,
-  riskBadges: riskFlags(faker)
+  riskBadges: serviceUserRisk.riskFlags,
+  riskOfSeriousHarmLevel: serviceUserRisk.riskOfSeriousHarmLevel,
+  riskOfHarm: serviceUserRisk.riskOfHarm
 }
 
 module.exports = _case
 
-//   'riskOfSeriousHarmLevel': {
-//     text: 'Medium',
-//     class: 'orange'
-//   },
-//   'riskOfHarm': [
-//     {
-//       'riskTo': 'Themselves',
-//       'inCommunity': {
-//         text: 'Low',
-//         class: 'green'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     },
-//     {
-//       'riskTo': 'Children',
-//       'inCommunity': {
-//         text: 'Low',
-//         class: 'green'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     },
-//     {
-//       'riskTo': 'Public',
-//       'inCommunity': {
-//         text: 'Medium',
-//         class: 'orange'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     },
-//     {
-//       'riskTo': 'Known adult',
-//       'inCommunity': {
-//         text: 'Medium',
-//         class: 'orange'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     },
-//     {
-//       'riskTo': 'Staff',
-//       'inCommunity': {
-//         text: 'Low',
-//         class: 'green'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     },
-//     {
-//       'riskTo': 'Prisoners',
-//       'inCommunity': {
-//         text: 'Low',
-//         class: 'green'
-//       },
-//       'inCustody': {
-//         text: 'Low',
-//         class: 'green'
-//       }
-//     }
-//   ],
 //   'criminogenicNeeds': [
 //     'Relationships',
 //     'Thinking and attitudes'
