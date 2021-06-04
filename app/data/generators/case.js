@@ -7,6 +7,7 @@ const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
 const currentOrder = require('./current-order')
 const previousOrders = require('./previous-orders')
+const riskFlags = require('./risk-flags')
 const generatorHelpers = require('./generator-helpers')
 const serviceUser = person(faker)
 const serviceUserCurrentOrder = currentOrder(faker)
@@ -44,26 +45,12 @@ const _case = {
   currentOrder: serviceUserCurrentOrder,
   previousOrders: previousOrders(faker, serviceUserCurrentOrder, generatorHelpers),
   breachesCount: 0,
-  restrainingOrdersCount: 0
+  restrainingOrdersCount: 0,
+  riskBadges: riskFlags(faker)
 }
 
 module.exports = _case
 
-//   'riskBadges': [
-//     {
-//       text: 'Medium risk of harm',
-//       class: 'orange',
-//       rosh: true
-//     },
-//     {
-//       text: 'IOM',
-//       class: 'grey',
-//       notes: 'Cross-agency',
-//       reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
-//       dateAdded: helpers.happenedOn({ daysAgo: '175' }),
-//       mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
-//     }
-//   ],
 //   'riskOfSeriousHarmLevel': {
 //     text: 'Medium',
 //     class: 'orange'
