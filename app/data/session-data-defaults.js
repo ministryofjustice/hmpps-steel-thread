@@ -1,4 +1,5 @@
 const cases = require('./cases')
+const randomCase = require('./generators/case')
 
 const contactHistoryDefaults = (map, su) => {
   if (su.contactHistory) {
@@ -11,6 +12,7 @@ module.exports = {
   features: {
     filters: false
   },
+  'random-case': randomCase,
   'provider-code': 'N55', // Yorkshire and the Humber
   'team-codes': ['N55NIW'],
   'default-teams': {
