@@ -50,22 +50,23 @@ const _case = {
   restrainingOrdersCount: 0,
   riskBadges: serviceUserRisk.riskFlags,
   riskOfSeriousHarmLevel: serviceUserRisk.riskOfSeriousHarmLevel,
-  riskOfHarm: serviceUserRisk.riskOfHarm
+  riskOfHarm: serviceUserRisk.riskOfHarm,
+  'criminogenicNeeds': [
+    'Relationships',
+    'Thinking and attitudes'
+  ],
+  status: 'Previously known',
+  previousOrderStatus: 'Order ended 24 Nov 2016',
+  appointmentStatistics: {
+    complied: 9,
+    acceptableAbsence: 0,
+    failureToComply: 1
+  },
+  contactHistory: []
 }
 
 module.exports = _case
 
-//   'criminogenicNeeds': [
-//     'Relationships',
-//     'Thinking and attitudes'
-//   ],
-//   'status': 'Previously known',
-//   'previousOrderStatus': 'Order ended 24 Nov 2016',
-//   'appointmentStatistics': {
-//     'complied': 9,
-//     'acceptableAbsence': 0,
-//     'failureToComply': 1
-//   },
 //   'contactHistory': [
 //     {
 //       'type': 'Appointment',
