@@ -5,6 +5,7 @@ const person = require('./person')
 const address = require('./address')
 const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
+const currentOrder = require('./current-order')
 const generatorHelpers = require('./generator-helpers')
 const serviceUser = person(faker)
 
@@ -37,7 +38,8 @@ const _case = {
     professionalContact(faker, generatorHelpers)
   ],
   'PNC': `${faker.datatype.number({ min: 1980, max: 2021 })}/${faker.datatype.number({ min: 1000000, max: 1300000 })}${faker.random.alpha(1).toUpperCase()}`, // 2012/12340000F
-  'CRN': `${faker.random.alpha(1).toUpperCase()}${faker.datatype.number({ min: 100000, max: 999999 })}` // J123456
+  'CRN': `${faker.random.alpha(1).toUpperCase()}${faker.datatype.number({ min: 100000, max: 999999 })}`, // J123456
+  currentOrder: currentOrder(faker)
 }
 
 module.exports = _case
