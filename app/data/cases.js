@@ -25,8 +25,8 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
-        'employment': 'Full-time employed',
-        'housingStatus': 'Living with family',
+        'employment': 'Full-time employed (30 or more hours per week)',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -512,7 +512,7 @@ module.exports = [
       'circumstances': {
         'employment': 'Retired (receiving a pension)',
         'housingStatus': 'Householder (Owner - freehold or leasehold)',
-        'safeguardingIssues': ['Risk to "Adult at Risk"']
+        'safeguardingIssues': ['Referral to Safeguarding Team-Response Received']
       }
     },
     'personalContacts': [
@@ -854,8 +854,8 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
       'circumstances': {
-        'employment': 'Full-time employed',
-        'housingStatus': 'Living with family',
+        'employment': 'Full-time employed (30 or more hours per week)',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -1055,8 +1055,8 @@ module.exports = [
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
-        'employment': 'Full-time employed',
-        'housingStatus': 'Living with parents',
+        'employment': 'Full-time employed (30 or more hours per week)',
+        'housingStatus': 'Friends/Family (settled)',
         'safeguardingIssues': []
       }
     },
@@ -1473,8 +1473,8 @@ module.exports = [
       'sexualOrientation': 'Bisexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
-        'employment': 'Part-time employment',
-        'housingStatus': 'Living alone',
+        'employment': 'Part-time employed (under 16 hours per week)',
+        'housingStatus': 'Rental accommodation - private rental',
         'safeguardingIssues': []
       }
     },
