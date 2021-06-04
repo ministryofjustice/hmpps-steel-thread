@@ -1,7 +1,6 @@
 const person = require('./person')
-const { DateTime } = require('luxon')
 
-module.exports = (faker) => {
+module.exports = (faker, generatorHelpers) => {
   const professionalContact = person(faker)
   const years = 2
 
@@ -12,6 +11,6 @@ module.exports = (faker) => {
     'provider': 'CPA South Yorkshire',
     'localDeliveryUnit': 'Rotherham',
     'team': 'Rotherham LMC',
-    'allocatedUntilDate': DateTime.fromJSDate(faker.date.past(years)).toISODate()
+    'allocatedUntilDate': generatorHelpers.toISODate(faker.date.past(years))
   }
 }

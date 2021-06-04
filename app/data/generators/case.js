@@ -1,20 +1,18 @@
-const path = require('path')
-const helpers = require(path.join(__dirname, '../../../lib/helpers.js'))
 const faker = require('faker')
-const { DateTime } = require('luxon')
 faker.locale = 'en_GB'
 
 const person = require('./person')
 const address = require('./address')
 const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
+const generatorHelpers = require('./generator-helpers')
 const serviceUser = person(faker)
 
 const _case = {
   serviceUserPersonalDetails: {
     'name': serviceUser.fullName,
     'firstName': serviceUser.firstName,
-    'dateOfBirth': DateTime.fromJSDate(faker.date.between('1950-01-01', '2002-12-31')).toISODate(),
+    'dateOfBirth': generatorHelpers.toISODate(faker.date.between('1950-01-01', '2002-12-31')),
     'address': address(faker),
     'phone': '07700 900 077',
     'email': serviceUser.email,
@@ -36,7 +34,7 @@ const _case = {
     personalContact(faker)
   ],
   professionalContacts: [
-    professionalContact(faker)
+    professionalContact(faker, generatorHelpers)
   ],
   'PNC': `${faker.datatype.number({ min: 1980, max: 2021 })}/${faker.datatype.number({ min: 1000000, max: 1300000 })}${faker.random.alpha(1).toUpperCase()}`, // 2012/12340000F
   'CRN': `${faker.random.alpha(1).toUpperCase()}${faker.datatype.number({ min: 100000, max: 999999 })}` // J123456
