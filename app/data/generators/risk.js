@@ -71,7 +71,7 @@ module.exports = (faker, generatorHelpers) => {
     }
   })
 
-  // Put risk flag first
+  // Put risk level flag first
   serviceUserRiskFlags.unshift({
     text: `${riskOfSeriousHarmLevel.text} risk of harm`,
     class: riskOfSeriousHarmLevel.class,
