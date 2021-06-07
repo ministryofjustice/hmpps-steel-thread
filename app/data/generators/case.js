@@ -51,7 +51,7 @@ module.exports = generateCase => {
     previousOrders: previousOrders(faker, serviceUserCurrentOrder, generatorHelpers),
     breachesCount: 0,
     restrainingOrdersCount: 0,
-    riskBadges: serviceUserRisk.riskFlags,
+    riskBadges: serviceUserRisk.serviceUserRiskFlags,
     riskOfSeriousHarmLevel: serviceUserRisk.riskOfSeriousHarmLevel,
     riskOfHarm: serviceUserRisk.riskOfHarm,
     'criminogenicNeeds': [
