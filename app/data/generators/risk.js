@@ -1,7 +1,9 @@
+const { DateTime } = require('luxon')
 const path = require('path')
 const helpers = require(path.join(__dirname, '../../../lib/helpers.js'))
+const riskFlags = require(path.join(__dirname, '../reference/risk-flags.json'))
 
-module.exports = (faker) => {
+module.exports = (faker, generatorHelpers) => {
   const high = { text: 'High', class: 'red' }
   const medium = { text: 'Medium', class: 'orange' }
   const low = { text: 'Low', class: 'green' }
@@ -40,56 +42,41 @@ module.exports = (faker) => {
     }
   ]
 
-  const availableFlags = [
-    {
-      text: 'IOM',
-      class: 'grey',
-      notes: 'Cross-agency',
-      reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
-      dateAdded: helpers.happenedOn({ daysAgo: '175' }),
-      mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
-    },
-    {
-      text: 'Registered sex offender',
-      class: 'purple',
-      notes: 'Possession of indecent images',
-      reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
-      dateAdded: helpers.happenedOn({ daysAgo: '175' }),
-      mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
-    },
-    {
-      text: 'MAPPA',
-      class: 'purple',
-      notes: 'Level 2, Category 3',
-      reviewDue: helpers.happenedOn({ daysAgo: '1' }),
-      dateAdded: helpers.happenedOn({ daysAgo: '91' })
-    },
-    {
-      text: 'Restraining order',
-      class: 'turquoise',
-      notes: 'Against ex-partner',
-      reviewDue: helpers.happeningIn({ daysLater: 60, atTime: '13:00' }),
-      dateAdded: helpers.happenedOn({ daysAgo: '175' }),
-      mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
-    },
-    {
-      text: 'Domestic abuse',
-      class: 'turquoise',
-      notes: 'Partner is the victim',
-      reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
-      dateAdded: helpers.happenedOn({ daysAgo: '175' }),
-      mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
+  const numberOfFlags = faker.datatype.number({ min: 1, max: 8 })
+  const activeFlags = riskFlags.flags.filter((flag) => {
+    return flag.active === true &&
+            !flag.text.toLowerCase().includes('rosh') &&
+            !flag.text.toLowerCase().includes('risk')
+  })
+  const serviceUserRiskFlags = faker.helpers.shuffle(activeFlags).slice(0, numberOfFlags)
+
+  // Sort flags alphabetically
+  serviceUserRiskFlags.sort((a, b) => (a.text > b.text ? 1 : -1))
+
+  serviceUserRiskFlags.forEach((flag) => {
+    flag.notes = 'Note'
+    flag.dateAdded = helpers.happenedOn({ daysAgo: faker.datatype.number({ min: 20, max: 100 }) })
+
+    const hasReview = faker.random.arrayElement([ true, true, false ])
+    const monthlyReviewPeriod = flag.reviewPeriod === 0 ? 1 : flag.reviewPeriod
+
+    if (hasReview) {
+      const mostRecentReviewDate = faker.date.between(flag.dateAdded, DateTime.now().toISODate())
+      flag.mostRecentReviewDate = generatorHelpers.toISODate(mostRecentReviewDate)
+
+      // Sometimes this review will be overdue
+      flag.reviewDue = DateTime.fromJSDate(mostRecentReviewDate).plus({ months: monthlyReviewPeriod })
+    } else {
+      flag.reviewDue = DateTime.fromISO(flag.dateAdded).plus({ months: monthlyReviewPeriod })
     }
-  ]
+  })
 
-  const numberOfFlags = faker.datatype.number({ min: 1, max: 4 })
-  const riskFlags = faker.helpers.shuffle(availableFlags).slice(0, numberOfFlags)
-
-  riskFlags.unshift({
+  // Put risk level flag first
+  serviceUserRiskFlags.unshift({
     text: `${riskOfSeriousHarmLevel.text} risk of harm`,
     class: riskOfSeriousHarmLevel.class,
     rosh: true
   })
 
-  return { riskOfSeriousHarmLevel, riskOfHarm, riskFlags }
+  return { riskOfSeriousHarmLevel, riskOfHarm, serviceUserRiskFlags }
 }

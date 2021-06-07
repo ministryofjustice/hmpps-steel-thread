@@ -75,12 +75,9 @@
     <dl class="govuk-summary-list govuk-summary-list--no-border">
       {% for flag in case.riskBadges %}
         {% if not flag.rosh %}
-          {% set tagHtml %}
-            <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
-          {% endset %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              {{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}
+              {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
             </dt>
             <dd class="govuk-summary-list__value">
               {{ flag.notes }}

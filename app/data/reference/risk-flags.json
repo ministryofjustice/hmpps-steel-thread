@@ -1,0 +1,1052 @@
+{
+  "flags": [
+    {
+      "id": "WRSM",
+      "text": "Warrant / Summons",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RCCO",
+      "text": "Child Concerns",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "ALSH",
+      "text": "Suicide/Self Harm",
+      "category": "Safeguarding",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "WEAP",
+      "text": "Weapons",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "ARSO",
+      "text": "Registered Sex Offender",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RCPR",
+      "text": "Child Protection",
+      "category": "Safeguarding",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "HOIE",
+      "text": "Home Office Interest",
+      "category": "Information",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "NOTMAPPA",
+      "text": "Not MAPPA Eligible",
+      "category": "Public Protection",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "IRMO",
+      "text": "Hate Crime",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "MAPP",
+      "text": "MAPPA",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "AVIS",
+      "text": "ViSOR",
+      "category": "Public Protection",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "INVI",
+      "text": "Victim Contact",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "IIOM",
+      "text": "Integrated Offender Management",
+      "category": "Information",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "ADWC",
+      "text": "Barred from working with children",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "BWWA",
+      "text": "Barred from working with adults",
+      "category": "Safeguarding",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "CSEP",
+      "text": "Child Sexual Exploitation - Perpetrator",
+      "category": "Safeguarding",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RTAO",
+      "text": "Terrorism Act Offender",
+      "category": "Information",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "MSP",
+      "text": "Modern Day Slavery - Perpetrator",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "IMAR",
+      "text": "MARAC",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RSTO",
+      "text": "Restraining Order",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "SHPO",
+      "text": "Sexual Harm Prevention Order / Sexual Risk Order",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "ALERT",
+      "text": "Alert Notice",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "IKII",
+      "text": "Keep IICSA",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "ALAN",
+      "text": "Alert Notice*",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "SPO",
+      "text": "Stalking Protection Order",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "ADVP",
+      "text": "Domestic Abuse Perpetrator",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "REG30",
+      "text": "Domestic Abuse History",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "RVLN",
+      "text": "Vulnerable",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RVAD",
+      "text": "Safeguarding - \"Adult At Risk",
+      "category": "Safeguarding",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RMDO",
+      "text": "Mentally Disordered Offender",
+      "category": "Information",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "CUCK",
+      "text": "Cuckooing - Potential Victim",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "AMHL",
+      "text": "Mental Health Issues",
+      "category": "Alerts",
+      "colour": "",
+      "reviewPeriod": "",
+      "active": ""
+    },
+    {
+      "id": "ADVV",
+      "text": "Domestic Abuse Victim",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "MSV",
+      "text": "Modern Day Slavery - Victim",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "STRG",
+      "text": "Street Gangs",
+      "category": "Public Protection",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "REG26",
+      "text": "Organised Crime",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "REG24",
+      "text": "Women's Safety Worker",
+      "category": "Alerts",
+      "colour": "green",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "INLL",
+      "text": "Lifer",
+      "category": "Alerts",
+      "colour": "red",
+      "reviewPeriod": 12,
+      "active": true
+    },
+    {
+      "id": "IKMF",
+      "text": "Record To Be Retained",
+      "category": "Information",
+      "colour": "green",
+      "reviewPeriod": 12,
+      "active": true
+    },
+    {
+      "id": "ANSO",
+      "text": "Non Registered Sex Offender",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "APPO",
+      "text": "PPO",
+      "category": "Public Protection",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "ASFO",
+      "text": "SFO",
+      "category": "Public Protection",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "RPIR",
+      "text": "Public Interest Case",
+      "category": "Public Protection",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "DORIS",
+      "text": "DoRIS (Disruption of Recorded Internal Secretors)",
+      "category": "Alerts",
+      "colour": "orange",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "AMHL",
+      "text": "Mental HeAt Last Terminationh Issues",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "ALT11",
+      "text": "At Last Termination Under MAPPA Arrangements",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT12",
+      "text": "At Last Termination Mental HeAt Last Terminationh Issues",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT7",
+      "text": "At Last Termination Suicide/Self harm",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT1",
+      "text": "At Last Termination Weapons",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT3",
+      "text": "At Last Termination Registered Sex Offender",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT4",
+      "text": "At Last Termination Risk to Staff",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT8",
+      "text": "At Last Termination Street Gangs",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT5",
+      "text": "At Last Termination Barred from Working With Children",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT9",
+      "text": "At Last Termination Organised Crime",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT13",
+      "text": "At Last Termination Child Sexual Exploitation history",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT2",
+      "text": "At Last Termination Public Interest",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT6",
+      "text": "At Last Termination Barred from Working WIth Adults",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "ALT10",
+      "text": "At Last Termination Terrorism Act Offender",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": true
+    },
+    {
+      "id": "RMRH",
+      "text": "Medium RoSH",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RLRH",
+      "text": "Low RoSH",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RHRH",
+      "text": "High RoSH",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "REG15",
+      "text": "Risk to Known Adult",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "REG22",
+      "text": "Risk to \"Adult at Risk",
+      "category": "Safeguarding",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RCHD",
+      "text": "Risk to Children",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "REG17",
+      "text": "Risk to Public",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "AV2S",
+      "text": "Risk to Staff",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "REG16",
+      "text": "Risk to Prisoner",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RVHR",
+      "text": "Very High RoSH",
+      "category": "Risk of Harm",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "KDUP",
+      "text": "Known Duplicate Offender",
+      "category": "Information",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "DOFF",
+      "text": "Duplicate Offender Records Exist",
+      "category": "Information",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": true
+    },
+    {
+      "id": "RRR",
+      "text": "Required Risk Review",
+      "category": "Public Protection",
+      "colour": "grey",
+      "reviewPeriod": 3,
+      "active": true
+    },
+    {
+      "id": "UPWS",
+      "text": "UPW Suspended",
+      "category": "Information",
+      "colour": "red",
+      "reviewPeriod": 1,
+      "active": true
+    },
+    {
+      "id": "REG27",
+      "text": "Domestic Concerns",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG29",
+      "text": "ASBO",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 12,
+      "active": false
+    },
+    {
+      "id": "RATF",
+      "text": "Agreed Travel Fare",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "REG21",
+      "text": "Common Assessment Framework",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "TCRNM",
+      "text": "Custody Record Not Migrated",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "RFNO",
+      "text": "Foreign National",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "FTRO",
+      "text": "Foreign Travel Order",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "RHCV",
+      "text": "Hate Crime Victim",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 12,
+      "active": false
+    },
+    {
+      "id": "REG31",
+      "text": "Intra-Familial Violence",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "RKNF",
+      "text": "Knife Crime",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "RLAC",
+      "text": "Looked After Child",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "REG14",
+      "text": "Management Oversight",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "NUPW",
+      "text": "Not eligible for UPW",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "MIPT",
+      "text": "Pending Transfer In",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "REG32",
+      "text": "Restorative Justice",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "REG28",
+      "text": "Risk of Re-Offending",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "SOPS",
+      "text": "Sex Offences Prevention Order",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "MSTC",
+      "text": "Street Crime",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "REG06",
+      "text": "Troubled Families",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "HUAL",
+      "text": "Unlawfully At Large",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "IGNG",
+      "text": "Gangs and Guns",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "MIER",
+      "text": "Early Release",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "MIPO",
+      "text": "Persistent Offender",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "REG13",
+      "text": "Violent Offender Order",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG37",
+      "text": "reducing Reoffending",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG38",
+      "text": "Narrowing The Justice Gap",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG39",
+      "text": "Drugs Intervention Programme",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG19",
+      "text": "Victim No Contact",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "MIMA",
+      "text": "Migrated ICMS Misc Contact Alert",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "MIOR",
+      "text": "Migrated ICMS Overall Risk",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "OMP2",
+      "text": "OM Phase 2 Case",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "REG07",
+      "text": "Verified No PNC",
+      "category": "",
+      "colour": "white",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "REG11",
+      "text": "Critical Few",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG20",
+      "text": "File Location",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG23",
+      "text": "National Intelligence Model",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG25",
+      "text": "Other Non-Statutory Case",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG34",
+      "text": "Historic Dangerous - please re-register",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG35",
+      "text": "WMP Job Centre Restriction",
+      "category": "",
+      "colour": "green",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG36",
+      "text": "Job Centre Plus Restrictions",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "RPRG",
+      "text": "Pregnancy",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "HREG",
+      "text": "Historic Registration",
+      "category": "",
+      "colour": "white",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG12",
+      "text": "In Breach (inactive)",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "MILT",
+      "text": "Armed Forces",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 12,
+      "active": false
+    },
+    {
+      "id": "SCH1",
+      "text": "Schedule 1 Offender",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 12,
+      "active": false
+    },
+    {
+      "id": "IWWO",
+      "text": "Warrant without bail",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "IWWB",
+      "text": "Warrant with bail",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "OMP3",
+      "text": "OM Phase 3 Case",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 6,
+      "active": false
+    },
+    {
+      "id": "REG09",
+      "text": "Client Notes",
+      "category": "",
+      "colour": "orange",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "REG10",
+      "text": "MAPPA Considered",
+      "category": "",
+      "colour": "grey",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "WTC1",
+      "text": "MAPPA CAT 1",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "WTC2",
+      "text": "MAPPA CAT 2",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "WTC3",
+      "text": "MAPPA CAT 3",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "M1",
+      "text": "MAPPA Level 1",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "M2",
+      "text": "MAPPA Level 2",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "M3",
+      "text": "MAPPA Level 3",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "M3L2",
+      "text": "MAPPA C3 L2",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "M3L3",
+      "text": "MAPPA C3 L3",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 3,
+      "active": false
+    },
+    {
+      "id": "REG08",
+      "text": "Legacy MAPPA - please re-register",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 0,
+      "active": false
+    },
+    {
+      "id": "LRND",
+      "text": "Learning Difficulties",
+      "category": "",
+      "colour": "red",
+      "reviewPeriod": 6,
+      "active": false
+    }
+  ]
+}

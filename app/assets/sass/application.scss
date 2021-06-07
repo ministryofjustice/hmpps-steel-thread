@@ -40,7 +40,8 @@ $govuk-assets-path: '/govuk/assets/';
 }
 
 .govuk-tag--link {
-  padding: 0
+  padding: 0;
+  margin-bottom: govuk-spacing(2);
 }
 
 .govuk-tag--link a {

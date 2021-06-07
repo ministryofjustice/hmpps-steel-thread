@@ -1,0 +1,11 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% set flag = params.flag %}
+
+{% set flagHtml %}
+  {% if flag.rosh %}
+    <a href="#">{{ flag.text }}</a>
+  {% else %}
+    <a href="/cases/{{ params.CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
+  {% endif %}
+{% endset %}
+{{ govukTag({ html: flagHtml, classes: 'govuk-tag--link govuk-!-margin-right-1 govuk-tag--' + (flag.class or flag.colour) }) }}
