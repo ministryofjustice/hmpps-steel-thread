@@ -7,14 +7,7 @@
 </h1>
 
 <p>
-  {% for badge in case.riskBadges %}
-    {% set badgeHtml %}
-      {% if badge.rosh %}
-        <a href="#">{{ badge.text }}</a>
-      {% else %}
-        <a href="/cases/{{ CRN }}/flag/{{ badge.text | toSlug }}">{{ badge.text }}</a>
-      {% endif %}
-    {% endset %}
-    {{ govukTag({ html: badgeHtml, classes: 'govuk-tag--link govuk-!-margin-right-1 govuk-tag--' + badge.class }) }}
+  {% for flag in case.riskBadges %}
+    {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
   {% endfor %}
 </p>

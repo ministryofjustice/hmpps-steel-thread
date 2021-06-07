@@ -99,11 +99,8 @@
   <tbody class="govuk-table__body">
     {% for flag in case.riskBadges %}
       {% if not flag.rosh %}
-        {% set tagHtml %}
-          <a href="/cases/{{ CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
-        {% endset %}
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ govukTag({ html: tagHtml, classes: 'govuk-tag--link govuk-tag--' + flag.class }) }}</td>
+          <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>
           <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
           <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
         </tr>
