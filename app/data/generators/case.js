@@ -15,7 +15,7 @@ const generatorHelpers = require('./generator-helpers')
 module.exports = generateCase => {
   const serviceUser = person(faker)
   const serviceUserCurrentOrder = currentOrder(faker)
-  const serviceUserRisk = risk(faker)
+  const serviceUserRisk = risk(faker, generatorHelpers)
 
   const _case = {
     serviceUserPersonalDetails: {
