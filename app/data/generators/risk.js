@@ -43,6 +43,10 @@ module.exports = (faker) => {
   const numberOfFlags = faker.datatype.number({ min: 1, max: 8 })
   const serviceUserRiskFlags = faker.helpers.shuffle(riskFlags.flags).slice(0, numberOfFlags)
 
+  // Sort flags alphabetically
+  serviceUserRiskFlags.sort((a, b) => (a.text > b.text ? 1 : -1))
+
+  // Put risk flag first
   serviceUserRiskFlags.unshift({
     text: `${riskOfSeriousHarmLevel.text} risk of harm`,
     class: riskOfSeriousHarmLevel.class,
