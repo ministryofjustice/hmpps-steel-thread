@@ -15,7 +15,7 @@
     {% elseif entry['did-service-user-comply'] === 'No' %}
       {{ govukTag({text: 'Failed to comply', classes: 'govuk-tag--red'}) }}
     {% elseif entry['did-service-user-comply'] === 'Absent' %}
-      {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
+      {{ govukTag({text: 'Acceptable absence', classes: 'govuk-tag--green'}) }}
     {% endif %}
 
     {% if entry.sensitive === 'Yes' %}

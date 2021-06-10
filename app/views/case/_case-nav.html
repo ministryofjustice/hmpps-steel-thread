@@ -44,6 +44,13 @@
             {% endif %}
             href="/cases/{{ CRN }}/flags">Risk flags</a>
         </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
+            {% if currentNavSection == 'breach' %}
+            aria-current="page"
+            {% endif %}
+            href="/cases/{{ CRN }}/breach">Breach</a>
+        </li>
       </ul>
     </nav>
   </div>
