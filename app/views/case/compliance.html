@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+{% set title = 'Compliance' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'compliance' %}
+{% include "case/_case-nav.html" %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    You have 2 days left to send a warning letter.<br />
+    <a class="govuk-notification-banner__link" href="#">Send a warning letter</a>
+  </p>
+{% endset %}
+{{ govukNotificationBanner({ html: html }) }}
+
+<h1 class="govuk-heading-l">{{ title }}</h1>
+
+
+{{ govukButton({
+  text: 'Start a breach',
+  href: '#',
+  isStartButton: true
+}) }}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-2">
+      <a href="#">Compliance for Community Order (12 months)</a>
+    </h2>
+    <p>Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563</p>
+    <p></p>
+
+    <div class="app-compliance-panel app-compliance-panel--red govuk-!-margin-bottom-8">
+      <p class="govuk-heading-m govuk-!-margin-bottom-1" style="border-bottom: 2px solid #fff; padding-bottom: 10px">20 appointments, 6 months elapsed</p>
+      <h2 class="govuk-heading-l">
+        2 failures to comply
+        <div class="govuk-!-font-size-19">No previous breaches</div>
+      </h2>
+
+      <ul class="govuk-list govuk-!-margin-bottom-0">
+        <li>
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+            4 June 2021
+            <br>
+            <a href="/cases/J678910/appointments/456">Appointment – Office visit with Mark Berridge</a><br />
+          </h3>
+          <p>Warning letter sent 5 June 2021</p>
+          <div class="note-panel">
+            <p class="govuk-body ">During today’s session we discussed how Dylan was progressing with the anger management worksheets I had sent him. He has read through them and says he understands why they may be beneficial, but would like to understand how to apply some of the...</p>
+            <p class="govuk-body govuk-!-margin-bottom-0">
+              <a href="/cases/J678910/appointments/987">View full details</a>
+            </p>
+          </div>
+        </li>
+        <li>
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+            1 May 2021
+            <br>
+            <a href="/cases/J678910/appointments/456">Appointment – Office visit with Mark Berridge</a>
+          </h3>
+          <p class="govuk-!-margin-bottom-0">Warning letter sent 3 May 2021</p>
+          <div class="note-panel">
+            <p class="govuk-body ">During today’s session we discussed how Dylan was progressing with the anger management worksheets I had sent him. He has read through them and says he understands why they may be beneficial, but would like to understand how to apply some of the...</p>
+            <p class="govuk-body govuk-!-margin-bottom-0">
+              <a href="/cases/J678910/appointments/987">View full details</a>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-2">
+      <a href="#">Compliance for Community Order (12 months)</a>
+    </h2>
+    <p>Careless driving - 80400</p>
+
+    <div class="app-compliance-panel govuk-!-margin-bottom-8">
+      <p class="govuk-heading-m govuk-!-margin-bottom-1" style="border-bottom: 2px solid #505a5f; padding-bottom: 10px">10 appointments, 3 months elapsed</p>
+      <h2 class="govuk-heading-l">
+        No failures to comply
+      </h2>
+      <p class="govuk-!-margin-bottom-2"><a href="#">5 acceptable absences</a></p>
+    </div>
+
+    <h2 class="govuk-heading-m govuk-!-font-size-27">Compliance for previous orders</h2>
+    <p>Most recent previous orders:</p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="#">Community Order (12 months)</a></h3>
+    <p>Careless driving - 80400</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>62 appointments</li>
+      <li>3 failures to comply</li>
+      <li>1 breach leading to additional unpaid work</li>
+    </ul>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0"><a href="#">Community Order (12 months)</a></h3>
+    <p>Careless driving - 80400</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>12 appointments</li>
+      <li>No failures to comply</li>
+    </ul>
+
+    <p><a href="#">View compliance for all orders</a></p>
+  </div>
+</div>
+
+{% endblock %}

@@ -7,6 +7,7 @@
 </h1>
 
 <p>
+  <span class="govuk-tag" style="border: 3px solid #d4351c; background: none; color: #d4351c; padding: 6px; margin-right: 5px">Non-compliance</span>
   {% for flag in case.riskBadges %}
     {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
   {% endfor %}
