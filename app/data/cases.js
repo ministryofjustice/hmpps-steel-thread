@@ -272,7 +272,7 @@ module.exports = [
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': helpers.yesterday({atTime: '13:00'}),
+        'timestamp': helpers.yesterday({ atTime: '13:00' }),
         'session-date': helpers.yesterday(),
         'session-start-time': '5pm',
         'session-end-time': '5:30pm',
@@ -299,6 +299,23 @@ module.exports = [
         Dylan states that he and his mum are doing much better after their argument last week, and that Dylan is now contributing a bit to the weekly shop when he can. His mum is happy with this arrangement.
 
         Dylan’s work is still consistent and I believe that this is still an important factor in his rehabilitation, as it gives him structure and routine. He is continuing to engage and I don’t believe that there are any issues that merit a change in the level of RoSH.`,
+        'sessionId': 988
+      },
+      {
+        'type': 'Appointment',
+        'timestamp': '2021-05-01T17:30',
+        'session-date': '2021-05-01',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'Yes',
+        'why-absence-acceptable': 'Childcare or family',
+        'lastUpdatedBy': 'Mark Berridge',
+        'session-notes': ``,
         'sessionId': 987
       },
       {
