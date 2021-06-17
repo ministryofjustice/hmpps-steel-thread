@@ -37,14 +37,13 @@
 
 <div class="govuk-grid-row govuk-!-margin-top-6">
   <div class="govuk-grid-column-two-thirds">
-
     <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
       Community Order
       <div class="govuk-!-font-size-19 govuk-!-margin-top-1 govuk-!-font-weight-regular">Using violence to secure entry - 19563</div>
     </h2>
 
-    <div class="app-compliance-panel app-compliance-panel--red">
-      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">2 failures to comply within 12 months – <a href="#">Start a breach</a></p>
+    <div class="app-compliance-panel">
+      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">No failures to comply since previous breach</p>
     </div>
     {% set orderDetailsList %}
       {{ govukSummaryList({
@@ -70,7 +69,7 @@
               text: 'Breaches'
             },
             value: {
-              html: 'None'
+              html: '<a href="#">A breach was unproven</a><br />Resolved 1 June 2021'
             }
           }
         ]
@@ -91,7 +90,7 @@
               text: 'Appointments'
             },
             value: {
-              html: '<a href="#">20 appointments</a>'
+              html: '<a href="#">2 appointments</a>'
             }
           },
           {
@@ -99,21 +98,15 @@
               text: 'Complied'
             },
             value: {
-              html: '<a href="#">16 complied</a>'
+              html: '<a href="#">2 complied</a>'
             }
           },
           {
             key: {
-              html: 'Failures to comply<br>within 12 months'
+              html: 'Failures to comply'
             },
             value: {
-              html: '
-                <p>2 failures to comply:</p>
-                <ul class="govuk-list govuk-!-margin-top-2">
-                  <li><a href="#">1 failure to attend</a></li>
-                  <li><a href="#">1 failure to comply because of behaviour</a></li>
-                </ul>
-              '
+              html: 'None'
             }
           },
           {
@@ -121,7 +114,7 @@
               text: 'Acceptable absences'
             },
             value: {
-              html: '<a href="#">2 acceptable absences</a>'
+              html: 'None'
             }
           }
         ]
@@ -130,7 +123,7 @@
 
     {{ appSummaryCard({
       classes: "govuk-!-margin-bottom-6 app-summary-card--compliance-last",
-      titleHtml: 'Order requirement<br /><span class="govuk-!-font-weight-bold">20 RAR days</span>',
+      titleHtml: 'Order requirement<br /><span class="govuk-!-font-weight-bold">20 RAR days</span><p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2">Showing compliance since previous breach</p>',
       html: rarList
     }) }}
 

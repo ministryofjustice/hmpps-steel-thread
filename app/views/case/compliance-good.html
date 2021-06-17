@@ -37,15 +37,11 @@
 
 <div class="govuk-grid-row govuk-!-margin-top-6">
   <div class="govuk-grid-column-two-thirds">
-
     <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
       Community Order
       <div class="govuk-!-font-size-19 govuk-!-margin-top-1 govuk-!-font-weight-regular">Using violence to secure entry - 19563</div>
     </h2>
 
-    <div class="app-compliance-panel app-compliance-panel--red">
-      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">2 failures to comply within 12 months – <a href="#">Start a breach</a></p>
-    </div>
     {% set orderDetailsList %}
       {{ govukSummaryList({
         rows: [
@@ -77,6 +73,10 @@
       }) }}
     {% endset %}
 
+    <div class="app-compliance-panel app-compliance-panel--green">
+      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">No failures to comply since order started</p>
+    </div>
+
     {{ appSummaryCard({
       classes: "app-summary-card--compliance",
       titleText: "Order details",
@@ -99,21 +99,15 @@
               text: 'Complied'
             },
             value: {
-              html: '<a href="#">16 complied</a>'
+              html: '<a href="#">18 complied</a>'
             }
           },
           {
             key: {
-              html: 'Failures to comply<br>within 12 months'
+              html: 'Failures to comply<br>since order started'
             },
             value: {
-              html: '
-                <p>2 failures to comply:</p>
-                <ul class="govuk-list govuk-!-margin-top-2">
-                  <li><a href="#">1 failure to attend</a></li>
-                  <li><a href="#">1 failure to comply because of behaviour</a></li>
-                </ul>
-              '
+              html: 'None'
             }
           },
           {

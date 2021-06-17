@@ -1,0 +1,101 @@
+<h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-8 govuk-!-margin-bottom-5">Completed orders (June 2019 to present)</h2>
+
+{% set firstOldOrder %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: 'Status'
+        },
+        value: {
+          html: 'Revoked'
+        }
+      },
+      {
+        key: {
+          text: 'Started'
+        },
+        value: {
+          html: '5 January 2021 (12 month sentence)'
+        }
+      },
+      {
+        key: {
+          text: 'Ended'
+        },
+        value: {
+          html: '5 February 2021 (after 1 month)'
+        }
+      },
+      {
+        key: {
+          text: 'Breaches'
+        },
+        value: {
+          html: 'None'
+        }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleHtml: '
+  <div class="govuk-heading-s govuk-!-margin-bottom-0">
+    <a href="#">Community Order</a>
+    <div class="govuk-!-font-weight-regular govuk-!-font-size-16">Careless driving - 80400</div>
+  </div>',
+  html: firstOldOrder
+}) }}
+
+{% set secondOldOrder %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: 'Status'
+        },
+        value: {
+          html: 'Auto-terminated'
+        }
+      },
+      {
+        key: {
+          text: 'Started'
+        },
+        value: {
+          html: '5 November 2019 (24 month sentence)'
+        }
+      },
+      {
+        key: {
+          text: 'Ended'
+        },
+        value: {
+          html: '5 February 2021 (after 15 months)'
+        }
+      },
+      {
+        key: {
+          text: 'Breaches'
+        },
+        value: {
+          html: 'A breach led to the order being terminated'
+        }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleHtml: '
+  <div class="govuk-heading-s govuk-!-margin-bottom-0">
+    <a href="#">Community Order</a>
+    <div class="govuk-!-font-weight-regular govuk-!-font-size-16">Careless driving - 80400</div>
+  </div>',
+  html: secondOldOrder
+}) }}
+
+<p><a href="#">View all orders</a></p>

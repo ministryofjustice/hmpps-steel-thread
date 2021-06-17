@@ -37,14 +37,13 @@
 
 <div class="govuk-grid-row govuk-!-margin-top-6">
   <div class="govuk-grid-column-two-thirds">
-
     <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
       Community Order
       <div class="govuk-!-font-size-19 govuk-!-margin-top-1 govuk-!-font-weight-regular">Using violence to secure entry - 19563</div>
     </h2>
 
     <div class="app-compliance-panel app-compliance-panel--red">
-      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">2 failures to comply within 12 months – <a href="#">Start a breach</a></p>
+      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Breach in progress</p>
     </div>
     {% set orderDetailsList %}
       {{ govukSummaryList({
@@ -70,7 +69,7 @@
               text: 'Breaches'
             },
             value: {
-              html: 'None'
+              html: '1 breach in progress'
             }
           }
         ]
@@ -81,6 +80,44 @@
       classes: "app-summary-card--compliance",
       titleText: "Order details",
       html: orderDetailsList
+    }) }}
+
+    {% set breachList %}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: 'Breach started'
+          },
+          value: {
+            html: '16 June 2021'
+          }
+        },
+        {
+          key: {
+            text: 'Status'
+          },
+          value: {
+            html: 'Breach information pack requested'
+          }
+        }
+      ]
+    }) }}
+    {% endset %}
+
+    {{ appSummaryCard({
+      classes: "app-summary-card--compliance",
+      titleText: "Breach details",
+      html: breachList,
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View in Delius",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
     }) }}
 
     {% set rarList %}
