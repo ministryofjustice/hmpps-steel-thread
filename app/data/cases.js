@@ -1730,6 +1730,15 @@ module.exports = [
       },
       {
         'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Document',
+        'action': 'First warning letter sent',
+        'timestamp': '2021-04-15T17:55',
+        'contents': `Attached copy of warning letter sent to Andrei following his failure to comply on 14th of April`,
+        'sessionId': 7002,
+        'filenames': ['warning-letter.doc']
+      },
+      {
+        'lastUpdatedBy': 'Mark Berridge',
         'type': 'Note',
         'timestamp': '2021-04-14T11:55',
         'contents': `After Andrei's check in appointment, I've started the interventions process for substance misuse. He was clearly under the influence when he arrived for his appointment. He was uncommunicative and sluggish and it was apparent when he arrived at the reception desk that he wouldn't be able to engage with me for the check in appointment.`,
@@ -1750,7 +1759,7 @@ module.exports = [
         'confirmed': true,
         'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.
 
-        Verbal warning given on this occasion.`,
+        A warning letter has been sent`,
         'sessionId': 701
       },
       {
