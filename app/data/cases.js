@@ -226,11 +226,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 24 Nov 2016',
-    'appointmentStatistics': {
-      'complied': 9,
-      'acceptableAbsence': 0,
-      'failureToComply': 1
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -775,11 +770,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 14 Nov 2014',
-    'appointmentStatistics': {
-      'complied': 4,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1056,11 +1046,6 @@ module.exports = [
       'Lifestyle & Associates'
     ],
     'status': 'No record',
-    'appointmentStatistics': {
-      'complied': 0,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1290,11 +1275,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 15 Aug 2019',
-    'appointmentStatistics': {
-      'complied': 6,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1707,11 +1687,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 05 Jan 2019',
-    'appointmentStatistics': {
-      'complied': 6,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',

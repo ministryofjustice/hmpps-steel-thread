@@ -60,11 +60,6 @@ module.exports = generateCase => {
     ],
     status: 'Previously known',
     previousOrderStatus: 'Order ended 24 Nov 2016',
-    appointmentStatistics: {
-      complied: 9,
-      acceptableAbsence: 0,
-      failureToComply: 1
-    },
     contactHistory: [
       {
         'type': 'Appointment',
