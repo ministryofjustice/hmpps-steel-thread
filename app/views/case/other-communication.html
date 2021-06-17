@@ -34,6 +34,12 @@
   </div>
 </div>
 
+{% set uploadedFilesHtml %}
+  {% for file in entry['filenames'] | forceArray %}
+    <a href="#">{{ file }}</a><br />
+  {% endfor %}
+{% endset %}
+
 {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-9',
   rows: [
@@ -76,7 +82,13 @@
       value: {
         text: entry.contents | nl2br | safe or 'None'
       }
-    }
+    },
+    {
+      key: { text: "Uploaded files" },
+      value: {
+        html: uploadedFilesHtml
+      }
+    } if entry['filenames'].length > 0
   ]
 }) }}
 
