@@ -25,20 +25,6 @@
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'details' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}/details">Personal details</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'sentence' %}
-            aria-current="page"
-            {% endif %}
-            href="/cases/{{ CRN }}/sentence">Sentence</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
             {% if currentNavSection == 'flags' %}
             aria-current="page"
             {% endif %}
@@ -50,6 +36,20 @@
             aria-current="page"
             {% endif %}
             href="/cases/{{ CRN }}/compliance">Compliance</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
+            {% if currentNavSection == 'sentence' %}
+            aria-current="page"
+            {% endif %}
+            href="/cases/{{ CRN }}/sentence">Sentence</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
+            {% if currentNavSection == 'details' %}
+            aria-current="page"
+            {% endif %}
+            href="/cases/{{ CRN }}/details">Personal details</a>
         </li>
       </ul>
     </nav>
