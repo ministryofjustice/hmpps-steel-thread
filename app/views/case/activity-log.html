@@ -119,7 +119,7 @@
   </div>
   {% endif %}
   <div class="govuk-grid-column-two-thirds">
-    {% set entries = activityLog(CRN, data, {category: 'all-previous-activity'}) %}
+    {% set entries = activityLog(CRN, data, {category: category or 'all-previous-activity'}) %}
     {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
     {% for entry in entries %}
       {{ hr() | safe }}
