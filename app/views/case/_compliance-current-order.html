@@ -65,7 +65,7 @@
     None
   {% elseif attendedButDidNotComplyCount == 0 %}
     <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">
-      {% if unacceptableAbsenceCount == 1 %}1 failure{% else %}{{ unacceptableAbsenceCount }} failures{% endif %} to attend
+      {% if unacceptableAbsenceCount == 1 %}1 unacceptable absence{% else %}{{ unacceptableAbsenceCount }} unacceptable absences{% endif %}
     </a>
   {% elseif unacceptableAbsenceCount == 0 %}
     <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">
@@ -74,7 +74,7 @@
   {% else %}
     <p><a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">{{ failureToComplyCount }} failures to comply</a>:</p>
     <ul class="govuk-list govuk-!-margin-top-2">
-      <li>{{ unacceptableAbsenceCount }} failure to attend</li>
+      <li>{{ unacceptableAbsenceCount }} unacceptable absence</li>
       <li>{{ attendedButDidNotComplyCount }} failure to comply because of behaviour</li>
     </ul>
   {% endif %}
