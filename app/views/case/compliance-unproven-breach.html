@@ -42,8 +42,8 @@
       <div class="govuk-!-font-size-19 govuk-!-margin-top-1 govuk-!-font-weight-regular">Using violence to secure entry - 19563</div>
     </h2>
 
-    <div class="app-compliance-panel">
-      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">No failures to comply since previous breach</p>
+    <div class="app-compliance-panel app-compliance-panel--green">
+      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">No failures to comply since <a href="#">unproven breach</a></p>
     </div>
     {% set orderDetailsList %}
       {{ govukSummaryList({
@@ -123,7 +123,7 @@
 
     {{ appSummaryCard({
       classes: "govuk-!-margin-bottom-6 app-summary-card--compliance-last",
-      titleHtml: 'Order requirement<br /><span class="govuk-!-font-weight-bold">20 RAR days</span><p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2">Showing compliance since previous breach</p>',
+      titleHtml: 'Order requirement<br /><span class="govuk-!-font-weight-bold">20 RAR days</span><p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2">Showing compliance since unproven breach</p>',
       html: rarList
     }) }}
 
