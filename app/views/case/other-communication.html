@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set entry = data['communication'][CRN][sessionId] %}
 {%- set title -%}
-  {%- if entry.to === 'Service user' -%}
+  {% if entry.action %}
+    {{ entry.action }}
+  {%- elif entry.to === 'Service user' -%}
     {{ entry.type }} to {{ case.serviceUserPersonalDetails.name }}
   {%- elif entry.to -%}
     {{ entry.type }} to {{ replaceDefaultUserWithSignedInUser(entry.to, data) }}

@@ -63,10 +63,14 @@
 {% set failureToComplyHtml %}
   {% if failureToComplyCount == 0 %}
     None
-  {% elseif failureToComplyCount == 1 and unacceptableAbsenceCount == 1 %}
-    <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">1 failure to attend</a>
-  {% elseif failureToComplyCount == 1 and attendedButDidNotComplyCount == 1 %}
-    <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">1 failure to comply because of behaviour</a>
+  {% elseif attendedButDidNotComplyCount == 0 %}
+    <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">
+      {% if unacceptableAbsenceCount == 1 %}1 failure{% else %}{{ unacceptableAbsenceCount }} failures{% endif %} to attend
+    </a>
+  {% elseif unacceptableAbsenceCount == 0 %}
+    <a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">
+      {% if attendedButDidNotComplyCount == 1 %}1 failure{% else %}{{ attendedButDidNotComplyCount }} failures{% endif %} to comply because of behaviour
+    </a>
   {% else %}
     <p><a href="/cases/{{ CRN }}/activity-log/all-failure-to-comply-appointments">{{ failureToComplyCount }} failures to comply</a>:</p>
     <ul class="govuk-list govuk-!-margin-top-2">

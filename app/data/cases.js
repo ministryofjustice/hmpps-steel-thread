@@ -272,12 +272,15 @@ module.exports = [
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': helpers.yesterday({ atTime: '13:00' }),
-        'session-date': helpers.yesterday(),
-        'session-start-time': '5pm',
-        'session-end-time': '5:30pm',
+        'timestamp': helpers.today({ atTime: '9:00' }),
+        'session-date': helpers.today(),
+        'session-start-time': '9am',
+        'session-end-time': '9:30am',
         'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'No',
+        'session-notes': 'Dylan failed to attend his appointment. I can confirm that he was given the appointment details in our last meeting and he put the details into his phone there and then. I have tried calling Dylan and his phone goes straight to voicemail. I will send a warning letter informing him that if he fails to attend another appointment within the next 12 months he will be in breach of his order.',
         'sessionId': 456
       },
       {
@@ -436,6 +439,31 @@ module.exports = [
         'sessionId': 982
       },
       {
+        'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Document',
+        'action': 'First warning letter sent',
+        'timestamp': '2021-03-27T17:55',
+        'contents': `Attached copy of warning letter sent to Dylan following his failure to attend on 27th of March`,
+        'sessionId': 7001,
+        'filenames': ['warning-letter.doc']
+      },
+      {
+        'type': 'Appointment',
+        'type-of-session': 'Office visit',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-27T14:53',
+        'session-date': '2021-03-27',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'No',
+        'confirmed': true,
+        'session-notes': `Dylan failed to attend his appointment. We scheduled a 2nd appointment this week due to him turning up anxious and aggravated on the 25th. I can confirm that he was given the appointment details in our last meeting and he put the details into his phone there and then. I have tried calling Dylan and his phone goes straight to voicemail. I will send a warning letter informing him that if he fails to attend another appointment within the next 12 months he will be in breach of his order`,
+        'sessionId': 9811
+      },
+      {
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
@@ -486,23 +514,23 @@ module.exports = [
         'session-notes': `Dylan arrived on time and presented well for his induction appointment. He filled in all the paperwork required without any resistance and said he understood the process. He mentioned his mum had talked to him a lot over the weekend and helped him to calm down. His mum appears to be a positive influence in his life, which I would like to explore further with him.
         I discussed with him what is expected of him on probation and informed him of next steps. In his next appointment we’ll start his sentence planning.`,
         'sessionId': 979
-      },
-      {
-        'type': 'Appointment',
-        'type-of-session': 'Phone appointment',
-        'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': '2021-03-09T14:53',
-        'session-date': '2021-03-09',
-        'session-start-time': '2pm',
-        'session-end-time': '2:30pm',
-        'repeating': 'No, it’s a one-off session',
-        'session-counts-towards-rar': 'No',
-        'did-service-user-comply': 'No',
-        'non-compliance-reason': 'Attended - failed to comply',
-        'confirmed': true,
-        'session-notes': `I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Thursday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.`,
-        'sessionId': 978
       }
+      // {
+      //   'type': 'Appointment',
+      //   'type-of-session': 'Phone appointment',
+      //   'lastUpdatedBy': 'Mark Berridge',
+      //   'timestamp': '2021-03-09T14:53',
+      //   'session-date': '2021-03-09',
+      //   'session-start-time': '2pm',
+      //   'session-end-time': '2:30pm',
+      //   'repeating': 'No, it’s a one-off session',
+      //   'session-counts-towards-rar': 'No',
+      //   'did-service-user-comply': 'No',
+      //   'non-compliance-reason': 'Attended - failed to comply',
+      //   'confirmed': true,
+      //   'session-notes': `I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Thursday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.`,
+      //   'sessionId': 978
+      // }
     ]
   },
   // Brian
