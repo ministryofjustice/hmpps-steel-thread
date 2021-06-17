@@ -1064,7 +1064,7 @@ module.exports = [
   },
   // Gary
   {
-    'hidden': true,
+    'hidden': false,
     'serviceUserPersonalDetails': {
       'name': 'Gary Hart',
       'firstName': 'Gary',
