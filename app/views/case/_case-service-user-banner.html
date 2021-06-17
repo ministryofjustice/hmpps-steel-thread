@@ -1,5 +1,6 @@
 {% set alias = case.serviceUserPersonalDetails.aliases[0] %}
 {% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else case.serviceUserPersonalDetails.name %}
+{% set failureToComplyCount = allFailureToComplyAppointments(CRN, data) | length %}
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
   <span class="govuk-caption-l"><abbr title="Case reference number" style="text-decoration: none">CRN</abbr>: {{ CRN }}</span>
@@ -7,7 +8,11 @@
 </h1>
 
 <p>
-  <span class="govuk-tag" style="border: 3px solid #d4351c; background: none; color: #d4351c; padding: 6px; margin-right: 5px">Non-compliance</span>
+  {% if failureToComplyCount > 0 %}
+    <strong class="govuk-tag govuk-tag--link govuk-!-margin-right-1 govuk-tag--red">
+      <a href="/cases/{{ CRN }}/compliance">Non-compliance</a>
+    </strong>
+  {% endif %}
   {% for flag in case.riskBadges %}
     {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
   {% endfor %}
