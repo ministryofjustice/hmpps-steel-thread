@@ -90,6 +90,17 @@
   {% endif %}
 {% endset %}
 
+{% set warningLettersHtml %}
+  {% set lettersCount = warningLetters(CRN, data) | length %}
+  {% if lettersCount === 1 %}
+    <a href="/cases/{{ CRN }}/activity-log/warning-letters">1 letter sent</a>
+  {% elif lettersCount > 1 %}
+    <a href="/cases/{{ CRN }}/activity-log/warning-letters">{{ lettersCount }} letters sent</a>
+  {% else %}
+    None
+  {% endif %}
+{% endset %}
+
 {% for _, requirement in case.currentOrder.requirements %}
   {% if requirement.type == 'RAR' %}
     {% set rarList %}
@@ -117,6 +128,14 @@
             },
             value: {
               html: failureToComplyHtml
+            }
+          },
+          {
+            key: {
+              html: 'Warning letters sent within 12 months'
+            },
+            value: {
+              html: warningLettersHtml
             }
           },
           {
