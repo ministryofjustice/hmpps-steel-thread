@@ -12,6 +12,7 @@
 {% if failureToComplyCount >= 2 %}
   <div class="app-compliance-panel app-compliance-panel--red">
     <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">{{ failureToComplyCount }} failures to comply within 12 months – <a href="#">Start a breach</a></p>
+    <p class="govuk-!-margin-bottom-0">No breach started yet</p>
   </div>
 {% elseif failureToComplyCount == 1 %}
   <div class="app-compliance-panel">
