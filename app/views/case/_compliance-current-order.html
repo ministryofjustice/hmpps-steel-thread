@@ -1,6 +1,7 @@
 {% set failureToComplyCount = allFailureToComplyAppointments(CRN, data) | length %}
 {% set unacceptableAbsenceCount = unacceptableAbsenceAppointments(CRN, data) | length %}
 {% set attendedButDidNotComplyCount = attendedButDidNotComplyAppointments(CRN, data) | length %}
+{% set breachStarted = true %}
 
 <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
   {{ case.currentOrder.type }}
@@ -9,7 +10,11 @@
   </div>
 </h2>
 
-{% if failureToComplyCount >= 2 %}
+{% if breachStarted %}
+  <div class="app-compliance-panel app-compliance-panel--red">
+    <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">Breach in progress</p>
+  </div>
+{% elseif failureToComplyCount >= 2 %}
   <div class="app-compliance-panel app-compliance-panel--red">
     <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">{{ failureToComplyCount }} failures to comply within 12 months – <a href="#">Start a breach</a></p>
     <p class="govuk-!-margin-bottom-0">No breach started yet</p>
@@ -60,6 +65,46 @@
   titleText: "Order details",
   html: orderDetailsList
 }) }}
+
+{% if breachStarted %}
+  {% set breachList %}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: 'Breach started'
+          },
+          value: {
+            html: '16 June 2021'
+          }
+        },
+        {
+          key: {
+            text: 'Status'
+          },
+          value: {
+            html: 'Breach information pack requested'
+          }
+        }
+      ]
+    }) }}
+  {% endset %}
+
+  {{ appSummaryCard({
+    classes: "app-summary-card--compliance",
+    titleText: "Breach details",
+    html: breachList,
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "View in Delius",
+          visuallyHiddenText: "name"
+        }
+      ]
+    }
+  }) }}
+{% endif %}
 
 {% set failureToComplyHtml %}
   {% if failureToComplyCount == 0 %}
