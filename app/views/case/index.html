@@ -272,19 +272,19 @@
       Appointment attendance
     </h2>
 
-    <p class="govuk-body">
-      <ul class="govuk-list">
-        <li>
-          <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--green govuk-!-margin-right-1">{{ compliedAppointments(CRN, data) | length }}</span> Complied
-        </li>
-        <li>
-          <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--green govuk-!-margin-right-1">{{ acceptableAbsenceAppointments(CRN, data) | length }}</span> Acceptable absence
-        </li>
-        <li>
-          <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--red govuk-!-margin-right-1">{{ allFailureToComplyAppointments(CRN, data) | length }}</span> Failure to comply
-        </li>
-      </ul>
-    </p>
+    <ul class="govuk-list">
+      <li>
+        <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--green govuk-!-margin-right-1">{{ compliedAppointments(CRN, data) | length }}</span> Complied
+      </li>
+      <li>
+        <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--green govuk-!-margin-right-1">{{ acceptableAbsenceAppointments(CRN, data) | length }}</span> Acceptable absence
+      </li>
+      <li>
+        <span class="app-!-font-family-tabular-bold govuk-tag govuk-tag--red govuk-!-margin-right-1">{{ allFailureToComplyAppointments(CRN, data) | length }}</span> Failure to comply
+      </li>
+    </ul>
+
+    <p><a href="/cases/{{ CRN }}/compliance">View compliance</a></p>
   </div>
 </div>
 
