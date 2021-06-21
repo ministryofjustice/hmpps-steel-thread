@@ -1,7 +1,7 @@
 {% set failureToComplyCount = allFailureToComplyAppointments(CRN, data) | length %}
 {% set unacceptableAbsenceCount = unacceptableAbsenceAppointments(CRN, data) | length %}
 {% set attendedButDidNotComplyCount = attendedButDidNotComplyAppointments(CRN, data) | length %}
-{% set breachStarted = true %}
+{% set breachStarted = false %}
 
 <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
   {{ case.currentOrder.type }}
