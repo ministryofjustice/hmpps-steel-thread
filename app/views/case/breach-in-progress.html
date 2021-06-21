@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+{% set title = 'Breach' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'breach' %}
+{% include "case/_case-nav.html" %}
+
+<h1 class="govuk-heading-l">{{ title }}</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-7">Breach in progress</h2> -->
+
+    <ol class="app-task-list govuk-!-margin-top-6">
+      <li>
+        <h2 class="app-task-list__section govuk-!-font-size-24">
+          <span class="app-task-list__section-number">1. </span> Start a breach
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="eligibility-completed">
+                Send a warning letter to Dylan
+              </a>
+            </span>
+            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="read-declaration-completed">
+                Confirm if breach will continue
+              </a>
+            </span>
+            <strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section govuk-!-font-size-24">
+          <span class="app-task-list__section-number">2. </span> Prepare and send breach documents
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="eligibility-completed">
+                Create information pack
+              </a>
+            </span>
+            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="read-declaration-completed">
+                Send information pack to Enforcement Officer
+              </a>
+            </span>
+            <strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="read-declaration-completed">
+                Notify court
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="read-declaration-completed">Not yet started</strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section govuk-!-font-size-24">
+          <span class="app-task-list__section-number">3. </span> Follow breach in court
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              Court date received
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="eligibility-completed">Not yet</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              Court summons received
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="eligibility-completed">Not yet</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              Action taken by court
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="eligibility-completed">Not yet</strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section govuk-!-font-size-24">
+          <span class="app-task-list__section-number">4. </span> Respond to court actions
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              Update Community Order or sentence
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="eligibility-completed">Not yet</strong>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-7">Previous breaches</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      <span class="govuk-caption-m">20 January 2021</span>
+      <a href="#">Breach process completed</a>
+    </h3>
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: 'Reason for breach'
+          },
+          value: {
+            text: 'Two missed appointments without a good reason'
+          }
+        },
+        {
+          key: {
+            text: 'Conclusion'
+          },
+          value: {
+            text: 'Community Order extended by 1 year'
+          }
+        }
+      }
+    }) }}
+
+    <h3 class="govuk-heading-m">
+      <span class="govuk-caption-m">2 November 2019</span>
+      <a href="#">Breach process halted</a>
+    </h3>
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: 'Reason for breach'
+          },
+          value: {
+            text: 'Two missed appointments without a good reason'
+          }
+        },
+        {
+          key: {
+            text: 'Conclusion'
+          },
+          value: {
+            text: 'Breach halted after evidence received'
+          }
+        }
+      }
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-top-9">Breach timelines</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Something happens leading to a breach</li>
+      <li>A breach letter is sent</li>
+      <li>Service user has 7 days to produce evidence</li>
+      <li>Breach information is prepared</li>
+      <li>No evidence is given</li>
+      <li>Notify court about breach</li>
+      <li>Court begins breach proceedings</li>
+      <li>Court summons sent to service user</li>
+      <li>Service user attends court</li>
+      <li>Requirements added to order, or sentence revoked and re-sentenced</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

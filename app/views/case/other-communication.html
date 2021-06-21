@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set entry = data['communication'][CRN][sessionId] %}
 {%- set title -%}
-  {%- if entry.to === 'Service user' -%}
+  {% if entry.action %}
+    {{ entry.action }}
+  {%- elif entry.to === 'Service user' -%}
     {{ entry.type }} to {{ case.serviceUserPersonalDetails.name }}
   {%- elif entry.to -%}
     {{ entry.type }} to {{ replaceDefaultUserWithSignedInUser(entry.to, data) }}
@@ -33,6 +35,12 @@
     {% endif %}
   </div>
 </div>
+
+{% set uploadedFilesHtml %}
+  {% for file in entry['filenames'] | forceArray %}
+    <a href="#">{{ file }}</a><br />
+  {% endfor %}
+{% endset %}
 
 {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-9',
@@ -76,7 +84,13 @@
       value: {
         text: entry.contents | nl2br | safe or 'None'
       }
-    }
+    },
+    {
+      key: { text: "Uploaded files" },
+      value: {
+        html: uploadedFilesHtml
+      }
+    } if entry['filenames'].length > 0
   ]
 }) }}
 

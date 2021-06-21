@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+{% set title = 'Compliance' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'compliance' %}
+{% include "case/_case-nav.html" %}
+
+<h1 class="govuk-heading-l">{{ title }}</h1>
+
+{{ govukButton({
+  text: 'Start a breach',
+  href: '#',
+  isStartButton: true
+}) }}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-6">
+      Community Order
+      <div class="govuk-!-font-size-19 govuk-!-margin-top-1 govuk-!-font-weight-regular">Using violence to secure entry - 19563</div>
+    </h2>
+
+    <div class="app-compliance-panel">
+      <p class="govuk-!-margin-bottom-0 govuk-!-font-weight-bold">1 failure to comply within 12 months</p>
+    </div>
+    {% set orderDetailsList %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: 'Start date'
+            },
+            value: {
+              html: '5 January 2021'
+            }
+          },
+          {
+            key: {
+              text: 'Length'
+            },
+            value: {
+              html: '12 months'
+            }
+          },
+          {
+            key: {
+              text: 'Breaches'
+            },
+            value: {
+              html: 'None'
+            }
+          }
+        ]
+      }) }}
+    {% endset %}
+
+    {{ appSummaryCard({
+      classes: "app-summary-card--compliance",
+      titleText: "Order details",
+      html: orderDetailsList
+    }) }}
+
+    {% set rarList %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: 'Appointments'
+            },
+            value: {
+              html: '<a href="#">20 appointments</a>'
+            }
+          },
+          {
+            key: {
+              text: 'Complied'
+            },
+            value: {
+              html: '<a href="#">17 complied</a>'
+            }
+          },
+          {
+            key: {
+              html: 'Failures to comply<br>within 12 months'
+            },
+            value: {
+              html: '
+                <a href="#">1 failure to attend</a>
+              '
+            }
+          },
+          {
+            key: {
+              text: 'Acceptable absences'
+            },
+            value: {
+              html: '<a href="#">2 acceptable absences</a>'
+            }
+          }
+        ]
+      }) }}
+    {% endset %}
+
+    {{ appSummaryCard({
+      classes: "govuk-!-margin-bottom-6 app-summary-card--compliance-last",
+      titleHtml: 'Order requirement<br /><span class="govuk-!-font-weight-bold">20 RAR days</span>',
+      html: rarList
+    }) }}
+
+    {% include 'case/_compliance-previous-orders.html' %}
+  </div>
+</div>
+
+{% endblock %}

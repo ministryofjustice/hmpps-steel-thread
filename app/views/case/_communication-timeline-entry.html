@@ -3,15 +3,19 @@
   <span class="govuk-!-margin-left-1 govuk-!-font-size-19 govuk-!-font-weight-regular">{{ entry.timestamp | govukTime }}</span>
   <br />
   <a href="/cases/{{ CRN }}/other-communication/{{ entry.sessionId }}">
-    {{ entry.type }} –
-    {% if entry.from %}
-    {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
-    {% endif %}
-    {% if entry.to %}
-    to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
-    {% endif %}
-    {% if entry.type == 'Note' %}
-    Note by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
+    {% if entry.action %}
+      {{ entry.action }} by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
+    {% else %}
+      {{ entry.type }} –
+      {% if entry.from %}
+      {{ case.serviceUserPersonalDetails.name if entry.from === 'Service user' else replaceDefaultUserWithSignedInUser(entry.from, data) }}
+      {% endif %}
+      {% if entry.to %}
+      to {{ case.serviceUserPersonalDetails.name if entry.to === 'Service user' else replaceDefaultUserWithSignedInUser(entry.to, data) }}
+      {% endif %}
+      {% if entry.type == 'Note' %}
+      Note by {{ replaceDefaultUserWithSignedInUser(entry.lastUpdatedBy, data) }}
+      {% endif %}
     {% endif %}
   </a>
   {% if entry.sensitive === 'Yes' %}

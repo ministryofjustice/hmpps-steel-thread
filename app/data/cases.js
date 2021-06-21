@@ -106,27 +106,27 @@ module.exports = [
     },
     'previousOrders': [
       {
-        'title': 'ORA Community Order (12 Months)',
+        'title': 'Community Order (12 Months)',
         'description': 'Careless driving - 80400',
         'endDate': '2018-05-17'
       },
       {
-        'title': 'ORA Suspended Sentence Order (12 Months)',
+        'title': 'Suspended Sentence Order (12 Months)',
         'description': 'Common assault and battery - 10501',
         'endDate': '2016-08-10'
       },
       {
-        'title': 'CJA Std Determinate Custody (42 Months)',
+        'title': 'Std Determinate Custody (42 Months)',
         'description': 'Kidnapping - 03601',
         'endDate': '2015-06-26'
       },
       {
-        'title': 'CJA Community Order (12 Months)',
+        'title': 'Community Order (12 Months)',
         'description': 'Assaults occasioning actual bodily harm - 00806',
         'endDate': '2012-01-10'
       },
       {
-        'title': 'CJA Community Order (12 Months)',
+        'title': 'Community Order (12 Months)',
         'description': 'Offences against Public Order (Summary) - 12500',
         'endDate': '2010-06-30'
       }
@@ -226,11 +226,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 24 Nov 2016',
-    'appointmentStatistics': {
-      'complied': 9,
-      'acceptableAbsence': 0,
-      'failureToComply': 1
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -272,12 +267,15 @@ module.exports = [
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': helpers.yesterday({atTime: '13:00'}),
-        'session-date': helpers.yesterday(),
-        'session-start-time': '5pm',
-        'session-end-time': '5:30pm',
+        'timestamp': helpers.today({ atTime: '9:00' }),
+        'session-date': helpers.today(),
+        'session-start-time': '9am',
+        'session-end-time': '9:30am',
         'repeating': 'No, it’s a one-off session',
         'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'No',
+        'session-notes': 'Dylan failed to attend his appointment. I can confirm that he was given the appointment details in our last meeting and he put the details into his phone there and then. I have tried calling Dylan and his phone goes straight to voicemail. I will send a warning letter informing him that if he fails to attend another appointment within the next 12 months he will be in breach of his order.',
         'sessionId': 456
       },
       {
@@ -299,6 +297,23 @@ module.exports = [
         Dylan states that he and his mum are doing much better after their argument last week, and that Dylan is now contributing a bit to the weekly shop when he can. His mum is happy with this arrangement.
 
         Dylan’s work is still consistent and I believe that this is still an important factor in his rehabilitation, as it gives him structure and routine. He is continuing to engage and I don’t believe that there are any issues that merit a change in the level of RoSH.`,
+        'sessionId': 988
+      },
+      {
+        'type': 'Appointment',
+        'timestamp': '2021-05-01T17:30',
+        'session-date': '2021-05-01',
+        'session-start-time': '5pm',
+        'session-end-time': '5:30pm',
+        'session-counts-towards-rar': 'No',
+        'type-of-session': 'Office visit',
+        'repeating': 'No, it’s a one-off appointment',
+        'confirmed': true,
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'Yes',
+        'why-absence-acceptable': 'Childcare or family',
+        'lastUpdatedBy': 'Mark Berridge',
+        'session-notes': ``,
         'sessionId': 987
       },
       {
@@ -419,6 +434,31 @@ module.exports = [
         'sessionId': 982
       },
       {
+        'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Document',
+        'action': 'First warning letter sent',
+        'timestamp': '2021-03-27T17:55',
+        'contents': `Attached copy of warning letter sent to Dylan following his failure to attend on 27th of March`,
+        'sessionId': 7001,
+        'filenames': ['warning-letter.doc']
+      },
+      {
+        'type': 'Appointment',
+        'type-of-session': 'Office visit',
+        'lastUpdatedBy': 'Mark Berridge',
+        'timestamp': '2021-03-27T14:53',
+        'session-date': '2021-03-27',
+        'session-start-time': '2pm',
+        'session-end-time': '2:30pm',
+        'repeating': 'No, it’s a one-off session',
+        'session-counts-towards-rar': 'No',
+        'did-service-user-comply': 'Absent',
+        'was-absence-acceptable': 'No',
+        'confirmed': true,
+        'session-notes': `Dylan failed to attend his appointment. We scheduled a 2nd appointment this week due to him turning up anxious and aggravated on the 25th. I can confirm that he was given the appointment details in our last meeting and he put the details into his phone there and then. I have tried calling Dylan and his phone goes straight to voicemail. I will send a warning letter informing him that if he fails to attend another appointment within the next 12 months he will be in breach of his order`,
+        'sessionId': 9811
+      },
+      {
         'type': 'Appointment',
         'type-of-session': 'Office visit',
         'lastUpdatedBy': 'Mark Berridge',
@@ -469,23 +509,23 @@ module.exports = [
         'session-notes': `Dylan arrived on time and presented well for his induction appointment. He filled in all the paperwork required without any resistance and said he understood the process. He mentioned his mum had talked to him a lot over the weekend and helped him to calm down. His mum appears to be a positive influence in his life, which I would like to explore further with him.
         I discussed with him what is expected of him on probation and informed him of next steps. In his next appointment we’ll start his sentence planning.`,
         'sessionId': 979
-      },
-      {
-        'type': 'Appointment',
-        'type-of-session': 'Phone appointment',
-        'lastUpdatedBy': 'Mark Berridge',
-        'timestamp': '2021-03-09T14:53',
-        'session-date': '2021-03-09',
-        'session-start-time': '2pm',
-        'session-end-time': '2:30pm',
-        'repeating': 'No, it’s a one-off session',
-        'session-counts-towards-rar': 'No',
-        'did-service-user-comply': 'No',
-        'non-compliance-reason': 'Attended - failed to comply',
-        'confirmed': true,
-        'session-notes': `I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Thursday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.`,
-        'sessionId': 978
       }
+      // {
+      //   'type': 'Appointment',
+      //   'type-of-session': 'Phone appointment',
+      //   'lastUpdatedBy': 'Mark Berridge',
+      //   'timestamp': '2021-03-09T14:53',
+      //   'session-date': '2021-03-09',
+      //   'session-start-time': '2pm',
+      //   'session-end-time': '2:30pm',
+      //   'repeating': 'No, it’s a one-off session',
+      //   'session-counts-towards-rar': 'No',
+      //   'did-service-user-comply': 'No',
+      //   'non-compliance-reason': 'Attended - failed to comply',
+      //   'confirmed': true,
+      //   'session-notes': `I called Dylan to confirm he had understood where he needed to be and when for his induction appointment. He was rude and abusive and in general very hostile in reaction to his sentence saying this wasn’t his fault. He mentioned he “doesn’t have time for this”. I reiterated that he must be at the office on Thursday as part of his sentence requirements and if he doesn’t it’s going to reflect very poorly.`,
+      //   'sessionId': 978
+      // }
     ]
   },
   // Brian
@@ -615,7 +655,7 @@ module.exports = [
     },
     'previousOrders': [
       {
-        'title': 'ORA Suspended Sentence Order (12 Months)',
+        'title': 'Suspended Sentence Order (12 Months)',
         'description': 'Sexual assault on a female (Sexual Offences Act 2003) - 02005',
         'endDate': '2014-04-11'
       }
@@ -730,11 +770,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 14 Nov 2014',
-    'appointmentStatistics': {
-      'complied': 4,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1011,11 +1046,6 @@ module.exports = [
       'Lifestyle & Associates'
     ],
     'status': 'No record',
-    'appointmentStatistics': {
-      'complied': 0,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1034,7 +1064,7 @@ module.exports = [
   },
   // Gary
   {
-    'hidden': true,
+    'hidden': false,
     'serviceUserPersonalDetails': {
       'name': 'Gary Hart',
       'firstName': 'Gary',
@@ -1144,7 +1174,7 @@ module.exports = [
     },
     'previousOrders': [
       {
-        'title': 'ORA Suspended Sentence Order (12 Months)',
+        'title': 'Suspended Sentence Order (12 Months)',
         'description': 'Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563',
         'endDate': '2019-08-15'
       }
@@ -1245,11 +1275,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 15 Aug 2019',
-    'appointmentStatistics': {
-      'complied': 6,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1562,7 +1587,7 @@ module.exports = [
     },
     'previousOrders': [
       {
-        'title': 'ORA Suspended Sentence (18 months)',
+        'title': 'Suspended Sentence (18 months)',
         'description': 'Common assault and battery',
         'endDate': '2019-01-05'
       }
@@ -1662,11 +1687,6 @@ module.exports = [
     ],
     'status': 'Previously known',
     'previousOrderStatus': 'Order ended 05 Jan 2019',
-    'appointmentStatistics': {
-      'complied': 6,
-      'acceptableAbsence': 0,
-      'failureToComply': 0
-    },
     'contactHistory': [
       {
         'type': 'Appointment',
@@ -1682,6 +1702,15 @@ module.exports = [
         'repeating': 'No, it’s a one-off session',
         'confirmed': true,
         'sessionId': 699
+      },
+      {
+        'lastUpdatedBy': 'Mark Berridge',
+        'type': 'Document',
+        'action': 'First warning letter sent',
+        'timestamp': '2021-04-15T17:55',
+        'contents': `Attached copy of warning letter sent to Andrei following his failure to comply on 14th of April`,
+        'sessionId': 7002,
+        'filenames': ['warning-letter.doc']
       },
       {
         'lastUpdatedBy': 'Mark Berridge',
@@ -1705,7 +1734,7 @@ module.exports = [
         'confirmed': true,
         'session-notes': `This was a check-in appointment and Andrei mentioned that he might have to change his mobile phone number as some of his contacts are drug users and he doesn't want to jeopardise his probation. He was clearly under the influence during this appointment and did not comply.
 
-        Verbal warning given on this occasion.`,
+        A warning letter has been sent`,
         'sessionId': 701
       },
       {

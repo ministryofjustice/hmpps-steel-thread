@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set title = 'Compliance' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'compliance' %}
+{% include "case/_case-nav.html" %}
+
+<h1 class="govuk-heading-l">{{ title }}</h1>
+
+{{ govukButton({
+  text: 'Start a breach',
+  href: '#',
+  isStartButton: true
+}) }}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-two-thirds">
+    {% include 'case/_compliance-current-order.html' %}
+    {% include 'case/_compliance-previous-orders.html' %}
+  </div>
+</div>
+
+{% endblock %}

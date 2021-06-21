@@ -35,6 +35,14 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+.app-\!-font-family-tabular {
+  @include govuk-font($size: false, $tabular: true);
+}
+
+.app-\!-font-family-tabular-bold {
+  @include govuk-font($size: false, $tabular: true, $weight: bold);
+}
+
 // Document icon image
 .moj-timeline__document-link {
   background-image: url(/public/images/icon-document.svg) !important;
@@ -108,3 +116,35 @@ $govuk-assets-path: '/govuk/assets/';
   padding-top: govuk-spacing(3);
   padding-bottom: govuk-spacing(3);
 }
+
+.app-compliance-panel {
+  padding: govuk-spacing(3);
+  color: govuk-colour("white");
+  background: govuk-colour("dark-grey");
+
+  p, ul, li, h2, h3, a {
+    color: inherit;
+  }
+}
+
+.app-compliance-panel--red {
+  background: govuk-colour("red");
+}
+
+.app-compliance-panel--green {
+  background: govuk-colour("green");
+}
+
+.app-compliance-panel--blue {
+  background: govuk-colour("blue");
+}
+
+.app-compliance-panel--orange {
+  background: govuk-colour("orange");
+}
+
+.app-summary-card--compliance {
+  border-bottom-width: 0;
+}
+
+// .app-summary-card--compliance-last {}

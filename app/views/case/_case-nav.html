@@ -25,10 +25,17 @@
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'details' %}
+            {% if currentNavSection == 'flags' %}
             aria-current="page"
             {% endif %}
-            href="/cases/{{ CRN }}/details">Personal details</a>
+            href="/cases/{{ CRN }}/flags">Risk flags</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"
+            {% if currentNavSection == 'compliance' %}
+            aria-current="page"
+            {% endif %}
+            href="/cases/{{ CRN }}/compliance">Compliance</a>
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state"
@@ -39,10 +46,10 @@
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state"
-            {% if currentNavSection == 'flags' %}
+            {% if currentNavSection == 'details' %}
             aria-current="page"
             {% endif %}
-            href="/cases/{{ CRN }}/flags">Risk flags</a>
+            href="/cases/{{ CRN }}/details">Personal details</a>
         </li>
       </ul>
     </nav>

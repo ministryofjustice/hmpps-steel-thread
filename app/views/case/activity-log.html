@@ -119,13 +119,13 @@
   </div>
   {% endif %}
   <div class="govuk-grid-column-two-thirds">
-    {% set entries = activityLog(CRN, data, {category: 'all-previous-activity'}) %}
+    {% set entries = activityLog(CRN, data, {category: category or 'all-previous-activity'}) %}
     {% set hr = joiner('<hr class="govuk-section-break govuk-section-break--m">') %}
     {% for entry in entries %}
       {{ hr() | safe }}
       {% if entry.type === 'Appointment' %}
         {% include "case/_appointment-timeline-entry.html" %}
-      {% elseif entry.type in ['Text message', 'Email', 'Phone call', 'Note'] %}
+      {% elseif entry.type in ['Text message', 'Email', 'Phone call', 'Note', 'Document'] %}
         {% include "case/_communication-timeline-entry.html" %}
       {% endif %}
     {% endfor %}

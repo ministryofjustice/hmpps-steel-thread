@@ -50,7 +50,11 @@
         {% elseif appointment['did-service-user-comply'] === 'No' %}
           {{ govukTag({text: 'Failed to comply', classes: 'govuk-tag--red'}) }}
         {% elseif appointment['did-service-user-comply'] === 'Absent' %}
-          {{ govukTag({text: 'Absent', classes: 'govuk-tag--red'}) }}
+          {% if appointment['was-absence-acceptable'] === 'Yes' %}
+            {{ govukTag({text: 'Acceptable absence', classes: 'govuk-tag--green'}) }}
+          {% else %}
+            {{ govukTag({text: 'Unacceptable absence', classes: 'govuk-tag--red'}) }}
+          {% endif %}
         {% endif %}
 
         {% if appointment.sensitive === 'Yes' %}
