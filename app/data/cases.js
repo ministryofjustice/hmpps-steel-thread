@@ -8,12 +8,19 @@ module.exports = [
       'name': 'Dylan Adam Armstrong',
       'firstName': 'Dylan',
       'dateOfBirth': '1984-09-27',
-      'address': [
-        '1 Grey Lane',
-        'Sheffield',
-        'South Yorkshire',
-        'S10 1AG'
-      ],
+      'mainAddress': {
+        'address': [
+          '1 Grey Lane',
+          'Sheffield',
+          'South Yorkshire',
+          'S10 1AG'
+        ],
+        'telephoneNumber': '01234 123456',
+        'startDate': '2020-12-03',
+        'type': 'Awaiting assessment',
+        'typeVerified': true,
+        'notes': 'He’s not been here very long'
+      },
       'phone': '07700 900 077',
       'email': 'example@example.com',
       'aliases': ['Dee'],
