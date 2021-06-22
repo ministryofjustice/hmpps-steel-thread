@@ -138,7 +138,7 @@
 {% set warningLettersHtml %}
   {% set lettersCount = warningLetters(CRN, data) | length %}
   {% if lettersCount === 1 %}
-    <a href="/cases/{{ CRN }}/activity-log/warning-letters">1 letter sent</a>
+    <a href="/cases/{{ CRN }}/activity-log/warning-letters">First warning letter sent</a>
   {% elif lettersCount > 1 %}
     <a href="/cases/{{ CRN }}/activity-log/warning-letters">{{ lettersCount }} letters sent</a>
   {% else %}
