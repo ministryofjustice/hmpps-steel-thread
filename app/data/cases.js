@@ -1603,7 +1603,7 @@ module.exports = [
       {
         text: 'Restraining Order',
         class: 'turquoise',
-        notes: 'Against ex-partner',
+        notes: 'His ex-partner of 5 years has a restraining order against him due to repeated instances of domestic violence. She has changed address and works at a different location from when they lived together.',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
