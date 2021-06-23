@@ -313,7 +313,7 @@ module.exports = [
         'was-absence-acceptable': 'Yes',
         'why-absence-acceptable': 'Childcare or family',
         'lastUpdatedBy': 'Mark Berridge',
-        'session-notes': ``,
+        'session-notes': `Dylan rang me an hour before the appointment to let me know that he wouldn't be able to attend as he had to care for his niece. His sister is a nurse and had to cover for a colleague's absence so she had to go to work and didn't have any other childcare options.`,
         'sessionId': 987
       },
       {
