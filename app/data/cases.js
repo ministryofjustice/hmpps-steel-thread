@@ -9,6 +9,7 @@ module.exports = [
       'firstName': 'Dylan',
       'preferredNameKnownAs': 'Dee',
       'dateOfBirth': '1984-09-27',
+      'address': [],
       'mainAddress': {
         'address': [
           '1 Grey Lane',

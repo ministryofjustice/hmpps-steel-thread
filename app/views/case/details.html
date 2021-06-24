@@ -68,6 +68,14 @@
           {
             key: { text: "Disabilities and adjustments" },
             value: { text: case.serviceUserPersonalDetails.disabilitiesAndAdjustments.join(', ') | default('<span class="govuk-hint-s">None known</span>', true) | safe }
+          },
+          {
+            key: { text: "PNC" },
+            value: { html: case.PNC }
+          },
+          {
+            key: { text: "CRN" },
+            value: { html: case.CRN }
           }
         ]
       }) }}
@@ -118,35 +126,6 @@
           }
         ]
       }
-    }) }}
-
-    {% set identifiersHtml %}
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: { text: "PNC" },
-            value: { html: case.PNC }
-          },
-          {
-            key: { text: "CRN" },
-            value: { html: case.CRN }
-          },
-          {
-            key: { text: "NOMS" },
-            value: { html: 'None' }
-          },
-          {
-            key: { text: "NI" },
-            value: { html: 'None' }
-          }
-        ]
-      }) }}
-    {% endset %}
-
-    {{ appSummaryCard({
-      titleText: "Identifiers",
-      classes: 'govuk-!-margin-bottom-6',
-      html: identifiersHtml
     }) }}
 
     <h3 class="govuk-heading-m">Addresses</h3>
