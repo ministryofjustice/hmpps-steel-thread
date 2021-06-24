@@ -3,7 +3,7 @@ const address = require('./address')
 
 module.exports = (faker) => {
   const personalContact = person(faker)
-  const possibleRelationships = personalContact.gender === 'Male' ? ['Dad', 'Brother'] : ['Mum', 'Sister']
+  const possibleRelationships = personalContact.sex === 'Male' ? ['Dad', 'Brother'] : ['Mum', 'Sister']
 
   return {
     'name': personalContact.fullName,

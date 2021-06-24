@@ -67,9 +67,17 @@
         value: { text: case.serviceUserPersonalDetails.religion }
       },
       {
-        key: { text: "Gender" },
-        value: { text: case.serviceUserPersonalDetails.gender }
+        key: { text: "Sex" },
+        value: { text: case.serviceUserPersonalDetails.sex }
       },
+      {
+        key: { text: "Gender identity" },
+        value: { text: case.serviceUserPersonalDetails.genderIdentity }
+      } if case.serviceUserPersonalDetails.genderIdentity,
+      {
+        key: { text: "Self-described gender" },
+        value: { text: case.serviceUserPersonalDetails.selfDescribedGender }
+      } if case.serviceUserPersonalDetails.selfDescribedGender,
       {
         key: { text: "Sexual orientation" },
         value: { text: case.serviceUserPersonalDetails.sexualOrientation }

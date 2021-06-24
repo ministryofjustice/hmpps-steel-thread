@@ -30,7 +30,9 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
+      'genderIdentity': 'Prefer to self-describe',
+      'selfDescribedGender': 'Agender',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
@@ -556,7 +558,7 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Mental Illness'],
       'circumstances': {
@@ -895,7 +897,7 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
       'circumstances': {
@@ -1091,7 +1093,7 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
@@ -1504,7 +1506,7 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Bisexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {

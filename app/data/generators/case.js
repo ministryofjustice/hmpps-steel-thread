@@ -30,7 +30,7 @@ module.exports = generateCase => {
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': serviceUser.gender,
+      'sex': serviceUser.sex,
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': ['Autism spectrum condition'],
       'circumstances': {
