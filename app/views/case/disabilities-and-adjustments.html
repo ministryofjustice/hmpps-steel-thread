@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% set title = 'Disabilities and adjustments' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Personal details",
+      href: "/cases/" + CRN + "/details"
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">{{title}}</h1>
+
+{% for disability in case.serviceUserPersonalDetails.disabilitiesAndAdjustments %}
+  {% set adjustments %}
+    {% for adjustment in disability.adjustments %}
+      {% set adjustmentHtml %}
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: { text: "Adjustment" },
+              value: { text: adjustment.adjustment }
+            },
+            {
+              key: { text: "Start date" },
+              value: { text: adjustment.startDate | dateWithYear }
+            },
+            {
+              key: { text: "Notes" },
+              value: { text: adjustment.notes }
+            } if adjustment.notes
+          ]
+        }) }}
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: adjustment.adjustment,
+        html: adjustmentHtml
+      }) }}
+    {% endfor %}
+  {% endset %}
+
+
+  {% set disabilitiesAndAdjustments %}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Disability" },
+          value: { text: disability.disability }
+        },
+        {
+          key: { text: "Start date" },
+          value: { text: disability.startDate | dateWithYear }
+        } if case.serviceUserPersonalDetails.previousName,
+        {
+          key: { text: "Notes" },
+          value: { text: disability.notes }
+        },
+        {
+          key: { text: "Adjustments" },
+          value: { html: adjustments }
+        } if disability.adjustments.length > 0
+      ]
+    }) }}
+
+    <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-4 govuk-body-s govuk-hint-s">
+      Last updated 6 January 2021
+    </p>
+  {% endset %}
+
+  {{ appSummaryCard({
+    titleText: disability.disability,
+    classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+    html: disabilitiesAndAdjustments,
+    actions: {}
+  }) }}
+{% endfor %}
+
+{% endblock %}

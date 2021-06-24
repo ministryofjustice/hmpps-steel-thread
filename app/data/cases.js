@@ -34,7 +34,32 @@ module.exports = [
       'genderIdentity': 'Prefer to self-describe',
       'selfDescribedGender': 'Agender',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Autism spectrum condition'],
+      'disabilitiesAndAdjustments': [
+        {
+          'disability': 'Mental Illness',
+          'notes': 'Acute ADHD',
+          'startDate': '1970-01-01',
+          'adjustments': [
+            {
+              'adjustment': 'Flex refreshment breaks',
+              'startDate': '2021-01-01',
+              'notes': 'Be flexible in taking breaks during sessions'
+            }
+          ]
+        },
+        {
+          'disability': 'Visual Impairment',
+          'notes': 'Red green colour blind',
+          'startDate': '1985-06-07',
+          'adjustments': [
+            {
+              'adjustment': 'Colour/visibility marking',
+              'startDate': '2021-01-01',
+              'notes': 'All printed materials need appropriate colour marking'
+            }
+          ]
+        }
+      ],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Friends/Family (settled)',
@@ -899,7 +924,20 @@ module.exports = [
       'religion': 'None',
       'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
+      'disabilitiesAndAdjustments': [
+        {
+          'disability': 'Mental Illness',
+          'notes': 'Acute ADHD',
+          'startDate': '1970-01-01',
+          'adjustments': [
+            {
+              'adjustment': 'Flex refreshment breaks',
+              'startDate': '2021-01-01',
+              'notes': 'Be flexibe in taking breaks during sessions'
+            }
+          ]
+        }
+      ],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Friends/Family (settled)',
