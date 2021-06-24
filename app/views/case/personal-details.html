@@ -39,6 +39,10 @@
         value: { text: case.serviceUserPersonalDetails.name }
       },
       {
+        key: { text: "Preferred name/Known as" },
+        value: { text: case.serviceUserPersonalDetails.preferredNameKnownAs }
+      } if case.serviceUserPersonalDetails.preferredNameKnownAs,
+      {
         key: { text: "Aliases" },
         value: { text: case.serviceUserPersonalDetails.aliases.join(', ') | default('<span class="govuk-hint-s">None known</span>', true) | safe }
       },
