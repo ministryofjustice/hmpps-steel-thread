@@ -7,6 +7,7 @@ module.exports = [
     'serviceUserPersonalDetails': {
       'name': 'Dylan Adam Armstrong',
       'firstName': 'Dylan',
+      'preferredNameKnownAs': 'Dee',
       'dateOfBirth': '1984-09-27',
       'mainAddress': {
         'address': [
@@ -23,7 +24,7 @@ module.exports = [
       },
       'phone': '07700 900 077',
       'email': 'example@example.com',
-      'aliases': ['Dee'],
+      'aliases': ['Dee Armstrong'],
       'preferredLanguage': 'English',
       'nationality': 'British',
       'ethnicity': 'White: British',
@@ -540,6 +541,7 @@ module.exports = [
     'serviceUserPersonalDetails': {
       'name': 'Brian Wilson',
       'firstName': 'Brian',
+      'preferredNameKnownAs': 'Baz',
       'dateOfBirth': '1958-01-19',
       'address': [
         '11 Southern Way',
@@ -548,7 +550,7 @@ module.exports = [
       ],
       'phone': '07700 900 721',
       'email': 'example@example.biz',
-      'aliases': ['Baz'],
+      'aliases': [],
       'preferredLanguage': 'English',
       'nationality': 'British',
       'ethnicity': 'White: British',
