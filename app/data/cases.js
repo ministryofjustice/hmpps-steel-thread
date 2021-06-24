@@ -8,6 +8,7 @@ module.exports = [
       'name': 'Dylan Adam Armstrong',
       'firstName': 'Dylan',
       'preferredNameKnownAs': 'Dee',
+      'previousName': 'Dylan Adam Jones',
       'dateOfBirth': '1984-09-27',
       'address': [],
       'mainAddress': {
@@ -571,11 +572,17 @@ module.exports = [
       'firstName': 'Brian',
       'preferredNameKnownAs': 'Baz',
       'dateOfBirth': '1958-01-19',
-      'address': [
-        '11 Southern Way',
-        'Bradford',
-        'BR7 6DZ'
-      ],
+      'address': [],
+      'mainAddress': {
+        'address': [
+          '11 Southern Way',
+          'Bradford',
+          'BR7 6DZ'
+        ],
+        'startDate': '2010-01-03',
+        'type': 'Rental accommodation – private rental',
+        'typeVerified': true
+      },
       'phone': '07700 900 721',
       'email': 'example@example.biz',
       'aliases': [],
@@ -585,7 +592,7 @@ module.exports = [
       'religion': 'None',
       'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Mental Illness'],
+      'disabilitiesAndAdjustments': [],
       'circumstances': {
         'employment': 'Retired (receiving a pension)',
         'housingStatus': 'Householder (Owner - freehold or leasehold)',
@@ -909,12 +916,14 @@ module.exports = [
       'name': 'Spencer Gil',
       'firstName': 'Spencer',
       'dateOfBirth': '1998-01-04',
-      'address': [
-        '27 Camber Road',
-        'Leeds',
-        'West Yorkshire',
-        'LS2 7EW'
-      ],
+      'address': [],
+      'mainAddress': {
+        'address': [],
+        'noFixedAbode': true,
+        'startDate': '2020-12-03',
+        'type': 'Homeless – Rough Sleeping',
+        'typeVerified': true
+      },
       'phone': '07700 900 469',
       'email': 'example@example.com',
       'aliases': [],
@@ -1124,6 +1133,16 @@ module.exports = [
         'Sheffield',
         'S2 9NL'
       ],
+      'mainAddress': {
+        'address': [
+          '94 Kendell Street',
+          'Sheffield',
+          'S2 9NL'
+        ],
+        'startDate': '2020-12-03',
+        'type': 'Householder (Owner – freehold or leasehold)',
+        'typeVerified': true
+      },
       'phone': '07700 900 721',
       'email': 'example@example.com',
       'aliases': [],
@@ -1537,10 +1556,22 @@ module.exports = [
         'Newcastle-upon-Tyne',
         'NE6 4EY'
       ],
+      'mainAddress': {
+        'address': [
+          '22 Smith Street',
+          'Walker',
+          'Newcastle-upon-Tyne',
+          'NE6 4EY'
+        ],
+        'startDate': '2020-12-03',
+        'type': 'Householder (Owner – freehold or leasehold)',
+        'typeVerified': true
+      },
       'phone': '09100 822 429',
       'email': 'felis@ataugue.co.uk',
       'aliases': [],
-      'preferredLanguage': 'English',
+      'preferredLanguage': 'Romanian',
+      'interpreterNeeded': true,
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',

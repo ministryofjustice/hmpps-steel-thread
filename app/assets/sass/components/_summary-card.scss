@@ -69,6 +69,10 @@
   }
 }
 
+.app-summary-card--large-title .app-summary-card__title {
+  @include govuk-font($size: 24, $weight: bold);
+}
+
 @media print {
   .app-summary-card__header {
     break-inside: avoid;
