@@ -28,7 +28,7 @@ module.exports = generateCase => {
         'address': address(faker),
         'startDate': generatorHelpers.toISODate(faker.date.between('2001-01-01', '2020-12-31')),
         'type': faker.random.arrayElement(addressTypes),
-        'typeVerified': faker.random.boolean()
+        'typeVerified': faker.datatype.boolean()
       },
       'phone': '07700 900 077',
       'email': serviceUser.email,

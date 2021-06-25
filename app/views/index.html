@@ -4,96 +4,40 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">Scenario</h2>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>It’s Day 1 of the new National Probation Service
+    {{ govukButton({
+      text: 'View prototype',
+      href: '/sign-in',
+      isStartButton: true
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-5">Related links</h2>
+    <ul class="govuk-list">
+      <li>
+        <a href="https://ms-design-history.herokuapp.com/">
+          Design history
+        </a>
       </li>
-      <li>Previous systems don’t exist anymore (eg Delius/OASys)
+      <li>
+        <a href="https://trello.com/b/YQ7Xmh13/probation-end-to-end-team-board">
+          Trello
+        </a>
       </li>
-      <li>You’ve been allocated a new service user
+      <li>
+        <a href="https://drive.google.com/drive/u/0/folders/1IiUwSrjjS1NoVd1sk__APQziYrwjBE3F">
+          Team Google Drive
+        </a>
       </li>
-      <li>They’ve already had their induction
+      <li>
+        <a href="https://github.com/ministryofjustice/hmpps-manage-supervisions-prototype">
+          Prototype GitHub repository
+        </a>
       </li>
-      <li>The first appointment has been arranged for next Tuesday morning
+      <li>
+        <a href="github.com/fofr/manage-supervisions-design-history">
+          Design history GitHub repository
+        </a>
       </li>
     </ul>
-    <h2 class="govuk-heading-l">Service user</h2>
-    <p><span class="govuk-body govuk-!-font-weight-bold">Dylan Adam Armstrong</span><br>Male, 36 years old</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Previously known to probation
-      </li>
-      <li>Medium risk case
-      </li>
-      <li>12 month Community Order
-      </li>
-      <li>15 RAR days
-      </li>
-      <li>Fined £1,000
-      </li>
-    </ul>
-    <a class="govuk-body" href="sign-in">View prototype</a>
   </div>
-
-  <div class="govuk-grid-column-one-third">
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">
-        Related content
-      </h2>
-      <a href="/user-testing" class="govuk-button">
-        Test prototype
-      </a>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list useful-links govuk-!-font-size-16">
-          <li>
-            <a href="https://ms-design-history.herokuapp.com/" class="govuk-link--no-visited-state">
-              Design history
-            </a>
-          </li>
-          <li>
-            <a href="https://trello.com/b/YQ7Xmh13/steel-thread-inception" class="govuk-link--no-visited-state">
-              Project Trello
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/u/0/folders/1IiUwSrjjS1NoVd1sk__APQziYrwjBE3F">
-              Team Google Drive
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/ministryofjustice/hmpps-steel-thread" class="govuk-link--no-visited-state">
-              Prototype GitHub repository
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!--<h2 class="govuk-heading-m govuk-!-margin-top-6">Examples and documentation</h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list useful-links govuk-!-font-size-16">
-          <li>
-            <a href="https://govuk-prototype-kit.herokuapp.com/docs/tutorials-and-examples"
-              class="govuk-link--no-visited-state">
-              GOV.UK Prototype Kit - Tutorials and examples
-            </a>
-          </li>
-          <li>
-            <a href="https://design-system.service.gov.uk/" class="govuk-link--no-visited-state">
-              GOV.UK Design System
-            </a>
-          </li>
-          <li>
-            <a href="https://moj-design-system.herokuapp.com/" class="govuk-link--no-visited-state">
-              MOJ Design System
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/ctdesign/gov-design-systems-list/blob/master/README.md"
-              class="govuk-link--no-visited-state">
-              GOV Design Systems list
-            </a>
-          </li>
-        </ul>
-      </nav>-->
-    </aside>
-  </div>
-
-  {% endblock %}
+</div>
+{% endblock %}

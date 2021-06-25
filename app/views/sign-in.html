@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
+{% set signedOut = true %}
 {% set title = "Sign in" %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 <h1 class="govuk-heading-xl">Sign in</h1>
@@ -9,17 +11,10 @@
     <form action="/cases" method="post" class="form">
       {{ govukInput({
         label: {
-          text: "First name",
+          text: "Name",
           classes: "govuk-label--s"
         }
-      } | decorateFormAttributes(['user', 'first-name'])) }}
-
-      {{ govukInput({
-        label: {
-          text: "Last name",
-          classes: "govuk-label--s"
-        }
-      } | decorateFormAttributes(['user', 'last-name'])) }}
+      } | decorateFormAttributes(['user', 'name'])) }}
 
       {{ govukInput({
         label: {
