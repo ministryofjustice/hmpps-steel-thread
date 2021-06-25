@@ -7,6 +7,8 @@ module.exports = [
     'serviceUserPersonalDetails': {
       'name': 'Dylan Adam Armstrong',
       'firstName': 'Dylan',
+      'preferredNameKnownAs': 'Dee',
+      'previousName': 'Dylan Adam Jones',
       'dateOfBirth': '1984-09-27',
       'address': [
         '1 Grey Lane',
@@ -14,16 +16,56 @@ module.exports = [
         'South Yorkshire',
         'S10 1AG'
       ],
+      'mainAddress': {
+        'address': [
+          '1 Grey Lane',
+          'Sheffield',
+          'South Yorkshire',
+          'S10 1AG'
+        ],
+        'telephoneNumber': '01234 123456',
+        'startDate': '2020-12-03',
+        'type': 'Awaiting assessment',
+        'typeVerified': true,
+        'notes': 'He’s not been here very long'
+      },
       'phone': '07700 900 077',
       'email': 'example@example.com',
-      'aliases': ['Dee'],
+      'aliases': ['Dee Armstrong'],
       'preferredLanguage': 'English',
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
+      'genderIdentity': 'Prefer to self-describe',
+      'selfDescribedGender': 'Agender',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Autism spectrum condition'],
+      'disabilitiesAndAdjustments': [
+        {
+          'disability': 'Mental Illness',
+          'notes': 'Acute ADHD',
+          'startDate': '1970-01-01',
+          'adjustments': [
+            {
+              'adjustment': 'Flex refreshment breaks',
+              'startDate': '2021-01-01',
+              'notes': 'Be flexible in taking breaks during sessions'
+            }
+          ]
+        },
+        {
+          'disability': 'Visual Impairment',
+          'notes': 'Red green colour blind',
+          'startDate': '1985-06-07',
+          'adjustments': [
+            {
+              'adjustment': 'Colour/visibility marking',
+              'startDate': '2021-01-01',
+              'notes': 'All printed materials need appropriate colour marking'
+            }
+          ]
+        }
+      ],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Friends/Family (settled)',
@@ -533,22 +575,33 @@ module.exports = [
     'serviceUserPersonalDetails': {
       'name': 'Brian Wilson',
       'firstName': 'Brian',
+      'preferredNameKnownAs': 'Baz',
       'dateOfBirth': '1958-01-19',
       'address': [
         '11 Southern Way',
         'Bradford',
         'BR7 6DZ'
       ],
+      'mainAddress': {
+        'address': [
+          '11 Southern Way',
+          'Bradford',
+          'BR7 6DZ'
+        ],
+        'startDate': '2010-01-03',
+        'type': 'Rental accommodation – private rental',
+        'typeVerified': true
+      },
       'phone': '07700 900 721',
       'email': 'example@example.biz',
-      'aliases': ['Baz'],
+      'aliases': [],
       'preferredLanguage': 'English',
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Mental Illness'],
+      'disabilitiesAndAdjustments': [],
       'circumstances': {
         'employment': 'Retired (receiving a pension)',
         'housingStatus': 'Householder (Owner - freehold or leasehold)',
@@ -872,12 +925,14 @@ module.exports = [
       'name': 'Spencer Gil',
       'firstName': 'Spencer',
       'dateOfBirth': '1998-01-04',
-      'address': [
-        '27 Camber Road',
-        'Leeds',
-        'West Yorkshire',
-        'LS2 7EW'
-      ],
+      'address': ['No fixed abode', 'Homeless – Rough Sleeping'],
+      'mainAddress': {
+        'address': [],
+        'noFixedAbode': true,
+        'startDate': '2020-12-03',
+        'type': 'Homeless – Rough Sleeping',
+        'typeVerified': true
+      },
       'phone': '07700 900 469',
       'email': 'example@example.com',
       'aliases': [],
@@ -885,9 +940,22 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Attention Deficit Hyperactivity Disorder (ADHD)'],
+      'disabilitiesAndAdjustments': [
+        {
+          'disability': 'Mental Illness',
+          'notes': 'Acute ADHD',
+          'startDate': '1970-01-01',
+          'adjustments': [
+            {
+              'adjustment': 'Flex refreshment breaks',
+              'startDate': '2021-01-01',
+              'notes': 'Be flexibe in taking breaks during sessions'
+            }
+          ]
+        }
+      ],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Friends/Family (settled)',
@@ -1074,6 +1142,16 @@ module.exports = [
         'Sheffield',
         'S2 9NL'
       ],
+      'mainAddress': {
+        'address': [
+          '94 Kendell Street',
+          'Sheffield',
+          'S2 9NL'
+        ],
+        'startDate': '2020-12-03',
+        'type': 'Householder (Owner – freehold or leasehold)',
+        'typeVerified': true
+      },
       'phone': '07700 900 721',
       'email': 'example@example.com',
       'aliases': [],
@@ -1081,7 +1159,7 @@ module.exports = [
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {
@@ -1487,14 +1565,26 @@ module.exports = [
         'Newcastle-upon-Tyne',
         'NE6 4EY'
       ],
+      'mainAddress': {
+        'address': [
+          '22 Smith Street',
+          'Walker',
+          'Newcastle-upon-Tyne',
+          'NE6 4EY'
+        ],
+        'startDate': '2020-12-03',
+        'type': 'Householder (Owner – freehold or leasehold)',
+        'typeVerified': true
+      },
       'phone': '09100 822 429',
       'email': 'felis@ataugue.co.uk',
       'aliases': [],
-      'preferredLanguage': 'English',
+      'preferredLanguage': 'Romanian',
+      'interpreterNeeded': true,
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': 'Male',
+      'sex': 'Male',
       'sexualOrientation': 'Bisexual',
       'disabilitiesAndAdjustments': [],
       'circumstances': {

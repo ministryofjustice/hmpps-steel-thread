@@ -1,5 +1,5 @@
-{% set alias = case.serviceUserPersonalDetails.aliases[0] %}
-{% set name = case.serviceUserPersonalDetails.name + " (" + alias + ")" if alias else case.serviceUserPersonalDetails.name %}
+{% set knownAs = case.serviceUserPersonalDetails.preferredNameKnownAs %}
+{% set name = case.serviceUserPersonalDetails.name + " (" + knownAs + ")" if knownAs else case.serviceUserPersonalDetails.name %}
 {% set failureToComplyCount = allFailureToComplyAppointments(CRN, data) | length %}
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-4">

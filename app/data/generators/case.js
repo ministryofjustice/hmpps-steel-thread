@@ -16,6 +16,7 @@ module.exports = generateCase => {
   const serviceUser = person(faker)
   const serviceUserCurrentOrder = currentOrder(faker)
   const serviceUserRisk = risk(faker, generatorHelpers)
+  const addressTypes = ['Supported housing', 'Householder', 'Rental accommodation', 'Friends/Family (settled)', 'Homeless - Rough sleeping']
 
   const _case = {
     serviceUserPersonalDetails: {
@@ -23,6 +24,12 @@ module.exports = generateCase => {
       'firstName': serviceUser.firstName,
       'dateOfBirth': generatorHelpers.toISODate(faker.date.between('1950-01-01', '2002-12-31')),
       'address': address(faker),
+      'mainAddress': {
+        'address': address(faker),
+        'startDate': generatorHelpers.toISODate(faker.date.between('2001-01-01', '2020-12-31')),
+        'type': faker.random.arrayElement(addressTypes),
+        'typeVerified': faker.random.boolean()
+      },
       'phone': '07700 900 077',
       'email': serviceUser.email,
       'aliases': [],
@@ -30,9 +37,9 @@ module.exports = generateCase => {
       'nationality': 'British',
       'ethnicity': 'White: British',
       'religion': 'None',
-      'gender': serviceUser.gender,
+      'sex': serviceUser.sex,
       'sexualOrientation': 'Heterosexual',
-      'disabilitiesAndAdjustments': ['Autism spectrum condition'],
+      'disabilitiesAndAdjustments': [],
       'circumstances': {
         'employment': 'Full-time employed (30 or more hours per week)',
         'housingStatus': 'Friends/Family (settled)',
