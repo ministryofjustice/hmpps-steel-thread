@@ -117,6 +117,11 @@ $govuk-assets-path: '/govuk/assets/';
   padding-bottom: govuk-spacing(3);
 }
 
+.app-phase-tag {
+  position: relative;
+  top: 3px;
+}
+
 .app-compliance-panel {
   padding: govuk-spacing(3);
   color: govuk-colour("white");

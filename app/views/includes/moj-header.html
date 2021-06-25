@@ -9,18 +9,23 @@
         <image src="/assets/images/moj-logotype-crest.png" xlink:href=""
           class="moj-header__logotype-crest-fallback-image" width="40" height="40"></image>
       </svg>
-      <a class="moj-header__link moj-header__link--organisation-name" href="/index">HMPPS</a>
-      <a class="moj-header__link moj-header__link--service-name" href="/user-testing">Manage supervisions</a> <span
-        class="app-phase-tag"><strong class="moj-tag--bright-purple govuk-tag">Alpha</strong></span>
+      <a class="moj-header__link moj-header__link--organisation-name" href="/cases">HMPPS</a>
+      <a class="moj-header__link moj-header__link--service-name" href="/cases">Manage supervisions</a>
+      <span class="app-phase-tag">
+        {{ govukTag({
+          text: 'Alpha',
+          classes: 'govuk-!-margin-left-1'
+        }) }}
+      </span>
     </div>
     <div class="moj-header__content">
       <nav class="moj-header__navigation" aria-label="Account navigation">
         <ul class="moj-header__navigation-list">
           <li class="moj-header__navigation-item">
-            <a class="moj-header__navigation-link" href="#" aria-current="page">{{ userName(data) }}</a>
+            {{ userName(data) }}
           </li>
           <li class="moj-header__navigation-item">
-            <a class="moj-header__navigation-link" href="/user-testing">Sign out</a>
+            <a class="moj-header__navigation-link" href="/">Sign out</a>
           </li>
         </ul>
       </nav>
