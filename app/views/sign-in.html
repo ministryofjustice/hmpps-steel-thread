@@ -11,17 +11,10 @@
     <form action="/cases" method="post" class="form">
       {{ govukInput({
         label: {
-          text: "First name",
+          text: "Name",
           classes: "govuk-label--s"
         }
-      } | decorateFormAttributes(['user', 'first-name'])) }}
-
-      {{ govukInput({
-        label: {
-          text: "Last name",
-          classes: "govuk-label--s"
-        }
-      } | decorateFormAttributes(['user', 'last-name'])) }}
+      } | decorateFormAttributes(['user', 'name'])) }}
 
       {{ govukInput({
         label: {
