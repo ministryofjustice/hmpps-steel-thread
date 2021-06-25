@@ -30,7 +30,6 @@ module.exports = router => {
     res.redirect(`/confirm-attendance/${req.params.CRN}/${sessionId}`)
   })
 
-
   router.get('/confirm-attendance/:CRN/:sessionId/:view', function (req, res) {
     res.render(`confirm-attendance/${req.params.view}`, { paths: confirmAttendanceWizardPaths(req) })
   })
