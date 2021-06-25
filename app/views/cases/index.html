@@ -1,47 +1,11 @@
 {% extends "layout.html" %}
-{% set myCases = true %}
-
-{% block pageTitle %}
-My cases
-{% endblock %}
-
-{% block beforeContent %}
-
-{% endblock %}
+{% set title = 'Your cases' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
+  <h1 class="govuk-heading-xl">
+    {{ title }}
+  </h1>
 
-<header class="govuk-grid-row govuk-!-margin-bottom-7">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
-      <time class="" datetime="2020-06-12">
-        My cases
-      </time>
-    </h1>
-  </div>
-  <div class="govuk-grid-column-one-third">
-  </div>
-</header>
-
-<div class="govuk-tabs" data-module="govuk-tabs">
-  <div class="app-case-updates">
-  </div>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#">
-        Caseload
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="recently-allocated">
-        Recently allocated ({{ allVisibleCases(data).length }})
-      </a>
-    </li>
-  </ul>
-</div>
-
-{% block courtList %}
-{% include "cases/_case-list-data.html" %}
-{% endblock %}
-
+  {% include "cases/_case-list-data.html" %}
 {% endblock %}
