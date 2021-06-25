@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
+{% set signedOut = true %}
 {% set title = "Sign in" %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 <h1 class="govuk-heading-xl">Sign in</h1>

@@ -18,6 +18,8 @@
         }) }}
       </span>
     </div>
+
+    {% if not signedOut %}
     <div class="moj-header__content">
       <nav class="moj-header__navigation" aria-label="Account navigation">
         <ul class="moj-header__navigation-list">
@@ -30,9 +32,11 @@
         </ul>
       </nav>
     </div>
+    {% endif %}
   </div>
 </header>
 
+{% if not signedOut %}
 <div class="moj-primary-navigation">
   <div class="moj-primary-navigation__container">
     <div class="app-organisation-nav-title">
@@ -49,3 +53,4 @@
     </div>
   </div>
 </div>
+{% endif %}
