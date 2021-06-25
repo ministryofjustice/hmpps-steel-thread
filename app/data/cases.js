@@ -10,7 +10,12 @@ module.exports = [
       'preferredNameKnownAs': 'Dee',
       'previousName': 'Dylan Adam Jones',
       'dateOfBirth': '1984-09-27',
-      'address': [],
+      'address': [
+        '1 Grey Lane',
+        'Sheffield',
+        'South Yorkshire',
+        'S10 1AG'
+      ],
       'mainAddress': {
         'address': [
           '1 Grey Lane',
@@ -572,7 +577,11 @@ module.exports = [
       'firstName': 'Brian',
       'preferredNameKnownAs': 'Baz',
       'dateOfBirth': '1958-01-19',
-      'address': [],
+      'address': [
+        '11 Southern Way',
+        'Bradford',
+        'BR7 6DZ'
+      ],
       'mainAddress': {
         'address': [
           '11 Southern Way',
@@ -916,7 +925,7 @@ module.exports = [
       'name': 'Spencer Gil',
       'firstName': 'Spencer',
       'dateOfBirth': '1998-01-04',
-      'address': [],
+      'address': ['No fixed abode', 'Homeless – Rough Sleeping'],
       'mainAddress': {
         'address': [],
         'noFixedAbode': true,
