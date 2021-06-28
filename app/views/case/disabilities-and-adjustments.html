@@ -43,7 +43,7 @@
             },
             {
               key: { text: "Notes" },
-              value: { text: adjustment.notes }
+              value: { text: adjustment.notes if adjustment.notes else 'No notes' }
             } if adjustment.notes
           ]
         }) }}
@@ -67,10 +67,10 @@
         {
           key: { text: "Start date" },
           value: { text: disability.startDate | dateWithYear }
-        } if case.serviceUserPersonalDetails.previousName,
+        },
         {
           key: { text: "Notes" },
-          value: { text: disability.notes }
+          value: { text: disability.notes if disability.notes else 'No notes' }
         },
         {
           key: { text: "Adjustments" },
