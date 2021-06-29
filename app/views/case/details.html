@@ -147,8 +147,22 @@
         </li>
       {% endfor %}
       </ul>
-
       <p><a href="/cases/{{ CRN }}/disabilities-and-adjustments">View details and adjustments</a></p>
+    {% else %}
+      None
+    {% endif %}
+  {% endset %}
+
+  {% set circumstances %}
+    {% if case.serviceUserPersonalDetails.circumstances.length > 0 %}
+      <ul class="govuk-list">
+      {% for circumstance in case.serviceUserPersonalDetails.circumstances %}
+        <li>
+          {{ circumstance.type }}: {{ circumstance.subType }}
+        </li>
+      {% endfor %}
+      </ul>
+      <p><a href="/cases/{{ CRN }}/circumstances">View details and previous circumstances</a></p>
     {% else %}
       None
     {% endif %}
@@ -199,6 +213,10 @@
         value: { text: case.serviceUserPersonalDetails.preferredLanguage + ' (interpreter needed)' if case.serviceUserPersonalDetails.interpreterNeeded else case.serviceUserPersonalDetails.preferredLanguage }
       },
       {
+        key: { text: "Current circumstances" },
+        value: { html: circumstances }
+      },
+      {
         key: { text: "Disabilities" },
         value: { html: disabilitiesAndAdjustments }
       },
@@ -226,32 +244,6 @@
   titleText: "Personal details",
   classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
   html: personalDetails,
-  actions: {}
-}) }}
-
-{% set circumstances %}
-  {{ govukSummaryList({
-    rows: [
-      {
-        key: { text: "Employment status" },
-        value: { text: case.serviceUserPersonalDetails.circumstances.employment }
-      },
-      {
-        key: { text: "Housing status" },
-        value: { text: case.serviceUserPersonalDetails.circumstances.housingStatus }
-      },
-      {
-        key: { text: "Safeguarding issues" },
-        value: { text: case.serviceUserPersonalDetails.circumstances.safeguardingIssues.join(', ') or 'None' }
-      }
-    ]
-  }) }}
-{% endset %}
-
-{{ appSummaryCard({
-  titleText: "Circumstances",
-  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
-  html: circumstances,
   actions: {}
 }) }}
 

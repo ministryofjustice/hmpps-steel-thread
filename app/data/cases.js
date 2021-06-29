@@ -66,11 +66,21 @@ module.exports = [
           ]
         }
       ],
-      'circumstances': {
-        'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Friends/Family (settled)',
-        'safeguardingIssues': []
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Full-time employed (30 or more hours per week)',
+          'startDate': '2021-01-01',
+          'verified': true,
+          'notes': 'Sometimes works night shifts'
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Friends/Family (settled)',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     'personalContacts': [
       {
@@ -602,11 +612,26 @@ module.exports = [
       'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
-      'circumstances': {
-        'employment': 'Retired (receiving a pension)',
-        'housingStatus': 'Householder (Owner - freehold or leasehold)',
-        'safeguardingIssues': ['Referral to Safeguarding Team-Response Received']
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Retired (receiving a pension)',
+          'startDate': '2021-01-01',
+          'verified': true
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Householder (Owner - freehold or leasehold)',
+          'startDate': '2021-01-01',
+          'verified': false
+        },
+        {
+          'type': 'Safeguarding – "Adult at risk"',
+          'subType': 'Referral to Safeguarding: Response Received',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     'personalContacts': [
       {
@@ -956,11 +981,21 @@ module.exports = [
           ]
         }
       ],
-      'circumstances': {
-        'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Friends/Family (settled)',
-        'safeguardingIssues': []
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Full-time employed (30 or more hours per week)',
+          'startDate': '2021-01-01',
+          'verified': true,
+          'notes': 'Sometimes works night shifts'
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Friends/Family (settled)',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     'personalContacts': [
       {
@@ -1162,11 +1197,21 @@ module.exports = [
       'sex': 'Male',
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
-      'circumstances': {
-        'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Friends/Family (settled)',
-        'safeguardingIssues': []
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Full-time employed (30 or more hours per week)',
+          'startDate': '2021-01-01',
+          'verified': true,
+          'notes': 'Sometimes works night shifts'
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Friends/Family (settled)',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     'personalContacts': [
       {
@@ -1587,11 +1632,21 @@ module.exports = [
       'sex': 'Male',
       'sexualOrientation': 'Bisexual',
       'disabilitiesAndAdjustments': [],
-      'circumstances': {
-        'employment': 'Part-time employed (under 16 hours per week)',
-        'housingStatus': 'Rental accommodation - private rental',
-        'safeguardingIssues': []
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Part-time employed (under 16 hours per week)',
+          'startDate': '2021-01-01',
+          'verified': true,
+          'notes': 'Sometimes works night shifts'
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Rental accommodation - private rental',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     'personalContacts': [
       {

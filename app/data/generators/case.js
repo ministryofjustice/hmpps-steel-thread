@@ -40,11 +40,21 @@ module.exports = generateCase => {
       'sex': serviceUser.sex,
       'sexualOrientation': 'Heterosexual',
       'disabilitiesAndAdjustments': [],
-      'circumstances': {
-        'employment': 'Full-time employed (30 or more hours per week)',
-        'housingStatus': 'Friends/Family (settled)',
-        'safeguardingIssues': []
-      }
+      'circumstances': [
+        {
+          'type': 'Employment',
+          'subType': 'Part-time employed (under 16 hours per week)',
+          'startDate': '2021-01-01',
+          'verified': true,
+          'notes': 'Sometimes works night shifts'
+        },
+        {
+          'type': 'Accommodation',
+          'subType': 'Rental accommodation - private rental',
+          'startDate': '2021-01-01',
+          'verified': true
+        }
+      ]
     },
     personalContacts: [
       personalContact(faker)
