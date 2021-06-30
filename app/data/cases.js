@@ -86,6 +86,7 @@ module.exports = [
       {
         'name': 'Pippa Wade',
         'relationship': 'Mum',
+        'relationshipType': 'Family member',
         'address': [
           '1 Grey Lane',
           'Sheffield',
@@ -637,6 +638,7 @@ module.exports = [
       {
         'name': 'Mary Bell',
         'relationship': 'Wife (separated)',
+        'relationshipType': 'Family member',
         'phone': '01274 773 355',
         'address': [
           '21 Valley Parade',
@@ -647,6 +649,7 @@ module.exports = [
       {
         'name': 'Lewis Wilson',
         'relationship': 'Son (30 years old)',
+        'relationshipType': 'Child',
         'phone': '01632 960130',
         'address': [
           '57 Whatlington Road',
@@ -1001,6 +1004,7 @@ module.exports = [
       {
         'name': 'Gerry Gil',
         'relationship': 'Dad',
+        'relationshipType': 'Family member',
         'address': [
           '27 Camber Road',
           'Leeds',
@@ -1217,6 +1221,7 @@ module.exports = [
       {
         'name': 'Shelly Davis',
         'relationship': 'Partner',
+        'relationshipType': 'Family member',
         'address': [
           '100 Drive Street',
           'Flat 10',
@@ -1227,6 +1232,7 @@ module.exports = [
       {
         'name': 'Bill and Sally Hart',
         'relationship': 'Parents',
+        'relationshipType': 'Family member',
         'address': [
           '94 Kendell Street',
           'Sheffield',
@@ -1652,6 +1658,7 @@ module.exports = [
       {
         'name': 'Shelly Davis',
         'relationship': 'Partner',
+        'relationshipType': 'Family member',
         'address': [
           '100 Drive Street',
           'Flat 10',
@@ -1662,6 +1669,7 @@ module.exports = [
       {
         'name': 'John Edwards',
         'relationship': 'Brother',
+        'relationshipType': 'Family member',
         'address': [
           '64 Pharetra Ave',
           'Blaydon',

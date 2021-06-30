@@ -8,6 +8,7 @@ module.exports = (faker) => {
   return {
     'name': personalContact.fullName,
     'relationship': faker.random.arrayElement(possibleRelationships),
+    'relationshipType': 'Family member',
     'address': address(faker),
     'phone': '07700 900 141'
   }
