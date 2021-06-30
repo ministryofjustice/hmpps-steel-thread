@@ -69,13 +69,17 @@
           value: { text: disability.startDate | dateWithYear }
         },
         {
+          key: { text: "End date" },
+          value: { text: disability.endDate | dateWithYear }
+        } if disability.endDate,
+        {
           key: { text: "Notes" },
           value: { text: disability.notes if disability.notes else 'No notes' }
         },
         {
           key: { text: "Adjustments" },
-          value: { html: adjustments }
-        } if disability.adjustments.length > 0
+          value: { html: adjustments if (disability.adjustments.length > 0) else 'None' }
+        }
       ]
     }) }}
 
