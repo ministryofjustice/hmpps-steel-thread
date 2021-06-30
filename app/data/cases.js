@@ -94,6 +94,21 @@ module.exports = [
           'S10 1AG'
         ],
         'phone': '07700 900 141'
+      },
+      {
+        'name': 'Jonathan Wade',
+        'relationship': 'Dad',
+        'relationshipType': 'Emergency contact',
+        'address': [
+          '1 Grey Lane',
+          'Sheffield',
+          'South Yorkshire',
+          'S10 1AG'
+        ],
+        'phone': '07123456789',
+        'email': 'j.wade@example.com',
+        'startDate': '2021-01-01',
+        'notes': 'Dad is the best person to contact in an emergency'
       }
     ],
     'professionalContacts': [
