@@ -143,11 +143,20 @@
       <ul class="govuk-list">
       {% for disability in case.serviceUserPersonalDetails.disabilitiesAndAdjustments %}
         <li>
-          {{ disability.disability }}
+          {{ disability.disability }}:
+          {% if disability.adjustments.length > 0 %}
+            {% set commaJoiner = joiner(', ') %}
+            {% for adjustment in disability.adjustments %}
+              {{ commaJoiner() }}
+              {{ adjustment.adjustment }}
+            {% endfor %}
+          {% else %}
+            No adjustments
+          {% endif %}
         </li>
       {% endfor %}
       </ul>
-      <p><a href="/cases/{{ CRN }}/disabilities-and-adjustments">View details and adjustments</a></p>
+      <p><a href="/cases/{{ CRN }}/disabilities-and-adjustments">View details and notes</a></p>
     {% else %}
       None
     {% endif %}
@@ -217,7 +226,7 @@
         value: { html: circumstances }
       },
       {
-        key: { text: "Disabilities" },
+        key: { text: "Disabilities and adjustments" },
         value: { html: disabilitiesAndAdjustments }
       },
       {

@@ -42,9 +42,13 @@
               value: { text: adjustment.startDate | dateWithYear }
             },
             {
+              key: { text: "End date" },
+              value: { text: adjustment.endDate | dateWithYear }
+            } if adjustment.endDate,
+            {
               key: { text: "Notes" },
               value: { text: adjustment.notes if adjustment.notes else 'No notes' }
-            } if adjustment.notes
+            }
           ]
         }) }}
       {% endset %}
@@ -69,13 +73,17 @@
           value: { text: disability.startDate | dateWithYear }
         },
         {
+          key: { text: "End date" },
+          value: { text: disability.endDate | dateWithYear }
+        } if disability.endDate,
+        {
           key: { text: "Notes" },
           value: { text: disability.notes if disability.notes else 'No notes' }
         },
         {
           key: { text: "Adjustments" },
-          value: { html: adjustments }
-        } if disability.adjustments.length > 0
+          value: { html: adjustments if (disability.adjustments.length > 0) else 'None' }
+        }
       ]
     }) }}
 

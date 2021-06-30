@@ -972,13 +972,7 @@ module.exports = [
           'disability': 'Mental Illness',
           'notes': 'Acute ADHD',
           'startDate': '1970-01-01',
-          'adjustments': [
-            {
-              'adjustment': 'Flex refreshment breaks',
-              'startDate': '2021-01-01',
-              'notes': 'Be flexibe in taking breaks during sessions'
-            }
-          ]
+          'adjustments': []
         }
       ],
       'circumstances': [
