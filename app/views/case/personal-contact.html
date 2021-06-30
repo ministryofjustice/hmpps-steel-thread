@@ -28,105 +28,50 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">Personal contact</span>
+      <span class="govuk-caption-xl">{{ personalContact.relationshipType }}</span>
       {{ title }}
     </h1>
 
     {{ govukSummaryList({
       rows: [
         {
+          key: { text: "Name" },
+          value: { text: personalContact.name }
+        },
+        {
           key: { text: "Relationship type" },
-          value: { text: personalContact.relationshipType },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "relationship on National Delius"
-              }
-            ]
-          }
+          value: { text: personalContact.relationshipType }
         },
         {
           key: { text: "Relationship" },
-          value: { text: personalContact.relationship },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "relationship on National Delius"
-              }
-            ]
-          }
+          value: { text: personalContact.relationship }
         },
         {
           key: { text: "Address" },
-          value: { html: personalContact.address.join('<br>') },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "address on National Delius"
-              }
-            ]
-          }
+          value: { html: personalContact.address.join('<br>') }
         } if personalContact.address.length > 0,
         {
           key: { text: "Phone number" },
-          value: { html: personalContact.phone },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "phone number on National Delius"
-              }
-            ]
-          }
+          value: { html: personalContact.phone }
         } if personalContact.phone,
         {
           key: { text: "Email" },
-          value: { html: personalContact.email },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "phone number on National Delius"
-              }
-            ]
-          }
+          value: { html: personalContact.email }
         } if personalContact.email,
         {
           key: { text: "Start date" },
-          value: { html: personalContact.startDate | dateWithYear },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "phone number on National Delius"
-              }
-            ]
-          }
+          value: { html: personalContact.startDate | dateWithYear }
         } if personalContact.startDate,
         {
           key: { text: "Notes" },
-          value: { html: personalContact.notes if personalContact.notes else 'No notes' },
-          actions: {
-            items: [
-              {
-                href: "/to-delius",
-                text: "Change",
-                visuallyHiddenText: "phone number on National Delius"
-              }
-            ]
-          }
+          value: { html: personalContact.notes if personalContact.notes else 'No notes' }
         }
       ]
     }) }}
+
+    <p>
+      <a href="/to-delius">Change contact details</a>
+    </p>
   </div>
 </div>
 {% endblock %}
