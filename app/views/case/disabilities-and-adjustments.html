@@ -42,6 +42,10 @@
               value: { text: adjustment.startDate | dateWithYear }
             },
             {
+              key: { text: "End date" },
+              value: { text: adjustment.endDate | dateWithYear }
+            } if adjustment.endDate,
+            {
               key: { text: "Notes" },
               value: { text: adjustment.notes if adjustment.notes else 'No notes' }
             } if adjustment.notes
