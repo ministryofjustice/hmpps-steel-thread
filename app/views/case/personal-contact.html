@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% set title = personalContact.name + ' – ' + personalContact.relationship %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Personal details",
+      href: "/cases/" + CRN + "/details"
+    },
+    {
+      text: "Personal contact: " + title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">Personal contact</span>
+      {{ title }}
+    </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Relationship type" },
+          value: { text: personalContact.relationshipType },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "relationship on National Delius"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Relationship" },
+          value: { text: personalContact.relationship },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "relationship on National Delius"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Address" },
+          value: { html: personalContact.address.join('<br>') },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "address on National Delius"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Phone number" },
+          value: { html: personalContact.phone },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "phone number on National Delius"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Email" },
+          value: { html: personalContact.email },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "phone number on National Delius"
+              }
+            ]
+          }
+        } if personalContact.email,
+        {
+          key: { text: "Start date" },
+          value: { html: personalContact.startDate | dateWithYear },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "phone number on National Delius"
+              }
+            ]
+          }
+        } if personalContact.startDate,
+        {
+          key: { text: "Notes" },
+          value: { html: personalContact.notes if personalContact.notes else 'No notes' },
+          actions: {
+            items: [
+              {
+                href: "/to-delius",
+                text: "Change",
+                visuallyHiddenText: "phone number on National Delius"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+{% endblock %}

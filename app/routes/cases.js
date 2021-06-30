@@ -94,6 +94,15 @@ module.exports = router => {
     res.render('case/flag')
   })
 
+  router.all('/cases/:CRN/personal-contact/:contactSlug', function (req, res) {
+    const personalContacts = res.locals.case.personalContacts
+    const personalContact = personalContacts.find(contact => {
+      return slugify(contact.name, { lower: true }) === req.params.contactSlug
+    })
+    res.locals.personalContact = personalContact
+    res.render('case/personal-contact')
+  })
+
   router.all('/cases/:CRN/:view', function (req, res) {
     res.render(`case/${req.params.view}`)
   })
