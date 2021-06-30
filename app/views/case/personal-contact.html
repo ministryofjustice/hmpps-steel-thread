@@ -72,7 +72,7 @@
               }
             ]
           }
-        },
+        } if personalContact.address.length > 0,
         {
           key: { text: "Phone number" },
           value: { html: personalContact.phone },
@@ -85,7 +85,7 @@
               }
             ]
           }
-        },
+        } if personalContact.phone,
         {
           key: { text: "Email" },
           value: { html: personalContact.email },
