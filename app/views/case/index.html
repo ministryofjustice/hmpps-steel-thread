@@ -104,7 +104,6 @@
         <tr class="govuk-table__row">
           <th class="govuk-table__header">Risk to</th>
           <th class="govuk-table__header">In community</th>
-          <th class="govuk-table__header">In custody</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -113,9 +112,6 @@
           <td class="govuk-table__cell">{{ risks.riskTo }}</td>
           <td class="govuk-table__cell">
             <span class="govuk-tag govuk-tag--{{ risks.inCommunity.class }}">{{ risks.inCommunity.text }}</span>
-          </td>
-          <td class="govuk-table__cell">
-            <span class="govuk-tag govuk-tag--{{ risks.inCustody.class }}">{{ risks.inCustody.text }}</span>
           </td>
         </tr>
         {% endfor %}

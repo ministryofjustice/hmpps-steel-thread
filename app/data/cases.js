@@ -226,19 +226,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -248,10 +240,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -259,10 +247,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -270,19 +254,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -798,10 +774,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -809,10 +781,6 @@ module.exports = [
         'inCommunity': {
           text: 'High',
           class: 'red'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -820,10 +788,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -831,10 +795,6 @@ module.exports = [
         'inCommunity': {
           text: 'High',
           class: 'red'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -842,10 +802,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -853,10 +809,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       }
     ],
@@ -1096,19 +1048,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -1118,19 +1062,11 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -1140,19 +1076,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -1344,10 +1272,6 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1355,10 +1279,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1366,10 +1286,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1377,10 +1293,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1388,19 +1300,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -1781,19 +1685,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
@@ -1803,10 +1699,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1814,10 +1706,6 @@ module.exports = [
         'inCommunity': {
           text: 'Medium',
           class: 'orange'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
@@ -1825,19 +1713,11 @@ module.exports = [
         'inCommunity': {
           text: 'Low',
           class: 'green'
-        },
-        'inCustody': {
-          text: 'Low',
-          class: 'green'
         }
       },
       {
         'riskTo': 'Prisoners',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        },
-        'inCustody': {
           text: 'Low',
           class: 'green'
         }
