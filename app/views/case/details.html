@@ -61,25 +61,28 @@
       }) }}
     {% endset %}
 
-    {% set personalContacts %}
-      {% if case.personalContacts.length > 0 %}
-        <ul class="govuk-list">
-          {% for contact in case.personalContacts %}
-            <li>
-              <a href="#">{{ contact.name }} – {{ contact.relationship }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        None
-      {% endif %}
-    {% endset %}
-
     {{ govukDetails({
       summaryText: "View address details",
       classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-0',
       html: addressDetails
     }) }}
+  {% endset %}
+
+  {% set personalContacts %}
+    {% if case.personalContacts.length > 0 %}
+      <ul class="govuk-list">
+        {% for contact in case.personalContacts %}
+          <li>
+            <p>
+              {{ contact.relationshipType }}:<br />
+              <a href="/cases/{{ CRN }}/personal-contact/{{ contact.name | toSlug }}">{{ contact.name }} – {{ contact.relationship }}</a>
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      None
+    {% endif %}
   {% endset %}
 
   {{ govukSummaryList({
