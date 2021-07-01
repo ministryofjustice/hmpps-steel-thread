@@ -97,7 +97,7 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    {% for flag in case.riskBadges %}
+    {% for flag in case.riskFlags %}
       {% if not flag.rosh %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>

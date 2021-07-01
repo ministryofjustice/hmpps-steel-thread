@@ -242,7 +242,7 @@ module.exports = [
     ],
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
-    'riskBadges': [
+    'riskFlags': [
       {
         text: 'Very high risk of harm',
         class: 'app-tag--dark-red',
@@ -768,7 +768,7 @@ module.exports = [
     ],
     'breachesCount': 1,
     'restrainingOrdersCount': 0,
-    'riskBadges': [
+    'riskFlags': [
       {
         text: 'High risk of harm',
         class: 'govuk-tag--red',
@@ -1062,7 +1062,7 @@ module.exports = [
     'previousOrders': [],
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
-    'riskBadges': [
+    'riskFlags': [
       {
         text: 'Medium risk of harm',
         class: 'govuk-tag--yellow',
@@ -1271,7 +1271,7 @@ module.exports = [
     ],
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
-    'riskBadges': [
+    'riskFlags': [
       {
         text: 'Medium risk of harm',
         class: 'govuk-tag--yellow',
@@ -1676,7 +1676,7 @@ module.exports = [
     ],
     'breachesCount': 0,
     'restrainingOrdersCount': 1,
-    'riskBadges': [
+    'riskFlags': [
       {
         text: 'Medium risk of harm',
         class: 'govuk-tag--yellow',
