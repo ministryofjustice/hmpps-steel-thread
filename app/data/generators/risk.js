@@ -12,33 +12,27 @@ module.exports = (faker, generatorHelpers) => {
   const riskOfHarm = [
     {
       'riskTo': 'Themselves',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     },
     {
       'riskTo': 'Children',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     },
     {
       'riskTo': 'Public',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     },
     {
       'riskTo': 'Known adult',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     },
     {
       'riskTo': 'Staff',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     },
     {
       'riskTo': 'Prisoners',
-      'inCommunity': faker.random.arrayElement([high, medium, low]),
-      'inCustody': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([high, medium, low])
     }
   ]
 
