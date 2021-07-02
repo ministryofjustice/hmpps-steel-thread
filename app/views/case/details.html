@@ -95,7 +95,7 @@
     {% if hasOtherAddresses or hasPreviousAddresses %}
       {% set otherAddressString = '1 other address' if otherAddressCount == 1 else otherAddressCount + ' other addresses' %}
       {% set previousAddressString = '1 previous address' if previousAddressCount == 1 else previousAddressCount + ' previous addresses' %}
-      
+
       {% if hasOtherAddresses and hasPreviousAddresses %}
       <ul class="govuk-list">
         <li>{{ otherAddressString }}</li>
@@ -113,6 +113,11 @@
     {% else %}
       No other addresses
     {% endif %}
+  {% endset %}
+
+  {% set mainAddressWarningHtml %}
+    No main address<br />
+    <a href="#">Add a main address in Delius</a>
   {% endset %}
 
   {{ govukSummaryList({

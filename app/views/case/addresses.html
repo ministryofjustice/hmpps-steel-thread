@@ -27,6 +27,11 @@
 {% block content %}
 <h1 class="govuk-heading-xl">{{ title }}</h1>
 
+<!-- {{ govukWarningText({
+  html: 'There is no main address<br><a href="#">Add a main address in Delius</a>',
+  iconFallbackText: 'Warning'
+}) }} -->
+
 {% set address = case.serviceUserPersonalDetails.addresses.main %}
 {% include 'case/_address.html' %}
 
