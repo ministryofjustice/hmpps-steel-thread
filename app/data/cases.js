@@ -244,13 +244,13 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskBadges': [
       {
-        text: 'Medium risk of harm',
-        class: 'orange',
+        text: 'Very high risk of harm',
+        class: 'app-tag--dark-red',
         rosh: true
       },
       {
         text: 'IOM',
-        class: 'grey',
+        class: 'govuk-tag--grey',
         notes: 'Cross-agency',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
@@ -258,43 +258,43 @@ module.exports = [
       }
     ],
     'riskOfSeriousHarmLevel': {
-      text: 'Medium',
-      class: 'orange'
+      text: 'Very high',
+      class: 'app-tag--dark-red'
     },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
+          text: 'Very high',
+          class: 'app-tag--dark-red'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
-          text: 'Low',
-          class: 'green'
+          text: 'High',
+          class: 'govuk-tag--red'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       }
     ],
@@ -771,12 +771,12 @@ module.exports = [
     'riskBadges': [
       {
         text: 'High risk of harm',
-        class: 'red',
+        class: 'govuk-tag--red',
         rosh: true
       },
       {
         text: 'Registered sex offender',
-        class: 'purple',
+        class: 'govuk-tag--purple',
         notes: 'Possession of indecent images',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
@@ -784,14 +784,14 @@ module.exports = [
       },
       {
         text: 'MAPPA',
-        class: 'purple',
+        class: 'govuk-tag--purple',
         notes: 'Level 2, Category 3',
         reviewDue: helpers.happenedOn({ daysAgo: '1' }),
         dateAdded: helpers.happenedOn({ daysAgo: '91' })
       },
       {
         text: 'Restraining order',
-        class: 'turquoise',
+        class: 'govuk-tag--turquoise',
         notes: 'Against ex-partner',
         reviewDue: helpers.happeningIn({ daysLater: 60, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
@@ -800,42 +800,42 @@ module.exports = [
     ],
     'riskOfSeriousHarmLevel': {
       text: 'High',
-      class: 'red'
+      class: 'govuk-tag--red'
     },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'High',
-          class: 'red'
+          class: 'govuk-tag--red'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
           text: 'High',
-          class: 'red'
+          class: 'govuk-tag--red'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       }
     ],
@@ -1065,48 +1065,48 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange',
+        class: 'govuk-tag--yellow',
         rosh: true
       }
     ],
     'riskOfSeriousHarmLevel': {
       text: 'Medium',
-      class: 'orange'
+      class: 'govuk-tag--yellow'
     },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       }
     ],
@@ -1274,12 +1274,12 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange',
+        class: 'govuk-tag--yellow',
         rosh: true
       },
       {
         text: 'Domestic abuse',
-        class: 'turquoise',
+        class: 'govuk-tag--turquoise',
         notes: 'Partner is the victim',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
@@ -1288,42 +1288,42 @@ module.exports = [
     ],
     'riskOfSeriousHarmLevel': {
       text: 'Medium',
-      class: 'orange'
+      class: 'govuk-tag--yellow'
     },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       }
     ],
@@ -1679,12 +1679,12 @@ module.exports = [
     'riskBadges': [
       {
         text: 'Medium risk of harm',
-        class: 'orange',
+        class: 'govuk-tag--yellow',
         rosh: true
       },
       {
         text: 'Restraining Order',
-        class: 'turquoise',
+        class: 'govuk-tag--turquoise',
         notes: 'His ex-partner of 5 years has a restraining order against him due to repeated instances of domestic violence. She has changed address and works at a different location from when they lived together.',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
@@ -1693,42 +1693,42 @@ module.exports = [
     ],
     'riskOfSeriousHarmLevel': {
       text: 'Medium',
-      class: 'orange'
+      class: 'govuk-tag--yellow'
     },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       },
       {
         'riskTo': 'Public',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Known adult',
         'inCommunity': {
           text: 'Medium',
-          class: 'orange'
+          class: 'govuk-tag--yellow'
         }
       },
       {
         'riskTo': 'Staff',
         'inCommunity': {
           text: 'Low',
-          class: 'green'
+          class: 'govuk-tag--green'
         }
       }
     ],

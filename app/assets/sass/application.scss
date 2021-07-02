@@ -152,4 +152,8 @@ $govuk-assets-path: '/govuk/assets/';
   border-bottom-width: 0;
 }
 
+.app-tag--dark-red {
+  background: govuk-colour("red");
+}
+
 // .app-summary-card--compliance-last {}
