@@ -10,24 +10,65 @@ module.exports = [
       'preferredNameKnownAs': 'Dee',
       'previousName': 'Dylan Adam Jones',
       'dateOfBirth': '1984-09-27',
-      'address': [
-        '1 Grey Lane',
-        'Sheffield',
-        'South Yorkshire',
-        'S10 1AG'
-      ],
-      'mainAddress': {
-        'address': [
-          '1 Grey Lane',
-          'Sheffield',
-          'South Yorkshire',
-          'S10 1AG'
+      'addresses': {
+        'main': {
+          'status': 'Main',
+          'address': [
+            '1 Grey Lane',
+            'Sheffield',
+            'South Yorkshire',
+            'S10 1AG'
+          ],
+          'telephoneNumber': '01234 123456',
+          'startDate': '2020-12-03',
+          'type': 'Awaiting assessment',
+          'typeVerified': true,
+          'notes': 'He’s not been here very long'
+        },
+        'other': [
+          {
+            'status': 'Postal',
+            'address': [
+              '1 Manselfield Avenue',
+              'Sheffield',
+              'Yorkshire',
+              'S37 9RT'
+            ],
+            'telephoneNumber': '01934 323456',
+            'startDate': '2019-11-04',
+            'notes': 'Dylan will pick up his post from here'
+          }
         ],
-        'telephoneNumber': '01234 123456',
-        'startDate': '2020-12-03',
-        'type': 'Awaiting assessment',
-        'typeVerified': true,
-        'notes': 'He’s not been here very long'
+        'previous': [
+          {
+            'status': 'Previous',
+            'address': [
+              '12 Bluebird Lane',
+              'Sheffield',
+              'South Yorkshire',
+              'S17 5BN'
+            ],
+            'telephoneNumber': '01934 323456',
+            'startDate': '2019-11-04',
+            'endDate': '2020-12-03',
+            'type': 'Rental accommodation – private rental',
+            'typeVerified': true,
+            'notes': 'He’s not been here very long'
+          },
+          {
+            'status': 'Previous',
+            'address': [
+              '120 Palmbots Court',
+              'Sheffield',
+              'South Yorkshire',
+              'S1 1BN'
+            ],
+            'startDate': '2018-05-14',
+            'endDate': '2019-11-04',
+            'type': 'Rental accommodation – private rental',
+            'typeVerified': true
+          }
+        ]
       },
       'phone': '07700 900 077',
       'email': 'example@example.com',
@@ -579,20 +620,20 @@ module.exports = [
       'firstName': 'Brian',
       'preferredNameKnownAs': 'Baz',
       'dateOfBirth': '1958-01-19',
-      'address': [
-        '11 Southern Way',
-        'Bradford',
-        'BR7 6DZ'
-      ],
-      'mainAddress': {
-        'address': [
-          '11 Southern Way',
-          'Bradford',
-          'BR7 6DZ'
-        ],
-        'startDate': '2010-01-03',
-        'type': 'Rental accommodation – private rental',
-        'typeVerified': true
+      'addresses': {
+        'main': {
+          'status': 'Main',
+          'address': [
+            '11 Southern Way',
+            'Bradford',
+            'BR7 6DZ'
+          ],
+          'startDate': '2010-01-03',
+          'type': 'Rental accommodation – private rental',
+          'typeVerified': true
+        },
+        'other': [],
+        'previous': []
       },
       'phone': '07700 900 721',
       'email': 'example@example.biz',
@@ -920,13 +961,17 @@ module.exports = [
       'name': 'Spencer Gil',
       'firstName': 'Spencer',
       'dateOfBirth': '1998-01-04',
-      'address': ['No fixed abode', 'Homeless – Rough Sleeping'],
-      'mainAddress': {
-        'address': [],
-        'noFixedAbode': true,
-        'startDate': '2020-12-03',
-        'type': 'Homeless – Rough Sleeping',
-        'typeVerified': true
+      'addresses': {
+        'main': {
+          'status': 'Main',
+          'address': [],
+          'noFixedAbode': true,
+          'startDate': '2020-12-03',
+          'type': 'Homeless – Rough Sleeping',
+          'typeVerified': true
+        },
+        'other': [],
+        'previous': []
       },
       'phone': '07700 900 469',
       'email': 'example@example.com',
@@ -1113,20 +1158,20 @@ module.exports = [
       'name': 'Gary Hart',
       'firstName': 'Gary',
       'dateOfBirth': '1999-10-02',
-      'address': [
-        '94 Kendell Street',
-        'Sheffield',
-        'S2 9NL'
-      ],
-      'mainAddress': {
-        'address': [
-          '94 Kendell Street',
-          'Sheffield',
-          'S2 9NL'
-        ],
-        'startDate': '2020-12-03',
-        'type': 'Householder (Owner – freehold or leasehold)',
-        'typeVerified': true
+      'addresses': {
+        'main': {
+          'status': 'Main',
+          'address': [
+            '94 Kendell Street',
+            'Sheffield',
+            'S2 9NL'
+          ],
+          'startDate': '2020-12-03',
+          'type': 'Householder (Owner – freehold or leasehold)',
+          'typeVerified': true
+        },
+        'other': [],
+        'previous': []
       },
       'phone': '07700 900 721',
       'email': 'example@example.com',
@@ -1523,22 +1568,21 @@ module.exports = [
       'name': 'Andrei Edwards',
       'firstName': 'Andrei',
       'dateOfBirth': '1992-02-01',
-      'address': [
-        '22 Smith Street',
-        'Walker',
-        'Newcastle-upon-Tyne',
-        'NE6 4EY'
-      ],
-      'mainAddress': {
-        'address': [
-          '22 Smith Street',
-          'Walker',
-          'Newcastle-upon-Tyne',
-          'NE6 4EY'
-        ],
-        'startDate': '2020-12-03',
-        'type': 'Householder (Owner – freehold or leasehold)',
-        'typeVerified': true
+      'addresses': {
+        'main': {
+          'status': 'Main',
+          'address': [
+            '22 Smith Street',
+            'Walker',
+            'Newcastle-upon-Tyne',
+            'NE6 4EY'
+          ],
+          'startDate': '2020-12-03',
+          'type': 'Householder (Owner – freehold or leasehold)',
+          'typeVerified': true
+        },
+        'other': [],
+        'previous': []
       },
       'phone': '09100 822 429',
       'email': 'felis@ataugue.co.uk',
