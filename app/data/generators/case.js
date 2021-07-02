@@ -4,7 +4,7 @@ const faker = require('faker')
 faker.locale = 'en_GB'
 
 const person = require('./person')
-const address = require('./address')
+const fullAddresses = require('./full-addresses')
 const personalContact = require('./personal-contact')
 const professionalContact = require('./professional-contact')
 const currentOrder = require('./current-order')
@@ -16,19 +16,16 @@ module.exports = generateCase => {
   const serviceUser = person(faker)
   const serviceUserCurrentOrder = currentOrder(faker)
   const serviceUserRisk = risk(faker, generatorHelpers)
-  const addressTypes = ['Supported housing', 'Householder', 'Rental accommodation', 'Friends/Family (settled)', 'Homeless - Rough sleeping']
 
   const _case = {
     serviceUserPersonalDetails: {
       'name': serviceUser.fullName,
       'firstName': serviceUser.firstName,
       'dateOfBirth': generatorHelpers.toISODate(faker.date.between('1950-01-01', '2002-12-31')),
-      'address': address(faker),
-      'mainAddress': {
-        'address': address(faker),
-        'startDate': generatorHelpers.toISODate(faker.date.between('2001-01-01', '2020-12-31')),
-        'type': faker.random.arrayElement(addressTypes),
-        'typeVerified': faker.datatype.boolean()
+      'addresses': {
+        'main': fullAddresses(faker, generatorHelpers, 'Main'),
+        'other': fullAddresses(faker, generatorHelpers),
+        'previous': fullAddresses(faker, generatorHelpers, 'Previous')
       },
       'phone': '07700 900 077',
       'email': serviceUser.email,
@@ -95,6 +92,3 @@ module.exports = generateCase => {
 
   return _case
 }
-
-//   'contactHistory':
-// },

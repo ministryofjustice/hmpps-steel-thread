@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% set title = 'Addresses' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Personal details",
+      href: "/cases/" + CRN + "/details"
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">{{ title }}</h1>
+
+<!-- {{ govukWarningText({
+  html: 'There is no main address<br><a href="#">Add a main address in Delius</a>',
+  iconFallbackText: 'Warning'
+}) }} -->
+
+{% set address = case.serviceUserPersonalDetails.addresses.main %}
+{% include 'case/_address.html' %}
+
+{% if case.serviceUserPersonalDetails.addresses.other.length > 0 %}
+  <h2 class="govuk-heading-l govuk-!-margin-top-8">Other addresses</h2>
+  {% for address in case.serviceUserPersonalDetails.addresses.other %}
+    {% include 'case/_address.html' %}
+  {% endfor %}
+{% endif %}
+
+{% if case.serviceUserPersonalDetails.addresses.previous.length > 0 %}
+  <h2 class="govuk-heading-l govuk-!-margin-top-8">Previous addresses</h2>
+  {% for address in case.serviceUserPersonalDetails.addresses.previous %}
+    {% include 'case/_address.html' %}
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

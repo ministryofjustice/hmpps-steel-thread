@@ -30,33 +30,34 @@
 <h1 class="govuk-heading-l govuk-!-margin-bottom-7">{{title}}</h1>
 
 {% set contactDetails %}
+  {% set mainAddress = case.serviceUserPersonalDetails.addresses.main %}
   {% set address %}
-    {% if case.serviceUserPersonalDetails.mainAddress.noFixedAbode %}
+    {% if mainAddress.noFixedAbode %}
       No fixed abode<br />
-      {{ case.serviceUserPersonalDetails.mainAddress.type }}
+      {{ mainAddress.type }}
     {% endif %}
 
-    {{ case.serviceUserPersonalDetails.mainAddress.address.join('<br>') | safe }}
+    {{ mainAddress.address.join('<br>') | safe }}
 
     {% set addressDetails %}
       {{ govukSummaryList({
         rows: [
           {
             key: { text: "Address telephone" },
-            value: { html: case.serviceUserPersonalDetails.mainAddress.telephoneNumber }
-          } if case.serviceUserPersonalDetails.mainAddress.telephoneNumber,
+            value: { html: mainAddress.telephoneNumber }
+          } if mainAddress.telephoneNumber,
           {
             key: { text: "Type of address" },
-            value: { html: case.serviceUserPersonalDetails.mainAddress.type + (' (verified)' if case.serviceUserPersonalDetails.mainAddress.typeVerified else ' (not verified)') }
+            value: { html: mainAddress.type + (' (verified)' if mainAddress.typeVerified else ' (not verified)') }
           },
           {
             key: { text: "Start date" },
-            value: { html: case.serviceUserPersonalDetails.mainAddress.startDate | dateWithYear }
+            value: { html: mainAddress.startDate | dateWithYear }
           },
           {
             key: { text: "Notes" },
-            value: { html: case.serviceUserPersonalDetails.mainAddress.notes | nl2br }
-          } if case.serviceUserPersonalDetails.mainAddress.notes
+            value: { html: mainAddress.notes | nl2br if mainAddress.notes else 'No notes' }
+          }
         ]
       }) }}
     {% endset %}
@@ -85,6 +86,40 @@
     {% endif %}
   {% endset %}
 
+  {% set otherAddressesHtml %}
+    {% set otherAddressCount = case.serviceUserPersonalDetails.addresses.other.length %}
+    {% set previousAddressCount = case.serviceUserPersonalDetails.addresses.previous.length %}
+    {% set hasOtherAddresses = otherAddressCount > 0 %}
+    {% set hasPreviousAddresses = previousAddressCount > 0 %}
+
+    {% if hasOtherAddresses or hasPreviousAddresses %}
+      {% set otherAddressString = '1 other address' if otherAddressCount == 1 else otherAddressCount + ' other addresses' %}
+      {% set previousAddressString = '1 previous address' if previousAddressCount == 1 else previousAddressCount + ' previous addresses' %}
+
+      {% if hasOtherAddresses and hasPreviousAddresses %}
+      <ul class="govuk-list">
+        <li>{{ otherAddressString }}</li>
+        <li>{{ previousAddressString }}</li>
+      </ul>
+      {% elseif hasOtherAddresses %}
+        {{ otherAddressString }}
+      {% else %}
+        {{ previousAddressString }}
+      {% endif %}
+
+      <p>
+        <a href="/cases/{{ CRN }}/addresses">View all addresses</a>
+      </p>
+    {% else %}
+      No other addresses
+    {% endif %}
+  {% endset %}
+
+  {% set mainAddressWarningHtml %}
+    No main address<br />
+    <a href="#">Add a main address in Delius</a>
+  {% endset %}
+
   {{ govukSummaryList({
     rows: [
       {
@@ -101,13 +136,7 @@
       },
       {
         key: { text: "Other addresses" },
-        value: { html: '
-        <ul class="govuk-list">
-          <li>2 other current addresses</li>
-          <li>10 previous addresses</li>
-        </ul>
-
-        <p><a href="#">View all addresses</a></p>' }
+        value: { html: otherAddressesHtml }
       },
       {
         key: { text: "Personal contacts" },

@@ -1,0 +1,57 @@
+{% set addressTitle %}
+  {% if address.endDate %}
+    {{ address.status }} address – {{ address.startDate | dateWithYearShortMonth }} to {{ address.endDate | dateWithYearShortMonth }}
+  {% else %}
+    {{ address.status }} address – Since {{ address.startDate | dateWithYearShortMonth }}
+  {% endif %}
+{% endset %}
+
+{% set addressHtml %}
+  {% set fullAddress %}
+    {% if address.noFixedAbode %}
+      No fixed abode<br />
+      {{ address.type }}
+    {% endif %}
+
+    {{ address.address.join('<br>') | safe }}
+  {% endset %}
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Status" },
+        value: { html: address.status + ' address' }
+      },
+      {
+        key: { text: "Address" },
+        value: { html: fullAddress }
+      },
+      {
+        key: { text: "Address telephone" },
+        value: { html: address.telephoneNumber }
+      } if address.telephoneNumber,
+      {
+        key: { text: "Type of address" },
+        value: { html: address.type + (' (verified)' if address.typeVerified else ' (not verified)') }
+      } if address.type,
+      {
+        key: { text: "Start date" },
+        value: { html: address.startDate | dateWithYear }
+      },
+      {
+        key: { text: "End date" },
+        value: { html: address.endDate | dateWithYear }
+      } if address.endDate,
+      {
+        key: { text: "Notes" },
+        value: { html: address.notes | nl2br if address.notes else 'No notes' }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: addressTitle,
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: addressHtml
+}) }}
