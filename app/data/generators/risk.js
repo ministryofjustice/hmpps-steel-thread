@@ -29,10 +29,6 @@ module.exports = (faker, generatorHelpers) => {
     {
       'riskTo': 'Staff',
       'inCommunity': faker.random.arrayElement([high, medium, low])
-    },
-    {
-      'riskTo': 'Prisoners',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
     }
   ]
 
