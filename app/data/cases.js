@@ -296,13 +296,6 @@ module.exports = [
           text: 'Low',
           class: 'green'
         }
-      },
-      {
-        'riskTo': 'Prisoners',
-        'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        }
       }
     ],
     'criminogenicNeeds': [
@@ -844,13 +837,6 @@ module.exports = [
           text: 'Medium',
           class: 'orange'
         }
-      },
-      {
-        'riskTo': 'Prisoners',
-        'inCommunity': {
-          text: 'Medium',
-          class: 'orange'
-        }
       }
     ],
     'criminogenicNeeds': [
@@ -1122,13 +1108,6 @@ module.exports = [
           text: 'Low',
           class: 'green'
         }
-      },
-      {
-        'riskTo': 'Prisoners',
-        'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        }
       }
     ],
     'criminogenicNeeds': [
@@ -1342,13 +1321,6 @@ module.exports = [
       },
       {
         'riskTo': 'Staff',
-        'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        }
-      },
-      {
-        'riskTo': 'Prisoners',
         'inCommunity': {
           text: 'Low',
           class: 'green'
@@ -1754,13 +1726,6 @@ module.exports = [
       },
       {
         'riskTo': 'Staff',
-        'inCommunity': {
-          text: 'Low',
-          class: 'green'
-        }
-      },
-      {
-        'riskTo': 'Prisoners',
         'inCommunity': {
           text: 'Low',
           class: 'green'
