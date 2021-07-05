@@ -86,8 +86,8 @@ module.exports = router => {
   })
 
   router.all('/cases/:CRN/flag/:flagSlug', function (req, res) {
-    const riskBadges = res.locals.case.riskBadges
-    const flag = riskBadges.find(flag => {
+    const riskFlags = res.locals.case.riskFlags
+    const flag = riskFlags.find(flag => {
       return slugify(flag.text, { lower: true }) === req.params.flagSlug
     })
     res.locals.flag = flag

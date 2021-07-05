@@ -3,8 +3,8 @@
 {% set flagClass = 'govuk-tag--' + flag.colour if flag.colour else flag.class %}
 
 {% set flagHtml %}
-  {% if flag.rosh %}
-    <a href="#">{{ flag.text }}</a>
+  {% if params.rosh %}
+    <a href="#">{{ flag.text }} risk of harm</a>
   {% else %}
     <a href="/cases/{{ params.CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
   {% endif %}

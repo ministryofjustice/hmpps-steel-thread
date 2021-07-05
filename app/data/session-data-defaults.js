@@ -1,5 +1,7 @@
+const path = require('path')
 const cases = require('./cases')
 const fakeCases = require('./fake-cases')
+const helpers = require(path.join(__dirname, '../../lib/helpers.js'))
 
 const contactHistoryDefaults = (map, su) => {
   if (su.contactHistory) {
@@ -9,6 +11,7 @@ const contactHistoryDefaults = (map, su) => {
 }
 
 const sessionCases = cases.concat(fakeCases(10))
+sessionCases.forEach(su => helpers.highestRiskOfSeriousHarm(su))
 
 module.exports = {
   features: {

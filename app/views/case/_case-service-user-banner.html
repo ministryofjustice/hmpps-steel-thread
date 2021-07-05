@@ -8,12 +8,13 @@
 </h1>
 
 <p>
+  {{ appRiskFlag({ flag: case.riskOfSeriousHarmLevel, CRN: CRN, rosh: true }) }}
   {% if failureToComplyCount > 0 %}
     <strong class="govuk-tag govuk-tag--link govuk-!-margin-right-1 govuk-tag--red">
       <a href="/cases/{{ CRN }}/compliance">Non-compliance</a>
     </strong>
   {% endif %}
-  {% for flag in case.riskBadges %}
+  {% for flag in case.riskFlags %}
     {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
   {% endfor %}
 </p>

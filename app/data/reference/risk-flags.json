@@ -4,7 +4,7 @@
       "id": "WRSM",
       "text": "Warrant / Summons",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -12,7 +12,7 @@
       "id": "RCCO",
       "text": "Child Concerns",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -52,7 +52,7 @@
       "id": "HOIE",
       "text": "Home Office Interest",
       "category": "Information",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -84,7 +84,7 @@
       "id": "AVIS",
       "text": "ViSOR",
       "category": "Public Protection",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -92,7 +92,7 @@
       "id": "INVI",
       "text": "Victim Contact",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -108,7 +108,7 @@
       "id": "ADWC",
       "text": "Barred from working with children",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -140,7 +140,7 @@
       "id": "MSP",
       "text": "Modern Day Slavery - Perpetrator",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -156,7 +156,7 @@
       "id": "RSTO",
       "text": "Restraining Order",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -196,7 +196,7 @@
       "id": "SPO",
       "text": "Stalking Protection Order",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -212,7 +212,7 @@
       "id": "REG30",
       "text": "Domestic Abuse History",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 0,
       "active": true
     },
@@ -220,7 +220,7 @@
       "id": "RVLN",
       "text": "Vulnerable",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -244,7 +244,7 @@
       "id": "CUCK",
       "text": "Cuckooing - Potential Victim",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -260,7 +260,7 @@
       "id": "ADVV",
       "text": "Domestic Abuse Victim",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -268,7 +268,7 @@
       "id": "MSV",
       "text": "Modern Day Slavery - Victim",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -276,7 +276,7 @@
       "id": "STRG",
       "text": "Street Gangs",
       "category": "Public Protection",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -284,7 +284,7 @@
       "id": "REG26",
       "text": "Organised Crime",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -316,7 +316,7 @@
       "id": "ANSO",
       "text": "Non Registered Sex Offender",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": true
     },
@@ -324,7 +324,7 @@
       "id": "APPO",
       "text": "PPO",
       "category": "Public Protection",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -340,7 +340,7 @@
       "id": "RPIR",
       "text": "Public Interest Case",
       "category": "Public Protection",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -348,7 +348,7 @@
       "id": "DORIS",
       "text": "DoRIS (Disruption of Recorded Internal Secretors)",
       "category": "Alerts",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 0,
       "active": true
     },
@@ -356,7 +356,7 @@
       "id": "AMHL",
       "text": "Mental HeAt Last Terminationh Issues",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -468,7 +468,7 @@
       "id": "RMRH",
       "text": "Medium RoSH",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -492,7 +492,7 @@
       "id": "REG15",
       "text": "Risk to Known Adult",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -500,7 +500,7 @@
       "id": "REG22",
       "text": "Risk to \"Adult at Risk",
       "category": "Safeguarding",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -516,7 +516,7 @@
       "id": "REG17",
       "text": "Risk to Public",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -532,7 +532,7 @@
       "id": "REG16",
       "text": "Risk to Prisoner",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": true
     },
@@ -580,7 +580,7 @@
       "id": "REG27",
       "text": "Domestic Concerns",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 0,
       "active": false
     },
@@ -604,7 +604,7 @@
       "id": "REG21",
       "text": "Common Assessment Framework",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -620,7 +620,7 @@
       "id": "RFNO",
       "text": "Foreign National",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -628,7 +628,7 @@
       "id": "FTRO",
       "text": "Foreign Travel Order",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -636,7 +636,7 @@
       "id": "RHCV",
       "text": "Hate Crime Victim",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 12,
       "active": false
     },
@@ -652,7 +652,7 @@
       "id": "RKNF",
       "text": "Knife Crime",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -660,7 +660,7 @@
       "id": "RLAC",
       "text": "Looked After Child",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -676,7 +676,7 @@
       "id": "NUPW",
       "text": "Not eligible for UPW",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -692,7 +692,7 @@
       "id": "REG32",
       "text": "Restorative Justice",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -716,7 +716,7 @@
       "id": "MSTC",
       "text": "Street Crime",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -764,7 +764,7 @@
       "id": "REG13",
       "text": "Violent Offender Order",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 0,
       "active": false
     },
@@ -796,7 +796,7 @@
       "id": "REG19",
       "text": "Victim No Contact",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -804,7 +804,7 @@
       "id": "MIMA",
       "text": "Migrated ICMS Misc Contact Alert",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -820,7 +820,7 @@
       "id": "OMP2",
       "text": "OM Phase 2 Case",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -892,7 +892,7 @@
       "id": "RPRG",
       "text": "Pregnancy",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -916,7 +916,7 @@
       "id": "MILT",
       "text": "Armed Forces",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 12,
       "active": false
     },
@@ -932,7 +932,7 @@
       "id": "IWWO",
       "text": "Warrant without bail",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -940,7 +940,7 @@
       "id": "IWWB",
       "text": "Warrant with bail",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 3,
       "active": false
     },
@@ -948,7 +948,7 @@
       "id": "OMP3",
       "text": "OM Phase 3 Case",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 6,
       "active": false
     },
@@ -956,7 +956,7 @@
       "id": "REG09",
       "text": "Client Notes",
       "category": "",
-      "colour": "orange",
+      "colour": "yellow",
       "reviewPeriod": 0,
       "active": false
     },

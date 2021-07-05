@@ -73,7 +73,7 @@
     <p><a href="/cases/{{ CRN }}/flags">Add, review or remove flags</a></p>
 
     <dl class="govuk-summary-list govuk-summary-list--no-border">
-      {% for flag in case.riskBadges %}
+      {% for flag in case.riskFlags %}
         {% if not flag.rosh %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

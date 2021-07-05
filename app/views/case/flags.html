@@ -39,7 +39,7 @@
   {{ govukButton({
     text: 'Add flag',
     href: '#',
-    classes: 'govuk-button'
+    classes: 'govuk-button govuk-!-margin-bottom-2'
   }) }}
 </p>
 
@@ -83,10 +83,11 @@
     ]
   }) }}
 {% endset %}
-{{ govukDetails({
+
+<!-- {{ govukDetails({
   summaryText: "Risk flag categories",
   html: categoryHtml
-}) }}
+}) }} -->
 
 <table class="govuk-table">
   <thead class="govuk-table__head">
@@ -97,7 +98,7 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    {% for flag in case.riskBadges %}
+    {% for flag in case.riskFlags %}
       {% if not flag.rosh %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>
@@ -109,7 +110,7 @@
   </tbody>
 </table>
 
-<h2 class="govuk-heading-m govuk-!-font-size-27">Historic flags</h2>
+<h2 class="govuk-heading-m govuk-!-font-size-27">Old flags</h2>
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -120,22 +121,22 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Weapons</a>', classes: 'govuk-tag--link govuk-tag--pink' }) }}</td>
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Weapons</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
       <td class="govuk-table__cell app-flags-table-cell">Caught carrying a knife</td>
       <td class="govuk-table__cell app-flags-table-cell">Today</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Domestic abuse</a>', classes: 'govuk-tag--link govuk-tag--purple' }) }}</td>
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Domestic abuse</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
       <td class="govuk-table__cell app-flags-table-cell">Against ex-partner</td>
       <td class="govuk-table__cell app-flags-table-cell">Today</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Victim</a>', classes: 'govuk-tag--link govuk-tag--turquoise' }) }}</td>
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Victim</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
       <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
       <td class="govuk-table__cell app-flags-table-cell">2 Jan 2021</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Vulnerable</a>', classes: 'govuk-tag--link govuk-tag--turquoise' }) }}</td>
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Vulnerable</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
       <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
       <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
     </tr>
