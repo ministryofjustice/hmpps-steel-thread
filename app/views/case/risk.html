@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set title = 'Risk' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% include "case/_case-service-user-banner.html" %}
+
+{% set currentNavSection = 'risk' %}
+{% include "case/_case-nav.html" %}
+
+<h1 class="govuk-heading-l">{{ title }}</h1>
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">Risk flags</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p><a href="/to-delius">Add a risk flag using Delius</a></p>
+    <p>Risk flags (registrations) show circumstances that need prominent and constant visibility. Review flags regularly, and remove them when they are no longer appropriate.</p>
+  </div>
+</div>
+
+<table class="govuk-table govuk-!-margin-bottom-4">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" style="width: 30%">Flag</th>
+      <th class="govuk-table__header" style="width: 55%">Notes</th>
+      <th class="govuk-table__header" style="width: 15%">Review due</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for flag in case.riskFlags %}
+      {% if not flag.rosh %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
+          <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<p>
+  <a href="/cases/{{ CRN }}/historic-risk-flags">View removed risk flags (4)</a>
+</p>
+{% endblock %}
