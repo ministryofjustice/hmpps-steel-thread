@@ -253,13 +253,6 @@ module.exports = [
     ],
     'riskOfHarm': [
       {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Very high',
-          class: 'app-tag--dark-red'
-        }
-      },
-      {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'High',
@@ -782,13 +775,6 @@ module.exports = [
     ].sort((a, b) => (a.text > b.text ? 1 : -1)),
     'riskOfHarm': [
       {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Medium',
-          class: 'govuk-tag--yellow'
-        }
-      },
-      {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'High',
@@ -1043,13 +1029,6 @@ module.exports = [
     'riskFlags': [],
     'riskOfHarm': [
       {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
-      {
         'riskTo': 'Children',
         'inCommunity': {
           text: 'Low',
@@ -1249,13 +1228,6 @@ module.exports = [
       }
     ],
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -1644,13 +1616,6 @@ module.exports = [
       }
     ],
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
