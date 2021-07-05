@@ -4,7 +4,7 @@
 
 {% set flagHtml %}
   {% if params.rosh %}
-    <a href="#">{{ flag.text }} risk of harm</a>
+    <a href="/cases/{{ params.CRN }}/risk">{{ flag.text }} risk of harm</a>
   {% else %}
     <a href="/cases/{{ params.CRN }}/flag/{{ flag.text | toSlug }}">{{ flag.text }}</a>
   {% endif %}
