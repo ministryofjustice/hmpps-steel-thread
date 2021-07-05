@@ -779,7 +779,7 @@ module.exports = [
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
-    ],
+    ].sort((a, b) => (a.text > b.text ? 1 : -1)),
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
