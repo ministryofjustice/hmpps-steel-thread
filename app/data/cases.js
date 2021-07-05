@@ -244,23 +244,13 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskFlags': [
       {
-        text: 'Very high risk of harm',
-        class: 'app-tag--dark-red',
-        rosh: true
-      },
-      {
-        text: 'IOM',
-        class: 'govuk-tag--grey',
+        ...helpers.getFlag('IIOM'),
         notes: 'Cross-agency',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
-    'riskOfSeriousHarmLevel': {
-      text: 'Very high',
-      class: 'app-tag--dark-red'
-    },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
@@ -770,38 +760,26 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskFlags': [
       {
-        text: 'High risk of harm',
-        class: 'govuk-tag--red',
-        rosh: true
-      },
-      {
-        text: 'Registered sex offender',
-        class: 'govuk-tag--purple',
+        ...helpers.getFlag('ARSO'),
         notes: 'Possession of indecent images',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       },
       {
-        text: 'MAPPA',
-        class: 'govuk-tag--purple',
+        ...helpers.getFlag('MAPP'),
         notes: 'Level 2, Category 3',
         reviewDue: helpers.happenedOn({ daysAgo: '1' }),
         dateAdded: helpers.happenedOn({ daysAgo: '91' })
       },
       {
-        text: 'Restraining order',
-        class: 'govuk-tag--turquoise',
+        ...helpers.getFlag('RSTO'),
         notes: 'Against ex-partner',
         reviewDue: helpers.happeningIn({ daysLater: 60, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
-    'riskOfSeriousHarmLevel': {
-      text: 'High',
-      class: 'govuk-tag--red'
-    },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
@@ -1062,17 +1040,7 @@ module.exports = [
     'previousOrders': [],
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
-    'riskFlags': [
-      {
-        text: 'Medium risk of harm',
-        class: 'govuk-tag--yellow',
-        rosh: true
-      }
-    ],
-    'riskOfSeriousHarmLevel': {
-      text: 'Medium',
-      class: 'govuk-tag--yellow'
-    },
+    'riskFlags': [],
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
@@ -1273,23 +1241,13 @@ module.exports = [
     'restrainingOrdersCount': 0,
     'riskFlags': [
       {
-        text: 'Medium risk of harm',
-        class: 'govuk-tag--yellow',
-        rosh: true
-      },
-      {
-        text: 'Domestic abuse',
-        class: 'govuk-tag--turquoise',
+        ...helpers.getFlag('ADVP'),
         notes: 'Partner is the victim',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
-    'riskOfSeriousHarmLevel': {
-      text: 'Medium',
-      class: 'govuk-tag--yellow'
-    },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',
@@ -1678,23 +1636,13 @@ module.exports = [
     'restrainingOrdersCount': 1,
     'riskFlags': [
       {
-        text: 'Medium risk of harm',
-        class: 'govuk-tag--yellow',
-        rosh: true
-      },
-      {
-        text: 'Restraining Order',
-        class: 'govuk-tag--turquoise',
+        ...helpers.getFlag('RSTO'),
         notes: 'His ex-partner of 5 years has a restraining order against him due to repeated instances of domestic violence. She has changed address and works at a different location from when they lived together.',
         reviewDue: helpers.happeningIn({ daysLater: 5, atTime: '13:00' }),
         dateAdded: helpers.happenedOn({ daysAgo: '175' }),
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
-    'riskOfSeriousHarmLevel': {
-      text: 'Medium',
-      class: 'govuk-tag--yellow'
-    },
     'riskOfHarm': [
       {
         'riskTo': 'Themselves',

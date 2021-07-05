@@ -9,7 +9,6 @@ module.exports = (faker, generatorHelpers) => {
   const medium = { text: 'Medium', class: 'govuk-tag--yellow' }
   const low = { text: 'Low', class: 'govuk-tag--green' }
 
-  const riskOfSeriousHarmLevel = faker.random.arrayElement([veryHigh, high, medium, low])
   const riskOfHarm = [
     {
       'riskTo': 'Themselves',
@@ -62,12 +61,5 @@ module.exports = (faker, generatorHelpers) => {
     }
   })
 
-  // Put risk level flag first
-  serviceUserRiskFlags.unshift({
-    text: `${riskOfSeriousHarmLevel.text} risk of harm`,
-    class: riskOfSeriousHarmLevel.class,
-    rosh: true
-  })
-
-  return { riskOfSeriousHarmLevel, riskOfHarm, serviceUserRiskFlags }
+  return { riskOfHarm, serviceUserRiskFlags }
 }

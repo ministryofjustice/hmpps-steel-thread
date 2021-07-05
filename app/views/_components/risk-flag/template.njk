@@ -1,10 +1,6 @@
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 {% set flag = params.flag %}
-{% if flag.rosh %}
-  {% set flagClass = 'govuk-tag--' + flag.colour if flag.colour else flag.class %}
-{% else %}
-  {% set flagClass = 'govuk-tag--grey' %}
-{% endif %}
+{% set flagClass = 'govuk-tag--' + flag.colour if flag.colour else flag.class %}
 
 {% set flagHtml %}
   {% if flag.rosh %}
