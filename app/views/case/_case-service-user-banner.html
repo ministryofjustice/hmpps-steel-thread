@@ -13,6 +13,7 @@
       <a href="/cases/{{ CRN }}/compliance">Non-compliance</a>
     </strong>
   {% endif %}
+  {{ appRiskFlag({ flag: case.riskOfSeriousHarmLevel, CRN: CRN, rosh: true }) }}
   {% for flag in case.riskFlags %}
     {{ appRiskFlag({ flag: flag, CRN: CRN }) }}
   {% endfor %}
