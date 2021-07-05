@@ -4,31 +4,32 @@ const helpers = require(path.join(__dirname, '../../../lib/helpers.js'))
 const riskFlags = require(path.join(__dirname, '../reference/risk-flags.json'))
 
 module.exports = (faker, generatorHelpers) => {
-  const high = { text: 'High', class: 'red' }
-  const medium = { text: 'Medium', class: 'orange' }
-  const low = { text: 'Low', class: 'green' }
+  const veryHigh = { text: 'Very high', class: 'app-tag--dark-red' }
+  const high = { text: 'High', class: 'govuk-tag--red' }
+  const medium = { text: 'Medium', class: 'govuk-tag--yellow' }
+  const low = { text: 'Low', class: 'govuk-tag--green' }
 
-  const riskOfSeriousHarmLevel = faker.random.arrayElement([high, medium, low])
+  const riskOfSeriousHarmLevel = faker.random.arrayElement([veryHigh, high, medium, low])
   const riskOfHarm = [
     {
       'riskTo': 'Themselves',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([veryHigh, high, medium, low])
     },
     {
       'riskTo': 'Children',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([veryHigh, high, medium, low])
     },
     {
       'riskTo': 'Public',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([veryHigh, high, medium, low])
     },
     {
       'riskTo': 'Known adult',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([veryHigh, high, medium, low])
     },
     {
       'riskTo': 'Staff',
-      'inCommunity': faker.random.arrayElement([high, medium, low])
+      'inCommunity': faker.random.arrayElement([veryHigh, high, medium, low])
     }
   ]
 
