@@ -251,6 +251,11 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
       {
         'riskTo': 'Children',
@@ -773,6 +778,11 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ].sort((a, b) => (a.text > b.text ? 1 : -1)),
+    'risk': {
+      'whoIsAtRisk': 'Any children under his care are at a very high risk.',
+      'natureOfRisk': 'There is a strong risk of domestic violence against his own children.',
+      'riskImminence': 'If he is left alone with his children, or if he is under the influence of alcohol.'
+    },
     'riskOfHarm': [
       {
         'riskTo': 'Children',
@@ -1027,6 +1037,11 @@ module.exports = [
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
     'riskFlags': [],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
       {
         'riskTo': 'Children',
@@ -1227,6 +1242,11 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
       {
         'riskTo': 'Children',
@@ -1615,6 +1635,11 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
       {
         'riskTo': 'Children',

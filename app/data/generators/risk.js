@@ -61,5 +61,11 @@ module.exports = (faker, generatorHelpers) => {
     }
   })
 
-  return { riskOfHarm, serviceUserRiskFlags }
+  const risk = {
+    'whoIsAtRisk': false,
+    'natureOfRisk': false,
+    'riskImminence': false
+  }
+
+  return { riskOfHarm, risk, serviceUserRiskFlags }
 }

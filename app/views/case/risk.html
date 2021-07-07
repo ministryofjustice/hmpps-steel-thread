@@ -70,15 +70,15 @@
       },
       {
         key: { text: "Who is at risk" },
-        value: { html: "Any children under his care are at a very high risk." }
+        value: { html: case.risk.whoIsAtRisk if case.risk.whoIsAtRisk else 'No detail given' }
       },
       {
         key: { text: "Nature of risk" },
-        value: { html: "There is a strong risk of domestic violence against his own children." }
+        value: { html: case.risk.natureOfRisk if case.risk.natureOfRisk else 'No detail given' }
       },
       {
         key: { text: "When is risk greatest" },
-        value: { html: "If he is left alone with his children, or if he is under the influence of alcohol." }
+        value: { html: case.risk.riskImminence if case.risk.riskImminence else 'No detail given' }
       }
     ]
   }) }}
