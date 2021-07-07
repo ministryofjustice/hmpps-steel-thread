@@ -48,21 +48,21 @@
         value: { html: overallRiskHtml }
       },
       {
-        key: { text: "Very high risk groups" },
-        value: { html: veryHighRiskOfHarm if filterRiskByRiskLevel(case, 'Very high').length > 0 else 'None' }
-      },
+        key: { text: "Very high risk" },
+        value: { html: veryHighRiskOfHarm }
+      } if filterRiskByRiskLevel(case, 'Very high').length > 0,
       {
-        key: { text: "High risk groups" },
-        value: { html: highRiskOfHarm if filterRiskByRiskLevel(case, 'High').length > 0 else 'None' }
-      },
+        key: { text: "High risk" },
+        value: { html: highRiskOfHarm }
+      } if filterRiskByRiskLevel(case, 'High').length > 0 ,
       {
-        key: { text: "Medium risk groups" },
-        value: { html: mediumRiskOfHarm if filterRiskByRiskLevel(case, 'Medium').length > 0 else 'None' }
-      },
+        key: { text: "Medium risk" },
+        value: { html: mediumRiskOfHarm }
+      } if filterRiskByRiskLevel(case, 'Medium').length > 0,
       {
-        key: { text: "Low risk groups" },
-        value: { html: lowRiskOfHarm if filterRiskByRiskLevel(case, 'Low').length > 0 else 'None' }
-      },
+        key: { text: "Low risk" },
+        value: { html: lowRiskOfHarm }
+      } if filterRiskByRiskLevel(case, 'Low').length > 0,
       {
         key: { text: "Who is at risk" },
         value: { html: case.risk.whoIsAtRisk if case.risk.whoIsAtRisk else 'No detail given' }
