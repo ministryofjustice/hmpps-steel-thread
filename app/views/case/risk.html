@@ -40,17 +40,35 @@
     <!-- <p>There are identifiable indicators of risk of serious harm. The offender has the potential to cause serious harm but is unlikely to do so unless there is a change in circumstances, for example, failure to take medication, loss of accommodation, relationship breakdown, drug or alcohol misuse.</p> -->
   {% endset %}
 
+  {% set veryHighRiskOfHarm %}
+    <ul class="govuk-list">
+      {% for risk in filterRiskByRiskLevel(case, 'Very high') %}
+        <li>{{ risk.riskTo }}</li>
+      {% endfor %}
+    </ul>
+  {% endset %}
+
   {% set highRiskOfHarm %}
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Children</li>
-      <li>Known adult</li>
+    <ul class="govuk-list">
+      {% for risk in filterRiskByRiskLevel(case, 'High') %}
+        <li>{{ risk.riskTo }}</li>
+      {% endfor %}
     </ul>
   {% endset %}
 
   {% set mediumRiskOfHarm %}
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Public</li>
-      <li>Staff</li>
+    <ul class="govuk-list">
+      {% for risk in filterRiskByRiskLevel(case, 'Medium') %}
+        <li>{{ risk.riskTo }}</li>
+      {% endfor %}
+    </ul>
+  {% endset %}
+
+  {% set lowRiskOfHarm %}
+    <ul class="govuk-list">
+      {% for risk in filterRiskByRiskLevel(case, 'Low') %}
+        <li>{{ risk.riskTo }}</li>
+      {% endfor %}
     </ul>
   {% endset %}
 
@@ -61,12 +79,20 @@
         value: { html: overallRiskHtml }
       },
       {
-        key: { text: "High risk" },
-        value: { html: highRiskOfHarm }
+        key: { text: "Very high risk groups" },
+        value: { html: veryHighRiskOfHarm if filterRiskByRiskLevel(case, 'Very high').length > 0 else 'None' }
       },
       {
-        key: { text: "Medium risk" },
-        value: { html: mediumRiskOfHarm }
+        key: { text: "High risk groups" },
+        value: { html: highRiskOfHarm if filterRiskByRiskLevel(case, 'High').length > 0 else 'None' }
+      },
+      {
+        key: { text: "Medium risk groups" },
+        value: { html: mediumRiskOfHarm if filterRiskByRiskLevel(case, 'Medium').length > 0 else 'None' }
+      },
+      {
+        key: { text: "Low risk groups" },
+        value: { html: lowRiskOfHarm if filterRiskByRiskLevel(case, 'Low').length > 0 else 'None' }
       },
       {
         key: { text: "Who is at risk" },
