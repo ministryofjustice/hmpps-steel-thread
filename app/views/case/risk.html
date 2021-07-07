@@ -29,37 +29,163 @@
 
 <h1 class="govuk-heading-l">{{ title }}</h1>
 
+{% set roshHtml %}
+  {% set overallRiskHtml %}
+    <p>
+      {{ govukTag({
+        text: case.riskOfSeriousHarmLevel.text + ' risk of harm',
+        classes: case.riskOfSeriousHarmLevel.class
+      }) }}
+    </p>
+    <!-- <p>There are identifiable indicators of risk of serious harm. The offender has the potential to cause serious harm but is unlikely to do so unless there is a change in circumstances, for example, failure to take medication, loss of accommodation, relationship breakdown, drug or alcohol misuse.</p> -->
+  {% endset %}
 
-<h2 class="govuk-heading-m govuk-!-margin-top-6">Risk flags</h2>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p><a href="/to-delius">Add a risk flag using Delius</a></p>
-    <p>Risk flags (registrations) show circumstances that need prominent and constant visibility. Review flags regularly, and remove them when they are no longer appropriate.</p>
+  {% set highRiskOfHarm %}
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Children</li>
+      <li>Known adult</li>
+    </ul>
+  {% endset %}
+
+  {% set mediumRiskOfHarm %}
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Public</li>
+      <li>Staff</li>
+    </ul>
+  {% endset %}
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Overall risk of harm" },
+        value: { html: overallRiskHtml }
+      },
+      {
+        key: { text: "High risk of harm" },
+        value: { html: highRiskOfHarm }
+      },
+      {
+        key: { text: "Medium risk of harm" },
+        value: { html: mediumRiskOfHarm }
+      },
+      {
+        key: { text: "Who is at risk" },
+        value: { html: "Any children under his care are at a very high risk." }
+      },
+      {
+        key: { text: "Nature of risk" },
+        value: { html: "There is a strong risk of domestic violence against his own children." }
+      },
+      {
+        key: { text: "When is risk greatest" },
+        value: { html: "If he is left alone with his children, or if he is under the influence of alcohol." }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: "Risk of serious harm (ROSH) in the community",
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: roshHtml,
+  actions: {
+    items: [
+      {
+        href: "#",
+        text: "View risk assessment on OASys"
+      }
+    ]
+  }
+}) }}
+
+{% set themselvesHtml %}
+  {% set currentConcerns %}
+    <p>There are concerns about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a risk of suicide</li> <!-- R3.1, R8.1.1 -->
+      <li>a risk of self-harm</li> <!-- R3.2, R8.1.1 -->
+      <li>coping in custody</li> <!-- R3.3, R8.2.1 -->
+      <li>coping in a hostel setting</li> <!-- R3.3, R8.2.1 -->
+      <li>a vulnerability (for example victimisation, being bullied or exploited)</li> <!-- R3.4, R8.3 -->
+    </ul>
+  {% endset %}
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Current concerns" },
+        value: { html: currentConcerns }
+      },
+      {
+        key: { text: "Previous concerns" },
+        value: { html: "None" }
+      }
+    ]
+  }) }}
+
+  <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-6">
+    <a href="#">View full details of risk to themselves</a>
+  </p>
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: "Risk of serious harm to themselves",
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: themselvesHtml,
+  actions: {
+    items: [
+      {
+        href: "#",
+        text: "View risk assessment on OASys"
+      }
+    ]
+  }
+}) }}
+
+{% set riskFlags %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>Risk flags (registrations) show circumstances that need prominent and constant visibility. Review flags regularly, and remove them when they are no longer appropriate.</p>
+    </div>
   </div>
-</div>
 
-<table class="govuk-table govuk-!-margin-bottom-4">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header" style="width: 30%">Flag</th>
-      <th class="govuk-table__header" style="width: 55%">Notes</th>
-      <th class="govuk-table__header" style="width: 15%">Review due</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    {% for flag in case.riskFlags %}
-      {% if not flag.rosh %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>
-          <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
-          <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
-        </tr>
-      {% endif %}
-    {% endfor %}
-  </tbody>
-</table>
+  <table class="govuk-table govuk-!-margin-bottom-4">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" style="width: 30%">Flag</th>
+        <th class="govuk-table__header" style="width: 55%">Notes</th>
+        <th class="govuk-table__header" style="width: 15%">Review due</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% for flag in case.riskFlags %}
+        {% if not flag.rosh %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ appRiskFlag({ flag: flag, CRN: CRN }) }}</td>
+            <td class="govuk-table__cell app-flags-table-cell">{{ flag.notes }}</td>
+            <td class="govuk-table__cell app-flags-table-cell">{{ flag.reviewDue | dateWithYear }}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
 
-<p>
-  <a href="/cases/{{ CRN }}/historic-risk-flags">View removed risk flags (4)</a>
-</p>
+  <p class="govuk-!-margin-bottom-0">
+    <a href="/cases/{{ CRN }}/historic-risk-flags">View removed risk flags (4)</a>
+  </p>
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: "Risk flags",
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: riskFlags,
+  actions: {
+    items: [
+      {
+        href: "#",
+        text: "Add a risk flag in Delius"
+      }
+    ]
+  }
+}) }}
 {% endblock %}
