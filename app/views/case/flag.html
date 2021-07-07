@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% set title = flag.text %}
+{% set historic = false %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block beforeContent %}
@@ -17,6 +18,10 @@
       text: "Risk",
       href: "/cases/" + CRN + "/risk"
     },
+    {
+      text: "Removed risk flags",
+      href: "/cases/" + CRN + "/historic-risk-flags"
+    } if historic,
     {
       text: title
     }
