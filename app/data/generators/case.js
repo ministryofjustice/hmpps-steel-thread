@@ -66,8 +66,9 @@ module.exports = generateCase => {
     breachesCount: 0,
     restrainingOrdersCount: 0,
     riskFlags: serviceUserRisk.serviceUserRiskFlags,
-    riskOfSeriousHarmLevel: serviceUserRisk.riskOfSeriousHarmLevel,
+    risk: serviceUserRisk.risk,
     riskOfHarm: serviceUserRisk.riskOfHarm,
+    riskToSelf: serviceUserRisk.riskToSelf,
     'criminogenicNeeds': [
       'Relationships',
       'Thinking and attitudes'

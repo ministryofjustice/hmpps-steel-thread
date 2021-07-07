@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% set title = "Removed risk flags" %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: "Risk",
+      href: "/cases/" + CRN + "/risk"
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      {{ title }}
+    </h1>
+  </div>
+</div>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" style="width: 30%">Flag</th>
+      <th class="govuk-table__header" style="width: 55%">Notes</th>
+      <th class="govuk-table__header" style="width: 20%">Date removed</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Weapons</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Caught carrying a knife</td>
+      <td class="govuk-table__cell app-flags-table-cell">Today</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Domestic abuse</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Against ex-partner</td>
+      <td class="govuk-table__cell app-flags-table-cell">Today</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Victim</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
+      <td class="govuk-table__cell app-flags-table-cell">2 Jan 2021</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">Vulnerable</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Level 2, Category 3</td>
+      <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ govukTag({ html: '<a href="#">IOM</a>', classes: 'govuk-tag--link govuk-tag--grey' }) }}</td>
+      <td class="govuk-table__cell app-flags-table-cell">Integrated Offender Officer assigned</td>
+      <td class="govuk-table__cell app-flags-table-cell">10 Nov 2020</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

@@ -251,14 +251,12 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Very high',
-          class: 'app-tag--dark-red'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -288,6 +286,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      },
+      selfHarm: {
+        previous: true,
+        previousConcernsText: '',
+        current: true,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      },
+      hostelSetting: {
+        previous: true,
+        previousConcernsText: '',
+        current: true,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      }
+    },
     'criminogenicNeeds': [
       'Relationships',
       'Thinking and attitudes'
@@ -780,14 +810,12 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ].sort((a, b) => (a.text > b.text ? 1 : -1)),
+    'risk': {
+      'whoIsAtRisk': 'Any children under his care are at a very high risk.',
+      'natureOfRisk': 'There is a strong risk of domestic violence against his own children.',
+      'riskImminence': 'If he is left alone with his children, or if he is under the influence of alcohol.'
+    },
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Medium',
-          class: 'govuk-tag--yellow'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -817,6 +845,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Alcohol Misuse',
       'Thinking & Behaviour'
@@ -1041,14 +1101,12 @@ module.exports = [
     'breachesCount': 0,
     'restrainingOrdersCount': 0,
     'riskFlags': [],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -1078,6 +1136,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Lifestyle & Associates'
     ],
@@ -1248,14 +1338,12 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -1285,6 +1373,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Alcohol Misuse',
       'Relationships',
@@ -1643,14 +1763,12 @@ module.exports = [
         mostRecentReviewDate: helpers.happenedOn({ daysAgo: '85' })
       }
     ],
+    'risk': {
+      'whoIsAtRisk': false,
+      'natureOfRisk': false,
+      'riskImminence': false
+    },
     'riskOfHarm': [
-      {
-        'riskTo': 'Themselves',
-        'inCommunity': {
-          text: 'Low',
-          class: 'govuk-tag--green'
-        }
-      },
       {
         'riskTo': 'Children',
         'inCommunity': {
@@ -1680,6 +1798,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Substance misuse',
       'Lifestyle'

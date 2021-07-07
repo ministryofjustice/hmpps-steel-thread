@@ -1,0 +1,158 @@
+{% set themselvesHtml %}
+  {% set suicideSelfHarm %}
+    {% set hasCurrentSuicideRisk = case.riskToSelf.suicide.current %}
+    {% set hasCurrentSelfHarmRisk = case.riskToSelf.selfHarm.current %}
+    {% set hasPreviousSuicideRisk = case.riskToSelf.suicide.previous %}
+    {% set hasPreviousSelfHarmRisk = case.riskToSelf.selfHarm.previous %}
+
+    {% set currentNotes = case.riskToSelf.suicide.currentConcernsText or case.riskToSelf.selfHarm.currentConcernsText %}
+    {% set previousNotes = case.riskToSelf.suicide.previousConcernsText or case.riskToSelf.selfHarm.previousConcernsText %}
+
+    {% if hasCurrentSuicideRisk and hasCurrentSelfHarmRisk %}
+      {% set text = 'There are concerns about suicide and self-harm' %}
+    {% elseif hasCurrentSuicideRisk and not hasPreviousSelfHarmRisk %}
+      {% set text = 'There are concerns about suicide' %}
+    {% elseif hasCurrentSelfHarmRisk and not hasPreviousSuicideRisk %}
+      {% set text = 'There are concerns about self-harm' %}
+    {% elseif hasCurrentSuicideRisk and hasPreviousSelfHarmRisk %}
+      {% set text = 'There are concerns about suicide and previous concerns about self-harm' %}
+    {% elseif hasCurrentSelfHarmRisk and hasPreviousSuicideRisk %}
+      {% set text = 'There are concerns about self-harm and previous concerns about suicide' %}
+    {% elseif hasPreviousSuicideRisk and hasPreviousSelfHarmRisk %}
+      {% set text = 'There were concerns about self-harm and suicide' %}
+    {% elseif hasPreviousSuicideRisk %}
+      {% set text = 'There were concerns about suicide' %}
+    {% elseif hasPreviousSelfHarmRisk %}
+      {% set text = 'There were concerns about self-harm' %}
+    {% else %}
+      {% set text = 'No concerns' %}
+    {% endif %}
+
+    {% if currentNotes or previousNotes %}
+      {% set detailsHtml %}
+        <h3 class="govuk-heading-s">Current circumstances, issues and needs</h3>
+        {{ currentNotes or 'No detail given' | nl2br | safe }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-4">Previous circumstances, issues and needs</h3>
+        {{ previousNotes or 'No detail given' | nl2br | safe or 'None' }}
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: text,
+        html: detailsHtml
+      }) }}
+    {% else %}
+      {{ text }}
+    {% endif %}
+  {% endset %}
+
+  {% set copingCustodyHostel %}
+    {% set hasCurrentCustodyRisk = case.riskToSelf.custody.current %}
+    {% set hasCurrentHostelRisk = case.riskToSelf.hostelSetting.current %}
+    {% set hasPreviousCustodyRisk = case.riskToSelf.custody.previous %}
+    {% set hasPreviousHostelRisk = case.riskToSelf.hostelSetting.previous %}
+
+    {% set currentNotes = case.riskToSelf.custody.currentConcernsText or case.riskToSelf.hostelSetting.currentConcernsText %}
+    {% set previousNotes = case.riskToSelf.custody.previousConcernsText or case.riskToSelf.hostelSetting.previousConcernsText %}
+
+    {% if hasCurrentCustodyRisk and hasCurrentHostelRisk %}
+      {% set text = 'There are concerns about coping in custody and in a hostel' %}
+    {% elseif hasCurrentCustodyRisk and not hasPreviousHostelRisk %}
+      {% set text = 'There are concerns about coping in custody' %}
+    {% elseif hasCurrentHostelRisk and not hasPreviousCustodyRisk %}
+      {% set text = 'There are concerns about coping in a hostel' %}
+    {% elseif hasCurrentCustodyRisk and hasPreviousHostelRisk %}
+      {% set text = 'There are concerns about coping in custody and previous concerns about coping in a hostel' %}
+    {% elseif hasCurrentHostelRisk and hasPreviousCustodyRisk %}
+      {% set text = 'There are concerns about coping in a hostel and previous concerns about coping in custody' %}
+    {% elseif hasPreviousCustodyRisk and hasPreviousHostelRisk %}
+      {% set text = 'There were concerns about coping in custody or in a hostel' %}
+    {% elseif hasPreviousCustodyRisk %}
+      {% set text = 'There were concerns about coping in custody' %}
+    {% elseif hasPreviousHostelRisk %}
+      {% set text = 'There were concerns about coping in a hostel' %}
+    {% else %}
+      {% set text = 'No concerns' %}
+    {% endif %}
+
+    {% if currentNotes or previousNotes %}
+      {% set detailsHtml %}
+        <h3 class="govuk-heading-s">Current circumstances, issues and needs</h3>
+        {{ currentNotes or 'No detail given' | nl2br | safe }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-4">Previous circumstances, issues and needs</h3>
+        {{ previousNotes or 'No detail given' | nl2br | safe or 'None' }}
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: text,
+        html: detailsHtml
+      }) }}
+    {% else %}
+      {{ text }}
+    {% endif %}
+  {% endset %}
+
+  {% set vulnerability %}
+    {% set hasCurrentRisk = case.riskToSelf.vulnerability.current %}
+    {% set hasPreviousRisk = case.riskToSelf.vulnerability.previous %}
+    {% set currentNotes = case.riskToSelf.vulnerability.currentConcernsText %}
+    {% set previousNotes = case.riskToSelf.vulnerability.previousConcernsText %}
+
+    {% if hasCurrentRisk %}
+      {% set text = 'There are concerns about a vulnerability' %}
+    {% elseif hasPreviousRisk %}
+      {% set text = 'There were concerns about a vulnerability' %}
+    {% else %}
+      {% set text = 'No concerns' %}
+    {% endif %}
+
+    {% if currentNotes or previousNotes %}
+      {% set detailsHtml %}
+        <h3 class="govuk-heading-s">Current circumstances, issues and needs</h3>
+        {{ currentNotes or 'No detail given' | nl2br | safe }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-4">Previous circumstances, issues and needs</h3>
+        {{ previousNotes or 'No detail given' | nl2br | safe or 'None' }}
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: text,
+        html: detailsHtml
+      }) }}
+    {% else %}
+      {{ text }}
+    {% endif %}
+  {% endset %}
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Risk of suicide or self harm" },
+        value: { html: suicideSelfHarm }
+      },
+      {
+        key: { text: "Coping in custody or a hostel" },
+        value: { html: copingCustodyHostel }
+      },
+      {
+        key: { text: "Vulnerability (eg victimisation, being bullied or exploited)" },
+        value: { html: vulnerability }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: "Risk of serious harm to themselves",
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: themselvesHtml,
+  actions: {
+    items: [
+      {
+        href: "#",
+        text: "View risk assessment on OASys"
+      }
+    ]
+  }
+}) }}

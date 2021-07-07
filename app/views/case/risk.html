@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% set title = 'Risk' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Cases",
+      href: "/cases"
+    },
+    {
+      text: case.serviceUserPersonalDetails.name,
+      href: "/cases/" + CRN
+    },
+    {
+      text: title
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  {% include "case/_case-service-user-banner.html" %}
+  {% set currentNavSection = 'risk' %}
+  {% include "case/_case-nav.html" %}
+
+  <h1 class="govuk-heading-l">{{ title }}</h1>
+
+  {% include 'case/risk/_risk-in-the-community.html' %}
+  {% include 'case/risk/_risk-to-themselves.html' %}
+  {% include 'case/risk/_risk-flags.html' %}
+{% endblock %}
