@@ -286,6 +286,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      },
+      selfHarm: {
+        previous: true,
+        previousConcernsText: '',
+        current: true,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      },
+      hostelSetting: {
+        previous: true,
+        previousConcernsText: '',
+        current: true,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: true,
+        previousConcernsText: 'Notes',
+        current: true,
+        currentConcernsText: 'Notes'
+      }
+    },
     'criminogenicNeeds': [
       'Relationships',
       'Thinking and attitudes'
@@ -813,6 +845,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Alcohol Misuse',
       'Thinking & Behaviour'
@@ -1072,6 +1136,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Lifestyle & Associates'
     ],
@@ -1277,6 +1373,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Alcohol Misuse',
       'Relationships',
@@ -1670,6 +1798,38 @@ module.exports = [
         }
       }
     ],
+    riskToSelf: {
+      suicide: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      selfHarm: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      custody: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      hostelSetting: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      },
+      vulnerability: {
+        previous: false,
+        previousConcernsText: '',
+        current: false,
+        currentConcernsText: ''
+      }
+    },
     'criminogenicNeeds': [
       'Substance misuse',
       'Lifestyle'

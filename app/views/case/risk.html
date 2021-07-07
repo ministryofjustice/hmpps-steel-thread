@@ -124,49 +124,7 @@
   }
 }) }}
 
-{% set themselvesHtml %}
-  {% set currentConcerns %}
-    <p>There are concerns about:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>a risk of suicide</li> <!-- R3.1, R8.1.1 -->
-      <li>a risk of self-harm</li> <!-- R3.2, R8.1.1 -->
-      <li>coping in custody</li> <!-- R3.3, R8.2.1 -->
-      <li>coping in a hostel setting</li> <!-- R3.3, R8.2.1 -->
-      <li>a vulnerability (for example victimisation, being bullied or exploited)</li> <!-- R3.4, R8.3 -->
-    </ul>
-  {% endset %}
-
-  {{ govukSummaryList({
-    rows: [
-      {
-        key: { text: "Current concerns" },
-        value: { html: currentConcerns }
-      },
-      {
-        key: { text: "Previous concerns" },
-        value: { html: "None" }
-      }
-    ]
-  }) }}
-
-  <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-6">
-    <a href="#">View full details of risk to themselves</a>
-  </p>
-{% endset %}
-
-{{ appSummaryCard({
-  titleText: "Risk of serious harm to themselves",
-  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
-  html: themselvesHtml,
-  actions: {
-    items: [
-      {
-        href: "#",
-        text: "View risk assessment on OASys"
-      }
-    ]
-  }
-}) }}
+{% include 'case/risk/_risk-to-themselves.html' %}
 
 {% set riskFlags %}
   <div class="govuk-grid-row">

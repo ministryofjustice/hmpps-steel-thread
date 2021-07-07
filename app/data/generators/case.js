@@ -68,6 +68,7 @@ module.exports = generateCase => {
     riskFlags: serviceUserRisk.serviceUserRiskFlags,
     risk: serviceUserRisk.risk,
     riskOfHarm: serviceUserRisk.riskOfHarm,
+    riskToSelf: serviceUserRisk.riskToSelf,
     'criminogenicNeeds': [
       'Relationships',
       'Thinking and attitudes'

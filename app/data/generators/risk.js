@@ -67,5 +67,38 @@ module.exports = (faker, generatorHelpers) => {
     'riskImminence': false
   }
 
-  return { riskOfHarm, risk, serviceUserRiskFlags }
+  const riskToSelf = {
+    suicide: {
+      previous: faker.datatype.boolean(),
+      previousConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : '',
+      current: faker.datatype.boolean(),
+      currentConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : ''
+    },
+    selfHarm: {
+      previous: faker.datatype.boolean(),
+      previousConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : '',
+      current: faker.datatype.boolean(),
+      currentConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : ''
+    },
+    custody: {
+      previous: faker.datatype.boolean(),
+      previousConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : '',
+      current: faker.datatype.boolean(),
+      currentConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : ''
+    },
+    hostelSetting: {
+      previous: faker.datatype.boolean(),
+      previousConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : '',
+      current: faker.datatype.boolean(),
+      currentConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : ''
+    },
+    vulnerability: {
+      previous: faker.datatype.boolean(),
+      previousConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : '',
+      current: faker.datatype.boolean(),
+      currentConcernsText: faker.datatype.boolean() ? faker.lorem.paragraphs(2, '\n\n') : ''
+    }
+  }
+
+  return { riskOfHarm, riskToSelf, risk, serviceUserRiskFlags }
 }
