@@ -33,6 +33,126 @@
   </div>
 </div>
 
+{% set offence %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Main category" },
+        value: { text: "Other summary offences (excluding motoring) - 19500" }
+      },
+      {
+        key: { text: "Sub category" },
+        value: { text: "Using violence to secure entry (Criminal Law Act/CJ and Public Order Act) - 19563" }
+      },
+      {
+        key: { text: "Offence date" },
+        value: { text: "2021-01-01" | dateWithYear }
+      },
+      {
+        key: { text: "Count" },
+        value: { text: "1" }
+      },
+      {
+        key: { text: "Notes" },
+        value: { text: "No notes" }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: 'Offence',
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: offence
+}) }}
+
+{% set conviction %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Court" },
+        value: { text: "Antrim Crown Court" }
+      },
+      {
+        key: { text: "Responsible court" },
+        value: { text: "Antrim Crown Court" }
+      },
+      {
+        key: { text: "Conviction date" },
+        value: { text: "2021-02-02" | dateWithYear }
+      },
+      {
+        key: { text: "Sentenced on" },
+        value: { text: "2021-03-03" | dateWithYear }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: 'Conviction',
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: conviction
+}) }}
+
+{% set sentence %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Order" },
+        value: { text: "Community order" }
+      },
+      {
+        key: { text: "Length" },
+        value: { text: "24 months" }
+      },
+      {
+        key: { text: "Start date" },
+        value: { text: "2021-04-04" | dateWithYear }
+      },
+      {
+        key: { text: "End date" },
+        value: { text: "2023-04-04" | dateWithYear }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: 'Sentence',
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: sentence
+}) }}
+
+{% set requirements %}
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Requirement" },
+        value: { text: "Rehabilitation Activity Requirement (RAR)" }
+      },
+      {
+        key: { text: "Length" },
+        value: { text: "30 days" }
+      },
+      {
+        key: { text: "Imposed (Sentence) date" },
+        value: { text: "2021-04-04" | dateWithYear }
+      },
+      {
+        key: { text: "Notes" },
+        value: { text: "No notes" }
+      }
+    ]
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  titleText: 'Requirements',
+  classes: 'govuk-!-margin-bottom-6 app-summary-card--large-title',
+  html: requirements
+}) }}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-!-margin-bottom-7">
